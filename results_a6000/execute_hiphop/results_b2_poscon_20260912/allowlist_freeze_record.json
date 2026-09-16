@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/positive_control_panel_20260911/pair_allowlist.tsv",
+  "sha256": "59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93",
+  "expected_sha256_verified": true,
+  "declared_hiphop_blind": true,
+  "selection_basis": "pre-registered positive-control panel 20260911; task axis = B2 route-B transferred yeast task tables (disclosed post-hoc)",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 4,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

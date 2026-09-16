@@ -1,0 +1,221 @@
+{
+  "protocol": "V9_ESM2_BASIC_STRUCTURE_PROTOCOL.md",
+  "date_frozen": "2026-09-12",
+  "run_mode": "single_formal_run_basic_structure",
+  "user_directive": "2026-09-12 深夜澄清: 三臂两门 = v3 基本结构语义 (human-only/yeast-only/joint); 交付 = 一个方法, joint 显著最优, 且跨物种匹配显著; 轴维持 esm2 裁定",
+  "stage_root": "/root/private_data/yeastbridge_clean",
+  "axis_discipline": "执行层轴纪律(2026-09-11 用户裁定): B2 轴为主, esm2_mean 只作注册参照臂并列报告; 不按结果选轴",
+  "inputs": {
+    "esm2_human": {
+      "path": "raw/tier1_esm2/human_810/esm2_mean_fp32.npy",
+      "sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "index_path": "raw/tier1_esm2/human_810/index.tsv",
+      "index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+      "provenance": "UniProt REST reviewed human gene_exact (810/811 ok, NEDD8-MDP1 no_result 剔除披露); ESM2-650M layer33 mean-pooled fp16 GPU1, 40.5s, 0 nan; build: v7_b2_formal_20260912/assets/{build_assets.py,manifest.tsv}"
+    },
+    "route_b_table": {
+      "path": "raw/tier1_models/route_b/gene_table_final.npy",
+      "sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24"
+    },
+    "route_b_model": {
+      "path": "raw/tier1_models/route_b/final_model.pt",
+      "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+      "injection": "state_dict pos_emb.proj.{weight,bias}; q = l2n(emb @ W.T + b) (esm2_cross_match.py route_b_top 逐字同式)"
+    },
+    "route_b_gene_order": {
+      "path": "raw/tier1_models/route_b/A2_init.tsv",
+      "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c"
+    },
+    "yeast_esm2": {
+      "path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
+      "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "index_path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/index.tsv",
+      "index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
+    },
+    "scyeast_prior": {
+      "path": "raw/tier1_models/scyeast/scyeast_prior_space.npy",
+      "sha256": "8a02152305f6bef8aa88bc4974dfd38fa67d1c90629840f871de0a03705cee40",
+      "gene_order_path": "raw/tier1_models/scyeast/gene_order_5812.txt",
+      "gene_order_sha256": "7f0f16a9e4ba55d4071ee6b8cbe43d825640e6a03a9724ceebdc614569ed0b74"
+    },
+    "orthodb_edges": {
+      "path": "raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+      "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
+    },
+    "v51_pair_list": {
+      "path": "results_a6000/v51_per_query_ranks_trackA.tsv",
+      "note": "V5.1 官方 753 对(human,yeast_orf,split,fold)冻结清单; 主分析对集=该清单 ∩ B2 表示可用(人 ESM2 ok 且 ORF 在池中); 扩展对集=全部可行 edges, 仅描述性报告"
+    },
+    "yeast_matrix": {
+      "path": "raw/tier1_benchmark/yeast_matrix.tsv.gz",
+      "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
+    },
+    "yeast_metadata": {
+      "path": "raw/tier1_benchmark/yeast_metadata.tsv",
+      "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+    },
+    "higher_matrix": {
+      "path": "raw/tier1_benchmark/higher_matrix.tsv.gz",
+      "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
+    },
+    "higher_metadata": {
+      "path": "raw/tier1_benchmark/higher_metadata.tsv",
+      "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
+    },
+    "goslim_projection": {
+      "path": "raw/tier1_projections/gene_goslim_projection.tsv.gz",
+      "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
+    }
+  },
+  "trackA": {
+    "task": "人源基因 ESM2 表示 -> 池内酵母菌株检索, gold=直系同源 (V7 同机: 752 对/池 1279/冻结 fold/row_negs seed 20260911)",
+    "axis": "esm2_mean (用户 2026-09-12 轴裁定; B2 降为轨道 B 去相关成员)",
+    "armA": "无对齐: cos(l2n ESM2_h, l2n ESM2_y) (=V7 参照轴臂 A)",
+    "armB": "无监督: 各空间去 PC1 后 cos (=V7 参照轴臂 B, 冻结比较基线, 不调参)",
+    "armC_recipe": {
+      "type": "rank_mean_ensemble_pc_space",
+      "npc_grid": [
+        1,
+        2,
+        3
+      ],
+      "npc_selection": "train-pair AUC (最优 ridge 的 npc), 仅用官方 train split",
+      "members": [
+        "ridge",
+        "identity_anchored_ridge",
+        "pls"
+      ],
+      "ridge_lambda_grid": [
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "anchored_lambda_grid": [
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "anchored_form": "W = (XtX + lam I)^-1 (XtY + lam I) — 同一 ESM2 空间的恒等先验",
+      "pls_k_grid": [
+        2,
+        4,
+        8
+      ],
+      "member_hyperparam_selection": "每成员按 train-pair AUC 独立选超参",
+      "ensemble": "三成员分数矩阵各转行百分位秩后取均值 (V5.1 pct_rows 同式)",
+      "oof": "每折内完整重跑 npc/lambda/k 选择 (零泄漏)"
+    },
+    "row_negatives": "V7 同配方同 seed (20260911), 池内重抽, 查询迭代序=符号排序",
+    "seed_row_negatives": 20260911,
+    "n_bootstrap": 3000,
+    "seed_bootstrap": 20260912,
+    "n_signflip": 2048,
+    "seed_signflip_base": 20260913,
+    "gate_primary": "C test AUC MWU p<0.05 AND dAUC(C-A) bootstrap CI95 lower>0",
+    "gate_secondary_at_least_one": [
+      "OOF C-vs-A signflip p<0.05",
+      "any-hit@10 C-vs-B gain signflip p<0.05"
+    ],
+    "upgraded_claim_reported_not_gated": "dAUC(C-B) bootstrap CI95 + OOF C-vs-B signflip; CI>0 且 p<0.05 才可宣称联合增益对无监督强基线显著"
+  },
+  "trackB": {
+    "task": "Norman 207 -> 19 类 GO-BP 基本结构三臂 (human-only/yeast-only/joint), esm2 轴, V8 同查询/参考/LOGO 口径",
+    "query_repr": "V8 逐字: 成员基因 ESM2 均值 -> l2n; 冻结 mean/PC 方向分别以 npc=1 与 npc* 应用",
+    "label_universe": [
+      "GO:0000278",
+      "GO:0005975",
+      "GO:0006260",
+      "GO:0006325",
+      "GO:0006351",
+      "GO:0006355",
+      "GO:0006575",
+      "GO:0006913",
+      "GO:0007005",
+      "GO:0007010",
+      "GO:0007155",
+      "GO:0012501",
+      "GO:0016071",
+      "GO:0023052",
+      "GO:0030154",
+      "GO:0030163",
+      "GO:0055085",
+      "GO:0065003",
+      "GO:0140014"
+    ],
+    "members": [
+      "h_es1",
+      "y_es1",
+      "j9",
+      "lab_gs0",
+      "y_b2"
+    ],
+    "member_notes": {
+      "h_es1": "human-only: LOGO 人侧带标签参考 (npc1)",
+      "y_es1": "yeast-only: 酵母带标签参考 (npc1), V5.1 yeast_ref_mask 同配方 ∩ 池",
+      "j9": "joint 的配对监督跨物种成员: V8 过门 A 完整 C 配方算子 (npc* 空间 ridge+identity-anchored+PLS 秩平均, strain 级分数按类取 max), 同 train 对同选定超参确定性重拟合",
+      "lab_gs0": "V5.1 逐字复用 (goSlim 标签质心 ridge, 表示无关去相关成员)",
+      "y_b2": "B2 轴成员 (ESM2->scF-B2 注入 x route-B 表), 跨基座去相关, 基座保留"
+    },
+    "families": {
+      "single:h_es1": [
+        "h_es1"
+      ],
+      "single:y_es1": [
+        "y_es1"
+      ],
+      "single:j9": [
+        "j9"
+      ],
+      "single:lab_gs0": [
+        "lab_gs0"
+      ],
+      "single:y_b2": [
+        "y_b2"
+      ],
+      "pair_hy": [
+        "h_es1",
+        "y_es1"
+      ],
+      "triple_hyj9": [
+        "h_es1",
+        "y_es1",
+        "j9"
+      ],
+      "quad_hyjb": [
+        "h_es1",
+        "y_es1",
+        "j9",
+        "y_b2"
+      ],
+      "all5": [
+        "h_es1",
+        "y_es1",
+        "j9",
+        "lab_gs0",
+        "y_b2"
+      ]
+    },
+    "rrf_k_grid": [
+      5,
+      10,
+      20,
+      40,
+      60
+    ],
+    "nested_selection": "LOGO 组内选 (family,k), 组外评; 平局: 成员数少者优先, 再 k 小者优先",
+    "comparator": "5 个单臂家族组内选最优 (零泄漏)",
+    "label_centroid_ridge_lambda": 100.0,
+    "n_signflip": 2048,
+    "seed_signflip_base": 20261015,
+    "gates": {
+      "G1_joint_vs_best_single": "nested joint vs comparator: dMRR signflip p<0.05 (seed 20261016)",
+      "G2_joint_significantly_best": "joint vs 固定 h_es1 (seed 20261017) 与固定 y_es1 (seed 20261018) 双双 signflip p<0.05 且两 delta 均值>0 且 joint 点估计高于两单臂",
+      "G3_cross_species_matching": "trackA 检索面: 门 A 主门+次门 且臂 B/C test AUC p<0.05 (V8 冻结配方逐位复现)"
+    }
+  },
+  "disclosure": "V9 = 第五轮同数据事后迭代 (V5->V5.1->V7->V8->V9), p 值不得按单轮预注册解读。设计动机全部来自已登记结果: V8 单臂 MRR (h 0.365/y 0.356/jrepr8 0.328/y_b2 0.276/lab_gs0 0.231) 显示 all5 等权被弱成员稀释, 中间家族 (pair/triple/quad) 未测; j9 升级为 V8 过门 A 的完整 C 配方算子。家族/k 选择全部 LOGO 零泄漏。检索面为 V8 冻结配方逐字重跑 (兼作再现性自检)。若 G2 不过: 停止配方搜索, 登记 esm2 轴 joint 无增量结论, joint 显著最优的在册证据保持 V5.1 轨道 B (GO 轴)。V7/V8 冻结产物只读; 输出仅写 v9_esm2_basic_20260912/。"
+}

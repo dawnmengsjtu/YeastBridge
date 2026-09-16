@@ -1,0 +1,46 @@
+{
+ "mode": "ev0_retrieval",
+ "protocol": "EV0",
+ "hyper_frozen": {
+  "npc_direct": 1,
+  "npc_aligned": 3,
+  "ridge": 1.0,
+  "anchored": 1.0,
+  "pls_k": 8
+ },
+ "n_pairs_753_available": 752,
+ "union_pairs_raw": {
+  "orthodb_rows": 351859,
+  "orthodb_orf_kept": 0,
+  "union_total": 4464
+ },
+ "inputs_sha": {
+  "orthodb_yeast_human": "c5785324826e84eb5b0ae68c5a4b269e5c61b53487648f5f3b9e4315c18d0147",
+  "oma_yeast_human": "d0649d0f6e9db5babd25b5ed6c052c980e998bbdcea6efaa0db3f4a982191e2a",
+  "inparanoid_yeast_human": "280d3dadc8d7511fbb4ba5bb6f8de75dc9a74b9c24adb72b0019c9071f308cbf"
+ },
+ "query_embed_source": {
+  "table810": 810,
+  "extended_added": 215,
+  "source": "ev0x_merged"
+ },
+ "ev0_pairs": 240,
+ "ev0_query_genes": 213,
+ "gene_level_sensitivity": {
+  "queries_seen_in_753": []
+ },
+ "armA_test_auc": 0.7625857459572248,
+ "armA_test_p": 8.017285740061232e-44,
+ "armB_test_auc": 0.9785384063641106,
+ "armB_test_p": 1.554136062207058e-140,
+ "armC_test_auc": 0.9462542383933229,
+ "armC_test_p": 1.639267171933583e-122,
+ "boot_C_vs_A": {
+  "mean": 0.033725138888888895,
+  "ci95": [
+   0.007496527777777732,
+   0.06027777777777765
+  ]
+ },
+ "gate_primary": true
+}

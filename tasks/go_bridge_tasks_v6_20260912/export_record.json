@@ -1,0 +1,348 @@
+{
+  "mode": "export_gobridge_tasks_v6",
+  "protocol": "V6_PROCESS_BRIDGE_PROTOCOL.md",
+  "config_sha256": "2b8071e5b14dfa10fd1725fb399ee7589ead248af81febf3b88120e3c2442575",
+  "script_sha256": "5f711f24c9489204839215aa2b9a7cff5ee81baefcc11a895574a85a8e767ccc",
+  "decision_rule": "gate_R pass -> F else H",
+  "gate_R": false,
+  "export_arm": "H",
+  "pool": 1282,
+  "nbr_strains": 148,
+  "targets": {
+    "HCRTR1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_HCRTR1.tsv"
+    },
+    "TBXA2R": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TBXA2R.tsv"
+    },
+    "F2R": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_F2R.tsv"
+    },
+    "ADORA2B": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ADORA2B.tsv"
+    },
+    "PTGER3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_PTGER3.tsv"
+    },
+    "CCR10": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CCR10.tsv"
+    },
+    "P2RY1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_P2RY1.tsv"
+    },
+    "GIPR": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GIPR.tsv"
+    },
+    "LTB4R": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LTB4R.tsv"
+    },
+    "GPR68": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GPR68.tsv"
+    },
+    "KISS1R": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_KISS1R.tsv"
+    },
+    "F2RL3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_F2RL3.tsv"
+    },
+    "LGR4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LGR4.tsv"
+    },
+    "GPR61": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GPR61.tsv"
+    },
+    "OPN3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_OPN3.tsv"
+    },
+    "LTB4R2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LTB4R2.tsv"
+    },
+    "GPRC5C": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GPRC5C.tsv"
+    },
+    "GABBR1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GABBR1.tsv"
+    },
+    "CLIC1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CLIC1.tsv"
+    },
+    "CLIC2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CLIC2.tsv"
+    },
+    "KCNN4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_KCNN4.tsv"
+    },
+    "BEST1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_BEST1.tsv"
+    },
+    "TMEM63A": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM63A.tsv"
+    },
+    "KCNK5": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_KCNK5.tsv"
+    },
+    "CHRNB1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CHRNB1.tsv"
+    },
+    "CHRNA5": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CHRNA5.tsv"
+    },
+    "P2RX1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_P2RX1.tsv"
+    },
+    "CLCN2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CLCN2.tsv"
+    },
+    "CACNB3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CACNB3.tsv"
+    },
+    "GABRE": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GABRE.tsv"
+    },
+    "KCNH2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_KCNH2.tsv"
+    },
+    "ITPR2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ITPR2.tsv"
+    },
+    "ITPR3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ITPR3.tsv"
+    },
+    "ITPR1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ITPR1.tsv"
+    },
+    "ANO6": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ANO6.tsv"
+    },
+    "TMEM63B": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM63B.tsv"
+    },
+    "LRRC8B": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LRRC8B.tsv"
+    },
+    "LRRC8D": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LRRC8D.tsv"
+    },
+    "OTOP1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_OTOP1.tsv"
+    },
+    "LRRC8A": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LRRC8A.tsv"
+    },
+    "TMEM87A": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM87A.tsv"
+    },
+    "MCU": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_MCU.tsv"
+    },
+    "MFSD8": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_MFSD8.tsv"
+    },
+    "TRPM4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TRPM4.tsv"
+    },
+    "LRRC8C": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_LRRC8C.tsv"
+    },
+    "PIEZO1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_PIEZO1.tsv"
+    },
+    "P2RX5": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_P2RX5.tsv"
+    },
+    "ORAI1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ORAI1.tsv"
+    },
+    "CCDC51": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CCDC51.tsv"
+    },
+    "ASIC4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ASIC4.tsv"
+    },
+    "TRPM7": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TRPM7.tsv"
+    },
+    "PANX1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_PANX1.tsv"
+    },
+    "CLCC1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CLCC1.tsv"
+    },
+    "ORAI2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ORAI2.tsv"
+    },
+    "P2RX4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_P2RX4.tsv"
+    },
+    "GABRG3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_GABRG3.tsv"
+    },
+    "ORAI3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_ORAI3.tsv"
+    },
+    "TMEM175": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM175.tsv"
+    },
+    "TMEM109": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM109.tsv"
+    },
+    "SLC26A6": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_SLC26A6.tsv"
+    },
+    "MCOLN1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_MCOLN1.tsv"
+    },
+    "PACC1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_PACC1.tsv"
+    },
+    "KCNMB3": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_KCNMB3.tsv"
+    },
+    "TMEM38B": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMEM38B.tsv"
+    },
+    "TMCO1": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TMCO1.tsv"
+    },
+    "TRPV2": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_TRPV2.tsv"
+    },
+    "CLIC4": {
+      "status": "OK",
+      "rows": 1282,
+      "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912/yeast_task_CLIC4.tsv"
+    }
+  }
+}

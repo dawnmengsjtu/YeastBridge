@@ -1,0 +1,2 @@
+target_id	inchikey	dose	source_condition_index	n_conditions_tested	n_unique_doses_tested	spearman_rho	null_exceedances	n_perm	emp_p	allowlist_row	q_bh	q_by	q	fdr_method	fdr_family_size	allowlist_sha256	smiles
+DRD2	LNEPOXFFQSENCJ-UHFFFAOYSA-N	53.21	3128	3	3	0.011308709	438	1000	0.4385614385614386	2	0.5847485847485848	1.0	0.5847485847485848	BH	4	59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93	C1CN(CCC1(C2=CC=C(C=C2)Cl)O)CCCC(=O)C3=CC=C(C=C3)F

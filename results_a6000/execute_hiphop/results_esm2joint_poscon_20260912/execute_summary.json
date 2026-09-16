@@ -1,0 +1,71 @@
+{
+  "config": "configs/product_execute.esm2joint.json",
+  "endpoint": "v2-spearman",
+  "n_targets": 4,
+  "n_compounds": 3,
+  "n_pairs": 4,
+  "n_pairs_q_below_alpha": 0,
+  "n_pairs_q_tail_bh_below_alpha": 0,
+  "fdr_alpha": 0.1,
+  "primary_fdr_method": "BH",
+  "fdr_scope": "only the exact target_id x inchikey hypotheses in the pre-frozen allowlist; no target-compound cross-product hypotheses",
+  "reported_q_columns": {
+    "q_bh": "Benjamini-Hochberg",
+    "q_by": "Benjamini-Yekutieli",
+    "q_tail_bh": "Benjamini-Hochberg on Gumbel-tail p (post-hoc, disclosed)",
+    "q_tail_by": "Benjamini-Yekutieli on Gumbel-tail p (post-hoc, disclosed)"
+  },
+  "n_perm": 1000,
+  "seed": 42,
+  "minimum_empirical_p": 0.000999000999000999,
+  "n_pairs_at_minimum_empirical_p": 0,
+  "best_attainable_bh_q_from_observed_minimum_p_ties": 0.003996003996003996,
+  "permutation_resolution_supports_bh_alpha": true,
+  "empirical_p_formula": "(null_max_ge_observed_max + 1) / (n_perm + 1)",
+  "dose_selection_adjusted": true,
+  "dose_selection_null": "maximum over every tested condition/dose is repeated within each permutation",
+  "task_top_k": null,
+  "statistic": "signed full-profile Spearman; rank-1 task relevance and hypersensitivity are both oriented high",
+  "response_transform": "sensitivity = +1 * signed vehicle-contrast z; abs(z) is not used",
+  "source_response_method": "barcode response = median-polished log2 quantile-normalised expression (no background model) minus batch-matched vehicle median",
+  "axis_audit": {
+    "n_targets": 4,
+    "coverage_median": 1279,
+    "task_axis": "rank 1 oriented high; rows=tasks, columns=strains",
+    "response_axis": "rows=compound conditions, columns=strains",
+    "target_batch_size": 64,
+    "n_target_batches": 1,
+    "max_block_conditions": 6,
+    "max_score_matrix_cells": 24,
+    "permutation_storage": "uint32 seed vector; permutations regenerated per batch",
+    "tail_fit": "Gumbel moment fit on per-pair permutation null max-statistics (disclosed post-hoc 2026-09-12; Knijnenburg 2009 style); primary q columns remain emp_p-based",
+    "tail_fit_calibration": {
+      "midrange_emp_p_band": [
+        0.01,
+        0.5
+      ],
+      "n_pairs_in_band": 4,
+      "median_p_tail_over_emp_p_in_band": 0.8252134840186968,
+      "n_degenerate_null_sd_pairs": 0,
+      "n_pairs_p_tail_below_1e-4": 0,
+      "n_pairs_p_tail_below_1e-6": 0
+    },
+    "hypothesis_family": "pre-frozen exact pair allowlist"
+  },
+  "pair_allowlist": {
+    "enabled": true,
+    "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/positive_control_panel_20260911/pair_allowlist.tsv",
+    "sha256": "59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93",
+    "expected_sha256_verified": true,
+    "declared_hiphop_blind": true,
+    "selection_basis": "rerun of frozen positive_control_panel_20260911 4-pair allowlist (declared blind at freeze); task axis replaced by EJ method export esm2_joint_tasks_20260912 (frozen recipe RRF-20: direct_pc1 + aligned_C + b2_verbatim; user ruling 2026-09-12); allowlist bytes identical to frozen sha",
+    "schema_columns": [
+      "target_id",
+      "inchikey"
+    ],
+    "n_hypotheses": 4,
+    "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+    "validated_before_response_load": true,
+    "freeze_record": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/product_pipeline/product/execute_hiphop/results_esm2joint_poscon_20260912/allowlist_freeze_record.json"
+  }
+}

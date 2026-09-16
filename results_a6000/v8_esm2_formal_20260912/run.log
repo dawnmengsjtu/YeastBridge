@@ -1,0 +1,20 @@
+input hashes: all match
+human esm2: (810, 1280), symbols 810
+pool: 1279/1282 (scyeast-covered 1262)
+primary pairs (V5.1 frozen ∩ B2-available): 752/753
+extended pairs (descriptive): 15
+  A recipe: npc*=3 picks={'ridge': {'hyper': 1.0, 'train_auc': 0.9994873138565002}, 'anchored': {'hyper': 1.0, 'train_auc': 0.9997107588395417}, 'pls': {'hyper': 8, 'train_auc': 0.958406480632342}}
+  A armA_no_align: test auc=0.7467 p=1.5e-23
+  A armB_unsup_pc1: test auc=0.9638 p=3.7e-78
+  A armC_joint: test auc=0.8770 p=2.4e-52
+  A ΔAUC C_vs_A: +0.1312 CI[+0.0707,+0.1930]
+  A ΔAUC C_vs_B: -0.0870 CI[-0.1152,-0.0600]
+  A ΔAUC B_vs_A: +0.2182 CI[+0.1640,+0.2732]
+  A OOF C-vs-A: +0.0283 p=0
+  A OOF C-vs-B: -0.0013 p=0.726
+  A any-hit@10: B=0.9109 C=0.8005 p=1
+  A gates: primary=True secondary=True | upgraded C>B claim: False
+  B queries: 207/207 (dropped: [])
+  B fusion MRR=0.352 comp=0.350 Δ=+0.0018 p=0.4253 gate=False
+saved: /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/v8_esm2_formal_20260912/results/result.json
+GATE A: primary=True secondary=True | upgraded C>B: False | GATE B: False

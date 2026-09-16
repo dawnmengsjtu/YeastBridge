@@ -1,0 +1,74 @@
+{
+  "config": "configs/product_execute.esm2joint_dc_neg.json",
+  "endpoint": "v2-spearman",
+  "n_targets": 40,
+  "n_compounds": 4,
+  "n_pairs": 40,
+  "n_pairs_q_below_alpha": 40,
+  "n_pairs_q_tail_bh_below_alpha": 40,
+  "fdr_alpha": 0.1,
+  "primary_fdr_method": "BH",
+  "fdr_scope": "only the exact target_id x inchikey hypotheses in the pre-frozen allowlist; no target-compound cross-product hypotheses",
+  "reported_q_columns": {
+    "q_bh": "Benjamini-Hochberg",
+    "q_by": "Benjamini-Yekutieli",
+    "q_tail_bh": "Benjamini-Hochberg on Gumbel-tail p (post-hoc, disclosed)",
+    "q_tail_by": "Benjamini-Yekutieli on Gumbel-tail p (post-hoc, disclosed)"
+  },
+  "n_perm": 100000,
+  "seed": 42,
+  "minimum_empirical_p": 9.99990000099999e-06,
+  "n_pairs_at_minimum_empirical_p": 0,
+  "best_attainable_bh_q_from_observed_minimum_p_ties": 0.00039999600003999964,
+  "permutation_resolution_supports_bh_alpha": true,
+  "empirical_p_formula": "(null_max_ge_observed_max + 1) / (n_perm + 1)",
+  "dose_selection_adjusted": true,
+  "dose_selection_null": "maximum over every tested condition/dose is repeated within each permutation",
+  "task_top_k": null,
+  "statistic": "signed full-profile Spearman; rank-1 task relevance and hypersensitivity are both oriented high",
+  "response_transform": "sensitivity = -1 * signed vehicle-contrast z; abs(z) is not used",
+  "source_response_method": "barcode response = median-polished log2 quantile-normalised expression (no background model) minus batch-matched vehicle median",
+  "axis_audit": {
+    "n_targets": 40,
+    "coverage_median": 1279,
+    "task_axis": "rank 1 oriented high; rows=tasks, columns=strains",
+    "response_axis": "rows=compound conditions, columns=strains",
+    "target_batch_size": 64,
+    "n_target_batches": 1,
+    "max_block_conditions": 4,
+    "max_score_matrix_cells": 160,
+    "permutation_storage": "uint32 seed vector; permutations regenerated per batch",
+    "tail_fit": "Gumbel moment fit on per-pair permutation null max-statistics (disclosed post-hoc 2026-09-12; Knijnenburg 2009 style); primary q columns remain emp_p-based",
+    "tail_fit_calibration": {
+      "midrange_emp_p_band": [
+        0.01,
+        0.5
+      ],
+      "n_pairs_in_band": 0,
+      "median_p_tail_over_emp_p_in_band": null,
+      "n_degenerate_null_sd_pairs": 0,
+      "n_pairs_p_tail_below_1e-4": 0,
+      "n_pairs_p_tail_below_1e-6": 0
+    },
+    "hypothesis_family": "pre-frozen exact pair allowlist"
+  },
+  "pair_allowlist": {
+    "enabled": true,
+    "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/ej_dc_confirmation_panel_20260912/pair_allowlist_neg40.tsv",
+    "sha256": "a487e70b18ba457be014ebdb7512677dd0b6e6a9627c4f1e4dfebf7eca705635",
+    "expected_sha256_verified": true,
+    "provenance": "two_stage_confirmation",
+    "declared_hiphop_blind": false,
+    "two_stage_rule_doc": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/yeastbridge_re_mvp/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+    "two_stage_rule_doc_sha256": "260489d352af652eff01be1387c4468b48129218d0b04fae675a780fdf30ed24",
+    "selection_basis": "stage-2_confirmation_family_nominated_by_frozen_mechanical_rule_ESM2_JOINT_DC_ADDENDUM_section3_from_stage1_EJdc_screens_direction_neg_top40_by_z_outcome_derived_by_design_FDR_scoped_within_80pair_union_family_structure_in_nomination_record",
+    "schema_columns": [
+      "target_id",
+      "inchikey"
+    ],
+    "n_hypotheses": 40,
+    "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+    "validated_before_response_load": true,
+    "freeze_record": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/product_pipeline/product/execute_hiphop/results_esm2jointdc_neg_confirm100k_neg_20260912/allowlist_freeze_record.json"
+  }
+}

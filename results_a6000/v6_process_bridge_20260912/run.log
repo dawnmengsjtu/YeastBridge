@@ -1,0 +1,14 @@
+input hashes: all match
+K562 P1 profiles 9608, gate dropped 73 columns
+GO-BP shared terms: 639
+neighborhood terms: 27
+W_A refit (V5.1 recipe): ridge_train_auc=0.9261
+  A(V6) fusion MRR=0.348 comp=0.232 Δ=+0.1159 p=0 gate=True
+  B targets from frozen export record: 71
+  B M_t non-empty: 67, dropped: 4 ['FZD5', 'FZD2', 'FZD3', 'GPR160']
+  B strains with nbr annotation: 148/1282
+  B J-arm gating (has orthodb partner): 0/67
+  B relay: obs={'H': 0.007, 'J': 0.0103, 'F': 0.007} p={'H': 0.8611, 'J': 0.0705, 'F': 0.8611} gateR=False
+  C export arm=H targets=67 -> /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912
+saved: /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/v6_process_bridge_20260912/result.json
+V6 gate B'(norman fusion): True | gate R(relay): False

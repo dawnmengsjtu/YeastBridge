@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/positive_control_panel_20260911/pair_allowlist.tsv",
+  "sha256": "59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93",
+  "expected_sha256_verified": true,
+  "declared_hiphop_blind": true,
+  "selection_basis": "rerun of frozen positive_control_panel_20260911 4-pair allowlist (declared blind at freeze); task axis replaced by EJ method export esm2_joint_tasks_20260912 (frozen recipe RRF-20: direct_pc1 + aligned_C + b2_verbatim; user ruling 2026-09-12); allowlist bytes identical to frozen sha",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 4,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

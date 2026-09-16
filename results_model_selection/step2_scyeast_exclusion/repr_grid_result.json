@@ -1,0 +1,38 @@
+{
+  "protocol": "V5.2 repr-grid (post-hoc variant, signed 2026-09-11)",
+  "note": "\u5bf9\u9f50\u5668/\u51bb\u7ed3\u62c6\u5206/row_negs/\u8bc4\u6d4b\u4e0e V5.1 \u540c\u673a; \u6ce8\u518c\u53c2\u7167: armA=0.4948 armB=0.5169 armC=0.5687; ESM2/B2 \u86cb\u767d\u8def\u89c1 route_b \u4ea7\u7269",
+  "cells": {
+    "rawES_x_rawES(=V5.1\u53e3\u5f84)": {
+      "repr": "rawES_x_rawES(=V5.1\u53e3\u5f84)",
+      "test_auc": 0.5606857456797523,
+      "test_p": 0.007266103489551947,
+      "ridge_train_auc": 0.926145538885265,
+      "dim_x": 639,
+      "dim_y": 639
+    },
+    "scF_x_rawES": {
+      "repr": "scF_x_rawES",
+      "test_auc": 0.5555189291779044,
+      "test_p": 0.012683806349068802,
+      "ridge_train_auc": 0.5959018627237805,
+      "dim_x": 3072,
+      "dim_y": 639
+    },
+    "rawES_x_scyeast_prior": {
+      "repr": "rawES_x_scyeast_prior",
+      "test_auc": 0.5390570372590151,
+      "test_p": 0.05788028840425565,
+      "ridge_train_auc": 0.7576507936507937,
+      "dim_x": 639,
+      "dim_y": 200
+    },
+    "scF_x_scyeast_prior(\u53cc\u57fa\u5ea7)": {
+      "repr": "scF_x_scyeast_prior(\u53cc\u57fa\u5ea7)",
+      "test_auc": 0.5064678853261413,
+      "test_p": 0.3972704516600987,
+      "ridge_train_auc": 0.554496339784011,
+      "dim_x": 3072,
+      "dim_y": 200
+    }
+  }
+}

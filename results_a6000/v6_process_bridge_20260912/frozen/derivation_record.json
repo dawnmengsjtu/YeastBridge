@@ -1,0 +1,17 @@
+{
+ "seeds": {
+  "GO:0023052": "signaling",
+  "GO:0055085": "transmembrane_transport"
+ },
+ "obo_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw/go-basic.obo",
+ "obo_sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc",
+ "obo_release": "releases/2026-07-26",
+ "shared_terms": 639,
+ "neighborhood_terms": 27,
+ "inputs_sha256": {
+  "k562_h5ad": "37e48c474d8b5dead4151f96ea8f5fe7bbe6beb10eeea48685b740c3f74490a2",
+  "yeast_matrix": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16",
+  "go_bp_ancestors": "7f47fc3745200931ec3cb5ed826265beb9a0cdbd2cef27856178f91d75225068"
+ },
+ "script_sha256": "28aa1ed10207a88dbe6ec4d8d0ad7ce6f9afeb4825bcb9dae123e6d7efd5a5d2"
+}

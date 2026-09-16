@@ -1,0 +1,18 @@
+input hashes: all match
+K562 P1 profiles 9608, gate dropped 73 columns
+GO-BP shared terms: 639
+neighborhood terms: 27
+W_A refit (V5.1 recipe): ridge_train_auc=0.9261
+  A(V6) fusion MRR=0.348 comp=0.232 Δ=+0.1159 p=0 gate=True
+  B targets from frozen export record: 71
+  B M_t non-empty: 0, dropped: 71 ['HCRTR1', 'TBXA2R', 'F2R', 'ADORA2B', 'PTGER3', 'CCR10', 'P2RY1', 'GIPR', 'FZD5', 'FZD2', 'LTB4R', 'GPR68', 'KISS1R', 'F2RL3', 'LGR4', 'GPR61', 'OPN3', 'LTB4R2', 'FZD3', 'GPRC5C', 'GABBR1', 'GPR160', 'CLIC1', 'CLIC2', 'KCNN4', 'BEST1', 'TMEM63A', 'KCNK5', 'CHRNB1', 'CHRNA5', 'P2RX1', 'CLCN2', 'CACNB3', 'GABRE', 'KCNH2', 'ITPR2', 'ITPR3', 'ITPR1', 'ANO6', 'TMEM63B', 'LRRC8B', 'LRRC8D', 'OTOP1', 'LRRC8A', 'TMEM87A', 'MCU', 'MFSD8', 'TRPM4', 'LRRC8C', 'PIEZO1', 'P2RX5', 'ORAI1', 'CCDC51', 'ASIC4', 'TRPM7', 'PANX1', 'CLCC1', 'ORAI2', 'P2RX4', 'GABRG3', 'ORAI3', 'TMEM175', 'TMEM109', 'SLC26A6', 'MCOLN1', 'PACC1', 'KCNMB3', 'TMEM38B', 'TMCO1', 'TRPV2', 'CLIC4']
+  B strains with nbr annotation: 138/1282
+  B J-arm gating (has orthodb partner): 0/0
+/public/home/mengxl/dzy/envs/yeastbridge/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/public/home/mengxl/dzy/envs/yeastbridge/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+  B relay: obs={'H': nan, 'J': nan, 'F': nan} p={'H': 0.0005, 'J': 0.0005, 'F': 0.0005} gateR=True
+  C export arm=F targets=0 -> /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_tasks_v6_20260912
+saved: /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/v6_process_bridge_20260912/result.json
+V6 gate B'(norman fusion): True | gate R(relay): True

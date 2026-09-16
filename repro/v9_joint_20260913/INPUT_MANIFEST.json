@@ -1,0 +1,82 @@
+{
+ "esm2_human.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/human_810/esm2_mean_fp32.npy",
+  "sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+  "match": true
+ },
+ "esm2_human.index_path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/human_810/index.tsv",
+  "sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+  "match": true
+ },
+ "route_b_table.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_models/route_b/gene_table_final.npy",
+  "sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24",
+  "match": true
+ },
+ "route_b_model.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_models/route_b/final_model.pt",
+  "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+  "match": true
+ },
+ "route_b_gene_order.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_models/route_b/A2_init.tsv",
+  "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c",
+  "match": true
+ },
+ "yeast_esm2.path_abs": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
+  "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+  "match": true
+ },
+ "yeast_esm2.index_path_abs": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/index.tsv",
+  "sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214",
+  "match": true
+ },
+ "scyeast_prior.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_models/scyeast/scyeast_prior_space.npy",
+  "sha256": "8a02152305f6bef8aa88bc4974dfd38fa67d1c90629840f871de0a03705cee40",
+  "match": true
+ },
+ "scyeast_prior.gene_order_path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_models/scyeast/gene_order_5812.txt",
+  "sha256": "7f0f16a9e4ba55d4071ee6b8cbe43d825640e6a03a9724ceebdc614569ed0b74",
+  "match": true
+ },
+ "orthodb_edges.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+  "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b",
+  "match": true
+ },
+ "v51_pair_list.path": {
+  "path": "/root/private_data/yeastbridge_clean/results_a6000/v51_per_query_ranks_trackA.tsv",
+  "sha256": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15",
+  "match": null
+ },
+ "yeast_matrix.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_benchmark/yeast_matrix.tsv.gz",
+  "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16",
+  "match": true
+ },
+ "yeast_metadata.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_benchmark/yeast_metadata.tsv",
+  "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912",
+  "match": true
+ },
+ "higher_matrix.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_benchmark/higher_matrix.tsv.gz",
+  "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c",
+  "match": true
+ },
+ "higher_metadata.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_benchmark/higher_metadata.tsv",
+  "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d",
+  "match": true
+ },
+ "goslim_projection.path": {
+  "path": "/root/private_data/yeastbridge_clean/raw/tier1_projections/gene_goslim_projection.tsv.gz",
+  "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827",
+  "match": true
+ }
+}

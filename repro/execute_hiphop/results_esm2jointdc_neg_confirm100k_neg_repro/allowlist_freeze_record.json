@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "path": "/root/private_data/yeastbridge_clean/panels/ej_dc_confirmation_panel_20260912/pair_allowlist_neg40.tsv",
+  "sha256": "a487e70b18ba457be014ebdb7512677dd0b6e6a9627c4f1e4dfebf7eca705635",
+  "expected_sha256_verified": true,
+  "provenance": "two_stage_confirmation",
+  "declared_hiphop_blind": false,
+  "two_stage_rule_doc": "/root/private_data/yeastbridge_clean/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+  "two_stage_rule_doc_sha256": "dcb75bec3b240fe74dca8fb82000c6fa9bf9d095964b3a0d0ebd99c56de051b8",
+  "selection_basis": "stage-2 confirmation family nominated by frozen mechanical rule (ESM2_JOINT_DC_ADDENDUM section 3) from stage-1 EJ-dc screens (direction neg top40 by z); outcome-derived by design; FDR scoped within 80-pair union family; structure in nomination_record",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 40,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

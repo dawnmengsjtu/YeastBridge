@@ -1,0 +1,118 @@
+{
+  "protocol": "V5_JOINT_FORMAL_PROTOCOL.md (V5.1 amendment, section 7)",
+  "date_frozen": "2026-09-09",
+  "run_mode": "single_confirmatory_run_iteration2",
+  "stage_root": "/root/private_data/yeastbridge_clean",
+  "inputs": {
+    "k562_h5ad": {
+      "path": "raw/tier1_k562/K562_gwps_normalized_bulk_01.h5ad",
+      "sha256": "37e48c474d8b5dead4151f96ea8f5fe7bbe6beb10eeea48685b740c3f74490a2"
+    },
+    "yeast_matrix": {
+      "path": "raw/tier1_benchmark/yeast_matrix.tsv.gz",
+      "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
+    },
+    "higher_matrix": {
+      "path": "raw/tier1_benchmark/higher_matrix.tsv.gz",
+      "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
+    },
+    "yeast_metadata": {
+      "path": "raw/tier1_benchmark/yeast_metadata.tsv",
+      "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+    },
+    "higher_metadata": {
+      "path": "raw/tier1_benchmark/higher_metadata.tsv",
+      "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
+    },
+    "orthodb_edges": {
+      "path": "raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+      "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
+    },
+    "go_bp_ancestors": {
+      "path": "raw/tier1_projections/gene_bp_ancestors.tsv.gz",
+      "sha256": "7f47fc3745200931ec3cb5ed826265beb9a0cdbd2cef27856178f91d75225068"
+    },
+    "goslim_projection": {
+      "path": "raw/tier1_projections/gene_goslim_projection.tsv.gz",
+      "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
+    }
+  },
+  "data_quality_gate": {
+    "column_abs_max_threshold": 1e+30,
+    "expected_dropped_columns": 73
+  },
+  "representation": {
+    "es_term_min_genes": 10,
+    "es_term_max_genes": 500,
+    "z_clip": 50.0,
+    "pc_removal_for_trackA_and_members": 1
+  },
+  "trackA": {
+    "ridge_lambda_grid": [
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "row_negatives_per_query": 30,
+    "seed_row_negatives": 20260911,
+    "n_bootstrap": 3000,
+    "seed_bootstrap": 20260912,
+    "n_signflip": 2048,
+    "seed_signflip_base": 20260913,
+    "oof_folds": 5,
+    "gate_primary": "C test AUC MWU p<0.05 AND dAUC(C-A) bootstrap CI95 lower>0",
+    "gate_secondary_at_least_one": [
+      "OOF C-vs-A signflip p<0.05",
+      "any-paralog hit@10 gain p<0.05"
+    ],
+    "armC_recipe": {
+      "type": "rank_mean_ensemble",
+      "members": [
+        "es_pc1_ridge",
+        "es_pc1_pls4"
+      ]
+    }
+  },
+  "trackB": {
+    "label_universe": [
+      "GO:0000278",
+      "GO:0005975",
+      "GO:0006260",
+      "GO:0006325",
+      "GO:0006351",
+      "GO:0006355",
+      "GO:0006575",
+      "GO:0006913",
+      "GO:0007005",
+      "GO:0007010",
+      "GO:0007155",
+      "GO:0012501",
+      "GO:0016071",
+      "GO:0023052",
+      "GO:0030154",
+      "GO:0030163",
+      "GO:0055085",
+      "GO:0065003",
+      "GO:0140014"
+    ],
+    "members": [
+      "h_es1",
+      "y_gs0",
+      "jrepr",
+      "lab_gs0",
+      "y_es0"
+    ],
+    "rrf_k_grid": [
+      5,
+      10,
+      20,
+      40,
+      60
+    ],
+    "nested_selection": true,
+    "label_centroid_ridge_lambda": 100.0,
+    "gate": "nested joint vs best single arm MRR delta signflip p<0.05"
+  },
+  "disclosure": "Iteration 2 (V5.1): run 1 (v5_joint_formal_20260909) missed Gate A primary by 0.004 (dAUC CI low -0.004). Track A arm C was upgraded from single ridge to a two-retriever rank-mean ensemble (ES-pc1 ridge + ES-pc1 PLS4, row percentile-rank mean) based on match_diag_20260908 diag02 section V; gates, metrics, split, seeds unchanged. Track B recipe unchanged. Same-data confirmatory, post-hoc configuration disclosed."
+}

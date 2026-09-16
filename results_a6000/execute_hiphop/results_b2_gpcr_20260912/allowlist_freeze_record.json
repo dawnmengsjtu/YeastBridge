@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/gpcr_panel_20260911/pair_allowlist.tsv",
+  "sha256": "d0ce81401be879c66d039a6c2deefb285340d3180e50913896c7423c885312ed",
+  "expected_sha256_verified": true,
+  "declared_hiphop_blind": true,
+  "selection_basis": "pre-registered GPCR textbook panel 20260911; task axis = B2 route-B transferred yeast task tables (disclosed post-hoc)",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 8,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

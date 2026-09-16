@@ -1,0 +1,17 @@
+env
+env2/
+results_v51era
+raw/tier0_*
+raw/tier1_k562
+raw/tier1_benchmark
+raw/tier1_assets
+raw/tier1_response/strain_response.npz
+raw/tier1_models/**/*.pt
+raw/externalvalidation/adamson_raw/
+raw/externalvalidation/adamson_extracted/
+*.h5ad
+*.tar
+*.pt
+results_a6000/externalvalidation/ev1_adamson/adamson_matrix.tsv
+__pycache__/
+*.pyc

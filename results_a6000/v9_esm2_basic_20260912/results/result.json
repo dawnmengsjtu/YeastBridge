@@ -1,0 +1,115 @@
+{
+ "protocol": "V9_ESM2_BASIC_STRUCTURE_PROTOCOL.md",
+ "config_sha256": "22374fe4a9d4e5c44a47162a634918dee9220f820b3a0367785fceb531fc104e",
+ "script_sha256": "52f592dec55e984d85e1e3ef39438e8e0ca82c5507c658116224d063b34a73e2",
+ "trackA_retrieval": {
+  "repr": "esm2_axis_v8",
+  "n_pairs_primary": 752,
+  "n_pool": 1279,
+  "armC_recipe_info": {
+   "npc_selected": 3,
+   "picks": {
+    "ridge": {
+     "hyper": 1.0,
+     "train_auc": 0.9994873138565002
+    },
+    "anchored": {
+     "hyper": 1.0,
+     "train_auc": 0.9997107588395417
+    },
+    "pls": {
+     "hyper": 8,
+     "train_auc": 0.958406480632342
+    }
+   },
+   "npc_grid_ridge_train_auc": {
+    "1": 0.9986249763454008,
+    "2": 0.9991889019898976,
+    "3": 0.9994873138565002
+   }
+  },
+  "armA_no_align_test_auc": 0.7466886424932574,
+  "armA_no_align_test_p": 1.4751243797255572e-23,
+  "armB_unsup_pc1_test_auc": 0.9638123064628908,
+  "armB_unsup_pc1_test_p": 3.725643244260778e-78,
+  "armC_joint_test_auc": 0.8769703326341025,
+  "armC_joint_test_p": 2.363956717335334e-52,
+  "boot_C_vs_A": {
+   "mean": 0.1312038682449306,
+   "ci95_low": 0.07070709719308757,
+   "ci95_high": 0.19303328838277883
+  },
+  "boot_C_vs_B": {
+   "mean": -0.08695606000066591,
+   "ci95_low": -0.11520689741284597,
+   "ci95_high": -0.06000799120966923
+  },
+  "boot_B_vs_A": {
+   "mean": 0.21815992824559655,
+   "ci95_low": 0.16402619618419734,
+   "ci95_high": 0.2731783787833383
+  },
+  "oof_C_vs_A": {
+   "gain": 0.028301906409595262,
+   "signflip_p": 0.0
+  },
+  "oof_C_vs_B": {
+   "gain": -0.00129027830918437,
+   "signflip_p": 0.7255859375
+  },
+  "any_hit10": {
+   "rate_B": 0.910904255319149,
+   "rate_C": 0.800531914893617,
+   "signflip_p": 1.0
+  },
+  "gate_primary": true,
+  "gate_secondary": true,
+  "upgraded_claim_C_beats_B": false
+ },
+ "trackB_basic_structure": {
+  "task": "v3 基本结构三臂 (human-only / yeast-only / joint), esm2 轴",
+  "n_queries": 207,
+  "dropped_queries": [],
+  "human_only_mrr": 0.3645205068259989,
+  "yeast_only_mrr": 0.35629100145354015,
+  "joint_nested_mrr": 0.4025168868637034,
+  "comparator_best_single_mrr": 0.350353773092926,
+  "single_arm_mrr": {
+   "h_es1": 0.3645205068259989,
+   "y_es1": 0.35629100145354015,
+   "j9": 0.3299271193402302,
+   "lab_gs0": 0.2313672973659737,
+   "y_b2": 0.27623382228084525
+  },
+  "G1_joint_vs_best_single": {
+   "delta": 0.05216311377077743,
+   "signflip_p": 0.0,
+   "pass": true
+  },
+  "G2_joint_significantly_best": {
+   "delta_vs_human_only": 0.037996380037704586,
+   "p_vs_human_only": 0.05126953125,
+   "delta_vs_yeast_only": 0.04622588541016324,
+   "p_vs_yeast_only": 0.00146484375,
+   "pass": false
+  },
+  "joint_picks": {
+   "triple_hyj9|k=5": 1,
+   "triple_hyj9|k=20": 34
+  },
+  "comparator_picks": {
+   "single:y_es1|k=5": 1,
+   "single:h_es1|k=5": 34
+  },
+  "v8_reference": {
+   "fusion_all5": 0.352,
+   "h_es1": 0.365,
+   "y_es1": 0.356
+  }
+ },
+ "gates": {
+  "G1_joint_vs_best_single": true,
+  "G2_joint_significantly_best": false,
+  "G3_cross_species_matching": true
+ }
+}

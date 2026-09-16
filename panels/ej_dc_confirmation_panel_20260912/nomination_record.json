@@ -1,0 +1,45 @@
+{
+ "mode": "ej_dc_two_stage_nomination",
+ "rule_doc": "yeastbridge_re_mvp/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md (section 3, frozen before dc screens)",
+ "rule": "top-40 by z=(rho-null_mean)/null_sd per direction from stage-1 EJ-dc screens; dedup across directions; confirmation n_perm=100000; BH within 80-pair family alpha=0.1",
+ "stage1_screens": {
+  "pos": {
+   "exec_matrix_sha256": "7a36fcb2106b1ff5a48644ef9017f0a154014da66b4744f90277909b82363008",
+   "floor_pairs_vs_expect": null
+  },
+  "neg": {
+   "exec_matrix_sha256": "ce57d6cb12fae6df118500d813dc4249a41579a92df0d4561fb374d2361628c3",
+   "floor_pairs_vs_expect": null
+  }
+ },
+ "directions": {
+  "pos": {
+   "n": 40,
+   "z_range": [
+    3.6875223053740567,
+    3.936415809080602
+   ],
+   "unique_compounds": 1,
+   "compound_counts": {
+    "SQFNCEKTEKNPCN-UHFFFAOYSA-N": 40
+   },
+   "target_families_note": "dominated by GPCR/OR and channel family members sharing embedding structure"
+  },
+  "neg": {
+   "n": 40,
+   "z_range": [
+    3.7532832294148513,
+    3.8784683660212007
+   ],
+   "unique_compounds": 4,
+   "compound_counts": {
+    "CLQPEZWMMZFTBG-UHFFFAOYSA-N": 35,
+    "DUCXQFAHDINGEV-UHFFFAOYSA-N": 2,
+    "IQYSTSHQRRVQGE-UHFFFAOYSA-N": 2,
+    "UQOWKTPSEYWQSM-UHFFFAOYSA-N": 1
+   },
+   "target_families_note": "dominated by GPCR/OR and channel family members sharing embedding structure"
+  }
+ },
+ "cross_direction_overlap_pairs": 0
+}

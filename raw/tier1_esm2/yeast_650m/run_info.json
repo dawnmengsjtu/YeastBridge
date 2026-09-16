@@ -1,0 +1,10 @@
+{
+  "model": "esm2_t33_650M_UR50D.pt",
+  "repr_layer": 33,
+  "n_proteins": 6742,
+  "dim": 1280,
+  "total_residues": 3027114,
+  "nan_embeddings": 0,
+  "seconds": 579.0,
+  "dtype": "float32 mean-pooled over residues (excl BOS/EOS), model run in fp16"
+}

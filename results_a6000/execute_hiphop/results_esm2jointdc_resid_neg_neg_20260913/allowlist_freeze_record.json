@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/family_specificity_panel_20260913/resid_allowlist_neg.tsv",
+  "sha256": "d52fde573b8bd110d830d4599f7318735b8c6c39750d66a0e9582cf9d56c7e1f",
+  "expected_sha256_verified": true,
+  "provenance": "two_stage_confirmation",
+  "declared_hiphop_blind": false,
+  "two_stage_rule_doc": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/yeastbridge_re_mvp/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+  "two_stage_rule_doc_sha256": "b53c59017523d74b66b0b9f265f024b80fbcd499bda376fd1b9a7ee563d5bcf6",
+  "selection_basis": "residual_axis_pairs_subset_of_frozen_confirmation_family_with_family_size_ge2_per_FAMILY_SPECIFICITY_PROTOCOL",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 17,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

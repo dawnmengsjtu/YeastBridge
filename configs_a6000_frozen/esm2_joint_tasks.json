@@ -1,0 +1,41 @@
+{
+  "method_freeze_doc": "docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md",
+  "date_frozen": "2026-09-12",
+  "stage_root": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901",
+  "user_rulings": [
+    "2026-09-12 晚: 轴=esm2 路线, 基座保留",
+    "2026-09-12 深夜: V9 G2-vs-human-only p=0.0513 接受; 固定该思路跑流程"
+  ],
+  "inputs": {
+    "universe_esm2": {
+      "path": "product_pipeline/product/transfer_route_b/inputs/esm2_universe/esm2_mean_fp32.npy",
+      "sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+      "index_path": "product_pipeline/product/transfer_route_b/inputs/esm2_universe/index.tsv",
+      "index_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665"
+    },
+    "v8_result_for_hyper_assert": {
+      "path": "v8_esm2_formal_20260912/results/result.json",
+      "note": "运行时断言 method 超参与 V8 冻结选择一致 (npc=3, ridge lam=1, anchored lam=1, pls k=8)",
+      "sha256": "253dcad48835b75763d602e650d67954cc5131f7468a923027d6c8dc97831755"
+    }
+  },
+  "method": {
+    "v7_config": "configs/v7_b2_joint_formal.json",
+    "members": [
+      "direct_pc1",
+      "aligned_c_ensemble",
+      "b2_verbatim"
+    ],
+    "npc_direct": 1,
+    "npc_aligned": 3,
+    "ridge_lambda": 1.0,
+    "anchored_lambda": 1.0,
+    "pls_k": 8,
+    "rrf_k": 20,
+    "rrf_k_provenance": "V9 joint picks: triple_hyj9|k=20 (34/35 LOGO 组)",
+    "train_pairs": "官方 train split (V5.1 冻结 753 对清单 ∩ 表示可用 = 510 对), 与 V8 门 A 训练集一致",
+    "tail_rule": "池 1282 中 3 株缺 esm2/routeB 行: 按 ORF 字典序尾段单调拼接 (披露)",
+    "task_schema": "rank\tyeast_gene\tensemble_score (与历史导出同构, 执行器兼容)"
+  },
+  "output_dir": "esm2_joint_tasks_20260912"
+}

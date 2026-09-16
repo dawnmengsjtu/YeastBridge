@@ -1,0 +1,72 @@
+{
+ "k562_h5ad": {
+  "path": "human_ko_base_audit/K562_gwps_normalized_bulk_01.h5ad",
+  "sha256": "37e48c474d8b5dead4151f96ea8f5fe7bbe6beb10eeea48685b740c3f74490a2",
+  "match": true
+ },
+ "yeast_matrix": {
+  "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
+  "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16",
+  "match": true
+ },
+ "higher_matrix": {
+  "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
+  "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c",
+  "match": true
+ },
+ "yeast_metadata": {
+  "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
+  "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912",
+  "match": true
+ },
+ "higher_metadata": {
+  "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
+  "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d",
+  "match": true
+ },
+ "orthodb_edges": {
+  "path": "k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
+  "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b",
+  "match": true
+ },
+ "go_bp_ancestors": {
+  "path": "go_bridge_assets_v1/results/gene_bp_ancestors.tsv.gz",
+  "sha256": "7f47fc3745200931ec3cb5ed826265beb9a0cdbd2cef27856178f91d75225068",
+  "match": true
+ },
+ "goslim_projection": {
+  "path": "match_diag_20260908/k562_proj/gene_goslim_projection.tsv.gz",
+  "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827",
+  "match": true
+ },
+ "neighborhood_terms": {
+  "path": "v6_process_bridge_20260912/frozen/neighborhood_terms.tsv",
+  "sha256": "f68827fd6c4a86870a90b8c932ef9b5534543b0c5d0a11a2c760b40f5a5bc1f7",
+  "match": true
+ },
+ "neighborhood_derivation": {
+  "path": "v6_process_bridge_20260912/frozen/derivation_record.json",
+  "sha256": "74c3c91619087e6a5eb6892c17a164705d818426de283011861361c29ab942b0",
+  "match": true
+ },
+ "c_arm_task_export_record": {
+  "path": "go_bridge_tasks_20260912/export_record.json",
+  "sha256": "70b403548e7a7cf3fcf252f35008d652b6ee90a5fdf761645d4c5aa6041e5948",
+  "match": true
+ },
+ "human_gaf": {
+  "path": "go_bridge_assets_v1/raw/HUMAN-uniprot.gaf.gz",
+  "sha256": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2",
+  "match": true
+ },
+ "yeast_gaf": {
+  "path": "go_bridge_assets_v1/raw/YEAST-mod.gaf.gz",
+  "sha256": "bea6d4453bb47db293d9103b73866801fe8e341975e5f8b5f3ca42053098d089",
+  "match": true
+ },
+ "go_obo": {
+  "path": "go_bridge_assets_v1/raw/go-basic.obo",
+  "sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc",
+  "match": true
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "ok": 6259,
+ "mismatch": 16,
+ "missing": 0,
+ "bad": [
+  "docs/cross_species_match/EJ_PANEL_RESULT_20260912.md",
+  "docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+  "docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md",
+  "docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+  "docs/cross_species_match/FAMILY_SPECIFICITY_RESULT.md",
+  "docs/cross_species_match/LINE_POSITIONING_20260912.md",
+  "docs/cross_species_match/V5_JOINT_FORMAL_PROTOCOL.md",
+  "docs/cross_species_match/V5_JOINT_FORMAL_RESULT.md",
+  "docs/cross_species_match/V6_PROCESS_BRIDGE_PROTOCOL.md",
+  "docs/cross_species_match/V6_PROCESS_BRIDGE_RESULT.md",
+  "docs/cross_species_match/V7_B2_FORMAL_RESULT.md",
+  "docs/cross_species_match/V7_B2_JOINT_FORMAL_PROTOCOL.md",
+  "docs/cross_species_match/V8_ESM2_FORMAL_RESULT.md",
+  "docs/cross_species_match/V8_ESM2_JOINT_FORMAL_PROTOCOL.md",
+  "docs/cross_species_match/V9_ESM2_BASIC_RESULT.md",
+  "docs/cross_species_match/V9_ESM2_BASIC_STRUCTURE_PROTOCOL.md"
+ ],
+ "missing_head": [],
+ "note": "16 处不一致均为 docs 文案修订；scripts/configs/tasks/panels/results/raw 共 6259 文件逐位一致"
+}

@@ -1,0 +1,2 @@
+target_id	inchikey	dose	source_condition_index	n_conditions_tested	n_unique_doses_tested	spearman_rho	null_exceedances	n_perm	emp_p	allowlist_row	q_bh	q_by	q	fdr_method	fdr_family_size	allowlist_sha256	smiles
+TRPV1	YKPUWZUDDOIDPM-SOFGYWHQSA-N	100	3079	2	2	-0.020926604	994	1000	0.994005994005994	1	0.994005994005994	1.0	0.994005994005994	BH	4	59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93	CC(C)C=CCCCCC(=O)NCC1=CC(=C(C=C1)O)OC

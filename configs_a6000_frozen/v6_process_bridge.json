@@ -1,0 +1,159 @@
+{
+  "protocol": "V6_PROCESS_BRIDGE_PROTOCOL.md",
+  "date_frozen": "2026-09-12",
+  "run_mode": "single_formal_run_predeclared_decision_rules",
+  "user_directive": "2026-09-12: A(同源对齐)降级为门控成员, B(过程级融合)升级为管线骨架并接入应用层; 从读出层起局限于信号+跨膜运输邻域; 不做扩池审计",
+  "stage_root": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901",
+  "v51_reference": {
+    "config": "configs/v5_1_joint_formal.json",
+    "run_dir": "v5_1_joint_formal_20260909",
+    "note": "V5.1 冻结不改; V6 复用其 8 项哈希锁定输入; V5.1 主张边界在 V6 协议第 1 节重述"
+  },
+  "inputs": {
+    "k562_h5ad": {
+      "path": "human_ko_base_audit/K562_gwps_normalized_bulk_01.h5ad",
+      "sha256": "37e48c474d8b5dead4151f96ea8f5fe7bbe6beb10eeea48685b740c3f74490a2"
+    },
+    "yeast_matrix": {
+      "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
+      "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
+    },
+    "higher_matrix": {
+      "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
+      "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
+    },
+    "yeast_metadata": {
+      "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
+      "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+    },
+    "higher_metadata": {
+      "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
+      "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
+    },
+    "orthodb_edges": {
+      "path": "k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
+      "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
+    },
+    "go_bp_ancestors": {
+      "path": "go_bridge_assets_v1/results/gene_bp_ancestors.tsv.gz",
+      "sha256": "7f47fc3745200931ec3cb5ed826265beb9a0cdbd2cef27856178f91d75225068"
+    },
+    "goslim_projection": {
+      "path": "match_diag_20260908/k562_proj/gene_goslim_projection.tsv.gz",
+      "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
+    },
+    "neighborhood_terms": {
+      "path": "v6_process_bridge_20260912/frozen/neighborhood_terms.tsv",
+      "sha256": "f68827fd6c4a86870a90b8c932ef9b5534543b0c5d0a11a2c760b40f5a5bc1f7"
+    },
+    "neighborhood_derivation": {
+      "path": "v6_process_bridge_20260912/frozen/derivation_record.json",
+      "sha256": "74c3c91619087e6a5eb6892c17a164705d818426de283011861361c29ab942b0"
+    },
+    "c_arm_task_export_record": {
+      "path": "go_bridge_tasks_20260912/export_record.json",
+      "sha256": "70b403548e7a7cf3fcf252f35008d652b6ee90a5fdf761645d4c5aa6041e5948"
+    },
+    "c_arm_task_dir": "go_bridge_tasks_20260912",
+    "human_gaf": {
+      "path": "go_bridge_assets_v1/raw/HUMAN-uniprot.gaf.gz",
+      "sha256": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2"
+    },
+    "yeast_gaf": {
+      "path": "go_bridge_assets_v1/raw/YEAST-mod.gaf.gz",
+      "sha256": "bea6d4453bb47db293d9103b73866801fe8e341975e5f8b5f3ca42053098d089"
+    },
+    "go_obo": {
+      "path": "go_bridge_assets_v1/raw/go-basic.obo",
+      "sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc"
+    }
+  },
+  "data_quality_gate": {
+    "column_abs_max_threshold": 1e30,
+    "expected_dropped_columns": 73
+  },
+  "representation": {
+    "es_term_min_genes": 10,
+    "es_term_max_genes": 500,
+    "z_clip": 50.0,
+    "pc_removal": 1,
+    "expected_shared_terms": 639,
+    "neighborhood_restriction_step": "readout_only",
+    "note": "表示/对齐训练保持 639-term 全空间(V5.1 冻结口径); 邻域限制只施加在读出层(S1 负结果与训练信号分布决定)"
+  },
+  "neighborhood": {
+    "seeds": {
+      "GO:0023052": "signaling",
+      "GO:0055085": "transmembrane_transport"
+    },
+    "closure_relations": ["is_a", "part_of"],
+    "n_terms": 27
+  },
+  "v6a_norman": {
+    "task": "Norman 207 查询 -> 19 类 GO-BP 标签 (V5.1 轨道 B 同任务同数据)",
+    "label_universe": ["GO:0000278","GO:0005975","GO:0006260","GO:0006325","GO:0006351","GO:0006355","GO:0006575","GO:0006913","GO:0007005","GO:0007010","GO:0007155","GO:0012501","GO:0016071","GO:0023052","GO:0030154","GO:0030163","GO:0055085","GO:0065003","GO:0140014"],
+    "members": ["h_es1", "y_gs0", "jrepr", "lab_gs0", "y_es0", "h_nbr", "y_nbr"],
+    "member_notes": {
+      "h_es1..y_es0": "V5.1 五成员逐字复用(jrepr=A 的 W_A 成员, 降级为可选)",
+      "h_nbr": "LOGO 人侧, En1 限制到 27 邻域 term 后 l2n",
+      "y_nbr": "查询 En1 邻域限制 vs 酵母带标签参考 Ey1 邻域限制"
+    },
+    "families": {
+      "single:h_es1": ["h_es1"], "single:y_gs0": ["y_gs0"], "single:jrepr": ["jrepr"],
+      "single:lab_gs0": ["lab_gs0"], "single:y_es0": ["y_es0"], "single:h_nbr": ["h_nbr"],
+      "single:y_nbr": ["y_nbr"],
+      "core5": ["h_es1", "y_gs0", "jrepr", "lab_gs0", "y_es0"],
+      "core5_nbr2": ["h_es1", "y_gs0", "jrepr", "lab_gs0", "y_es0", "h_nbr", "y_nbr"],
+      "nbr4": ["h_nbr", "y_nbr", "jrepr", "lab_gs0"],
+      "all7": ["h_es1", "y_gs0", "jrepr", "lab_gs0", "y_es0", "h_nbr", "y_nbr"]
+    },
+    "rrf_k_grid": [5, 10, 20, 40, 60],
+    "nested_selection": "LOGO 组内选 (family,k), 组外评; 平局规则: 成员数少者优先, 再 k 小者优先",
+    "comparator": "7 个单臂中组内选最优 (零泄漏)",
+    "gate_primary": "nested_fusion vs comparator MRR delta signflip p<0.05",
+    "n_signflip": 2048,
+    "seed_signflip_base": 20260921,
+    "descriptive_strata": ["GO:0023052", "GO:0055085", "GO:0007155", "GO:0006913", "GO:0006355"],
+    "official_test_reported_descriptively": true
+  },
+  "v6b_relay": {
+    "task": "universe 靶点模块接力: 人靶点 LOO 签名邻域谱 -> 酵母菌株排序 -> 与靶点自身邻域注释的一致性是否高于置换零分布",
+    "targets_source": "go_bridge_tasks_20260912/export_record.json 中 status=OK 的靶点 (以记录为准; 该记录含 71 个 OK)",
+    "loo_rule": "计算靶点自身签名的 ES 谱前, 将靶点基因列值置为该行均值(消除自注释泄漏)",
+    "query_repr": "LOO 行 -> ES(B_h/root_h) -> 减 E_k 均值 -> 去 E_k PC1 方向 -> l2n -> 限制 27 邻域 -> l2n",
+    "strain_repr": "Ey1 行限制 27 邻域 -> l2n",
+    "gold_M_t": "HUMAN GAF BP 直接注释(排除 NOT) -> obo 祖先闭包 -> ∩ 27 邻域; M_t 为空的靶点剔除并披露计数",
+    "strain_annotation_a_s": "菌株被删基因 YEAST GAF BP -> 祖先闭包 -> ∩ 27 邻域 (binary 27d)",
+    "primary_statistic": "C(t)=top50 菌株 cos(a_s, m_t) 均值; 汇总=76(减剔除)靶点均值",
+    "secondary_statistic": "top50 中 a_s∩M_t 非空菌株占比均值",
+    "arms": {
+      "H": "cos(h_t_nbr, strain_nbr) 无 W",
+      "J": "冻结 C 臂导出分(go_bridge_tasks_20260912 TSV verbatim), 全部靶点报告",
+      "F": "H 与 J 的 RRF k=10, J 仅当靶点在 orthodb edges 有同源伙伴时参与(门控); 无同源时 F=H"
+    },
+    "top_k_strains": 50,
+    "n_perm": 2000,
+    "seed_perm": 20260922,
+    "null": "置换 target<->LOO 签名配对(M_t 与菌株注释固定), 单侧 p=(1+#{perm>=obs})/(1+n_perm)",
+    "gate_R": "H 或 F 的主统计量 p<0.05"
+  },
+  "v6c_export": {
+    "decision_rule_predeclared": "gate_R 通过 -> 导出分=F; 否则 -> 导出分=H; 无其他分支",
+    "task_table": {
+      "nbr_strains": "邻域注释(a_s 非空)菌株按导出分降序排前段",
+      "tail_strains": "其余菌株按全 639 维 cos(h_t_full, Ey1_full) 降序, 分数仿射平移到邻域段最低分之下(单调拼接, 披露)",
+      "schema": "rank\tyeast_gene\tscore",
+      "rows": "全部 pool 菌株(与 C 臂导出同池)"
+    },
+    "outdir": "go_bridge_tasks_v6_20260912",
+    "panel": {
+      "config_template": "configs/product_execute.gobridge.json",
+      "new_config": "configs/product_execute.gobridge_v6.json",
+      "changes": "仅 task_dir 与 results_dir; sensitivity_sign=+1.0, n_perm=1000, seed=42, endpoint=v2-spearman 均与冻结模板一致",
+      "poscon_allowlist_sha256": "26157f24d0fbe78ee489584e0f28da20f459c6f43b167cbe054dfb2d32fec18b",
+      "runs": ["poscon(KCNH2 x amiodarone, 冻结 allowlist)", "screen(全部导出靶点 x 3250 化合物)"],
+      "interpretation": "面板为确证性报告, 无门功效(置换分辨率不足已在 V5.1 期 screen 记录); 结果原样登记"
+    }
+  },
+  "disclosure": "V6 为 B 骨架正式化: (1) V5.1 两轨道结果冻结不动, A 的 gate-A 主张边界重述为'有直系同源物的可对齐类'; (2) V6-A 在 Norman 同数据上重跑融合骨架(新增 2 个邻域成员+成员子集嵌套选择), 属同数据第三轮事后迭代, p 值不得按单轮预注册解读; (3) V6-B/V6-C 为 universe 靶点类(GPCR/离子通道)上的新任务形态, 首次运行; (4) 邻域读出限制(信号+跨膜运输 descendant closure, 27 terms)在看任何 V6 结果前由冻结 obo 推导并哈希锁定; (5) 不做扩池(用户 2026-09-12 指示), 面板功效上限受 1282 池效应基因缺失影响, 该局限在结果文档中原样登记"
+}

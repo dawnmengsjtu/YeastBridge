@@ -1,0 +1,28 @@
+term_id	name	seeds	n_human_genes	n_yeast_genes
+GO:0000075	cell cycle checkpoint signaling	signaling	23	246
+GO:0000165	MAPK cascade	signaling	36	66
+GO:0003333	amino acid transmembrane transport	transmembrane_transport	50	130
+GO:0007093	mitotic cell cycle checkpoint signaling	signaling	19	155
+GO:0007186	G protein-coupled receptor signaling pathway	signaling	53	23
+GO:0007264	small GTPase-mediated signal transduction	signaling	13	90
+GO:0008645	hexose transmembrane transport	transmembrane_transport	26	52
+GO:0015749	monosaccharide transmembrane transport	transmembrane_transport	26	57
+GO:0019722	calcium-mediated signaling	signaling	27	18
+GO:0030968	endoplasmic reticulum unfolded protein response	signaling	34	35
+GO:0031570	DNA integrity checkpoint signaling	signaling	13	132
+GO:0031929	TOR signaling	signaling	16	54
+GO:0034219	carbohydrate transmembrane transport	transmembrane_transport	26	73
+GO:0034220	monoatomic ion transmembrane transport	transmembrane_transport	92	293
+GO:0042770	signal transduction in response to DNA damage	signaling	16	100
+GO:0044818	mitotic G2/M transition checkpoint	signaling	13	22
+GO:0070588	calcium ion transmembrane transport	transmembrane_transport	22	13
+GO:0071805	potassium ion transmembrane transport	transmembrane_transport	11	22
+GO:0098655	monoatomic cation transmembrane transport	transmembrane_transport	82	275
+GO:0098739	import across plasma membrane	transmembrane_transport	45	45
+GO:0140467	integrated stress response signaling	signaling	24	13
+GO:0141124	intracellular signaling cassette	signaling	125	189
+GO:1902475	L-alpha-amino acid transmembrane transport	transmembrane_transport	33	43
+GO:1902600	proton transmembrane transport	transmembrane_transport	29	123
+GO:1904659	D-glucose transmembrane transport	transmembrane_transport	24	13
+GO:1905039	carboxylic acid transmembrane transport	transmembrane_transport	48	120
+GO:1990542	mitochondrial transmembrane transport	transmembrane_transport	10	116

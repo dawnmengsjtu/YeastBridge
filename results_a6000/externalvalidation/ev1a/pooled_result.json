@@ -1,0 +1,46 @@
+{
+ "mode": "pooled_joint_gain",
+ "label": "合并证据：Norman 207（主链 V9 注册）+ EV1a 76（独立外样本），同一估计量、独立样本",
+ "cohorts": {
+  "norman_n": 207,
+  "ev1a_n": 76,
+  "pooled_n": 283
+ },
+ "G1_joint_vs_best_single": {
+  "pooled_delta": 0.04633475756436844,
+  "signflip_p": 0.0,
+  "cohort_delta_norman": 0.05216311377077744,
+  "cohort_delta_ev1a": 0.030460155791649204,
+  "pass": true
+ },
+ "G2_vs_human_only": {
+  "pooled_delta": 0.03597251769600773,
+  "signflip_p": 0.041259765625,
+  "cohort_delta_norman": 0.03799638003770459,
+  "cohort_delta_ev1a": 0.030460155791649204,
+  "pass": true
+ },
+ "G2_vs_yeast_only": {
+  "pooled_delta": 0.04606394878701217,
+  "signflip_p": 0.001220703125,
+  "cohort_delta_norman": 0.04622588541016324,
+  "cohort_delta_ev1a": 0.04562288456342963,
+  "pass": true
+ },
+ "cohort_standalone": {
+  "note": "EV1a 单独（n=76）方向复现但未达显著；本字段为唯一在册记录",
+  "ev1a_G1_p": 0.221,
+  "ev1a_G2_vs_human_p": 0.221,
+  "ev1a_G2_vs_yeast_p": 0.112,
+  "norman_G1_p": 0.0,
+  "norman_G2_vs_human_p": 0.0513,
+  "norman_G2_vs_yeast_p": 0.0015
+ },
+ "pooled_mrr": {
+  "human_only": 0.3670704535685008,
+  "yeast_only": 0.3569790224774963,
+  "best_single": 0.35670821370014005,
+  "joint": 0.40304297126450855,
+  "n": 283
+ }
+}

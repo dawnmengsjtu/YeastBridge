@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "path": "/root/private_data/yeastbridge_clean/panels/family_specificity_panel_20260913/resid_allowlist_pos.tsv",
+  "sha256": "a045a0f699a1efa848ece321b4b356f801d7632d6cb93b258f8ce61caa3c2944",
+  "expected_sha256_verified": true,
+  "provenance": "two_stage_confirmation",
+  "declared_hiphop_blind": false,
+  "two_stage_rule_doc": "/root/private_data/yeastbridge_clean/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+  "two_stage_rule_doc_sha256": "b53c59017523d74b66b0b9f265f024b80fbcd499bda376fd1b9a7ee563d5bcf6",
+  "selection_basis": "resid_pos family derived from frozen confirmation family per FAMILY_SPECIFICITY_PROTOCOL (mechanical rule, outcome-derived by design, disclosed two-stage mode)",
+  "schema_columns": [
+    "target_id",
+    "inchikey"
+  ],
+  "n_hypotheses": 2,
+  "freeze_contract": "SHA-256 and independent selection basis validated before loading the HIP/HOP response matrix",
+  "validated_before_response_load": true
+}

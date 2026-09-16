@@ -1,0 +1,190 @@
+{
+  "protocol": "V7_B2_JOINT_FORMAL_PROTOCOL.md",
+  "date_frozen": "2026-09-12",
+  "run_mode": "single_formal_run_b2_axis",
+  "user_directive": "2026-09-12: 把 B2 路线(scf-esm2-scyeast)的三臂两门完整跑一遍(V5.1 同机, 表示层换成 B2 轴)",
+  "stage_root": "/root/private_data/yeastbridge_clean",
+  "axis_discipline": "执行层轴纪律(2026-09-11 用户裁定): B2 轴为主, esm2_mean 只作注册参照臂并列报告; 不按结果选轴",
+  "inputs": {
+    "esm2_human": {
+      "path": "raw/tier1_esm2/human_810/esm2_mean_fp32.npy",
+      "sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "index_path": "raw/tier1_esm2/human_810/index.tsv",
+      "index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+      "provenance": "UniProt REST reviewed human gene_exact (810/811 ok, NEDD8-MDP1 no_result 剔除披露); ESM2-650M layer33 mean-pooled fp16 GPU1, 40.5s, 0 nan; build: v7_b2_formal_20260912/assets/{build_assets.py,manifest.tsv}"
+    },
+    "route_b_table": {
+      "path": "raw/tier1_models/route_b/gene_table_final.npy",
+      "sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24"
+    },
+    "route_b_model": {
+      "path": "raw/tier1_models/route_b/final_model.pt",
+      "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+      "injection": "state_dict pos_emb.proj.{weight,bias}; q = l2n(emb @ W.T + b) (esm2_cross_match.py route_b_top 逐字同式)"
+    },
+    "route_b_gene_order": {
+      "path": "raw/tier1_models/route_b/A2_init.tsv",
+      "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c"
+    },
+    "yeast_esm2": {
+      "path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
+      "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "index_path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/index.tsv",
+      "index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
+    },
+    "scyeast_prior": {
+      "path": "raw/tier1_models/scyeast/scyeast_prior_space.npy",
+      "sha256": "8a02152305f6bef8aa88bc4974dfd38fa67d1c90629840f871de0a03705cee40",
+      "gene_order_path": "raw/tier1_models/scyeast/gene_order_5812.txt",
+      "gene_order_sha256": "7f0f16a9e4ba55d4071ee6b8cbe43d825640e6a03a9724ceebdc614569ed0b74"
+    },
+    "orthodb_edges": {
+      "path": "raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+      "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
+    },
+    "v51_pair_list": {
+      "path": "results_a6000/v51_per_query_ranks_trackA.tsv",
+      "note": "V5.1 官方 753 对(human,yeast_orf,split,fold)冻结清单; 主分析对集=该清单 ∩ B2 表示可用(人 ESM2 ok 且 ORF 在池中); 扩展对集=全部可行 edges, 仅描述性报告"
+    },
+    "yeast_matrix": {
+      "path": "raw/tier1_benchmark/yeast_matrix.tsv.gz",
+      "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
+    },
+    "yeast_metadata": {
+      "path": "raw/tier1_benchmark/yeast_metadata.tsv",
+      "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+    },
+    "higher_matrix": {
+      "path": "raw/tier1_benchmark/higher_matrix.tsv.gz",
+      "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
+    },
+    "higher_metadata": {
+      "path": "raw/tier1_benchmark/higher_metadata.tsv",
+      "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
+    },
+    "goslim_projection": {
+      "path": "raw/tier1_projections/gene_goslim_projection.tsv.gz",
+      "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
+    }
+  },
+  "trackA": {
+    "task": "人源基因蛋白表示 -> 池内酵母菌株检索, gold=直系同源(与 V5.1 轨道 A 同任务语义, 表示层换 B2 轴)",
+    "pool": "benchmark_eligible 酵母菌株 ∩ route_b_table ∩ yeast_esm2 覆盖(运行时计数入 manifest)",
+    "primary_axis": {
+      "X": "l2n(ESM2_human @ W_inj.T + b_inj) (768d)",
+      "Y": "l2n(route_b_table 池行) (768d)",
+      "armA": "无对齐: cos(X_b2, Y_rb)",
+      "armB": "无监督: 各空间去 PC1 后 cos",
+      "armC": "联合: ridge(λ∈{1,10,100,1000}, train-pair AUC 选)+PLS4 秩平均集成 (V5.1 armC_recipe 同构, train pairs 上训练)"
+    },
+    "reference_axis_esm2_mean": {
+      "X": "l2n(ESM2_human) (1280d)",
+      "Y": "l2n(yeast_esm2 池行)",
+      "arms": "同构 A/B/C, 全部并列报告, 不作为项目门"
+    },
+    "extra_cells_aligner_only": [
+      "X_b2->scyeast_prior",
+      "X_b2->yeast_esm2",
+      "X_es->route_b",
+      "X_es->scyeast_prior"
+    ],
+    "pairs_primary": "V5.1 753 对冻结清单 ∩ 表示可用; split 沿用冻结标签",
+    "pairs_extended_descriptive": "全部 edges ∩ 表示可用(含 validation split, 不做门)",
+    "row_negatives": "V5.1 同配方: 每查询 30 株, 排除该人源基因全部 orthodb 伙伴, seed 20260911, 在 V7 池内重抽(池限制披露); 查询迭代序=符号排序",
+    "seed_row_negatives": 20260911,
+    "ridge_lambda_grid": [
+      1.0,
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "n_bootstrap": 3000,
+    "seed_bootstrap": 20260912,
+    "n_signflip": 2048,
+    "seed_signflip_base": 20260913,
+    "oof_folds": 5,
+    "gate_primary": "主轴 C test AUC MWU p<0.05 AND dAUC(C-A) bootstrap CI95 lower>0",
+    "gate_secondary_at_least_one": [
+      "OOF C-vs-A signflip p<0.05",
+      "any-paralog hit@10 gain p<0.05"
+    ]
+  },
+  "trackB": {
+    "task": "Norman 207 查询(蛋白表示) -> 19 类 GO-BP 标签 (V5.1 轨道 B 同任务同标签同 LOGO)",
+    "query_repr": "扰动基因 ESM2 嵌入均值(1-2 个成员蛋白) -> l2n; B2 轴再过 W_inj; 基因无 ok 嵌入的查询剔除并披露",
+    "label_universe": [
+      "GO:0000278",
+      "GO:0005975",
+      "GO:0006260",
+      "GO:0006325",
+      "GO:0006351",
+      "GO:0006355",
+      "GO:0006575",
+      "GO:0006913",
+      "GO:0007005",
+      "GO:0007010",
+      "GO:0007155",
+      "GO:0012501",
+      "GO:0016071",
+      "GO:0023052",
+      "GO:0030154",
+      "GO:0030163",
+      "GO:0055085",
+      "GO:0065003",
+      "GO:0140014"
+    ],
+    "yeast_refs": "V5.1 yeast_ref_mask 同配方(train split 且标签在 19 类) ∩ 表示表覆盖",
+    "members": [
+      "h_b2",
+      "y_b2",
+      "jrepr_b2",
+      "lab_gs0",
+      "y_es"
+    ],
+    "member_notes": {
+      "h_b2": "LOGO 人侧: q_b2 vs 其他组 Norman q_b2 参考",
+      "y_b2": "q_b2 vs 酵母带标签参考(route_b 表行) — B2 共享空间直连",
+      "jrepr_b2": "q_b2 @ W7(轨道A主轴 train-pair ridge) vs 酵母参考 — 配对监督成员",
+      "lab_gs0": "V5.1 逐字复用(goSlim 标签质心 ridge, 表示无关去相关成员)",
+      "y_es": "q_esm2 vs 酵母带标签参考(yeast_esm2 行) — 参照轴成员"
+    },
+    "families": {
+      "single:h_b2": [
+        "h_b2"
+      ],
+      "single:y_b2": [
+        "y_b2"
+      ],
+      "single:jrepr_b2": [
+        "jrepr_b2"
+      ],
+      "single:lab_gs0": [
+        "lab_gs0"
+      ],
+      "single:y_es": [
+        "y_es"
+      ],
+      "all5": [
+        "h_b2",
+        "y_b2",
+        "jrepr_b2",
+        "lab_gs0",
+        "y_es"
+      ]
+    },
+    "rrf_k_grid": [
+      5,
+      10,
+      20,
+      40,
+      60
+    ],
+    "nested_selection": "LOGO 组内选 (family,k), 组外评; 平局: 成员数少者优先, 再 k 小者优先",
+    "comparator": "5 个单臂中组内选最优(零泄漏)",
+    "label_centroid_ridge_lambda": 100.0,
+    "n_signflip": 2048,
+    "seed_signflip": 20261013,
+    "gate": "nested fusion vs comparator MRR delta signflip p<0.05"
+  },
+  "disclosure": "V7 = V5.1 三臂两门协议在 B2 轴表示上的单次正式运行(用户 2026-09-12 指示)。与 V5.1 的差异全部在表示层与由其强制的机械适配: (1) 查询从签名向量换为蛋白序列嵌入, 轨道 A 不再依赖 K562 签名存在性(valid_k), 主分析对集以 V5.1 冻结 753 对清单为底取交集以保持同数据可比; (2) row_negs 在 V7 池内以同 seed 同配方重抽; (3) 轨道 B 成员定义换表示, lab_gs0 保持 V5.1 逐字; (4) esm2_mean 参照轴并列报告不设门。门/指标/split/种子族与 V5.1 相同。结果无论方向均原样登记, 不按结果选轴。"
+}

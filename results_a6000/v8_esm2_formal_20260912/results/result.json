@@ -1,0 +1,98 @@
+{
+ "protocol": "V8_ESM2_JOINT_FORMAL_PROTOCOL.md",
+ "config_sha256": "a99358b03011df15632098422c632563f0a36bf37fa06e7c2cd48cd719dbff43",
+ "script_sha256": "207876402977658062fcd1d7e0abcfe4f93a3bb38954e18dccb67ed78dc65da3",
+ "trackA": {
+  "repr": "esm2_axis_v8",
+  "n_pairs_primary": 752,
+  "n_pool": 1279,
+  "armC_recipe_info": {
+   "npc_selected": 3,
+   "picks": {
+    "ridge": {
+     "hyper": 1.0,
+     "train_auc": 0.9994873138565002
+    },
+    "anchored": {
+     "hyper": 1.0,
+     "train_auc": 0.9997107588395417
+    },
+    "pls": {
+     "hyper": 8,
+     "train_auc": 0.958406480632342
+    }
+   },
+   "npc_grid_ridge_train_auc": {
+    "1": 0.9986249763454008,
+    "2": 0.9991889019898976,
+    "3": 0.9994873138565002
+   }
+  },
+  "armA_no_align_test_auc": 0.7466886424932574,
+  "armA_no_align_test_p": 1.4751243797255572e-23,
+  "armB_unsup_pc1_test_auc": 0.9638123064628908,
+  "armB_unsup_pc1_test_p": 3.725643244260778e-78,
+  "armC_joint_test_auc": 0.8769703326341025,
+  "armC_joint_test_p": 2.363956717335334e-52,
+  "boot_C_vs_A": {
+   "mean": 0.1312038682449306,
+   "ci95_low": 0.07070709719308757,
+   "ci95_high": 0.19303328838277883
+  },
+  "boot_C_vs_B": {
+   "mean": -0.08695606000066591,
+   "ci95_low": -0.11520689741284597,
+   "ci95_high": -0.06000799120966923
+  },
+  "boot_B_vs_A": {
+   "mean": 0.21815992824559655,
+   "ci95_low": 0.16402619618419734,
+   "ci95_high": 0.2731783787833383
+  },
+  "oof_C_vs_A": {
+   "gain": 0.028301906409595262,
+   "signflip_p": 0.0
+  },
+  "oof_C_vs_B": {
+   "gain": -0.00129027830918437,
+   "signflip_p": 0.7255859375
+  },
+  "any_hit10": {
+   "rate_B": 0.910904255319149,
+   "rate_C": 0.800531914893617,
+   "signflip_p": 1.0
+  },
+  "gate_primary": true,
+  "gate_secondary": true,
+  "upgraded_claim_C_beats_B": false
+ },
+ "trackB": {
+  "n_queries": 207,
+  "dropped_queries": [],
+  "fusion_mrr": 0.35211128867127883,
+  "comparator_best_single_mrr": 0.350353773092926,
+  "delta": 0.0017575155783528366,
+  "signflip_p": 0.42529296875,
+  "gate_pass": false,
+  "single_arm_mrr": {
+   "h_es1": 0.3645205068259989,
+   "y_es1": 0.35629100145354015,
+   "jrepr8": 0.32808069841878795,
+   "lab_gs0": 0.2313672973659737,
+   "y_b2": 0.27623382228084525
+  },
+  "fusion_picks": {
+   "single:y_es1|k=5": 1,
+   "all5|k=5": 34
+  },
+  "comparator_picks": {
+   "single:y_es1|k=5": 1,
+   "single:h_es1|k=5": 34
+  },
+  "v7_reference": {
+   "fusion": 0.369,
+   "comparator": 0.351,
+   "p": 0.124
+  }
+ }
+}

@@ -1,0 +1,2 @@
+target_id	inchikey	dose	source_condition_index	n_conditions_tested	n_unique_doses_tested	spearman_rho	null_exceedances	n_perm	emp_p	allowlist_row	q_bh	q_by	q	fdr_method	fdr_family_size	allowlist_sha256	smiles
+DRD4	ZUXABONWMNSFBN-UHFFFAOYSA-N	122	513	2	2	0.013213445	310	1000	0.3106893106893107	1	0.6213786213786214	1.0	0.6213786213786214	BH	8	d0ce81401be879c66d039a6c2deefb285340d3180e50913896c7423c885312ed	CN1CCN(CC1)C2=C3C=CC=CC3=NC4=C(N2)C=C(C=C4)Cl

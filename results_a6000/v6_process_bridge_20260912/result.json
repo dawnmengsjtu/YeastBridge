@@ -1,0 +1,116 @@
+{
+ "protocol": "V6_PROCESS_BRIDGE_PROTOCOL.md",
+ "config_sha256": "2b8071e5b14dfa10fd1725fb399ee7589ead248af81febf3b88120e3c2442575",
+ "script_sha256": "5f711f24c9489204839215aa2b9a7cff5ee81baefcc11a895574a85a8e767ccc",
+ "v6a_norman": {
+  "fusion_mrr": 0.3478463412685157,
+  "comparator_best_single_mrr": 0.23196731301399942,
+  "delta": 0.1158790282545162,
+  "signflip_p": 0.0,
+  "gate_pass": true,
+  "fusion_picks": {
+   "core5|k=20": 28,
+   "core5|k=10": 5,
+   "core5|k=60": 1,
+   "core5|k=5": 1
+  },
+  "comparator_picks": {
+   "single:h_es1|k=5": 1,
+   "single:y_gs0|k=5": 34
+  },
+  "single_arm_mrr": {
+   "h_es1": 0.2352074607240175,
+   "y_gs0": 0.2859575452482752,
+   "jrepr": 0.2309052608150737,
+   "lab_gs0": 0.2319855962153041,
+   "y_es0": 0.23052913118814766,
+   "h_nbr": 0.22889550302111442,
+   "y_nbr": 0.21780254771460406
+  },
+  "v51_reference": {
+   "nested_joint_mrr": 0.348,
+   "comparator_y_gs0": 0.286,
+   "signflip_p": 0.00244
+  },
+  "label_strata_descriptive": {
+   "GO:0023052": {
+    "n": 11,
+    "fusion_mrr": 0.18318903318903318,
+    "comparator_mrr": 0.2308802308802309,
+    "delta": -0.04769119769119768,
+    "power_note": "descriptive only; n small — no gate claim"
+   },
+   "GO:0055085": {
+    "n": 5,
+    "fusion_mrr": 0.10008658008658008,
+    "comparator_mrr": 0.12676470588235295,
+    "delta": -0.026678125795772854,
+    "power_note": "descriptive only; n small — no gate claim"
+   },
+   "GO:0007155": {
+    "n": 11,
+    "fusion_mrr": 0.052631578947368425,
+    "comparator_mrr": 0.052631578947368425,
+    "delta": 0.0,
+    "power_note": "descriptive only; n small — no gate claim"
+   },
+   "GO:0006913": {
+    "n": 3,
+    "fusion_mrr": 0.11919191919191918,
+    "comparator_mrr": 0.1259259259259259,
+    "delta": -0.006734006734006731,
+    "power_note": "descriptive only; n small — no gate claim"
+   },
+   "GO:0006355": {
+    "n": 62,
+    "fusion_mrr": 0.9220430107526882,
+    "comparator_mrr": 0.3866115067727971,
+    "delta": 0.535431503979891,
+    "power_note": "descriptive only; n small — no gate claim"
+   }
+  },
+  "official_test_descriptive": {
+   "n": 11,
+   "fusion_mrr": 0.3276367571822117,
+   "comparator_mrr": 0.22978650137741044
+  }
+ },
+ "v6b_relay": {
+  "n_targets_included": 67,
+  "n_targets_dropped_empty_Mt": [
+   "FZD5",
+   "FZD2",
+   "FZD3",
+   "GPR160"
+  ],
+  "n_strains_annotated": 148,
+  "j_gated_in": 0,
+  "primary_stat_mean_top50_cos_concordance": {
+   "H": 0.0069509357381709125,
+   "J": 0.010273284021803454,
+   "F": 0.0069509357381709125
+  },
+  "primary_perm_p": {
+   "H": 0.8610694652673663,
+   "J": 0.0704647676161919,
+   "F": 0.8610694652673663
+  },
+  "secondary_stat_top50_hit_rate": {
+   "H": 0.013432835820895522,
+   "J": 0.01761194029850746,
+   "F": 0.013432835820895522
+  },
+  "secondary_perm_p": {
+   "H": 0.8650674662668666,
+   "J": 0.21689155422288856,
+   "F": 0.8650674662668666
+  },
+  "gate_R_pass": false,
+  "gated_targets": []
+ },
+ "v6c_export": {
+  "export_arm": "H",
+  "gate_R": false,
+  "outdir": "go_bridge_tasks_v6_20260912"
+ }
+}

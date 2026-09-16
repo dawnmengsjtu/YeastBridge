@@ -1,0 +1,442 @@
+{
+ "mode": "ev1_preprocess_adamson",
+ "batches": [
+  "GSM2406675_10X001",
+  "GSM2406677_10X005",
+  "GSM2406681_10X010"
+ ],
+ "min_cells_per_target": 5,
+ "inputs": {
+  "tar": {
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/adamson_raw/GSE90546_RAW.tar",
+   "sha256": "6ee8f44aa271e05dc497ebf354b202a9cb82f454c2dc35f7838974f1285e1f90"
+  },
+  "GSM2406675_10X001_identities": {
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/adamson_raw/GSM2406675_10X001_cell_identities.csv.gz",
+   "sha256": "e0e719dfba62a3651b5ccde1d318973e5a80bba1863dbc98c104ea74ac6f5f34"
+  },
+  "GSM2406677_10X005_identities": {
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/adamson_raw/GSM2406677_10X005_cell_identities.csv.gz",
+   "sha256": "fc9cb6314594345057c1b937fa0c7947399f073196a3104963da609be7b74d14"
+  },
+  "GSM2406681_10X010_identities": {
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/adamson_raw/GSM2406681_10X010_cell_identities.csv.gz",
+   "sha256": "8b40be7a2280c1713bf5a1eb828aad46e70ad3a7000b5f5a1322e51e06c4cf7f"
+  }
+ },
+ "label_table": {
+  "source": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
+  "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d",
+  "n_signatures": 207,
+  "n_single_gene": 94,
+  "n_unique_genes": 94
+ },
+ "per_batch": {
+  "GSM2406675_10X001": {
+   "cells_total": 5768,
+   "cells_used": 5680,
+   "control_cells": 1759,
+   "targets": {
+    "BHLHE40": {
+     "cells": 542,
+     "kept": true
+    },
+    "CREB1": {
+     "cells": 499,
+     "kept": true
+    },
+    "DDIT3": {
+     "cells": 468,
+     "kept": true
+    },
+    "EP300": {
+     "cells": 620,
+     "kept": true
+    },
+    "SNAI1": {
+     "cells": 551,
+     "kept": true
+    },
+    "SPI1": {
+     "cells": 686,
+     "kept": true
+    },
+    "ZNF326": {
+     "cells": 555,
+     "kept": true
+    }
+   },
+   "n_targets_kept": 7
+  },
+  "GSM2406677_10X005": {
+   "cells_total": 15006,
+   "cells_used": 14272,
+   "control_cells": 3292,
+   "targets": {
+    "ATF6": {
+     "cells": 6236,
+     "kept": true
+    },
+    "IRE1": {
+     "cells": 1646,
+     "kept": true
+    },
+    "PERK": {
+     "cells": 3098,
+     "kept": true
+    }
+   },
+   "n_targets_kept": 3
+  },
+  "GSM2406681_10X010": {
+   "cells_total": 65337,
+   "cells_used": 59219,
+   "control_cells": 5970,
+   "targets": {
+    "AARS": {
+     "cells": 449,
+     "kept": true
+    },
+    "AMIGO3": {
+     "cells": 711,
+     "kept": true
+    },
+    "ARHGAP22": {
+     "cells": 490,
+     "kept": true
+    },
+    "ASCC3": {
+     "cells": 1753,
+     "kept": true
+    },
+    "ATP5B": {
+     "cells": 639,
+     "kept": true
+    },
+    "CAD": {
+     "cells": 271,
+     "kept": true
+    },
+    "CARS": {
+     "cells": 502,
+     "kept": true
+    },
+    "CCND3": {
+     "cells": 360,
+     "kept": true
+    },
+    "CHERP": {
+     "cells": 483,
+     "kept": true
+    },
+    "COPB1": {
+     "cells": 223,
+     "kept": true
+    },
+    "COPZ1": {
+     "cells": 270,
+     "kept": true
+    },
+    "DAD1": {
+     "cells": 736,
+     "kept": true
+    },
+    "DARS": {
+     "cells": 645,
+     "kept": true
+    },
+    "DDOST": {
+     "cells": 382,
+     "kept": true
+    },
+    "DDRGK1": {
+     "cells": 609,
+     "kept": true
+    },
+    "DERL2": {
+     "cells": 633,
+     "kept": true
+    },
+    "DHDDS": {
+     "cells": 496,
+     "kept": true
+    },
+    "DNAJC19": {
+     "cells": 1524,
+     "kept": true
+    },
+    "EIF2B2": {
+     "cells": 606,
+     "kept": true
+    },
+    "EIF2B3": {
+     "cells": 408,
+     "kept": true
+    },
+    "EIF2B4": {
+     "cells": 629,
+     "kept": true
+    },
+    "EIF2S1": {
+     "cells": 499,
+     "kept": true
+    },
+    "FARSB": {
+     "cells": 627,
+     "kept": true
+    },
+    "FECH": {
+     "cells": 670,
+     "kept": true
+    },
+    "GBF1": {
+     "cells": 910,
+     "kept": true
+    },
+    "GMPPB": {
+     "cells": 600,
+     "kept": true
+    },
+    "GNPNAT1": {
+     "cells": 493,
+     "kept": true
+    },
+    "HARS": {
+     "cells": 324,
+     "kept": true
+    },
+    "HSD17B12": {
+     "cells": 393,
+     "kept": true
+    },
+    "HSPA5": {
+     "cells": 1187,
+     "kept": true
+    },
+    "HSPA9": {
+     "cells": 881,
+     "kept": true
+    },
+    "HYOU1": {
+     "cells": 495,
+     "kept": true
+    },
+    "IARS2": {
+     "cells": 1094,
+     "kept": true
+    },
+    "IDH3A": {
+     "cells": 650,
+     "kept": true
+    },
+    "IER3IP1": {
+     "cells": 1483,
+     "kept": true
+    },
+    "KCTD16": {
+     "cells": 451,
+     "kept": true
+    },
+    "MANF": {
+     "cells": 548,
+     "kept": true
+    },
+    "MARS": {
+     "cells": 519,
+     "kept": true
+    },
+    "MRGBP": {
+     "cells": 558,
+     "kept": true
+    },
+    "MRPL39": {
+     "cells": 671,
+     "kept": true
+    },
+    "MTHFD1": {
+     "cells": 509,
+     "kept": true
+    },
+    "NEDD8": {
+     "cells": 498,
+     "kept": true
+    },
+    "OST4": {
+     "cells": 637,
+     "kept": true
+    },
+    "P4HB": {
+     "cells": 545,
+     "kept": true
+    },
+    "PDIA6": {
+     "cells": 581,
+     "kept": true
+    },
+    "PPWD1": {
+     "cells": 232,
+     "kept": true
+    },
+    "PSMD4": {
+     "cells": 608,
+     "kept": true
+    },
+    "PTDSS1": {
+     "cells": 532,
+     "kept": true
+    },
+    "QARS": {
+     "cells": 374,
+     "kept": true
+    },
+    "SAMM50": {
+     "cells": 787,
+     "kept": true
+    },
+    "SARS": {
+     "cells": 454,
+     "kept": true
+    },
+    "SCYL1": {
+     "cells": 1196,
+     "kept": true
+    },
+    "SEC61A1": {
+     "cells": 1155,
+     "kept": true
+    },
+    "SEC61B": {
+     "cells": 1648,
+     "kept": true
+    },
+    "SEC61G": {
+     "cells": 630,
+     "kept": true
+    },
+    "SEC63": {
+     "cells": 649,
+     "kept": true
+    },
+    "SEL1L": {
+     "cells": 436,
+     "kept": true
+    },
+    "SLC35B1": {
+     "cells": 610,
+     "kept": true
+    },
+    "SLC39A7": {
+     "cells": 592,
+     "kept": true
+    },
+    "SLMO2": {
+     "cells": 625,
+     "kept": true
+    },
+    "SOCS1": {
+     "cells": 443,
+     "kept": true
+    },
+    "SPCS2": {
+     "cells": 576,
+     "kept": true
+    },
+    "SPCS3": {
+     "cells": 632,
+     "kept": true
+    },
+    "SRP68": {
+     "cells": 685,
+     "kept": true
+    },
+    "SRP72": {
+     "cells": 509,
+     "kept": true
+    },
+    "SRPR": {
+     "cells": 587,
+     "kept": true
+    },
+    "SRPRB": {
+     "cells": 695,
+     "kept": true
+    },
+    "STT3A": {
+     "cells": 436,
+     "kept": true
+    },
+    "SYVN1": {
+     "cells": 634,
+     "kept": true
+    },
+    "TARS": {
+     "cells": 785,
+     "kept": true
+    },
+    "TELO2": {
+     "cells": 684,
+     "kept": true
+    },
+    "TIMM23": {
+     "cells": 743,
+     "kept": true
+    },
+    "TIMM44": {
+     "cells": 574,
+     "kept": true
+    },
+    "TMED10": {
+     "cells": 623,
+     "kept": true
+    },
+    "TMED2": {
+     "cells": 512,
+     "kept": true
+    },
+    "TMEM167A": {
+     "cells": 458,
+     "kept": true
+    },
+    "TTI1": {
+     "cells": 514,
+     "kept": true
+    },
+    "TTI2": {
+     "cells": 643,
+     "kept": true
+    },
+    "UFL1": {
+     "cells": 560,
+     "kept": true
+    },
+    "UFM1": {
+     "cells": 675,
+     "kept": true
+    },
+    "XRN1": {
+     "cells": 762,
+     "kept": true
+    },
+    "YIPF5": {
+     "cells": 1349,
+     "kept": true
+    }
+   },
+   "n_targets_kept": 82
+  }
+ },
+ "outputs": {
+  "matrix": {
+   "path": "/public/home/mengxl/dzy/externalvalidation_20260916/runs/ev1_adamson/adamson_matrix.tsv",
+   "shape": [
+    92,
+    32938
+   ]
+  },
+  "metadata": {
+   "path": "/public/home/mengxl/dzy/externalvalidation_20260916/runs/ev1_adamson/adamson_metadata.tsv",
+   "n": 92,
+   "n_label_mapped": 2
+  }
+ }
+}

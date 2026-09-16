@@ -1,0 +1,941 @@
+#!/usr/bin/env python3
+"""Execute transferred yeast tasks against the public HIP/HOP screen.
+
+The primary endpoint is a signed, full-profile Spearman association. A large
+positive statistic means that strains ranked as more relevant to a transferred
+task are also more hypersensitive to the compound. The raw vehicle-contrast z
+score is never converted to ``abs(z)``: by default the matrix is oriented as
+``sensitivity = -z`` because loss of barcode signal relative to vehicle is
+hypersensitivity.
+
+Inference is performed at the reported (target, compound) grain. Dose is a
+nuisance selection variable, so every permutation repeats the maximum over all
+tested conditions/doses for that compound before the empirical p value is
+calculated. Empirical p values use ``(b + 1) / (B + 1)`` and cannot be zero.
+Global BH and BY q values are both emitted; the configured primary method is
+copied to ``q``.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+from pathlib import Path
+from typing import Iterable
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+ALLOWLIST_COLUMNS = ("target_id", "inchikey")
+FORBIDDEN_ALLOWLIST_BASIS_TOKENS = (
+    "hiphop", "hip/hop", "e-mtab-2391", "exec_matrix",
+    "spearman_rho", "emp_p", "q_bh", "q_by",
+)
+
+
+def resolve_path(value: str | Path) -> Path:
+    """Resolve a config path without changing an already absolute path."""
+    path = Path(value)
+    return path if path.is_absolute() else ROOT / path
+
+
+def sha256_file(path: Path) -> str:
+    """Return the SHA-256 of the exact preregistered allowlist bytes."""
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def load_pair_allowlist(
+    path: Path,
+    expected_sha256: str,
+    declared_hiphop_blind: bool,
+    selection_basis: str,
+) -> tuple[pd.DataFrame, dict[str, object]]:
+    """Load a fail-closed hypothesis family frozen before HIP/HOP access.
+
+    The expected digest must be supplied independently (for example in the
+    run config or submission manifest).  The TSV intentionally permits only
+    the exact hypothesis key, so outcome-derived scores cannot ride along as
+    hidden selection columns.  Code cannot prove scientific provenance, so a
+    human-readable independent selection basis and explicit blindness
+    declaration are mandatory and are persisted in the run record.
+    """
+    path = Path(path)
+    if not path.is_file():
+        raise ValueError(f"pair allowlist does not exist: {path}")
+    expected = str(expected_sha256 or "").lower().removeprefix("sha256:")
+    if len(expected) != 64 or any(ch not in "0123456789abcdef" for ch in expected):
+        raise ValueError(
+            "pair allowlist requires a 64-character --pair-allowlist-sha256"
+        )
+    observed = sha256_file(path)
+    if observed != expected:
+        raise ValueError(
+            f"pair allowlist SHA-256 mismatch: expected {expected}, observed {observed}"
+        )
+    if not declared_hiphop_blind:
+        raise ValueError(
+            "pair allowlist must be frozen without viewing this HIP/HOP dataset; "
+            "pass --allowlist-declared-hiphop-blind only when that is true"
+        )
+    basis = str(selection_basis or "").strip()
+    if not basis:
+        raise ValueError(
+            "pair allowlist requires an independent --allowlist-selection-basis"
+        )
+    basis_lower = basis.lower()
+    forbidden = [token for token in FORBIDDEN_ALLOWLIST_BASIS_TOKENS
+                 if token in basis_lower]
+    if forbidden:
+        raise ValueError(
+            "allowlist selection basis appears to reference the tested HIP/HOP "
+            f"outcomes ({', '.join(forbidden)}); use independent evidence only"
+        )
+
+    frame = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
+    if tuple(frame.columns) != ALLOWLIST_COLUMNS:
+        raise ValueError(
+            "pair allowlist must contain exactly two ordered columns: "
+            "target_id, inchikey"
+        )
+    for column in ALLOWLIST_COLUMNS:
+        frame[column] = frame[column].str.strip()
+    if frame.empty or (frame[list(ALLOWLIST_COLUMNS)] == "").any().any():
+        raise ValueError("pair allowlist must be non-empty and contain no blank keys")
+    duplicated = frame.duplicated(list(ALLOWLIST_COLUMNS), keep=False)
+    if duplicated.any():
+        examples = frame.loc[duplicated, list(ALLOWLIST_COLUMNS)].head(5)
+        raise ValueError(
+            "pair allowlist contains duplicate hypotheses: "
+            f"{examples.to_dict('records')}"
+        )
+    frame = frame.copy()
+    frame["allowlist_row"] = np.arange(1, len(frame) + 1, dtype=int)
+    audit = {
+        "enabled": True,
+        "path": str(path.resolve()),
+        "sha256": observed,
+        "expected_sha256_verified": True,
+        "declared_hiphop_blind": True,
+        "selection_basis": basis,
+        "schema_columns": list(ALLOWLIST_COLUMNS),
+        "n_hypotheses": int(len(frame)),
+        "freeze_contract": (
+            "SHA-256 and independent selection basis validated before loading "
+            "the HIP/HOP response matrix"
+        ),
+    }
+    return frame, audit
+
+
+def validate_allowlist_universe(
+    allowlist: pd.DataFrame,
+    available_targets: Iterable[str],
+    available_compounds: Iterable[str],
+) -> None:
+    """Reject unknown hypotheses instead of silently shrinking the family."""
+    target_set = set(map(str, available_targets))
+    compound_set = set(map(str, available_compounds))
+    unknown_targets = sorted(set(allowlist["target_id"]) - target_set)
+    unknown_compounds = sorted(set(allowlist["inchikey"]) - compound_set)
+    if unknown_targets or unknown_compounds:
+        raise ValueError(
+            "pair allowlist contains unknown keys; "
+            f"unknown_targets={unknown_targets[:10]}, "
+            f"unknown_compounds={unknown_compounds[:10]}"
+        )
+
+
+def bind_allowlist_record(results: Path, audit: dict[str, object]) -> Path:
+    """Bind one output directory to one immutable allowlist digest."""
+    results.mkdir(parents=True, exist_ok=True)
+    record_path = results / "allowlist_freeze_record.json"
+    if record_path.exists():
+        existing = json.loads(record_path.read_text(encoding="utf-8"))
+        if existing.get("sha256") != audit.get("sha256"):
+            raise ValueError(
+                f"output directory is already bound to a different allowlist: {record_path}"
+            )
+    record = dict(audit)
+    record["validated_before_response_load"] = True
+    record_path.write_text(
+        json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return record_path
+
+
+def bh_fdr(p_values: Iterable[float]) -> np.ndarray:
+    """Benjamini-Hochberg adjusted p values over one explicit test family."""
+    p = np.asarray(p_values, dtype=float)
+    if p.ndim != 1 or np.any(~np.isfinite(p)) or np.any((p < 0) | (p > 1)):
+        raise ValueError("p_values must be a finite one-dimensional array in [0, 1]")
+    if not len(p):
+        return p.copy()
+    order = np.argsort(p, kind="stable")
+    ranked = p[order] * len(p) / np.arange(1, len(p) + 1)
+    ranked = np.minimum.accumulate(ranked[::-1])[::-1]
+    out = np.empty_like(ranked)
+    out[order] = np.clip(ranked, 0, 1)
+    return out
+
+
+def by_fdr(p_values: Iterable[float]) -> np.ndarray:
+    """Benjamini-Yekutieli adjusted p values (arbitrary dependence control)."""
+    p = np.asarray(p_values, dtype=float)
+    if not len(p):
+        return p.copy()
+    harmonic = np.sum(1.0 / np.arange(1, len(p) + 1))
+    return np.clip(bh_fdr(p) * harmonic, 0, 1)
+
+
+def rank_cols(values: np.ndarray) -> np.ndarray:
+    """Rank each column with average ranks for ties."""
+    values = np.asarray(values, dtype=float)
+    if values.ndim != 2 or np.any(~np.isfinite(values)):
+        raise ValueError("rank_cols requires a finite two-dimensional array")
+    n = values.shape[0]
+    out = np.empty(values.shape, dtype=np.float64)
+    for j in range(values.shape[1]):
+        col = values[:, j]
+        order = np.argsort(col, kind="stable")
+        ranks = np.empty(n, dtype=np.float64)
+        ranks[order] = np.arange(1, n + 1, dtype=np.float64)
+        sorted_col = col[order]
+        i = 0
+        while i < n:
+            k = i
+            while k + 1 < n and sorted_col[k + 1] == sorted_col[i]:
+                k += 1
+            if k > i:
+                ranks[order[i:k + 1]] = (i + 1 + k + 1) / 2.0
+            i = k + 1
+        out[:, j] = ranks
+    return out
+
+
+def rank_standardize_rows(profiles: np.ndarray) -> np.ndarray:
+    """Rank and z-standardize each profile across its feature axis.
+
+    Rows are profiles (tasks or compound conditions); columns are the same
+    ordered yeast strains. Keeping this convention explicit prevents the
+    previous rank/feature-axis ambiguity.
+    """
+    profiles = np.asarray(profiles, dtype=float)
+    if profiles.ndim != 2 or profiles.shape[1] < 2:
+        raise ValueError("profiles must be two-dimensional with >=2 features")
+    ranked = rank_cols(profiles.T).T
+    ranked -= ranked.mean(axis=1, keepdims=True)
+    scale = ranked.std(axis=1, keepdims=True)
+    if np.any(scale <= 1e-12):
+        raise ValueError("constant profile cannot be used for Spearman correlation")
+    return ranked / scale
+
+
+def compound_groups(compound_ids: Iterable[str]) -> dict[str, np.ndarray]:
+    """Create a deterministic grouping plan for max-over-condition tests."""
+    compounds = np.asarray(list(compound_ids), dtype=str)
+    if compounds.ndim != 1 or not len(compounds) or np.any(compounds == ""):
+        raise ValueError("compound_ids must be a non-empty vector without blanks")
+    unique, inverse = np.unique(compounds, return_inverse=True)
+    order = np.argsort(inverse, kind="stable")
+    ordered_group = inverse[order]
+    starts = np.r_[0, np.flatnonzero(np.diff(ordered_group)) + 1]
+    counts = np.diff(np.r_[starts, len(order)])
+    return {
+        "ids": unique,
+        "order": order,
+        "starts": starts.astype(int),
+        "counts": counts.astype(int),
+    }
+
+
+def max_over_compounds(scores: np.ndarray, groups: dict[str, np.ndarray]) -> np.ndarray:
+    """Reduce condition-level scores to a maximum for every compound."""
+    scores = np.asarray(scores)
+    if (scores.ndim != 2 or scores.shape[1] != len(groups["order"]) or
+            not np.issubdtype(scores.dtype, np.number)):
+        raise ValueError("scores must be profiles x compound conditions")
+    ordered = scores[:, groups["order"]]
+    return np.maximum.reduceat(ordered, groups["starts"], axis=1)
+
+
+def select_best_conditions(
+    scores: np.ndarray, groups: dict[str, np.ndarray]
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return group maxima and their original condition-column indices."""
+    scores = np.asarray(scores)
+    best = max_over_compounds(scores, groups)
+    chosen = np.empty(best.shape, dtype=int)
+    for group_i, (start, count) in enumerate(zip(groups["starts"], groups["counts"])):
+        condition_idx = groups["order"][start:start + count]
+        local = np.argmax(scores[:, condition_idx], axis=1)
+        chosen[:, group_i] = condition_idx[local]
+    return best, chosen
+
+
+def corrected_empirical_p(exceedances: np.ndarray, n_perm: int) -> np.ndarray:
+    """Finite Monte-Carlo p value; zero is impossible by construction."""
+    exceedances = np.asarray(exceedances)
+    if n_perm < 1 or np.any(exceedances < 0) or np.any(exceedances > n_perm):
+        raise ValueError("exceedances must lie between 0 and n_perm")
+    return (exceedances.astype(float) + 1.0) / (n_perm + 1.0)
+
+
+def load_task_relevance(
+    task_file: Path, strain_pos: dict[str, int], n_strains: int
+) -> tuple[np.ndarray, int]:
+    """Align a complete task ranking to strains with rank 1 oriented high."""
+    with task_file.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle, delimiter="\t"))
+    if not rows or "yeast_gene" not in rows[0]:
+        raise ValueError(f"invalid task file: {task_file}")
+    parsed: list[tuple[str, float]] = []
+    for ordinal, row in enumerate(rows, 1):
+        raw_rank = row.get("rank", "")
+        rank = float(raw_rank) if raw_rank not in (None, "") else float(ordinal)
+        parsed.append((str(row["yeast_gene"]), rank))
+    worst = max(rank for _, rank in parsed) + 1.0
+    relevance = np.full(n_strains, -worst, dtype=np.float64)
+    seen: set[int] = set()
+    for gene, rank in parsed:
+        pos = strain_pos.get(gene)
+        if pos is None:
+            continue
+        relevance[pos] = max(relevance[pos], -rank)
+        seen.add(pos)
+    return relevance, len(seen)
+
+
+def _dose_group_counts(
+    doses: np.ndarray, groups: dict[str, np.ndarray]
+) -> np.ndarray:
+    counts = []
+    for start, count in zip(groups["starts"], groups["counts"]):
+        idx = groups["order"][start:start + count]
+        counts.append(len(set(doses[idx].tolist())))
+    return np.asarray(counts, dtype=int)
+
+
+def hypothesis_index_arrays(
+    targets: list[str],
+    compound_ids: np.ndarray,
+    pair_allowlist: pd.DataFrame | None,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray | None]:
+    """Map the tested hypothesis family to target and compound indices."""
+    if pair_allowlist is None:
+        target_index = np.repeat(np.arange(len(targets)), len(compound_ids))
+        compound_index = np.tile(np.arange(len(compound_ids)), len(targets))
+        return target_index, compound_index, None
+    target_of = {target: i for i, target in enumerate(targets)}
+    compound_of = {compound: i for i, compound in enumerate(compound_ids)}
+    try:
+        target_index = np.asarray(
+            [target_of[target] for target in pair_allowlist["target_id"]],
+            dtype=int,
+        )
+        compound_index = np.asarray(
+            [compound_of[compound] for compound in pair_allowlist["inchikey"]],
+            dtype=int,
+        )
+    except KeyError as exc:
+        raise ValueError(f"allowlisted key is unavailable after task QC: {exc}") from exc
+    return (
+        target_index,
+        compound_index,
+        pair_allowlist["allowlist_row"].to_numpy(dtype=int),
+    )
+
+
+def run_v2_spearman(
+    task_files: list[Path],
+    strain_pos: dict[str, int],
+    sensitivity: np.ndarray,
+    compounds: np.ndarray,
+    doses: np.ndarray,
+    source_condition_indices: np.ndarray,
+    n_perm: int,
+    rng: np.random.Generator,
+    pair_allowlist: pd.DataFrame | None = None,
+    target_batch_size: int = 64,
+) -> tuple[pd.DataFrame, dict[str, object]]:
+    """Signed Spearman with max-dose permutations in bounded target batches."""
+    if target_batch_size < 1:
+        raise ValueError("target_batch_size must be positive")
+    required_targets = (
+        set(pair_allowlist["target_id"]) if pair_allowlist is not None else None
+    )
+    if pair_allowlist is not None:
+        condition_keep = np.isin(compounds, pair_allowlist["inchikey"].unique())
+        sensitivity = sensitivity[:, condition_keep]
+        compounds = compounds[condition_keep]
+        doses = doses[condition_keep]
+        source_condition_indices = source_condition_indices[condition_keep]
+
+    task_profiles: list[np.ndarray] = []
+    targets: list[str] = []
+    coverage: list[int] = []
+    for task_file in task_files:
+        target = task_file.stem.replace("yeast_task_", "")
+        if required_targets is not None and target not in required_targets:
+            continue
+        relevance, covered = load_task_relevance(
+            task_file, strain_pos, sensitivity.shape[0]
+        )
+        if covered < 100:
+            continue
+        targets.append(target)
+        task_profiles.append(relevance)
+        coverage.append(covered)
+    if not task_profiles:
+        raise RuntimeError("no task has at least 100 measured strains")
+    if required_targets is not None:
+        failed_qc = sorted(required_targets - set(targets))
+        if failed_qc:
+            raise ValueError(
+                "allowlisted targets failed the >=100 measured-strain task QC: "
+                f"{failed_qc}"
+            )
+
+    # Profiles x strains throughout: task (T x S), response (C x S).
+    task_rank_z = rank_standardize_rows(np.stack(task_profiles)).astype(np.float32)
+    response_rank_z = rank_standardize_rows(sensitivity.T).astype(np.float32)
+    n_strains = sensitivity.shape[0]
+    groups = compound_groups(compounds)
+    pair_target_index, pair_group_index, allowlist_rows = hypothesis_index_arrays(
+        targets, groups["ids"], pair_allowlist
+    )
+    n_pairs = len(pair_target_index)
+    if not n_pairs:
+        raise ValueError("tested hypothesis family is empty")
+    observed_best = np.empty(n_pairs, dtype=np.float32)
+    chosen_condition = np.empty(n_pairs, dtype=int)
+    exceedances = np.zeros(n_pairs, dtype=np.int32)
+    null_sum = np.zeros(n_pairs, dtype=np.float64)
+    null_sumsq = np.zeros(n_pairs, dtype=np.float64)
+
+    # Reuse the same Monte-Carlo label permutations in every target batch
+    # without retaining a B x n_strains permutation matrix in memory.
+    permutation_seeds = rng.integers(
+        0, np.iinfo(np.uint32).max, size=n_perm, dtype=np.uint32
+    )
+    n_batches = 0
+    max_block_conditions = 0
+    max_score_matrix_cells = 0
+    for start in range(0, len(targets), target_batch_size):
+        stop = min(len(targets), start + target_batch_size)
+        if pair_allowlist is None:
+            pair_positions = np.arange(
+                start * len(groups["ids"]), stop * len(groups["ids"]), dtype=int
+            )
+        else:
+            pair_positions = np.flatnonzero(
+                (pair_target_index >= start) & (pair_target_index < stop)
+            )
+        if not len(pair_positions):
+            continue
+        needed_global_groups = np.unique(pair_group_index[pair_positions])
+        needed_compounds = groups["ids"][needed_global_groups]
+        block_condition_mask = np.isin(compounds, needed_compounds)
+        block_condition_index = np.flatnonzero(block_condition_mask)
+        block_response_t = response_rank_z[block_condition_index].T
+        block_groups = compound_groups(compounds[block_condition_index])
+        local_group_of = {
+            compound: i for i, compound in enumerate(block_groups["ids"])
+        }
+        pair_local_target = pair_target_index[pair_positions] - start
+        pair_local_group = np.asarray([
+            local_group_of[groups["ids"][group_i]]
+            for group_i in pair_group_index[pair_positions]
+        ], dtype=int)
+
+        observed_conditions = (
+            task_rank_z[start:stop] @ block_response_t
+        ) / n_strains
+        block_best, block_chosen = select_best_conditions(
+            observed_conditions, block_groups
+        )
+        observed_best[pair_positions] = block_best[
+            pair_local_target, pair_local_group
+        ]
+        chosen_local = block_chosen[pair_local_target, pair_local_group]
+        chosen_condition[pair_positions] = block_condition_index[chosen_local]
+
+        for seed in permutation_seeds:
+            perm = np.random.default_rng(int(seed)).permutation(n_strains)
+            null_conditions = (
+                task_rank_z[start:stop, perm] @ block_response_t
+            ) / n_strains
+            null_best = max_over_compounds(null_conditions, block_groups)
+            null_stat = null_best[pair_local_target, pair_local_group].astype(
+                np.float64
+            )
+            exceedances[pair_positions] += (
+                null_stat >= observed_best[pair_positions]
+            )
+            null_sum[pair_positions] += null_stat
+            null_sumsq[pair_positions] += null_stat * null_stat
+        n_batches += 1
+        max_block_conditions = max(max_block_conditions, len(block_condition_index))
+        max_score_matrix_cells = max(
+            max_score_matrix_cells,
+            (stop - start) * len(block_condition_index),
+        )
+        print(
+            f"[v2] target batch {start}:{stop}; hypotheses={len(pair_positions)}; "
+            f"conditions={len(block_condition_index)}; permutations={n_perm}",
+            flush=True,
+        )
+
+    emp_p = corrected_empirical_p(exceedances, n_perm)
+
+    # ---- Gumbel 尾部拟合（2026-09-12 事后变体，文献标准做法）----
+    # 大假设族下置换 p 的分辨率上限 1/(n_perm+1) 远高于 BH 存活门槛；
+    # 按 Knijnenburg et al. 2009 (Bioinformatics) "fewer permutations, more
+    # power" 的思路，用每对假设的零分布矩（各置换下 max-over-doses 统计量）
+    # 做 Gumbel 极值分布矩拟合，解析外推上尾概率，突破分辨率上限。
+    # mid-range 校准对照（p_tail/emp_p）写入 audit 供核查。主 q 路径不变。
+    null_mean = null_sum / n_perm
+    null_var = np.maximum(null_sumsq / n_perm - null_mean * null_mean, 0.0)
+    null_sd = np.sqrt(null_var)
+    beta = null_sd * np.sqrt(6.0) / np.pi
+    degenerate = ~(beta > 1e-9)
+    beta_safe = np.where(degenerate, 1.0, beta)
+    gumbel_loc = null_mean - 0.5772156649015329 * beta_safe
+    z_tail = (observed_best.astype(np.float64) - gumbel_loc) / beta_safe
+    p_tail = np.where(
+        degenerate, emp_p, 1.0 - np.exp(-np.exp(-z_tail))
+    )
+    p_tail = np.clip(p_tail, np.finfo(np.float64).tiny, 1.0)
+
+    n_targets = len(targets)
+    unique_doses = _dose_group_counts(doses, groups)
+    frame = pd.DataFrame({
+        "target_id": np.asarray(targets, dtype=object)[pair_target_index],
+        "inchikey": groups["ids"][pair_group_index],
+        "dose": doses[chosen_condition],
+        "source_condition_index": source_condition_indices[chosen_condition],
+        "n_conditions_tested": groups["counts"][pair_group_index],
+        "n_unique_doses_tested": unique_doses[pair_group_index],
+        "spearman_rho": observed_best,
+        "null_exceedances": exceedances,
+        "n_perm": n_perm,
+        "emp_p": emp_p,
+        "null_mean": null_mean,
+        "null_sd": null_sd,
+        "p_tail_gumbel": p_tail,
+    })
+    if allowlist_rows is not None:
+        frame["allowlist_row"] = allowlist_rows
+    audit = {
+        "n_targets": n_targets,
+        "coverage_median": int(np.median(coverage)),
+        "task_axis": "rank 1 oriented high; rows=tasks, columns=strains",
+        "response_axis": "rows=compound conditions, columns=strains",
+        "target_batch_size": int(target_batch_size),
+        "n_target_batches": int(n_batches),
+        "max_block_conditions": int(max_block_conditions),
+        "max_score_matrix_cells": int(max_score_matrix_cells),
+        "permutation_storage": "uint32 seed vector; permutations regenerated per batch",
+        "tail_fit": (
+            "Gumbel moment fit on per-pair permutation null max-statistics "
+            "(disclosed post-hoc 2026-09-12; Knijnenburg 2009 style); "
+            "primary q columns remain emp_p-based"
+        ),
+        "tail_fit_calibration": {
+            "midrange_emp_p_band": [0.01, 0.5],
+            "n_pairs_in_band": int(((emp_p >= 0.01) & (emp_p <= 0.5)).sum()),
+            "median_p_tail_over_emp_p_in_band": (
+                float(np.median(
+                    p_tail[(emp_p >= 0.01) & (emp_p <= 0.5)]
+                    / emp_p[(emp_p >= 0.01) & (emp_p <= 0.5)]
+                )) if ((emp_p >= 0.01) & (emp_p <= 0.5)).any() else None
+            ),
+            "n_degenerate_null_sd_pairs": int(degenerate.sum()),
+            "n_pairs_p_tail_below_1e-4": int((p_tail < 1e-4).sum()),
+            "n_pairs_p_tail_below_1e-6": int((p_tail < 1e-6).sum()),
+        },
+        "hypothesis_family": (
+            "pre-frozen exact pair allowlist" if pair_allowlist is not None
+            else "all target x compound pairs"
+        ),
+    }
+    return frame, audit
+
+
+def run_v1_topk(
+    task_files: list[Path],
+    strain_pos: dict[str, int],
+    sensitivity: np.ndarray,
+    compounds: np.ndarray,
+    doses: np.ndarray,
+    source_condition_indices: np.ndarray,
+    top_k: int,
+    n_perm: int,
+    rng: np.random.Generator,
+    pair_allowlist: pd.DataFrame | None = None,
+) -> tuple[pd.DataFrame, dict[str, object]]:
+    """Legacy top-k endpoint with the same signed/max-dose safeguards."""
+    required_targets = (
+        set(pair_allowlist["target_id"]) if pair_allowlist is not None else None
+    )
+    allowed_by_target = {}
+    allowlist_row_of = {}
+    if pair_allowlist is not None:
+        for target, group in pair_allowlist.groupby("target_id", sort=False):
+            allowed_by_target[target] = set(group["inchikey"])
+        allowlist_row_of = {
+            (row.target_id, row.inchikey): int(row.allowlist_row)
+            for row in pair_allowlist.itertuples()
+        }
+    frames: list[pd.DataFrame] = []
+    used_targets = 0
+    produced_targets: set[str] = set()
+    for task_file in task_files:
+        target = task_file.stem.replace("yeast_task_", "")
+        if required_targets is not None and target not in required_targets:
+            continue
+        if pair_allowlist is None:
+            condition_mask = np.ones(len(compounds), dtype=bool)
+        else:
+            condition_mask = np.isin(
+                compounds, list(allowed_by_target.get(target, set()))
+            )
+        local_sensitivity = sensitivity[:, condition_mask]
+        local_compounds = compounds[condition_mask]
+        local_doses = doses[condition_mask]
+        local_source_indices = source_condition_indices[condition_mask]
+        groups = compound_groups(local_compounds)
+        unique_doses = _dose_group_counts(local_doses, groups)
+        with task_file.open(encoding="utf-8", newline="") as handle:
+            rows = list(csv.DictReader(handle, delimiter="\t"))[:top_k]
+        hits = [strain_pos[row["yeast_gene"]] for row in rows
+                if row["yeast_gene"] in strain_pos]
+        if not hits:
+            continue
+        observed_mean = local_sensitivity[np.asarray(hits), :].mean(axis=0)
+        draw_indices = np.stack([
+            rng.choice(local_sensitivity.shape[0], size=len(hits), replace=False)
+            for _ in range(n_perm)
+        ])
+        null_mean = local_sensitivity[draw_indices, :].mean(axis=1)
+        null_mu = null_mean.mean(axis=0)
+        null_sd = np.maximum(null_mean.std(axis=0), 1e-9)
+        observed_z = (observed_mean - null_mu) / null_sd
+        null_z = (null_mean - null_mu[None, :]) / null_sd[None, :]
+
+        observed_best, chosen = select_best_conditions(observed_z[None, :], groups)
+        null_best = max_over_compounds(null_z, groups)
+        exceed = (null_best >= observed_best).sum(axis=0).astype(np.int32)
+        p = corrected_empirical_p(exceed, n_perm)
+        chosen = chosen[0]
+        target_frame = pd.DataFrame({
+            "target_id": target,
+            "inchikey": groups["ids"],
+            "dose": local_doses[chosen],
+            "source_condition_index": local_source_indices[chosen],
+            "n_conditions_tested": groups["counts"],
+            "n_unique_doses_tested": unique_doses,
+            "mean_sensitivity_z": observed_mean[chosen],
+            "z_exec": observed_best[0],
+            "n_task_strains": len(hits),
+            "null_exceedances": exceed,
+            "n_perm": n_perm,
+            "emp_p": p,
+        })
+        if pair_allowlist is not None:
+            target_frame["allowlist_row"] = [
+                allowlist_row_of[(target, compound)]
+                for compound in target_frame["inchikey"]
+            ]
+        frames.append(target_frame)
+        used_targets += 1
+        produced_targets.add(target)
+        print(f"{target}: task strains={len(hits)}/{top_k}", flush=True)
+    if not frames:
+        raise RuntimeError("no top-k task overlaps the response strains")
+    if required_targets is not None and produced_targets != required_targets:
+        raise ValueError(
+            "allowlisted targets failed top-k task overlap: "
+            f"{sorted(required_targets - produced_targets)}"
+        )
+    return pd.concat(frames, ignore_index=True), {
+        "n_targets": used_targets,
+        "task_axis": f"top {top_k} ranked task genes",
+        "response_axis": "signed hypersensitivity, strains x conditions",
+        "hypothesis_family": (
+            "pre-frozen exact pair allowlist" if pair_allowlist is not None
+            else "all target x compound pairs"
+        ),
+    }
+
+
+def add_global_fdr(frame: pd.DataFrame, primary_method: str) -> pd.DataFrame:
+    """Attach globally auditable BH/BY q values to pair-level p values."""
+    out = frame.copy()
+    out["q_bh"] = bh_fdr(out["emp_p"].to_numpy())
+    out["q_by"] = by_fdr(out["emp_p"].to_numpy())
+    if "p_tail_gumbel" in out.columns:
+        out["q_tail_bh"] = bh_fdr(out["p_tail_gumbel"].to_numpy())
+        out["q_tail_by"] = by_fdr(out["p_tail_gumbel"].to_numpy())
+    method = primary_method.upper()
+    if method not in {"BH", "BY"}:
+        raise ValueError("fdr_method must be BH or BY")
+    out["q"] = out["q_bh"] if method == "BH" else out["q_by"]
+    out["fdr_method"] = method
+    out["fdr_family_size"] = len(out)
+    return out
+
+
+def main(argv: list[str] | None = None) -> None:
+    pre = argparse.ArgumentParser(add_help=False)
+    pre.add_argument("--config", default="configs/product_execute.json")
+    known, _ = pre.parse_known_args(argv)
+    cfg_name = known.config
+    cfg = json.loads(resolve_path(cfg_name).read_text(encoding="utf-8"))
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", default=cfg_name)
+    parser.add_argument("--task-top-k", type=int, default=int(cfg["task_top_k"]))
+    parser.add_argument(
+        "--results-suffix",
+        default=str(cfg.get("results_suffix", "_corrected_v2")),
+        help=(
+            "append to results_dir; defaults to a corrected-version suffix so "
+            "historical outputs are never overwritten"
+        ),
+    )
+    parser.add_argument(
+        "--endpoint", default=cfg.get("endpoint", "v2-spearman"),
+        choices=["v1-topk", "v2-spearman"],
+    )
+    parser.add_argument("--n-perm", type=int, default=int(cfg["n_perm"]))
+    parser.add_argument(
+        "--sensitivity-sign", type=float,
+        choices=[-1.0, 1.0], default=float(cfg.get("sensitivity_sign", -1.0)),
+        help="multiply signed response z by this value; -1 means negative z is sensitivity",
+    )
+    parser.add_argument(
+        "--fdr-method", choices=["BH", "BY"],
+        default=str(cfg.get("fdr_method", "BH")).upper(),
+    )
+    parser.add_argument(
+        "--pair-allowlist", default=str(cfg.get("pair_allowlist", "")),
+        help="pre-frozen TSV with exactly target_id and inchikey columns",
+    )
+    parser.add_argument(
+        "--pair-allowlist-sha256",
+        default=str(cfg.get("pair_allowlist_sha256", "")),
+        help="expected SHA-256 committed before this HIP/HOP run",
+    )
+    parser.add_argument(
+        "--allowlist-declared-hiphop-blind",
+        action="store_true",
+        default=bool(cfg.get("allowlist_declared_hiphop_blind", False)),
+        help="assert the allowlist was chosen without viewing this HIP/HOP dataset",
+    )
+    parser.add_argument(
+        "--allowlist-selection-basis",
+        default=str(cfg.get("allowlist_selection_basis", "")),
+        help="independent evidence used to preselect the exact pair hypotheses",
+    )
+    parser.add_argument(
+        "--target-batch-size", type=int,
+        default=int(cfg.get("target_batch_size", 64)),
+        help="maximum task profiles in each score/permutation matrix",
+    )
+    args = parser.parse_args(argv)
+    if args.n_perm < 1:
+        parser.error("--n-perm must be positive")
+    if args.target_batch_size < 1:
+        parser.error("--target-batch-size must be positive")
+
+    results = resolve_path(str(cfg["results_dir"]) + args.results_suffix)
+    pair_allowlist = None
+    allowlist_audit: dict[str, object] = {"enabled": False}
+    if args.pair_allowlist:
+        pair_allowlist, allowlist_audit = load_pair_allowlist(
+            resolve_path(args.pair_allowlist),
+            args.pair_allowlist_sha256,
+            args.allowlist_declared_hiphop_blind,
+            args.allowlist_selection_basis,
+        )
+        freeze_record = bind_allowlist_record(results, allowlist_audit)
+        allowlist_audit = dict(allowlist_audit)
+        allowlist_audit["validated_before_response_load"] = True
+        allowlist_audit["freeze_record"] = str(freeze_record.resolve())
+        print(
+            f"[allowlist] frozen hypotheses={len(pair_allowlist)} "
+            f"sha256={allowlist_audit['sha256']}",
+            flush=True,
+        )
+    elif (results / "allowlist_freeze_record.json").exists():
+        raise ValueError(
+            "this output directory is bound to an allowlist; provide the same "
+            "allowlist or choose a different --results-suffix"
+        )
+
+    # The allowlist contract above is validated and persisted before this first
+    # access to the HIP/HOP response matrix.
+    task_dir = resolve_path(cfg["task_dir"])
+    response = np.load(resolve_path(cfg["response_npz"]), allow_pickle=True)
+    orfs = response["strain_orfs"].astype(str)
+    inchi = response["compound_inchikeys"].astype(str)
+    doses = response["doses"].astype(str)
+    is_vehicle = response["is_vehicle"].astype(bool)
+    z_score = np.asarray(response["z_score"], dtype=np.float32)
+    if z_score.shape != (len(orfs), len(inchi)):
+        raise ValueError("z_score must have shape strains x conditions")
+    strain_pos = {gene: i for i, gene in enumerate(orfs)}
+
+    keep = (~is_vehicle) & np.asarray([bool(key) for key in inchi])
+    condition_indices = np.flatnonzero(keep)
+    condition_inchi = inchi[condition_indices]
+    condition_dose = doses[condition_indices]
+    sensitivity = args.sensitivity_sign * z_score[:, condition_indices]
+    if np.any(~np.isfinite(sensitivity)):
+        raise ValueError("selected response matrix contains non-finite values")
+    print(
+        f"[config] endpoint={args.endpoint} n_perm={args.n_perm} "
+        f"sensitivity_sign={args.sensitivity_sign:+g} fdr={args.fdr_method}",
+        flush=True,
+    )
+    print(
+        f"strains={len(orfs)} non-vehicle conditions={len(condition_indices)}",
+        flush=True,
+    )
+
+    compound_table = pd.read_csv(resolve_path(cfg["compound_table"]), sep="\t").fillna("")
+    smiles_of = dict(zip(compound_table["inchikey"], compound_table["smiles"]))
+    task_files = sorted(task_dir.glob("yeast_task_*.tsv"))
+    if pair_allowlist is not None:
+        task_targets = [
+            path.stem.replace("yeast_task_", "") for path in task_files
+        ]
+        validate_allowlist_universe(
+            pair_allowlist, task_targets, np.unique(condition_inchi)
+        )
+        selected_targets = set(pair_allowlist["target_id"])
+        task_files = [
+            path for path in task_files
+            if path.stem.replace("yeast_task_", "") in selected_targets
+        ]
+        selected_compounds = pair_allowlist["inchikey"].unique()
+        selected_condition_mask = np.isin(condition_inchi, selected_compounds)
+        sensitivity = sensitivity[:, selected_condition_mask]
+        condition_inchi = condition_inchi[selected_condition_mask]
+        condition_dose = condition_dose[selected_condition_mask]
+        condition_indices = condition_indices[selected_condition_mask]
+    rng = np.random.default_rng(int(cfg["seed"]))
+
+    if args.endpoint == "v2-spearman":
+        pairs, axis_audit = run_v2_spearman(
+            task_files, strain_pos, sensitivity, condition_inchi,
+            condition_dose, condition_indices, args.n_perm, rng,
+            pair_allowlist=pair_allowlist,
+            target_batch_size=args.target_batch_size,
+        )
+        stat_col = "spearman_rho"
+        statistic = (
+            "signed full-profile Spearman; rank-1 task relevance and "
+            "hypersensitivity are both oriented high"
+        )
+    else:
+        pairs, axis_audit = run_v1_topk(
+            task_files, strain_pos, sensitivity, condition_inchi,
+            condition_dose, condition_indices, args.task_top_k,
+            args.n_perm, rng, pair_allowlist=pair_allowlist,
+        )
+        stat_col = "z_exec"
+        statistic = "signed top-k mean hypersensitivity z score"
+
+    pairs = add_global_fdr(pairs, args.fdr_method)
+    if pair_allowlist is not None:
+        pairs["allowlist_sha256"] = allowlist_audit["sha256"]
+    pairs["smiles"] = pairs["inchikey"].map(smiles_of)
+    pairs = pairs.sort_values(
+        ["target_id", stat_col], ascending=[True, False], kind="stable"
+    )
+
+    results.mkdir(parents=True, exist_ok=True)
+    pairs.to_csv(results / "exec_matrix.tsv", sep="\t", index=False)
+    top_dir = results / "per_target_top"
+    top_dir.mkdir(exist_ok=True)
+    for target, group in pairs.groupby("target_id", sort=False):
+        group.head(int(cfg["top_report_per_target"])).to_csv(
+            top_dir / f"{target}.tsv", sep="\t", index=False
+        )
+
+    alpha = float(cfg["fdr_alpha"])
+    minimum_p = 1.0 / (args.n_perm + 1.0)
+    n_at_minimum_p = int(np.isclose(pairs["emp_p"], minimum_p).sum())
+    best_bh_q_from_minimum_ties = min(
+        1.0,
+        len(pairs) * minimum_p / max(1, n_at_minimum_p),
+    )
+    response_method = ""
+    if "method" in response.files and len(response["method"]):
+        response_method = str(response["method"][0])
+    summary = {
+        "config": cfg_name,
+        "endpoint": args.endpoint,
+        "n_targets": int(pairs["target_id"].nunique()),
+        "n_compounds": int(pairs["inchikey"].nunique()),
+        "n_pairs": int(len(pairs)),
+        "n_pairs_q_below_alpha": int((pairs["q"] < alpha).sum()),
+        "n_pairs_q_tail_bh_below_alpha": (
+            int((pairs["q_tail_bh"] < alpha).sum())
+            if "q_tail_bh" in pairs.columns else None
+        ),
+        "fdr_alpha": alpha,
+        "primary_fdr_method": args.fdr_method,
+        "fdr_scope": (
+            "only the exact target_id x inchikey hypotheses in the pre-frozen "
+            "allowlist; no target-compound cross-product hypotheses"
+            if pair_allowlist is not None else
+            "all reported target_id x inchikey pair-level tests"
+        ),
+        "reported_q_columns": {
+            "q_bh": "Benjamini-Hochberg",
+            "q_by": "Benjamini-Yekutieli",
+            "q_tail_bh": "Benjamini-Hochberg on Gumbel-tail p (post-hoc, disclosed)",
+            "q_tail_by": "Benjamini-Yekutieli on Gumbel-tail p (post-hoc, disclosed)",
+        },
+        "n_perm": args.n_perm,
+        "seed": int(cfg["seed"]),
+        "minimum_empirical_p": minimum_p,
+        "n_pairs_at_minimum_empirical_p": n_at_minimum_p,
+        "best_attainable_bh_q_from_observed_minimum_p_ties": (
+            best_bh_q_from_minimum_ties
+        ),
+        "permutation_resolution_supports_bh_alpha": (
+            best_bh_q_from_minimum_ties < alpha
+        ),
+        "empirical_p_formula": "(null_max_ge_observed_max + 1) / (n_perm + 1)",
+        "dose_selection_adjusted": True,
+        "dose_selection_null": (
+            "maximum over every tested condition/dose is repeated within each permutation"
+        ),
+        "task_top_k": args.task_top_k if args.endpoint == "v1-topk" else None,
+        "statistic": statistic,
+        "response_transform": (
+            f"sensitivity = {args.sensitivity_sign:+g} * signed "
+            "vehicle-contrast z; abs(z) is not used"
+        ),
+        "source_response_method": response_method,
+        "axis_audit": axis_audit,
+        "pair_allowlist": allowlist_audit,
+    }
+    (results / "execute_summary.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(json.dumps(summary, ensure_ascii=False), flush=True)
+    print("[done] ->", results, flush=True)
+
+
+if __name__ == "__main__":
+    main()

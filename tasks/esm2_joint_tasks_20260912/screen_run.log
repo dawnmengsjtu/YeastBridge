@@ -1,0 +1,23 @@
+[config] endpoint=v2-spearman n_perm=1000 sensitivity_sign=+1 fdr=BH
+strains=5668 non-vehicle conditions=3356
+[v2] target batch 0:64; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 64:128; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 128:192; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 192:256; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 256:320; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 320:384; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 384:448; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 448:512; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 512:576; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 576:640; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 640:704; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 704:768; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 768:832; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 832:896; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 896:960; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 960:1024; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 1024:1088; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 1088:1152; hypotheses=208000; conditions=3356; permutations=1000
+[v2] target batch 1152:1175; hypotheses=74750; conditions=3356; permutations=1000
+{"config": "configs/product_execute.esm2joint.json", "endpoint": "v2-spearman", "n_targets": 1175, "n_compounds": 3250, "n_pairs": 3818750, "n_pairs_q_below_alpha": 0, "n_pairs_q_tail_bh_below_alpha": 0, "fdr_alpha": 0.1, "primary_fdr_method": "BH", "fdr_scope": "all reported target_id x inchikey pair-level tests", "reported_q_columns": {"q_bh": "Benjamini-Hochberg", "q_by": "Benjamini-Yekutieli", "q_tail_bh": "Benjamini-Hochberg on Gumbel-tail p (post-hoc, disclosed)", "q_tail_by": "Benjamini-Yekutieli on Gumbel-tail p (post-hoc, disclosed)"}, "n_perm": 1000, "seed": 42, "minimum_empirical_p": 0.000999000999000999, "n_pairs_at_minimum_empirical_p": 2100, "best_attainable_bh_q_from_observed_minimum_p_ties": 1.0, "permutation_resolution_supports_bh_alpha": false, "empirical_p_formula": "(null_max_ge_observed_max + 1) / (n_perm + 1)", "dose_selection_adjusted": true, "dose_selection_null": "maximum over every tested condition/dose is repeated within each permutation", "task_top_k": null, "statistic": "signed full-profile Spearman; rank-1 task relevance and hypersensitivity are both oriented high", "response_transform": "sensitivity = +1 * signed vehicle-contrast z; abs(z) is not used", "source_response_method": "barcode response = median-polished log2 quantile-normalised expression (no background model) minus batch-matched vehicle median", "axis_audit": {"n_targets": 1175, "coverage_median": 1279, "task_axis": "rank 1 oriented high; rows=tasks, columns=strains", "response_axis": "rows=compound conditions, columns=strains", "target_batch_size": 64, "n_target_batches": 19, "max_block_conditions": 3356, "max_score_matrix_cells": 214784, "permutation_storage": "uint32 seed vector; permutations regenerated per batch", "tail_fit": "Gumbel moment fit on per-pair permutation null max-statistics (disclosed post-hoc 2026-09-12; Knijnenburg 2009 style); primary q columns remain emp_p-based", "tail_fit_calibration": {"midrange_emp_p_band": [0.01, 0.5], "n_pairs_in_band": 1830013, "median_p_tail_over_emp_p_in_band": 0.8584829193095419, "n_degenerate_null_sd_pairs": 0, "n_pairs_p_tail_below_1e-4": 0, "n_pairs_p_tail_below_1e-6": 0}, "hypothesis_family": "all target x compound pairs"}, "pair_allowlist": {"enabled": false}}
+[done] -> /public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/product_pipeline/product/execute_hiphop/results_esm2joint_screen_20260912

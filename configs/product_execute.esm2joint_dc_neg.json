@@ -1,0 +1,14 @@
+{
+  "endpoint": "v2-spearman",
+  "response_npz": "/root/private_data/yeastbridge_clean/raw/tier1_response/strain_response.npz",
+  "compound_table": "/root/private_data/yeastbridge_clean/raw/tier1_response/compounds.tsv.gz",
+  "task_dir": "/root/private_data/yeastbridge_clean/tasks/esm2_joint_tasks_dc_20260912",
+  "results_dir": "/root/private_data/yeastbridge_clean/repro/execute_hiphop/results_esm2jointdc_neg",
+  "task_top_k": 6734,
+  "n_perm": 1000,
+  "fdr_alpha": 0.1,
+  "top_report_per_target": 15,
+  "seed": 42,
+  "sensitivity_sign": -1.0,
+  "fdr_method": "BH"
+}

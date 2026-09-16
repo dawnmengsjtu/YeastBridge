@@ -1,0 +1,14 @@
+{
+  "endpoint": "v2-spearman",
+  "response_npz": "/public/home/mengxl/dzy/yeastbridge_vs/runs/discovery_release_v1/hiphop_cel/strain_response.npz",
+  "compound_table": "/public/home/mengxl/dzy/yeastbridge_vs/data/external/paired_compounds/hiphop_lee2014_e_mtab_2391/processed/compounds.tsv.gz",
+  "task_dir": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/esm2_joint_tasks_dc_20260912",
+  "results_dir": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/product_pipeline/product/execute_hiphop/results_esm2jointdc_neg",
+  "task_top_k": 6734,
+  "n_perm": 1000,
+  "fdr_alpha": 0.1,
+  "top_report_per_target": 15,
+  "seed": 42,
+  "sensitivity_sign": -1.0,
+  "fdr_method": "BH"
+}
