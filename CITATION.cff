@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: 'If you use this repository, please cite it as below.'
+title: 'YeastBridge: cross-species functional matching and statistical confirmation platform'
+authors:
+  - family-names: 'dawnmengsjtu'
+  - family-names: 'dong-zhongyuan'
+repository-code: 'https://github.com/dawnmengsjtu/YeastBridge'
