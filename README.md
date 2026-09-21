@@ -99,3 +99,22 @@ cd /public/home/mengxl/dzy/YeastBridge_0912
 仓库说明：大体积原始件（模型权重、K562 h5ad、Adamson 原始数据、响应矩阵等）
 按 .gitignore 排除，运行前需按 MANIFEST.sha256 与 raw/externalvalidation/
 内记录的哈希自行回填；raw/tier0_* 等为指向归档的符号链接占位。
+
+
+## 附件5 合规说明（代码提交要求对照）
+
+- **环境**：Python 3.10；依赖见 requirements.txt（版本钉平）；全链 CPU 可运行，
+  无 CUDA/驱动要求；操作系统 Linux（Windows 可跑除符号链接外的部分）。
+- **主运行入口**：`run.sh`（任务轴导出 -> 共模去除 -> 双向执行筛选 -> predict.py）；
+  `python predict.py` 单独运行可从在册结果一键生成标准候选清单 `results.csv`
+  （候选编号/赛道/靶点/SMILES/方向/指标/证据等级/模型版本/备注）。
+- **训练说明**：最终链不自训练深度模型（ridge/PLS/RRF 在运行脚本内确定性拟合，
+  种子冻结于 configs）；B2 注入投影权重为本项目早前训练，训练协议与日志见
+  docs/model_selection/ 与 scripts/model_selection/（合规于"训练入口"条款）。
+- **路径**：主入口与 predict.py 使用仓库相对路径；v5-v9 冻结链脚本保留原始
+  绝对路径作为运行记录原件（stage_root 由 configs 指定，可改配置复现）。
+- **随机种子**：全部在 configs*/（seed_* 字段）与协议文档登记。
+- **第三方模型/平台**：见 models/MODEL_CARD.md（无 API/商业平台调用）。
+- **数据**：来源/版本/许可/获取时间见 data/DATA_SOURCES.md；划分与泄漏防控在案。
+- **复现演示**：results_a6000/ 为完整在册结果（含 INPUT_MANIFEST 哈希）；
+  预期运行时间：predict.py 秒级；全链 run.sh 数小时（3,818,750 对，单机 CPU）。

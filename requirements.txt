@@ -2,5 +2,7 @@ numpy==1.26.4
 pandas==2.3.3
 scipy==1.15.3
 anndata==0.11.4
-h5py
-torch
+h5py==3.12.1
+torch==2.9.0
+fair-esm==2.0.0
+python==3.10（README 注明；全链 CPU 可运行，无 CUDA 依赖）
