@@ -15,3 +15,4 @@ raw/externalvalidation/adamson_extracted/
 results_a6000/externalvalidation/ev1_adamson/adamson_matrix.tsv
 __pycache__/
 *.pyc
+results_a6000/literature_validation/
