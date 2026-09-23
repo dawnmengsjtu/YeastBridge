@@ -1,0 +1,147 @@
+{
+ "protocol": "HUMAN_SIDE_VALIDATION_PROTOCOL.md",
+ "method": "step4_v2_dgidb_known_interaction_lookup: 第④步人侧验证由对接证据改为 DGIdb v5 已知药物-基因相互作用核查 (用户指令 2026-09-12 '不是修复, 是直接改成用dgidb查'; 范围=确认家族全部显著对 80 对/78 靶点; 先 A6000 跑)。前一轮对接记录 human_side_validation_20260913/ 原样保留在册, 其 G1 全灭诊断(盒子 64000 立方埃超 Vina 27000 警告线 + 诱饵为同库真实化合物)随档披露",
+ "config_sha256": "75a2adc21fe14361263e5dbc7f78f390b24cbb0905bdc1711b0ca9e147c5e3de",
+ "script_sha256": "6a5a4335e7bb630a927e9fdc02eaead36ad2c6ee3ce1a82c46a9de5160d7ed5b",
+ "api_endpoint": "https://dgidb.org/api/graphql",
+ "api_query_date_utc": "2026-09-12T10:09:22Z",
+ "inputs": {
+  "pos_allowlist": {
+   "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/ej_dc_confirmation_panel_20260912/pair_allowlist_pos40.tsv",
+   "sha256": "b6a23c0a2f6c7c8b9a29743b9e8412f7065e62ba567728745df5ffe600e2ec32"
+  },
+  "neg_allowlist": {
+   "path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/drug_ko_benchmark_v1/ej_dc_confirmation_panel_20260912/pair_allowlist_neg40.tsv",
+   "sha256": "a487e70b18ba457be014ebdb7512677dd0b6e6a9627c4f1e4dfebf7eca705635"
+  }
+ },
+ "n_pairs": 80,
+ "n_targets": 78,
+ "compounds": {
+  "CLQPEZWMMZFTBG-UHFFFAOYSA-N": {
+   "pubchem_cid": "4118451",
+   "title": [
+    "1,7-DIMETHYL-4-[3-(TRIFLUOROMETHYL)PHENYL]-10-OXA-4-AZATRICYCLO[5.2.1.0~2,6~]DEC-8-ENE-3,5-DIONE"
+   ]
+  },
+  "DUCXQFAHDINGEV-UHFFFAOYSA-N": {
+   "pubchem_cid": "748350",
+   "title": [
+    "AKOS000521505"
+   ]
+  },
+  "IQYSTSHQRRVQGE-UHFFFAOYSA-N": {
+   "pubchem_cid": "830119",
+   "title": [
+    "152894-72-9"
+   ]
+  },
+  "SQFNCEKTEKNPCN-UHFFFAOYSA-N": {
+   "pubchem_cid": "46495113",
+   "title": [
+    "AKOS001602931"
+   ]
+  },
+  "UQOWKTPSEYWQSM-UHFFFAOYSA-N": {
+   "pubchem_cid": "3690829",
+   "title": [
+    "3-[2-(4-NITROPHENYL)-2H,3H-BENZO[B]1,4-THIAZEPIN-4-YL]CHROMEN-2-ONE"
+   ]
+  }
+ },
+ "genes_missing_from_dgidb": [],
+ "verdict_counts": {
+  "gene_druggable_no_pair": 44,
+  "no_dgidb_record": 36
+ },
+ "by_tier": {
+  "R1|gene_druggable_no_pair": 6,
+  "R1|no_dgidb_record": 8,
+  "family|gene_druggable_no_pair": 1,
+  "family|no_dgidb_record": 4,
+  "singleton|gene_druggable_no_pair": 37,
+  "singleton|no_dgidb_record": 24
+ },
+ "gene_interaction_counts": {
+  "ADGRV1": 0,
+  "ADRA2B": 91,
+  "AVPR2": 68,
+  "C5AR2": 10,
+  "CHRM1": 184,
+  "CHRM5": 108,
+  "CHRNA4": 64,
+  "DRD4": 79,
+  "DRD5": 42,
+  "FPR1": 43,
+  "FPR2": 51,
+  "FPR3": 8,
+  "GALR2": 60,
+  "GPR146": 0,
+  "GPR151": 0,
+  "GPR152": 0,
+  "GPR156": 0,
+  "GPR176": 0,
+  "GPR50": 1,
+  "GPR82": 0,
+  "GPR84": 23,
+  "GPRC5D": 2,
+  "HRH3": 69,
+  "HTR2A": 218,
+  "ITPR2": 5,
+  "ITPR3": 3,
+  "KCNA5": 26,
+  "KCNC1": 6,
+  "KCNC3": 6,
+  "KCNC4": 6,
+  "KCND1": 7,
+  "KCNF1": 6,
+  "KCNG2": 6,
+  "KCNG4": 6,
+  "KCNH2": 367,
+  "KCNH8": 7,
+  "KCNK17": 2,
+  "KCNS1": 6,
+  "KCNS2": 6,
+  "KCNV2": 6,
+  "MCHR1": 41,
+  "MRGPRD": 1,
+  "NPFFR1": 19,
+  "OPN4": 34,
+  "OR10A7": 0,
+  "OR10G2": 0,
+  "OR10G4": 0,
+  "OR10G7": 0,
+  "OR10G9": 0,
+  "OR12D2": 0,
+  "OR14I1": 0,
+  "OR1E1": 0,
+  "OR1E2": 0,
+  "OR1E3": 0,
+  "OR2T7": 0,
+  "OR2W3": 0,
+  "OR2W6P": 0,
+  "OR2Z1": 0,
+  "OR4D2": 0,
+  "OR4D6": 2,
+  "OR4D9": 0,
+  "OR4F6": 0,
+  "OR4K1": 0,
+  "OR4S1": 0,
+  "OR5M11": 0,
+  "OR5T1": 0,
+  "OR6T1": 0,
+  "OR6V1": 0,
+  "OR8K5": 0,
+  "OR8U1": 0,
+  "OR8U9": 0,
+  "OR9H1": 0,
+  "PRLHR": 11,
+  "RYR2": 11,
+  "RYR3": 9,
+  "STING1": 17,
+  "SUCNR1": 12,
+  "TACR2": 30
+ },
+ "supported_pairs": [],
+ "disclosure": "5 个 EJ 化合物均为筛选库分子(TimTec 1491-0821/3447-0010/3970-0837; Spectrum st034308/st053765), 无商品名; 命中判据 H1/H2 在 DGIdb 查询结果产生前冻结; 无命中不构成阴性证据, 仅登记数据库无记录; OR(嗅觉受体)家族与巨蛋白(RYR/ADGRV)在 DGIdb 覆盖稀疏属预期, 结果无论方向原样登记"
+}

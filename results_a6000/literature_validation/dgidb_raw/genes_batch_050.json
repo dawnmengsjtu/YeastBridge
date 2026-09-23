@@ -1,0 +1,466 @@
+{
+ "genes": {
+  "nodes": [
+   {
+    "name": "OR4D6",
+    "interactions": [
+     {
+      "drug": {
+       "name": "GEMCITABINE",
+       "conceptId": "rxcui:12574"
+      },
+      "interactionTypes": []
+     },
+     {
+      "drug": {
+       "name": "CARBOPLATIN",
+       "conceptId": "rxcui:40048"
+      },
+      "interactionTypes": []
+     }
+    ]
+   },
+   {
+    "name": "OR9H1",
+    "interactions": []
+   },
+   {
+    "name": "OR4S1",
+    "interactions": []
+   },
+   {
+    "name": "OR2W6P",
+    "interactions": []
+   },
+   {
+    "name": "PRLHR",
+    "interactions": [
+     {
+      "drug": {
+       "name": "PRRP-20",
+       "conceptId": "iuphar.ligand:1871"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PRRP-(24-31) (HUMAN)",
+       "conceptId": "iuphar.ligand:1870"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "COMPOUND 18-S4 [PMID: 31413801]",
+       "conceptId": "iuphar.ligand:14157"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "NPY-(18-36) (HUMAN, PIG)",
+       "conceptId": "iuphar.ligand:1557"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "[125I]PRRP-20 (HUMAN)",
+       "conceptId": "iuphar.ligand:1875"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "NEUROPEPTIDE Y",
+       "conceptId": "iuphar.ligand:1504"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PRRP-31",
+       "conceptId": "iuphar.ligand:1874"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PTHRP",
+       "conceptId": "iuphar.ligand:3738"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PRRP-20",
+       "conceptId": "iuphar.ligand:1872"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "[125I]PRRP31",
+       "conceptId": "iuphar.ligand:4022"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PRRP-31",
+       "conceptId": "iuphar.ligand:1873"
+      },
+      "interactionTypes": [
+       {
+        "type": "agonist"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "RYR3",
+    "interactions": [
+     {
+      "drug": {
+       "name": "ADENOSINE TRIPHOSPHATE",
+       "conceptId": "rxcui:318"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "AMLODIPINE BESYLATE",
+       "conceptId": "rxcui:104416"
+      },
+      "interactionTypes": []
+     },
+     {
+      "drug": {
+       "name": "DANTROLENE",
+       "conceptId": "rxcui:3105"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "RUTHENIUM RED",
+       "conceptId": "iuphar.ligand:2432"
+      },
+      "interactionTypes": [
+       {
+        "type": "blocker"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "RYANODINE",
+       "conceptId": "iuphar.ligand:4303"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "CAFFEINE",
+       "conceptId": "rxcui:1886"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "DANTROLENE SODIUM",
+       "conceptId": "chembl:CHEMBL928"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "CA2+",
+       "conceptId": "iuphar.ligand:707"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       },
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "MG2+",
+       "conceptId": "iuphar.ligand:708"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "OR1E2",
+    "interactions": []
+   },
+   {
+    "name": "OR2Z1",
+    "interactions": []
+   },
+   {
+    "name": "OR5M11",
+    "interactions": []
+   },
+   {
+    "name": "OR2T7",
+    "interactions": []
+   },
+   {
+    "name": "OR4F6",
+    "interactions": []
+   },
+   {
+    "name": "OR1E1",
+    "interactions": []
+   },
+   {
+    "name": "OR4D9",
+    "interactions": []
+   },
+   {
+    "name": "RYR2",
+    "interactions": [
+     {
+      "drug": {
+       "name": "CA2+",
+       "conceptId": "iuphar.ligand:707"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       },
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "ADENOSINE TRIPHOSPHATE",
+       "conceptId": "rxcui:318"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "RUTHENIUM RED",
+       "conceptId": "iuphar.ligand:2432"
+      },
+      "interactionTypes": [
+       {
+        "type": "blocker"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "CARVEDILOL",
+       "conceptId": "rxcui:20352"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "PROCAINE",
+       "conceptId": "rxcui:8701"
+      },
+      "interactionTypes": [
+       {
+        "type": "blocker"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "SURAMIN",
+       "conceptId": "rxcui:10256"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "CAFFEINE",
+       "conceptId": "rxcui:1886"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "CERIVASTATIN",
+       "conceptId": "rxcui:596723"
+      },
+      "interactionTypes": []
+     },
+     {
+      "drug": {
+       "name": "RYANODINE",
+       "conceptId": "iuphar.ligand:4303"
+      },
+      "interactionTypes": [
+       {
+        "type": "activator"
+       },
+       {
+        "type": "blocker"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "MG2+",
+       "conceptId": "iuphar.ligand:708"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     },
+     {
+      "drug": {
+       "name": "VK-II-86",
+       "conceptId": "iuphar.ligand:10161"
+      },
+      "interactionTypes": [
+       {
+        "type": "inhibitor"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "OR4K1",
+    "interactions": []
+   },
+   {
+    "name": "OR6T1",
+    "interactions": []
+   },
+   {
+    "name": "OR5T1",
+    "interactions": []
+   },
+   {
+    "name": "OR2W3",
+    "interactions": []
+   },
+   {
+    "name": "OR4D2",
+    "interactions": []
+   },
+   {
+    "name": "OR8U1",
+    "interactions": []
+   },
+   {
+    "name": "OR14I1",
+    "interactions": []
+   },
+   {
+    "name": "OR1E3",
+    "interactions": []
+   },
+   {
+    "name": "OR8U9",
+    "interactions": []
+   },
+   {
+    "name": "OR8K5",
+    "interactions": []
+   },
+   {
+    "name": "OR6V1",
+    "interactions": []
+   }
+  ]
+ }
+}
