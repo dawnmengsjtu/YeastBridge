@@ -30,8 +30,15 @@ def revision():
     if not (ROOT / ".git").exists() and bundle.is_file():
         return json.loads(bundle.read_text())["code_revision"]
     try:
-        return subprocess.check_output(
+        commit = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, stderr=subprocess.DEVNULL, text=True
         ).strip()
+        dirty = subprocess.check_output(
+            ["git", "status", "--porcelain", "--untracked-files=no"],
+            cwd=ROOT,
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+        return commit + ("-dirty" if dirty else "")
     except (OSError, subprocess.CalledProcessError):
         return "source-archive (see MANIFEST.release.sha256)"

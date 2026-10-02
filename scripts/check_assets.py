@@ -30,9 +30,11 @@ def inventory(mode="full"):
     # This matrix is a processed asset: its checksum cannot be recovered from an accession alone.
     for line in (ROOT / "MANIFEST.sha256").read_text().splitlines():
         digest, name = line.split(maxsplit=1)
-        if name == "raw/tier1_response/strain_response.npz":
+        if name in {
+            "raw/tier1_response/strain_response.npz",
+            "raw/tier1_response/compounds.tsv.gz",
+        }:
             entries[str(ROOT / name)] = digest
-    entries[str(ROOT / "raw/tier1_response/compounds.tsv.gz")] = None
     results = []
     for name, expected in sorted(entries.items()):
         p = Path(name)

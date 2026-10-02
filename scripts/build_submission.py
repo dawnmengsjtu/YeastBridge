@@ -15,7 +15,9 @@ from scripts.check_assets import inventory
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--profile", choices=["review", "full"], default="review")
+    p.add_argument(
+        "--profile", choices=["review", "inference", "full"], default="review"
+    )
     p.add_argument("--output", type=Path, default=ROOT / "dist/YeastBridge-review.zip")
     args = p.parse_args()
     tracked = (
@@ -44,6 +46,10 @@ def main():
                 "Full bundle blocked: missing B2 training_manifest.json; see models/TRAINING.md."
             )
         evidence = json.loads(manifest.read_text())
+        if evidence.get("final_checkpoint_epoch_logs_verified") is not True:
+            p.error(
+                "Full bundle blocked: epoch logs for the FINAL checkpoint are not verified; earlier-run logs and smoke logs do not substitute for them. Use --profile inference for an executable analysis bundle."
+            )
         paths.add("models/training_manifest.json")
         for key in ["entrypoint", "environment", "logs", "splits"]:
             values = evidence.get(key, [])
@@ -68,6 +74,9 @@ def main():
             "CITATION.cff",
             "main.py",
             "predict.py",
+            "train.py",
+            "requirements-training.txt",
+            "environment-preprocessing.yml",
             "run.sh",
             "requirements.txt",
             "requirements-full.txt",
@@ -105,6 +114,11 @@ def main():
             for x in paths
             if x in roots or x in keep_results or x.startswith(prefixes)
         }
+    if args.profile == "inference":
+        items = inventory()
+        if any(x["status"] != "ok" for x in items):
+            p.error("Inference bundle blocked: missing or changed runtime assets")
+        paths.update(x["path"] for x in items)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     sums = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED) as z:
@@ -123,7 +137,11 @@ def main():
                     "purpose": (
                         "published export and synthetic demo; not a complete research submission"
                         if args.profile == "review"
-                        else "full assets and supplied training evidence; scientific/licensing review remains required"
+                        else (
+                            "frozen runtime assets; executable analysis bundle, see submission status for training provenance gaps"
+                            if args.profile == "inference"
+                            else "full assets and supplied training evidence; scientific/licensing review remains required"
+                        )
                     ),
                 },
                 indent=2,

@@ -39,7 +39,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
 
     pos, neg = read("confirm_pos"), read("confirm_neg")
     pos["direction"], neg["direction"] = "+z（耐药富集）", "-z（超敏）"
-    # Keep the published table byte-compatible. New runs use BH over BOTH directions.
+    # Keep published statistical values. New runs use BH over BOTH directions.
     rows = pd.concat([pos, neg], ignore_index=True)
     if rows.empty:
         raise ValueError("No confirmed candidate records to export")
@@ -92,6 +92,14 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
         raise ValueError(
             "A nominated compound has no SMILES; resolve metadata before export"
         )
+    unit_map = {}
+    if not demo:
+        condition_path = ROOT / "data/response_conditions.tsv"
+        conditions = pd.read_csv(condition_path, sep="\t")
+        sources.append(condition_path)
+        for condition in conditions.itertuples():
+            key = (condition.inchikey, float(condition.dose))
+            unit_map.setdefault(key, set()).add(condition.dose_unit)
     rows = rows.sort_values(["direction", "target_id"], kind="stable")
     out = []
     for i, r in enumerate(rows.itertuples(), 1):
@@ -110,6 +118,15 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
             )
         if demo:
             tier, note = "合成演示，非科研候选", "合成表示与响应，仅验证计算流程"
+        units = (
+            {"arbitrary demo units"}
+            if demo
+            else unit_map.get((r.inchikey, float(r.dose)), set())
+        )
+        if len(units) != 1:
+            raise ValueError(
+                f"Missing or ambiguous dose unit: {r.inchikey}, {r.dose}: {units}"
+            )
         out.append(
             {
                 "候选编号": f'{"DEMO" if demo else "YB"}-{i:03d}',
@@ -123,6 +140,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
                 "emp_p": round(r.emp_p, 6),
                 "q_bh": round(r.q, 8),
                 "剂量": r.dose,
+                "剂量单位": next(iter(units)),
                 "证据等级": tier,
                 "模型与版本": (
                     "synthetic-demo-v1 (not ESM-2/B2 weights)" if demo else MODEL
@@ -148,7 +166,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
             "dose_unit": (
                 "arbitrary demo units"
                 if demo
-                else "not verified in the published input; original numeric values retained"
+                else "per-row 剂量单位 column, recovered from the frozen response file"
             ),
             "q_scope": (
                 "per-direction confirmation family (historical values retained)"

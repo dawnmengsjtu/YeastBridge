@@ -24,3 +24,5 @@ dist/
 .DS_Store
 
 /results.metadata.json
+raw/training/
+raw/preprocessing/

@@ -1,0 +1,16 @@
+{
+  "checkpoint_sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+  "route": "B2",
+  "protein_shape": [
+    6733,
+    1280
+  ],
+  "projection_shape": [
+    768,
+    1280
+  ],
+  "protein_matrix_exact_match": true,
+  "gene_table_max_absolute_error_cpu_vs_saved": 1.0728836059570312e-06,
+  "gene_table_allclose_atol_1e-5_rtol_1e-5": true,
+  "note": "CPU and original GPU matrix multiplication need not be bitwise equal; frozen checkpoint and saved table hashes remain authoritative."
+}

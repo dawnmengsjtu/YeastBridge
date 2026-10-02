@@ -1,0 +1,119 @@
+{
+  "pretrained_checkpoint": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge/models/scfoundation/models.ckpt",
+    "size": 1432587886,
+    "sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+    "mtime_utc": "2026-07-31T14:18:19.657311+00:00"
+  },
+  "raw_counts": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge/data/single_cell/GSE125162_ALL-fastqTomat0-Counts.tsv",
+    "size": 526255104,
+    "sha256": "9028159a6ee22f994c5131be68cd0f9643f60d099c26baf4fd00978a64d40d92",
+    "mtime_utc": "2026-07-31T14:02:22.262345+00:00"
+  },
+  "gene_master": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/gene_master.tsv",
+    "size": 161809,
+    "sha256": "bb23f5116fa2a261a78e7be2080d63896a3591f3cde4eab426f2b0dbfce6991d",
+    "mtime_utc": "2026-08-01T03:22:37.029649+00:00"
+  },
+  "counts": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_assets/corpus_counts.npy",
+    "size": 1029475828,
+    "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1",
+    "mtime_utc": "2026-09-11T21:12:04.073849+00:00"
+  },
+  "protein_matrix": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_assets/B2_esm2_matrix.npy",
+    "size": 34473088,
+    "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7",
+    "mtime_utc": "2026-09-11T21:11:41.646851+00:00"
+  },
+  "cells": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_assets/corpus_cells.tsv",
+    "size": 477371,
+    "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4",
+    "mtime_utc": "2026-09-11T21:12:05.491849+00:00"
+  },
+  "original_cells": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/yeastbridge_re_mvp/feasibility/transfer_routes/assets/scf_yeast/corpus_cells.tsv",
+    "size": 477371,
+    "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4",
+    "mtime_utc": "2026-09-10T16:36:59.216934+00:00"
+  },
+  "original_protein_matrix": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/yeastbridge_re_mvp/feasibility/transfer_routes/assets/scf_yeast/B2_esm2_matrix.npy",
+    "size": 34473088,
+    "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7",
+    "mtime_utc": "2026-09-10T16:36:59.373934+00:00"
+  },
+  "checkpoint": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/final_model.pt",
+    "size": 456735834,
+    "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+    "mtime_utc": "2026-09-10T20:35:19.898429+00:00"
+  },
+  "epoch_1_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep1.npy",
+    "size": 20683904,
+    "sha256": "6626b47fc79b89b328dd4ae26c5a3dffc143dec4f3649a8aa498290219c07748",
+    "mtime_utc": "2026-09-10T18:16:53.384723+00:00"
+  },
+  "epoch_2_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep2.npy",
+    "size": 20683904,
+    "sha256": "23c3ff3ff95647b9a98aa3a2a082dc3ef1999bfae83fe6648f60acc6522def32",
+    "mtime_utc": "2026-09-10T18:44:14.436665+00:00"
+  },
+  "epoch_3_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep3.npy",
+    "size": 20683904,
+    "sha256": "78e39e405d9753fdfc78b81472483c80d9e698c4dd2c30c632e78bf7cdbf3763",
+    "mtime_utc": "2026-09-10T19:12:27.345605+00:00"
+  },
+  "epoch_4_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep4.npy",
+    "size": 20683904,
+    "sha256": "de1f21d4376739443eff2226918d9b58a212f2edebb75867bbca3099eb92e1d0",
+    "mtime_utc": "2026-09-10T19:40:01.819546+00:00"
+  },
+  "epoch_5_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep5.npy",
+    "size": 20683904,
+    "sha256": "1788565329228a86626cc662ba205288226c06ae252ccb10c77b1d1355d17f95",
+    "mtime_utc": "2026-09-10T20:07:32.960488+00:00"
+  },
+  "epoch_6_gene_table": {
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/scf_routes/B2/gene_table_ep6.npy",
+    "size": 20683904,
+    "sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24",
+    "mtime_utc": "2026-09-10T20:35:18.536429+00:00"
+  },
+  "split_reconstruction": {
+    "method": "np.random.default_rng(42).permutation(n_cells); first int(0.05*n_cells) validation; remainder training",
+    "status": "Reconstructed on 2026-10-03 from saved source and recovered row order, not an original training log",
+    "n_train": 36314,
+    "n_validation": 1911,
+    "n_test": 0,
+    "duplicate_cell_ids": 0,
+    "duplicate_count_profiles": 0,
+    "identical_profiles_across_train_validation": 0
+  },
+  "recovery_environment": {
+    "recorded_at_utc": "2026-10-02T18:28:24.639239+00:00",
+    "historical_training_environment": false,
+    "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+    "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+    "torch": "2.6.0+cu124",
+    "torch_cuda": "12.4",
+    "gpus": [
+      "NVIDIA RTX A6000, 550.54.15, 49140 MiB",
+      "NVIDIA RTX A6000, 550.54.15, 49140 MiB"
+    ],
+    "cpu": "Architecture:          x86_64\nCPU op-mode(s):        32-bit, 64-bit\nByte Order:            Little Endian\nCPU(s):                48\nOn-line CPU(s) list:   0-47\nThread(s) per core:    1\nCore(s) per socket:    24\nSocket(s):             2\nNUMA node(s):          2\nVendor ID:             GenuineIntel\nCPU family:            6\nModel:                 85\nModel name:            Intel(R) Xeon(R) Gold 6248R CPU @ 3.00GHz\nStepping:              7\nCPU MHz:               1279.174\nCPU max MHz:           4000.0000\nCPU min MHz:           1200.0000\nBogoMIPS:              6000.00\nVirtualization:        VT-x\nL1d cache:             32K\nL1i cache:             32K\nL2 cache:              1024K\nL3 cache:              36608K\nNUMA node0 CPU(s):     0-23\nNUMA node1 CPU(s):     24-47\nFlags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba rsb_ctxsw ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear spec_ctrl intel_stibp flush_l1d arch_capabilities\n",
+    "libc": [
+      "glibc",
+      "2.17"
+    ]
+  }
+}

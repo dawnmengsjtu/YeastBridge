@@ -1,0 +1,13 @@
+{
+  "source_sha256": "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
+  "conditions_sha256": "15f3c80e44cdb470628f1cdc8481f872d096dade1acaddce9a319883dab56123",
+  "method": "barcode response = median-polished log2 quantile-normalised expression (no background model) minus batch-matched vehicle median",
+  "recovered_on": "2026-10-03",
+  "dose_unit_counts": {
+    "micromolar": 3276,
+    "percent": 494,
+    "nanomolar": 68,
+    "millimolar": 11,
+    "picomolar": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "release_tag": "reproducibility-assets-20261003",
+  "assets": {
+    "weights": {
+      "path": "raw/tier1_models/route_b/final_model.pt",
+      "url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/final_model.pt",
+      "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+      "bytes": 456735834
+    },
+    "response": {
+      "path": "raw/tier1_response/strain_response.npz",
+      "url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/strain_response.npz",
+      "sha256": "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
+      "bytes": 81279744
+    },
+    "training_inputs": {
+      "path": "raw/training/b2-inputs.tar.gz",
+      "url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/b2-inputs.tar.gz",
+      "sha256": "70dc0666d4c389dc2bdda3db492e9e65e324480210a8b595e5c483ab22835dde",
+      "bytes": 82587295
+    },
+    "hiphop_expression": {
+      "path": "raw/preprocessing/expr_full.tsv.gz",
+      "url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/expr_full.tsv.gz",
+      "sha256": "e20b4ab0af881d8b230952f2ee9f1e223cf4f69f30b04a50c55c3cc9bc5a254e",
+      "bytes": 167629452
+    }
+  }
+}

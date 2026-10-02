@@ -1,3 +1,7 @@
 # Preserve frozen byte-level checksums across platforms.
 raw/tier1_models/route_b/A2_init.tsv -text whitespace=-blank-at-eol,cr-at-eol
 raw/externalvalidation/frozen_inputs/yeastbridge_re_mvp/feasibility/transfer_routes/assets/scf_yeast/A2_init.tsv -text whitespace=-blank-at-eol,cr-at-eol
+# Preserve recovered source and public archive evidence without whitespace rewrites.
+models/training/original/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+models/training/vendor/scfoundation/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
+data/provenance/hiphop/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

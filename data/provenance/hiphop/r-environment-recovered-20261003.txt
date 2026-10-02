@@ -1,0 +1,18 @@
+R version 4.2.3 (2023-03-15) 
+affyio 1.68.0 
+preprocessCore 1.60.2 
+R version 4.2.3 (2023-03-15)
+Platform: x86_64-conda-linux-gnu (64-bit)
+Running under: CentOS Linux 7 (Core)
+
+Matrix products: default
+BLAS/LAPACK: /public/home/mengxl/dzy/envs/hiphop_cel/lib/libopenblasp-r0.3.34.so
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+[1] compiler_4.2.3

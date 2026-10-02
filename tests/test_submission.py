@@ -1,6 +1,8 @@
 """Behavioral checks for candidate provenance, portability, and pipeline integration."""
 
 import hashlib
+import csv
+import gzip
 import json
 from pathlib import Path
 import shutil
@@ -26,6 +28,9 @@ class SubmissionTests(unittest.TestCase):
             self.assertEqual(meta["rows"], 80)
             self.assertEqual(meta["mode"], "published-export")
             self.assertTrue(meta["sources"])
+            with out.open() as f:
+                rows = list(csv.DictReader(f))
+            self.assertEqual({r["剂量单位"] for r in rows}, {"micromolar"})
 
     def test_demo_runs_without_any_historical_results_or_models(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -115,3 +120,62 @@ class SubmissionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PreprocessingTests(unittest.TestCase):
+    def test_response_header_variants_and_output_guard(self):
+        sys.path.insert(0, str(ROOT))
+        from scripts.preprocess_hiphop import build_hiphop_response, HiphopResponseError
+        import numpy as np
+
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            with (base / "sdrf.tsv").open("w") as f:
+                w = csv.writer(f, delimiter="\t")
+                w.writerow(
+                    [
+                        "Array Data File",
+                        "Comment[inchikey]",
+                        "Factor Value[dose]",
+                        "Unit[concentration unit]",
+                    ]
+                )
+                w.writerow(["01_vehicle", "", "1", "percent"])
+                w.writerow(["01_drug1", "TEST1", "2", "micromolar"])
+                w.writerow(["01_drug2", "TEST2", "3", "nanomolar"])
+            outputs = []
+            for explicit_header in [False, True]:
+                expr = base / f"expr{explicit_header}.gz"
+                with gzip.open(expr, "wt") as f:
+                    w = csv.writer(f, delimiter="\t")
+                    w.writerow(
+                        ([""] if explicit_header else [])
+                        + ["01_vehicle", "01_drug1", "01_drug2"]
+                    )
+                    w.writerows(
+                        [["Y1.a", 10, 12, 14], ["Y1.b", 20, 24, 26], ["Y2.a", 8, 5, 10]]
+                    )
+                name = f"out{explicit_header}.npz"
+                record = f"out{explicit_header}.json"
+                build_hiphop_response(
+                    tmp,
+                    expr_path=str(expr),
+                    sdrf_path="sdrf.tsv",
+                    output_npz=name,
+                    output_json=record,
+                )
+                with np.load(base / name) as z:
+                    np.testing.assert_array_equal(z["z_score"], [[0, 3, 5], [0, -3, 2]])
+                    self.assertEqual(
+                        z["dose_units"].tolist(), ["percent", "micromolar", "nanomolar"]
+                    )
+                before = (base / name).read_bytes()
+                with self.assertRaises(HiphopResponseError):
+                    build_hiphop_response(
+                        tmp,
+                        expr_path=str(expr),
+                        sdrf_path="sdrf.tsv",
+                        output_npz=name,
+                        output_json=record,
+                    )
+                self.assertEqual(before, (base / name).read_bytes())

@@ -1,0 +1,27 @@
+HTTP/1.1 302 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Strict-Transport-Security: max-age=0
+Date: Sun, 16 Aug 2026 16:07:48 GMT
+Location: https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/391/E-MTAB-2391/Files/E-MTAB-2391.sdrf.txt
+Expires: 0
+X-XSS-Protection: 1; mode=block
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Length: 0
+
+HTTP/1.1 200 OK
+Date: Sun, 16 Aug 2026 16:07:49 GMT
+Server: Apache
+Last-Modified: Fri, 15 Dec 2023 11:36:13 GMT
+ETag: "22e553-60c8aceb12540"
+Accept-Ranges: bytes
+Content-Length: 2286931
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET,OPTIONS
+Access-Control-Allow-Headers: Authorization,Origin,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Accept
+Content-Type: text/plain; charset=UTF-8
+

@@ -1,0 +1,32 @@
+Comment[ArrayExpressAccession]	E-MTAB-2391
+MAGE-TAB Version	1.1
+Investigation Title	Haploinsuffiency and homozygous (HIPHOP) profiling diverse compounds towards understanding the cellular response to small molecules
+Comment[Submitted Name]	Haploinsuffiency and homozygous (HIPHOP) profiling diverse compounds towards understanding the cellular response to small molecules
+Experiment Description	Yeast homozygous and essential heterozygous deletion mutants were screened against 3,250 diverse growth inhibitory compounds, resulting in a chemogenomic profile for each compound. A profile permits the identification of putative protein targets via drug-induced haploinsufficiency, and provides a genome-wide description of the cellular response to the profiled compound. Therefore, our aims were to identify putative protein inhibitors and in general, to improve understanding of the cellular response to small molecules.
+Experimental Design	compound treatment design	reference design	genotyping_design
+Comment[AEExperimentType]	genotyping by array
+Experimental Factor Name	compound	dose
+Experimental Factor Type	compound	dose
+Quality Control Type
+Quality Control Term Source REF	EFO
+Public Release Date	2014-04-11
+Person Last Name	Lee
+Person First Name	Anna
+Person Mid Initials	Y
+Person Email	annay.lee@utoronto.ca
+Person Phone	647-926-2878
+Person Address	160 College St., 6th Floor, Toronto, ON Canada M5S3E1
+Person Affiliation	University of Toronto
+Person Roles	submitter
+PubMed ID
+Publication Author List	A.Lee, R.St.Onge, M.Proctor, I.Wallace, A.Nile, P.Spagnuolo, Y.Jitkova, M.Gronda,Y.Wu, M.Kim, K.Cheung-Ong, N.Torres, E.Spear, M.Han, U.Schlecht, S.Suresh, G.Duby, L.Heisler, A.Surendra, E.Fung, M.Urbanus, M.Gebbia, E.Lissina, M.Miranda, J.Chiang, A.Aparicio, M.Zeghouf, R.Davis, J.Cherfils, M.Boutry, C.Kaiser, C.Cummins, W.Trimble, G.Brown, A.Schimmer, V.Bankaitis, C.Nislow, G.Bader,G.Giaever
+Publication Title	Mapping the Cellular Response to Small Molecules Using Chemogenomic Fitness Signatures
+Publication Status
+Protocol Name	P-MTAB-38041	P-MTAB-38042	P-MTAB-38043	P-MTAB-38044
+Protocol Type	growth protocol	treatment protocol	nucleic acid extraction protocol	nucleic acid labeling protocol
+Protocol Description	Frozen aliquots of heterozygous pool (~1095 strains) and homozygous pool (~4810 unique strains) were thawed and separately diluted to an O.D.600 of 0.03125 in 700µls of screening media (YPD + 25mM HEPES, pH 6.8). Diluted pools were grown in 48-well plates at 30ºC with orbital shaking. Homozygous pool cultures were grown in duplicate wells on the same plate for 5 doublings, at which point, 350µls of each replicate was combined and stored at 4ºC in a single well of 48-well 'save' plate for no longer than 2 days. Heterozygous cultures were grown for 20 doublings and were maintained in logarithmic growth by automated dilution of the cultures every 5 generations into wells containing only media and compound.  After 20 doublings, 350µls of the heterozygous samples were added to the collected homozygous pool samples (for a total of 1050µls) and stored for no longer than 1 day at 4ºC. Combined pool samples were resuspended by manual pipetting, transferred to a microfuge tube, and pelleted at 14,000rpm for 3 minutes. Supernatant was removed and the pellets stored at -20ºC.  	Chemical inhibitors of growth (or DMSO as control) were added to growing cultures 4 hours after the initial dilution of the frozen pool aliquots. Briefly, 7µls of a concentrated stock of the screening compound was added to each culture. The concentration of each compound was 100X that which inhibits growth of a wild-type strain by roughly 10-20% (this was determined beforehand). 	Cell pellets were thawed, resuspended in 100µls of cell digestion buffer and 5µls of R-zymo (Zymo Research, Irvine, CA) and incubated at 37ºC for 1hour. Genomic DNA was then extracted from each sample using reagent pack DX and a Qiaxtractor (Qiagen).  	Molecular barcodes (UP and DOWN tags) from each strain, were amplified from the genomic DNA using biotinylated common primers. PCR products were hybridized to arrays and labelled with streptavidin-conjugated phycoerythrin (SAPE).
+Protocol Term Source REF	EFO	EFO	EFO	EFO
+Term Source Name	EFO	ArrayExpress
+Term Source File	http://www.ebi.ac.uk/efo	http://www.ebi.ac.uk/arrayexpress
+SDRF File	E-MTAB-2391.sdrf.txt
+Publication DOI	10.1126/science.1250217

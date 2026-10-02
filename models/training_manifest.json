@@ -1,0 +1,16 @@
+{
+  "entrypoint": "train.py",
+  "environment": "requirements-training.txt",
+  "config": "configs/b2_training.json",
+  "logs": [
+    "models/training/evidence/earlier-run/scf_train.log",
+    "models/training/evidence/smoke-20261003/train.log"
+  ],
+  "splits": [
+    "models/training/evidence/split-reconstructed.tsv"
+  ],
+  "final_checkpoint_sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+  "final_checkpoint_epoch_logs_verified": false,
+  "provenance_status": "Recovered original code, prepared data, checkpoint and reconstructed split. Earlier August training log and October smoke log do not match the final September checkpoint training run.",
+  "environment_status": "Observed at recovery, not contemporaneously frozen during final training."
+}

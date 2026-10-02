@@ -1,0 +1,65 @@
+{
+  "array_comparison": {
+    "strain_orfs": {
+      "equal": true,
+      "shape": [
+        5668
+      ],
+      "dtype": "<U9"
+    },
+    "array_names": {
+      "equal": true,
+      "shape": [
+        3850
+      ],
+      "dtype": "<U20"
+    },
+    "compound_inchikeys": {
+      "equal": true,
+      "shape": [
+        3850
+      ],
+      "dtype": "<U27"
+    },
+    "doses": {
+      "equal": true,
+      "shape": [
+        3850
+      ],
+      "dtype": "<U6"
+    },
+    "dose_units": {
+      "equal": true,
+      "shape": [
+        3850
+      ],
+      "dtype": "<U10"
+    },
+    "is_vehicle": {
+      "equal": true,
+      "shape": [
+        3850
+      ],
+      "dtype": "bool"
+    },
+    "z_score": {
+      "equal": true,
+      "shape": [
+        5668,
+        3850
+      ],
+      "dtype": "float32",
+      "max_absolute_error": 0.0
+    },
+    "method": {
+      "equal": true,
+      "shape": [
+        1
+      ],
+      "dtype": "<U127"
+    }
+  },
+  "all_equal": true,
+  "numpy": "1.26.4",
+  "note": "NPZ ZIP compression/container bytes can differ; numerical and metadata arrays compared explicitly"
+}

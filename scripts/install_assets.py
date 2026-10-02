@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install locally supplied private/large assets only after frozen checksum verification."""
+"""Download or install large assets after frozen checksum verification."""
 import argparse
 import shutil
 from pathlib import Path
@@ -24,10 +24,21 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--weights", type=Path)
     ap.add_argument("--response", type=Path)
+    ap.add_argument(
+        "--download", action="store_true", help="Download the two frozen runtime assets"
+    )
     args = ap.parse_args()
+    if args.download:
+        if args.weights or args.response:
+            ap.error("--download cannot be combined with local file arguments")
+        from scripts.download_asset import download
+
+        for key in ASSETS:
+            download(key)
+        return
     supplied = [(k, getattr(args, k)) for k in ASSETS if getattr(args, k) is not None]
     if not supplied:
-        ap.error("supply --weights and/or --response")
+        ap.error("supply --download, --weights and/or --response")
     # Validate every source before copying any of them.
     for key, source in supplied:
         if sha256(source) != ASSETS[key][1]:

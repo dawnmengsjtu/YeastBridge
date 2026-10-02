@@ -1,0 +1,248 @@
+{
+  "accession": "E-MTAB-2391",
+  "archives": {
+    "complete_parts": 18,
+    "duplicate_member_count": 0,
+    "expected_parts": 18,
+    "extra_archive_array_count": 0,
+    "extra_archive_array_examples": [],
+    "missing_sdrf_array_count": 0,
+    "missing_sdrf_array_examples": [],
+    "records": [
+      {
+        "bytes": 156288216,
+        "cel_member_count": 216,
+        "error": null,
+        "exists": true,
+        "member_count": 216,
+        "part": 1,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.1.zip",
+        "sha256": "2607109c2dcafbd8f41da2052b5ccd09b561b4ecacd7e8769cf8958d79cd1ca7",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.1.zip"
+      },
+      {
+        "bytes": 156502744,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 2,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.2.zip",
+        "sha256": "5d105c5b5c4d5e1fcd26f56fc3f4050371c542de596f33a7a29719fac3a5eb78",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.2.zip"
+      },
+      {
+        "bytes": 155610898,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 3,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.3.zip",
+        "sha256": "f712903eed1d20dfc84ecbf61cc64fd2e4adf499ebc24f135581754f45b268c3",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.3.zip"
+      },
+      {
+        "bytes": 156000229,
+        "cel_member_count": 216,
+        "error": null,
+        "exists": true,
+        "member_count": 216,
+        "part": 4,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.4.zip",
+        "sha256": "ad6d70809f4f1aa60b5be830a9d85fc201a9c244fd3e4724b01c59476accfd3e",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.4.zip"
+      },
+      {
+        "bytes": 156544338,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 5,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.5.zip",
+        "sha256": "4e02725875c6f820a40df957efb1af875022f32350df9446e2f0c0033e2acd23",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.5.zip"
+      },
+      {
+        "bytes": 154882423,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 6,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.6.zip",
+        "sha256": "0c29f7b3332d6dbe53b3127ce1f6ba7e7cdc535c00341dbd61e67ad68ab7a2e4",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.6.zip"
+      },
+      {
+        "bytes": 154443511,
+        "cel_member_count": 218,
+        "error": null,
+        "exists": true,
+        "member_count": 218,
+        "part": 7,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.7.zip",
+        "sha256": "f1ed2460887823118931f1a11050f473ff1a068ffb5e62f8c33a32d52cb739a6",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.7.zip"
+      },
+      {
+        "bytes": 153794220,
+        "cel_member_count": 218,
+        "error": null,
+        "exists": true,
+        "member_count": 218,
+        "part": 8,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.8.zip",
+        "sha256": "f81dc40861ad0ea24360e7879eb5e76df9e988aa0cb07b834f6804468df874b9",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.8.zip"
+      },
+      {
+        "bytes": 155313533,
+        "cel_member_count": 218,
+        "error": null,
+        "exists": true,
+        "member_count": 218,
+        "part": 9,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.9.zip",
+        "sha256": "69ad0fd6979a5a948cf74dc9baf8d1573fe1911118406b26af6f85dc3cbf04c8",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.9.zip"
+      },
+      {
+        "bytes": 155254455,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 10,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.10.zip",
+        "sha256": "98df862efa5c9b7631587b472307c12160587d5a4baa58291e9c11b01fa9171c",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.10.zip"
+      },
+      {
+        "bytes": 155729720,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 11,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.11.zip",
+        "sha256": "30ece75680bea9e2893fffee0e9d9c697cc5d5ac48d30f72a324c9428a7c21af",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.11.zip"
+      },
+      {
+        "bytes": 155568190,
+        "cel_member_count": 218,
+        "error": null,
+        "exists": true,
+        "member_count": 218,
+        "part": 12,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.12.zip",
+        "sha256": "214a1567730703e1a22d4f1ef24f4729e58346a10e159c076c741cc5f882b658",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.12.zip"
+      },
+      {
+        "bytes": 156779049,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 13,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.13.zip",
+        "sha256": "be3a7e169903c577e054ce34227997e4ea07cd5b45c600014fe816a6e4969920",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.13.zip"
+      },
+      {
+        "bytes": 155634214,
+        "cel_member_count": 217,
+        "error": null,
+        "exists": true,
+        "member_count": 217,
+        "part": 14,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.14.zip",
+        "sha256": "65407f4b2787f235c3f7e34a3e3d65f8b7f38882a24294bcafada22c4d3e6fb5",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.14.zip"
+      },
+      {
+        "bytes": 155204001,
+        "cel_member_count": 218,
+        "error": null,
+        "exists": true,
+        "member_count": 218,
+        "part": 15,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.15.zip",
+        "sha256": "4a48d9ef1814052fbbbd1610b3b294dfac15a1fd0abf710f4c099aed135e21d6",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.15.zip"
+      },
+      {
+        "bytes": 156942133,
+        "cel_member_count": 216,
+        "error": null,
+        "exists": true,
+        "member_count": 216,
+        "part": 16,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.16.zip",
+        "sha256": "3ab1fdd2ebff4d28d897a41a76de62e9679bb7b121857eab3d5ae5473d29f7be",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.16.zip"
+      },
+      {
+        "bytes": 158093581,
+        "cel_member_count": 216,
+        "error": null,
+        "exists": true,
+        "member_count": 216,
+        "part": 17,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.17.zip",
+        "sha256": "3c63d1618f6fe9888ebac14d1001675532ef89e9071e70d83bebb8c2016e5b7c",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.17.zip"
+      },
+      {
+        "bytes": 115114660,
+        "cel_member_count": 160,
+        "error": null,
+        "exists": true,
+        "member_count": 160,
+        "part": 18,
+        "path": "data/external/discovery_release_v1/hiphop_lee2014/E-MTAB-2391.raw.18.zip",
+        "sha256": "fe75f166a91094725f081751d0e339f63d95f3d4189fe1462760ab0c5a211c80",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.18.zip"
+      }
+    ],
+    "total_cel_members": 3850,
+    "unique_cel_members": 3850
+  },
+  "blockers": [
+    "no locked R/Bioconductor CEL processing toolchain is available",
+    "processed strain-level response matrix has not been generated"
+  ],
+  "claim_boundary": "SDRF and CEL availability do not constitute processed yeast response evidence.",
+  "dataset_id": "hiphop_lee2014_e_mtab_2391",
+  "metadata_ready": true,
+  "official_raw_url_template": "https://ftp.ebi.ac.uk/pub/databases/microarray/data/experiment/MTAB/E-MTAB-2391/E-MTAB-2391.raw.{part}.zip",
+  "processing_tools": {
+    "R": null,
+    "Rscript": null
+  },
+  "raw_archive_ready": true,
+  "readiness": "response_blocked",
+  "response_ready": false,
+  "schema_version": "yeastbridge.discovery.hiphop-readiness.v2",
+  "sdrf": {
+    "array_count": 3850,
+    "compound_inchikey_count": 3251,
+    "dose_units": [
+      "micromolar",
+      "millimolar",
+      "nanomolar",
+      "percent",
+      "picomolar"
+    ],
+    "genotypes": [
+      "start-to-stop gene deletion strains"
+    ],
+    "row_count": 3850,
+    "strains": [
+      "Mixed Heterozygous Essential and Homozygous Non-Essential Deletion Strains"
+    ]
+  }
+}

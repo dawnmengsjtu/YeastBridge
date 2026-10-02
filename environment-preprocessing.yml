@@ -1,0 +1,8 @@
+name: yeastbridge-hiphop
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=4.2.3
+  - bioconductor-affyio=1.68.0
+  - bioconductor-preprocesscore=1.60.2

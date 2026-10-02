@@ -1,0 +1,20 @@
+{
+  "arrays_processed": 3850,
+  "batches_without_matched_vehicle": [],
+  "claim_boundary": "Barcode fitness contrasts rank strain sensitivity within this public dataset; they are not target identities and do not by themselves validate any compound.",
+  "compounds_with_identity": 3250,
+  "method": "barcode response = median-polished log2 quantile-normalised expression (no background model) minus batch-matched vehicle median",
+  "probe_sets": 5717,
+  "schema_version": "yeastbridge.discovery.hiphop-response.v1",
+  "sources": {
+    "expression_path": "runs/discovery_release_v1/hiphop_cel/expr_full.tsv.gz",
+    "expression_sha256": "e20b4ab0af881d8b230952f2ee9f1e223cf4f69f30b04a50c55c3cc9bc5a254e",
+    "output_npz_sha256": "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
+    "sdrf_path": "data/external/paired_compounds/hiphop_lee2014_e_mtab_2391/raw/E-MTAB-2391.sdrf.txt",
+    "sdrf_sha256": "c842688dd1ac565a9779b4b4d7515b8cfa0e18f52d255bdcbad10396d1cc763f"
+  },
+  "strains": 5668,
+  "treated_arrays": 3356,
+  "vehicle_arrays": 494,
+  "vehicle_definition": "SDRF rows with an empty Comment[inchikey]"
+}

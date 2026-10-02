@@ -1,0 +1,6 @@
+arrays_processed	12
+cells_per_array	101124
+chip_type	GenFlex_Tag_16K_v2
+probe_sets	5717
+mapped_cells	11434
+method	log2+pure_R_quantile_normalisation+median_polish_no_bg_model

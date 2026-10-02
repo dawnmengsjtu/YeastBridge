@@ -9,6 +9,7 @@ import platform
 import subprocess
 import sys
 import time
+from datetime import datetime, timezone
 
 from scripts.project_io import ROOT, revision, sha256, write_json
 
@@ -32,6 +33,15 @@ def pipeline(mode, output):
     started = time.time()
     record = {
         "mode": mode,
+        "started_at_utc": datetime.now(timezone.utc).isoformat(),
+        "source_sha256": {
+            str(p.relative_to(ROOT)): sha256(p)
+            for p in [
+                ROOT / "main.py",
+                ROOT / "predict.py",
+                *sorted((ROOT / "scripts").glob("*.py")),
+            ]
+        },
         "code_revision": revision(),
         "status": "running",
         "seed": 42,

@@ -22,7 +22,7 @@ scGPT、Geneformer 和 scYeast 在历史选型或基准中使用；相关脚本�
 
 嵌入的索引、运行时间和模型信息见 `raw/tier1_esm2/*/run_info.json` 与 `human_810/build_manifest.tsv`。算法配置及种子见 `configs/`。主流程使用本地文件，不调用商业 API。
 
-B2 权重和 HIP/HOP 响应矩阵尚待补齐，安装与 SHA-256 见 [资产说明](../data/ASSETS.md)。运行 `python main.py --mode check` 可核对当前完整流程是否具备输入条件。
+B2 权重和 HIP/HOP 响应矩阵已从原环境恢复，下载、安装与 SHA-256 见 [资产说明](../data/ASSETS.md)。运行 `python main.py --mode check` 可核对当前完整流程是否具备输入条件。
 
 ## 输出解释与限制
 
