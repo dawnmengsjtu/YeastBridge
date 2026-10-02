@@ -1,114 +1,138 @@
 # YeastBridge
 
-## 结论版本（本目录复现的对象）
+YeastBridge 是面向 GPCR、离子通道等人源靶点的小分子候选筛选项目。它将人和酵母的蛋白表示进行跨物种匹配，再结合酵母化学遗传学响应数据，为后续人源化酵母及其他实验验证筛选候选化合物。
 
-| 层 | 结论 | A6000 注册记录 |
-|---|---|---|
-| 跨物种匹配（检索） | esm2 轴臂 B（去PC1）test AUC **0.9638**；联合臂 C 0.8770，ΔAUC(C−A)=+0.131 CI[+0.071,+0.193]，门 A 主+次过 | v8/v9 trackA（results_a6000/） |
-| 三臂基本结构 | **joint 0.403 最优**（human-only 0.365 / yeast-only 0.356）；G1 p<0.0005；G2 vs yeast-only p=0.0015、vs human-only p=0.0513（未达 0.05 阈值，经裁定按边际接受） | v9（results_a6000/v9_esm2_basic_20260912/） |
-| 产品线任务轴 | EJ = RRF20{direct_pc1, aligned_C, b2_verbatim}；EJ-dc = 去共模（共模占 99% 方差） | tasks/、docs/cross_species_match/ESM2_JOINT_* |
-| 面板显著对 | 两阶段确认 80/80 过家族 BH（q≤1.7e-4）；家族特异性检验：R1 升级 14 对（含 RYR2/RYR3/ITPR3/KCNG4/ADRA2B），R2 家族级 12/12；59/78 靶点构造性靶点级 | results_a6000/execute_hiphop/、docs/…/FAMILY_SPECIFICITY_RESULT.md |
-| GO 线（记录） | 对 GPCR/通道类三重阴性（V6）；有效域=保守类过程融合（V5.1/V6-A） | results_a6000/v6_process_bridge_20260912/ |
+仓库包含分析代码、配置、评估记录和候选清单。可以直接查看 [results.csv](results.csv)，也可以运行 `predict.py` 重新导出清单；完整分析需要另外准备模型权重和原始数据。
 
-## 目录
+## 工作流程
 
-```
-env -> 归档 venv (numpy1.26.4/pandas2.3.3/scipy1.15.3/anndata0.11.4, v51 时代钉平)
-env2/            本项目新建 venv: 同钉平版本 + 系统 torch 2.9.0 (--system-site-packages)
-raw/tier0_* tier1_{benchmark,k562,assets} -> 归档冻结数据（哈希当年已双端核验）
-raw/tier1_esm2/      human_810（本项目新推理）/ yeast_650m / universe_1175
-raw/tier1_models/    route_b（gene_table+final_model.pt+A2_init）/ scyeast 先验空间
-raw/tier1_response/  strain_response.npz（Lee2014 HIP/HOP）+ compounds.tsv.gz
-raw/tier1_projections/ gene_goslim_projection + gene_bp_ancestors
-scripts/         A6000 工作版脚本 verbatim（v5..v9 + EJ 链 + 执行器含 two-stage 补丁;
-                 补丁前备份 product_execute_hiphop.py.bak_pre_two_stage_20260912）
-configs/         SCNet 路径适配版（算法参数与冻结原版逐项一致）
-configs_a6000_frozen/  A6000 冻结原件（stage_root 为 A6000 路径，仅作记录）
-tasks/           EJ / EJ-dc / fammean / resid 任务表（A6000 产物原件）+ GO 线记录件
-panels/          全部冻结 allowlist + 提名/构建记录（sha 在册）
-docs/cross_species_match/  全部协议+结果文档（V5.1→V9、EJ 冻结、dc 附录、家族特异性）
-results_a6000/   A6000 正式运行记录件（v6-v9 结果、面板/确认/分解运行、screen 仅
-                 summary+top 名单，exec_matrix ~700MB×3 未传输，可重跑再生）
-results_v51era -> 归档复现结果（step1-4 逐位一致记录）
-repro/           本机复现运行输出
-MANIFEST.sha256  传输清单（6275 文件已全部双端校验通过, 0 问题）
+```text
+人源靶点与酵母蛋白表示
+        ↓
+跨物种匹配与排序融合（EJ）
+        ↓
+去除共享分量，生成靶点对应的酵母基因排序（EJ-dc）
+        ↓
+与 HIP/HOP 化合物响应谱匹配，进行双向筛选
+        ↓
+两阶段统计确认与家族特异性分析
+        ↓
+候选清单 results.csv
 ```
 
-## 复现命令（A6000；python=/public/home/mengxl/dzy/envs/yeastbridge/bin/python）
+EJ 使用倒数排名融合（RRF，`k=20`）整合三种匹配结果：去除第一主成分后的 ESM-2 相似度、配对监督对齐，以及 B2 投影。EJ-dc 在此基础上去除不同靶点间共享的任务谱分量。筛选层使用 Spearman 相关、置换检验和多重检验校正评估靶点与化合物响应谱的关联。
+
+## 快速开始
+
+### 导出已有候选清单
+
+使用 Python 3.10，在终端运行：
 
 ```bash
-cd /public/home/mengxl/dzy/YeastBridge_0912
-# 验收主运行：V9 esm2 三臂两门（joint 版）
-/public/home/mengxl/dzy/envs/yeastbridge/bin/python scripts/v9_esm2_basic_run.py \
-    --config configs_a6000_frozen/v9_esm2_basic.json --output repro/v9_joint_20260913
-# 产品线全链（依次）：
-/public/home/mengxl/dzy/envs/yeastbridge/bin/python scripts/esm2_joint_task_export.py \
-    --config configs_a6000_frozen/esm2_joint_tasks.json --output repro/tasks_ej
-/public/home/mengxl/dzy/envs/yeastbridge/bin/python scripts/task_axis_double_center.py \
-    --input repro/tasks_ej --output repro/tasks_ej_dc
-/public/home/mengxl/dzy/envs/yeastbridge/bin/python scripts/product_execute_hiphop.py \
-    --config configs_a6000_frozen/product_execute.esm2joint_dc.json \
-    --results-suffix _poscon_repro --n-perm 1000 \
-    --pair-allowlist panels/positive_control_panel_20260911/pair_allowlist.tsv \
-    --pair-allowlist-sha256 59a19823656ef4d0550811a29a4a08c010c78a8c58cef6c97f39e7d58af08b93 \
-    --allowlist-declared-hiphop-blind --allowlist-selection-basis <冻结basis原文>
-# 两阶段确认与家族特异性：见 docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md
-# 与 FAMILY_SPECIFICITY_PROTOCOL.md（two-stage 模式用 --allowlist-two-stage-rule-doc）
+git clone https://github.com/dawnmengsjtu/YeastBridge.git
+cd YeastBridge
+
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install numpy==1.26.4 pandas==2.3.3
+
+python predict.py
 ```
 
-## 验收状态
+脚本读取仓库内已保存的确认结果、家族特异性结果和化合物信息，生成或覆盖根目录的 `results.csv`。这一步不需要下载模型权重，也不会重新执行筛选。
 
-| # | 项目 | 状态 |
-|---|---|---|
-| 0 | 传输完整性：MANIFEST 6275 文件 sha256 双端一致 | 通过（0 问题）|
-| 1 | 适配配置路径自检（14 个 config 全路径存在） | 通过 |
-| 2 | V9 三臂两门复现（joint 0.403 / G1 / G3 数字对照 A6000） | 通过，逐位复现：joint 0.403/comp 0.350/G1 p=0/G3 门全过；per-query TSV md5 与 A6000 一致 |
-| 3 | EJ 链（导出→dc→面板→确认→家族） | 结果在册（results_a6000/execute_hiphop，80/80） |
+当前输出为 80 条候选记录，涉及 78 个靶点和 5 个化合物，包含以下信息：
 
-## 注意
+| 字段 | 内容 |
+| --- | --- |
+| 候选编号、靶点 | 候选 ID 与人源靶点名称 |
+| 化合物_InChIKey、化合物_CID、SMILES | 化合物标识与结构 |
+| 方向、剂量 | 酵母响应方向及原始记录中的剂量 |
+| spearman_rho、emp_p、q_bh | 相关系数、经验 p 值和 BH 校正值 |
+| 证据等级、模型与版本、备注 | 统计证据分类及方法说明 |
 
-- 本链全 CPU（仅 torch.load 用到 torch）；
-- 外网：curl 加 `-4`；pypi 走清华镜像；大文件从 A6000 侧 rsync（密钥
-  creed-a6000-transfer-20260908 已互通，`ssh -p 10077` 免密）；
-- /root 镜像层限额：一切大件放 private_data（本目录已在持久卷）。
+`+z` 表示耐药富集方向，`-z` 表示超敏方向。证据等级按残差检验和任务谱聚类结果划分，用于区分靶点级与家族级的统计关联；候选的结合活性和作用机制仍需实验验证。
 
-## 外部验证（External Validation，2026-09-16）
+### 运行完整分析
 
-在主链冻结结果之外，用两条从未参与任何训练/选择轮次的独立数据做外样本确认：
+完整分析使用 Python 3.10，建议在 Linux 下运行。使用预计算嵌入时，分析链可在 CPU 上运行。除上述依赖外，还需安装：
 
-- **EV0 检索外样本**：三库（OrthoDB/OMA/InParanoid）并集中 240 对新同源、213 个新人源基因
-  （为 215 个蛋白补推理 ESM-2 嵌入，见 raw/externalvalidation/ev0x_embed_merged/）。
-  V8 冻结算子原样运行：三臂 AUC 0.76 / 0.98 / 0.95，
-  ΔAUC(C−A) = +0.034，95% CI [+0.008, +0.060]，区间全正，门通过。
-- **EV1 基本结构外样本**：76 个 Replogle held-out 基因（标签自 Norman 冻结表直传）。
-  方向与幅度复现主链（joint 0.404 > human 0.374 > yeast 0.359）；
-  与主链合并 283 查询：对最优单臂 p < 2.4e-4，vs human-only p = 0.041，
-  vs yeast-only p = 0.0012。
-- 目录：results_a6000/externalvalidation/（运行记录）、raw/externalvalidation/
-  （冻结输入镜像与补推理嵌入）、scripts/ev*.py（运行器）、
-  docs/cross_species_match/EV_PROTOCOL.md（预注册协议）。
-- 复现：python 环境见 requirements.txt；输入完整性核验见
-  results_a6000/externalvalidation/rehash/（6259/6275 文件逐位一致）。
+```bash
+python -m pip install scipy==1.15.3 anndata==0.11.4 h5py==3.12.1 \
+    torch==2.9.0 fair-esm==2.0.0
+```
 
-仓库说明：大体积原始件（模型权重、K562 h5ad、Adamson 原始数据、响应矩阵等）
-按 .gitignore 排除，运行前需按 MANIFEST.sha256 与 raw/externalvalidation/
-内记录的哈希自行回填；raw/tier0_* 等为指向归档的符号链接占位。
+运行前需要完成数据和路径配置：
 
+1. 按 [数据说明](data/DATA_SOURCES.md) 和 [模型说明](models/MODEL_CARD.md) 准备嵌入、B2 投影权重、表达数据及 HIP/HOP 响应矩阵。大文件未随仓库发布，部分 `raw/` 条目是指向原归档的符号链接，需要替换为本机可访问的文件。
+2. 对照配置中的 SHA-256 和 `MANIFEST.sha256` 核对所需输入。该清单记录的是原始运行环境中的文件，公开仓库不包含清单中的全部内容。
+3. 将 `configs/` 中的 `stage_root` 和输入、输出路径改为本机路径，同时检查被引用的配置，例如 `esm2_joint_tasks.json` 中的 `method.v7_config`。`configs_a6000_frozen/` 保存原运行配置，供结果核对。
+4. 将正、负方向执行配置中的 `task_dir` 指向下方生成的 `repro/tasks_ej_dc/`，并分别设置 `response_npz`、`compound_table` 和 `results_dir`。
 
-## 附件5 合规说明（代码提交要求对照）
+完成配置后，依次运行：
 
-- **环境**：Python 3.10；依赖见 requirements.txt（版本钉平）；全链 CPU 可运行，
-  无 CUDA/驱动要求；操作系统 Linux（Windows 可跑除符号链接外的部分）。
-- **主运行入口**：`run.sh`（任务轴导出 -> 共模去除 -> 双向执行筛选 -> predict.py）；
-  `python predict.py` 单独运行可从在册结果一键生成标准候选清单 `results.csv`
-  （候选编号/赛道/靶点/SMILES/方向/指标/证据等级/模型版本/备注）。
-- **训练说明**：最终链不自训练深度模型（ridge/PLS/RRF 在运行脚本内确定性拟合，
-  种子冻结于 configs）；B2 注入投影权重为本项目早前训练，训练协议与日志见
-  docs/model_selection/ 与 scripts/model_selection/（合规于"训练入口"条款）。
-- **路径**：主入口与 predict.py 使用仓库相对路径；v5-v9 冻结链脚本保留原始
-  绝对路径作为运行记录原件（stage_root 由 configs 指定，可改配置复现）。
-- **随机种子**：全部在 configs*/（seed_* 字段）与协议文档登记。
-- **第三方模型/平台**：见 models/MODEL_CARD.md（无 API/商业平台调用）。
-- **数据**：来源/版本/许可/获取时间见 data/DATA_SOURCES.md；划分与泄漏防控在案。
-- **复现演示**：results_a6000/ 为完整在册结果（含 INPUT_MANIFEST 哈希）；
-  预期运行时间：predict.py 秒级；全链 run.sh 数小时（3,818,750 对，单机 CPU）。
+```bash
+# 生成 EJ 任务表
+python scripts/esm2_joint_task_export.py \
+    --config configs/esm2_joint_tasks.json \
+    --output repro/tasks_ej
+
+# 去除共享分量
+python scripts/task_axis_double_center.py \
+    --input repro/tasks_ej \
+    --output repro/tasks_ej_dc
+
+# 耐药富集与超敏两个方向的筛选
+python scripts/product_execute_hiphop.py \
+    --config configs/product_execute.esm2joint_dc.json \
+    --results-suffix _screen_repro
+
+python scripts/product_execute_hiphop.py \
+    --config configs/product_execute.esm2joint_dc_neg.json \
+    --results-suffix _neg_screen_repro
+```
+
+两阶段确认的提名规则、置换次数和参数见 [EJ-dc 分析说明](docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md)；家族分解见 [家族特异性分析协议](docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md)。导出新一轮候选前，需要完成这些分析，并相应更新 `predict.py` 的结果目录及配套面板、化合物信息。
+
+仓库中的 `run.sh` 保留了原运行环境的串联命令，使用 `configs_a6000_frozen/` 下的配置。迁移到新机器时需要同步修改路径；其最后一步仍由 `predict.py` 读取已有确认结果。
+
+## 评估与结果
+
+| 评估任务 | 已保存结果 | 详细记录 |
+| --- | --- | --- |
+| 跨物种检索 | ESM-2 去 PC1 的 test AUC 为 0.9638；配对监督联合臂为 0.8770 | [V8 结果](docs/cross_species_match/V8_ESM2_FORMAL_RESULT.md) |
+| 基本结构基准 | 联合方法 MRR 为 0.403，human-only 为 0.365，yeast-only 为 0.356 | [V9 结果](docs/cross_species_match/V9_ESM2_BASIC_RESULT.md) |
+| 候选确认与特异性分析 | 80 条候选记录；残差检验、任务谱聚类和家族均值分析用于区分证据等级 | [确认结果](docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md)、[特异性结果](docs/cross_species_match/FAMILY_SPECIFICITY_RESULT.md) |
+| 外部验证 | EV0 跨物种检索与 EV1 基本结构评估 | [验证协议](docs/cross_species_match/EV_PROTOCOL.md)、[运行结果](results_a6000/externalvalidation/) |
+
+V9 中联合方法相对 human-only 的比较为 `p=0.0513`，未达到 0.05 阈值。候选确认使用同一响应数据上的两阶段筛选，家族内 BH 校正未覆盖第一阶段的选择多重度，不能将 80 条候选解释为 80 个独立验证的药物靶点发现。详细统计口径和效应量见对应结果文档。
+
+## 仓库结构
+
+```text
+predict.py               从已有确认结果导出候选清单
+results.csv              已导出的候选清单
+run.sh                   原环境下的分析链入口
+scripts/                 匹配、筛选、验证与模型选型脚本
+configs/                 分析配置，运行前需适配本机路径
+configs_a6000_frozen/     原运行配置
+data/                   数据来源说明与化合物信息
+models/                  模型来源与权重说明
+raw/                     输入数据、索引和归档链接
+tasks/                  靶点对应的酵母基因任务表
+panels/                  筛选面板、候选列表及构建记录
+results_a6000/           主分析与外部验证的运行结果
+results_model_selection/ 模型选型结果
+docs/                   方法、分析协议与结果说明
+repro/                   复现输出
+MANIFEST.sha256          原始运行文件的哈希清单
+```
+
+## 文档与引用
+
+- [跨物种匹配文档](docs/cross_species_match/README.md)
+- [EJ 方法与参数](docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md)
+- [模型选型结果](docs/model_selection/RESULTS_v3.md)及[勘误](docs/model_selection/ERRATUM.md)
+- [数据来源](data/DATA_SOURCES.md)与[模型说明](models/MODEL_CARD.md)
+
+引用本项目请使用 [CITATION.cff](CITATION.cff)。问题或复现反馈可提交到 [Issues](https://github.com/dawnmengsjtu/YeastBridge/issues)。
