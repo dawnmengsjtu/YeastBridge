@@ -1,0 +1,15 @@
+{
+  "endpoint": "v2-spearman",
+  "response_npz": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/strain_response.npz",
+  "compound_table": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/compounds.tsv.gz",
+  "task_dir": "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family/tasks_fammean",
+  "results_dir": "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/fam_pos",
+  "task_top_k": 6734,
+  "n_perm": 10000,
+  "seed": 42,
+  "fdr_alpha": 0.1,
+  "top_report_per_target": 15,
+  "sensitivity_sign": 1,
+  "fdr_method": "BH",
+  "target_batch_size": 64
+}

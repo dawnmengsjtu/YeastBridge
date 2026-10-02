@@ -1,0 +1,15 @@
+dc task files: 1175
+S: (1175, 1279) (pool 1279)
+clusters@0.9: 834 (size>=2: 173), largest 37; clusters@0.7: 315
+nominated pairs: 80, targets: 78
+families with nominations: 71; nominated singletons: 59
+fam tables: 71
+resid tables: 19
+fam_allowlist_pos: 2 units
+fam_allowlist_neg: 10 units
+build_record.json e3cb87c51fb5bca3a296f03c0db6b0a8f5ce97123003e37a42aa26d7d9740440
+fam_allowlist_neg.tsv f8bc124ff2db994cc4dd0e0fffe15beadc248cceac85948beb905a8fdbb8c772
+fam_allowlist_pos.tsv 4498739bc317daa713028ac7e47320f7fd09dcd5603b6f6364db16f18b548f41
+resid_allowlist_neg.tsv d52fde573b8bd110d830d4599f7318735b8c6c39750d66a0e9582cf9d56c7e1f
+resid_allowlist_pos.tsv a045a0f699a1efa848ece321b4b356f801d7632d6cb93b258f8ce61caa3c2944
+[done]

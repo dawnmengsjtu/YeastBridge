@@ -1,0 +1,3 @@
+pos top written; compounds: 1 floor: 3896 vs expect 3814.9
+neg top written; compounds: 4 floor: 7239 vs expect 3814.9
+[done] -> /Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/confirmation_panel

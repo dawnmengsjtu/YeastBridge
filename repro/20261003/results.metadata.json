@@ -1,0 +1,19 @@
+{
+  "mode": "new-run",
+  "code_revision": "7cba3c8fba4529eb2c15b8bec0328ef53b677f76-dirty",
+  "rows": 80,
+  "output_sha256": "7efcf04ad01d9101f157d436a3c4985709cae8e5d047bde50561ce9e2bde267f",
+  "sorting": "direction then target symbol; candidate IDs are not a potency ranking",
+  "dose_unit": "per-row 剂量单位 column, recovered from the frozen response file",
+  "q_scope": "union of both directional confirmation families",
+  "selection_scope": "BH does not account for stage-one nomination; exploratory associations",
+  "sources": {
+    "outputs/full-restored-20261003/confirm_pos/exec_matrix.tsv": "c91c97ae07319e284cdbdcf72715ed51b4d2bb3767305937e40d948fe094e89f",
+    "outputs/full-restored-20261003/confirm_neg/exec_matrix.tsv": "5ec8bf3c549d8a31a2877fe21dc676b806ced69f04cee2a1f70f3aae6b296ce6",
+    "outputs/full-restored-20261003/resid_pos/exec_matrix.tsv": "4125c942c0c8195d01419d3f5717c64fda15bcd4a09d53e8f259536963dca60e",
+    "outputs/full-restored-20261003/resid_neg/exec_matrix.tsv": "a6bc77939e8021f5fe6d4c7995d4554f19373c60f532e7f4e127d1b4d86b5983",
+    "data/response_conditions.tsv": "15f3c80e44cdb470628f1cdc8481f872d096dade1acaddce9a319883dab56123",
+    "outputs/full-restored-20261003/family/panel/build_record.json": "e3cb87c51fb5bca3a296f03c0db6b0a8f5ce97123003e37a42aa26d7d9740440",
+    "raw/tier1_response/compounds.tsv.gz": "30d401dc02b426bb20ef1ec9b3182d6045c8f9f81282dd8d48cdcc36bc810927"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "entrypoint": "train.py",
-  "environment": "requirements-training.txt",
+  "environment": "requirements-training.lock.txt",
   "config": "configs/b2_training.json",
   "logs": [
     "models/training/evidence/earlier-run/scf_train.log",

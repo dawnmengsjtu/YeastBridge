@@ -1,0 +1,16 @@
+{
+  "entrypoint_revision": "eb5d6597b8f1620940a564b6849b8e34c0388a46",
+  "note": "This run began before documentation and provenance additions. Numerical analysis scripts were unchanged; predict.py subsequently gained the dose-unit column. The currently committed entrypoint also records source hashes and exposes a thread limit.",
+  "numerical_scripts": {
+    "esm2_joint_task_export.py": "c3658a0f436eec0385e4668f2f305daa0c4a25db32902591f7e4c763b94bb00d",
+    "v5_joint_formal_run.py": "464fbe3d308bdd80d543b7539ca6c239a5ba47c84543cf81b01b9c46d6aaf382",
+    "v7_b2_formal_run.py": "93d2cd2b19b855ce3764b8a2b65f9d2dd5856de93bb523c9633e2d3252bd8c99",
+    "v8_esm2_formal_run.py": "207876402977658062fcd1d7e0abcfe4f93a3bb38954e18dccb67ed78dc65da3",
+    "task_axis_double_center.py": "513f7b4ffc2a84aba5dec6691d599940274d4d2a062d950949818e090cccbf11",
+    "product_execute_hiphop.py": "4ee1c337a9fdfecfa8319a6840a084a89678ee5a3dec15fea1a0b1fda6f4c99d",
+    "ej_dc_nominate.py": "2edb6ad84a7a8dd6bbd51d1357fcfffb13044894b60308a68ae25c2e33068a5e",
+    "family_specificity_build.py": "bb93444a694ecdcd57bd349a942c24c569f5ddbae1b70f3da0dabd538f61fc12"
+  },
+  "candidate_exporter_sha256": "f6aaac6b4c3b87c18b7c5158bdeb204126f398467e70e5a643220a6c900a06eb",
+  "blas_threads": 4
+}

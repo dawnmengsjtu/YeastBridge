@@ -1,0 +1,16 @@
+universe asset hashes: all match
+input hashes: all match
+human esm2: (810, 1280), symbols 810
+pool: 1279/1282 (scyeast-covered 1262)
+primary pairs (V5.1 frozen ∩ B2-available): 752/753
+extended pairs (descriptive): 15
+hyper assert vs V8 frozen picks: OK (npc=3, lam_r=1.0, lam_a=1.0, pls_k=8)
+universe targets: 1175 (dup/blank dropped 0)
+operators fitted on 510 train pairs
+pool 1279/1282, tail strains: ['YJL138C', 'YNL030W', 'YNL031C']
+  exported 200/1175
+  exported 400/1175
+  exported 600/1175
+  exported 800/1175
+  exported 1000/1175
+[done] 1175 targets -> /Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/tasks_ej

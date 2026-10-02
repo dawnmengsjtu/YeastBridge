@@ -18,14 +18,25 @@
     "count": 5,
     "passed": 5,
     "isolated_demo_without_historical_results": true,
-    "test_seconds": 18.328
+    "test_seconds": 13.507
   },
   "asset_preflight": {
     "checked": 21,
     "present_and_verified": 21,
     "missing": []
   },
-  "full_research_run": "in progress in outputs/full-restored-20261003; not yet certified complete",
+  "full_research_run": {
+    "status": "complete",
+    "seconds": 1976.654,
+    "rows": 80,
+    "steps": 13,
+    "logs": "repro/20261003/",
+    "result_sha256": "7efcf04ad01d9101f157d436a3c4985709cae8e5d047bde50561ce9e2bde267f",
+    "numerical_comparison": "repro/20261003/comparison.json",
+    "execution_versions": "repro/20261003/execution_versions.json",
+    "cpu": "Apple M1",
+    "system_memory_bytes": 8589934592
+  },
   "original_B2_training": "Original source and frozen assets recovered; final-checkpoint epoch logs remain missing; earlier-run logs are explicitly distinguished.",
   "dependency_checks": {
     "core_install": "passed",
@@ -34,7 +45,11 @@
     "full_analysis_imports": "passed"
   },
   "review_bundle": {
-    "status": "rebuilding after asset recovery"
+    "files": 245,
+    "all_checksums_verified": true,
+    "packaged_tests": "5 checks run: 4 passed, 1 expected skip (frozen data omitted)",
+    "candidate_export_identical": true,
+    "test_seconds": 4.869
   },
   "B2_smoke": {
     "mode": "training-smoke",
@@ -155,5 +170,38 @@
     "all_equal": true,
     "numpy": "1.26.4",
     "note": "NPZ ZIP compression/container bytes can differ; numerical and metadata arrays compared explicitly"
+  },
+  "inference_bundle": {
+    "all_checksums_verified": true,
+    "asset_preflight_ready": true,
+    "candidate_export_identical": true,
+    "independent_bundle_task_generation": 1175,
+    "all_tasks_byte_identical_to_frozen": true,
+    "OPENBLAS_NUM_THREADS": "4",
+    "isolated_test_snapshot_files": 215,
+    "final_expected_files": 266,
+    "final_manifest": "MANIFEST.release.sha256 inside the distributed ZIP"
+  },
+  "task_table_regression": {
+    "tasks_ej": {
+      "files": 1175,
+      "byte_identical": 1175,
+      "different": []
+    },
+    "tasks_dc": {
+      "files": 1175,
+      "byte_identical": 1175,
+      "different": []
+    }
+  },
+  "release_asset_validation": {
+    "public_runtime_urls": "HTTP 200",
+    "all_uploaded_github_sha256_digests_match": true,
+    "record": "data/provenance/release-upload-20261003.json"
+  },
+  "training_dependency_closure": {
+    "verified_versions": 28,
+    "platform": "Linux x86_64, Python 3.10",
+    "requirements": "requirements-training.lock.txt"
   }
 }

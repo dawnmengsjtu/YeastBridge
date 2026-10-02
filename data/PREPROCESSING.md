@@ -26,8 +26,8 @@ python scripts/prepare_hiphop.py --output outputs/hiphop-rebuild
 
 ```bash
 conda env create -f environment-preprocessing.yml
-conda activate yeastbridge-hiphop
-# 在已安装核心Python依赖的环境中调用此Rscript
+
+# 保持前面安装了requirements.txt的Python环境，指定R环境中的Rscript路径
 python scripts/prepare_hiphop.py --from-cel --rscript /path/to/yeastbridge-hiphop/bin/Rscript \
     --output outputs/hiphop-from-cel
 ```

@@ -1,0 +1,47 @@
+{
+  "confirm_pos": {
+    "pairs_identical": true,
+    "rows": 40,
+    "max_abs_difference": {
+      "spearman_rho": 7.99999999995249e-08,
+      "emp_p": 9.999900000999979e-06,
+      "q": 2.6565199243999975e-06
+    }
+  },
+  "confirm_neg": {
+    "pairs_identical": true,
+    "rows": 40,
+    "max_abs_difference": {
+      "spearman_rho": 1.1500000000191912e-07,
+      "emp_p": 0.0,
+      "q": 0.0
+    }
+  },
+  "resid_pos": {
+    "pairs_identical": true,
+    "rows": 2,
+    "max_abs_difference": {
+      "spearman_rho": 9.999999994736442e-09,
+      "emp_p": 0.0,
+      "q": 0.0
+    }
+  },
+  "resid_neg": {
+    "pairs_identical": true,
+    "rows": 17,
+    "max_abs_difference": {
+      "spearman_rho": 6.499999999354245e-08,
+      "emp_p": 0.0,
+      "q": 0.0
+    }
+  },
+  "candidate_pairs_identical": true,
+  "final_rows": 80,
+  "all_confirmed_q_lt_0_1": true,
+  "evidence_counts": {
+    "靶点级（构造性，无近同谱）": 61,
+    "靶点级（残差检验过阈）": 14,
+    "确认关联（家族内未分辨）": 5
+  },
+  "note": "Task tables are byte-identical; small cross-platform floating differences can change Monte Carlo exceedance counts. New-run BH intentionally combines both directional confirmation families; published export retains historical per-direction q values."
+}

@@ -9,13 +9,15 @@ B2 将 ESM-2 的1280维蛋白表示通过可训练投影接入 scFoundation，�
 ```bash
 python3.10 -m venv .venv-training
 source .venv-training/bin/activate
-python -m pip install -r requirements-training.txt
+python -m pip install -r requirements-training.lock.txt
 python scripts/install_training_assets.py --checkpoint /path/to/models.ckpt
 python train.py --smoke --device cuda --output outputs/b2-smoke
 python train.py --device cuda --output outputs/b2-training
 ```
 
 安装器下载并校验准备好的训练输入。`models.ckpt` 是 scFoundation 的上游初始权重，从[官方模型说明](https://github.com/biomap-research/scFoundation/blob/main/model/README.md)提供的下载入口取得；本项目使用版本的 SHA-256 为 `9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9`。安装器拒绝其他版本。离线时可另外传入 `--inputs /path/to/b2-inputs.tar.gz`。
+
+`requirements-training.lock.txt`锁定了恢复时Linux x86_64环境中训练入口的28项传递依赖；依赖约束逐项核对通过。它不是历史训练时留下的环境快照。
 
 默认训练使用完整配置。`--smoke` 仅用2个细胞做一次前向、反向更新并保存基因表，用于检验环境；不会产出可替代正式模型的权重。输出目录保留日志、配置、逐样本划分和运行环境，必须使用新目录。
 

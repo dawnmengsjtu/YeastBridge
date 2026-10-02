@@ -63,7 +63,7 @@ python main.py --mode full --output outputs/full
 
 下载约513 MiB的B2权重和HIP/HOP响应矩阵并校验哈希，随后执行EJ导出、EJ-dc、双向全库筛选、每方向最多40对提名、100,000次置换确认、家族与残差检验。候选文件来自本次运行，保存在 `outputs/full/results.csv`；配置和日志保存在同一目录。
 
-完整库每方向有3,818,750对假设，需按小时规划CPU运行时间，并预留约10 GB磁盘。缺失文件或哈希不符时在计算前退出。重复运行应换用新的输出目录。离线安装与附件哈希见[资产说明](data/ASSETS.md)，实测记录见[验证记录](docs/submission/validation.json)。
+默认限制BLAS/OpenMP为4线程，可通过 `--threads` 调整。完整库每方向有3,818,750对假设，需按小时规划CPU运行时间，并预留约10 GB磁盘。缺失文件或哈希不符时在计算前退出。重复运行应换用新的输出目录。离线安装与附件哈希见[资产说明](data/ASSETS.md)，2026-10-03的完整CPU复核用时约33分钟（4线程，与其他检查并行），生成的80个候选对与历史清单一致；实测记录见[验证记录](docs/submission/validation.json)。
 
 ## 训练与数据准备
 
@@ -71,7 +71,7 @@ B2是在scFoundation骨干上训练的组件。已恢复原训练代码、计数
 
 ```bash
 # 在单独的Python 3.10训练环境中
-python -m pip install -r requirements-training.txt
+python -m pip install -r requirements-training.lock.txt
 python scripts/install_training_assets.py --checkpoint /path/to/models.ckpt
 python train.py --smoke --device cuda --output outputs/b2-smoke
 python train.py --device cuda --output outputs/b2-training
@@ -100,6 +100,8 @@ python -m unittest discover -s tests -v
 python scripts/build_submission.py --profile review
 python scripts/build_submission.py --profile inference --output dist/YeastBridge-inference.zip
 ```
+
+可直接下载[精简复核包](https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/YeastBridge-review.zip)或[离线推理包](https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/YeastBridge-inference.zip)。
 
 `review`是代码、文档、导出与演示的精简包；`inference`额外包含正式筛选所需冻结输入，可离线运行分析。包内含SHA-256清单。完整参赛包的材料核验使用 `--profile full`，当前会提示尚缺与最终权重对应的训练日志。数据许可记录和赛道最终模板的核对状态见[附件5核对记录](docs/submission/STATUS.md)。
 

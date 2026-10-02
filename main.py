@@ -14,9 +14,12 @@ from datetime import datetime, timezone
 from scripts.project_io import ROOT, revision, sha256, write_json
 
 
-def pipeline(mode, output):
+def pipeline(mode, output, threads=4):
     from scripts.check_assets import inventory
 
+    # Apply before importing NumPy and inherit the same limits in every worker.
+    for name in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+        os.environ[name] = str(threads)
     if mode == "full":
         problems = [x for x in inventory() if x["status"] != "ok"]
         if problems:
@@ -45,6 +48,7 @@ def pipeline(mode, output):
         "code_revision": revision(),
         "status": "running",
         "seed": 42,
+        "blas_threads": threads,
         "python": sys.version,
         "platform": platform.platform(),
         "packages": {
@@ -262,7 +266,15 @@ def main():
     p.add_argument(
         "--output", type=Path, help="CSV file for export; new directory for demo/full"
     )
+    p.add_argument(
+        "--threads",
+        type=int,
+        default=4,
+        help="BLAS/OpenMP thread limit for demo/full (default: 4)",
+    )
     args = p.parse_args()
+    if args.threads < 1:
+        p.error("--threads must be positive")
     if args.mode == "export":
         from predict import export
 
@@ -274,7 +286,11 @@ def main():
         print(json.dumps(items, ensure_ascii=False, indent=2))
         return 0 if all(x["status"] == "ok" for x in items) else 2
     else:
-        pipeline(args.mode, (args.output or ROOT / "outputs" / args.mode).resolve())
+        pipeline(
+            args.mode,
+            (args.output or ROOT / "outputs" / args.mode).resolve(),
+            args.threads,
+        )
     return 0
 
 

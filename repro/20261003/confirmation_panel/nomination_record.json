@@ -1,0 +1,49 @@
+{
+ "mode": "ej_dc_two_stage_nomination",
+ "rule_doc": "docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md (section 3)",
+ "rule": "top-40 by z per direction, dedup across directions",
+ "stage1_screens": {
+  "pos": {
+   "path": "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/screen_pos/exec_matrix.tsv",
+   "exec_matrix_sha256": "8e4c2a284f048acf1c0feaf19043d915a78c3535424eb83ffe65ad4104792ea8",
+   "floor_pairs": 3896,
+   "floor_null_expectation": 3814.9
+  },
+  "neg": {
+   "path": "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/screen_neg/exec_matrix.tsv",
+   "exec_matrix_sha256": "71754b62b2b9bd7f15bac99a825b0492ff0c87cda95d8943a858e871a78341cc",
+   "floor_pairs": 7239,
+   "floor_null_expectation": 3814.9
+  }
+ },
+ "directions": {
+  "pos": {
+   "n": 40,
+   "z_range": [
+    3.6875222684873368,
+    3.9364167732745994
+   ],
+   "unique_compounds": 1,
+   "compound_counts_top4": {
+    "SQFNCEKTEKNPCN-UHFFFAOYSA-N": 40
+   }
+  },
+  "neg": {
+   "n": 40,
+   "z_range": [
+    3.753282250956326,
+    3.8784683343769477
+   ],
+   "unique_compounds": 4,
+   "compound_counts_top4": {
+    "CLQPEZWMMZFTBG-UHFFFAOYSA-N": 35,
+    "DUCXQFAHDINGEV-UHFFFAOYSA-N": 2,
+    "IQYSTSHQRRVQGE-UHFFFAOYSA-N": 2,
+    "UQOWKTPSEYWQSM-UHFFFAOYSA-N": 1
+   }
+  }
+ },
+ "cross_direction_overlap_pairs": 0,
+ "pair_allowlist_pos40.tsv.sha256": "b6a23c0a2f6c7c8b9a29743b9e8412f7065e62ba567728745df5ffe600e2ec32",
+ "pair_allowlist_neg40.tsv.sha256": "a487e70b18ba457be014ebdb7512677dd0b6e6a9627c4f1e4dfebf7eca705635"
+}

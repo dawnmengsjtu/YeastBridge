@@ -1,0 +1,267 @@
+{
+  "mode": "full",
+  "code_revision": "eb5d6597b8f1620940a564b6849b8e34c0388a46",
+  "status": "complete",
+  "seed": 42,
+  "python": "3.10.20 (main, Mar  3 2026, 00:49:35) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3"
+  },
+  "steps": [
+    {
+      "name": "export",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/esm2_joint_task_export.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/configs/esm2_joint_tasks.json",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/tasks_ej"
+      ],
+      "returncode": 0,
+      "seconds": 9.679,
+      "log_sha256": "67a6c44e0c1ec08a1ec668f6fcd78d656765cf7e3e572f542ebfdd036df9c417"
+    },
+    {
+      "name": "double_center",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/task_axis_double_center.py",
+        "--input",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/tasks_ej",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/tasks_dc"
+      ],
+      "returncode": 0,
+      "seconds": 2.864,
+      "log_sha256": "f6077ce88d41d99db0300e4cf06f698bc5422b43b4d5e8d6c0f4248df3744d17"
+    },
+    {
+      "name": "screen_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/screen_pos.json",
+        "--results-suffix",
+        ""
+      ],
+      "returncode": 0,
+      "seconds": 500.263,
+      "log_sha256": "512702b56a5c1e08d9f540e44c49bc7acfaf6355d88fe2cdb25d6d452dcb2a30"
+    },
+    {
+      "name": "screen_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/screen_neg.json",
+        "--results-suffix",
+        ""
+      ],
+      "returncode": 0,
+      "seconds": 1136.813,
+      "log_sha256": "7f512438a738457ee3c479e334ca455a1cef02accbbb254670396a6a88d89e01"
+    },
+    {
+      "name": "nominate",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/ej_dc_nominate.py",
+        "--pos-screen",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/screen_pos",
+        "--neg-screen",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/screen_neg",
+        "--top-n",
+        "40",
+        "--screen-permutations",
+        "1000",
+        "--out",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/confirmation_panel"
+      ],
+      "returncode": 0,
+      "seconds": 50.704,
+      "log_sha256": "5adac1ce19d0b3ec272c812f0dd222552db4bc80e54024c6275a66c03bf6b73f"
+    },
+    {
+      "name": "confirm_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/confirm_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/confirmation_panel/pair_allowlist_pos40.tsv",
+        "--pair-allowlist-sha256",
+        "b6a23c0a2f6c7c8b9a29743b9e8412f7065e62ba567728745df5ffe600e2ec32",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 174.547,
+      "log_sha256": "caa813d0f7b78870a553411f986f06050fcca8c129d253412e110330717a6d28"
+    },
+    {
+      "name": "confirm_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/confirm_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/confirmation_panel/pair_allowlist_neg40.tsv",
+        "--pair-allowlist-sha256",
+        "a487e70b18ba457be014ebdb7512677dd0b6e6a9627c4f1e4dfebf7eca705635",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 76.366,
+      "log_sha256": "361d8c5c54e31ea63ab177e02e8704a4d1187a677e564d6303f68fc5c2520952"
+    },
+    {
+      "name": "family_build",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/family_specificity_build.py",
+        "--tasks",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/tasks_dc",
+        "--confirmation-panel",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/confirmation_panel",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family"
+      ],
+      "returncode": 0,
+      "seconds": 4.177,
+      "log_sha256": "2dc4b85c8119d34635927632edfd4895454d07668bf4a9488b79be66de87151c"
+    },
+    {
+      "name": "fam_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/fam_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family/panel/fam_allowlist_pos.tsv",
+        "--pair-allowlist-sha256",
+        "4498739bc317daa713028ac7e47320f7fd09dcd5603b6f6364db16f18b548f41",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 3.887,
+      "log_sha256": "7569067dbdfcdb7edba51ca85dcab57c36983da505af6cc9093e274a78f64e63"
+    },
+    {
+      "name": "fam_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/fam_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family/panel/fam_allowlist_neg.tsv",
+        "--pair-allowlist-sha256",
+        "f8bc124ff2db994cc4dd0e0fffe15beadc248cceac85948beb905a8fdbb8c772",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 6.116,
+      "log_sha256": "d85c06c197b6b923a7160921a2acec52c46417681815440fcb562d9bb03a7440"
+    },
+    {
+      "name": "resid_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/resid_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family/panel/resid_allowlist_pos.tsv",
+        "--pair-allowlist-sha256",
+        "a045a0f699a1efa848ece321b4b356f801d7632d6cb93b258f8ce61caa3c2944",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 3.489,
+      "log_sha256": "04fd8acf4364f20ae4af61838a0035d83991972d5ec89542e0be27062c425b8d"
+    },
+    {
+      "name": "resid_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/configs/resid_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/family/panel/resid_allowlist_neg.tsv",
+        "--pair-allowlist-sha256",
+        "d52fde573b8bd110d830d4599f7318735b8c6c39750d66a0e9582cf9d56c7e1f",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 6.551,
+      "log_sha256": "35d44b67b21ed103d849c7211dd0b8804be350589821770831cffed842f1c4d9"
+    },
+    {
+      "name": "predict",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/predict.py",
+        "--run-dir",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003",
+        "--compounds",
+        "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/compounds.tsv.gz",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-restored-20261003/results.csv"
+      ],
+      "returncode": 0,
+      "seconds": 0.816,
+      "log_sha256": "7fd0ec372e865501c8307ef4c705682b33677792d3b769be3041357df8edb698"
+    }
+  ],
+  "inputs": {
+    "response": {
+      "path": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/strain_response.npz",
+      "sha256": "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf"
+    },
+    "compounds": {
+      "path": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/compounds.tsv.gz",
+      "sha256": "30d401dc02b426bb20ef1ec9b3182d6045c8f9f81282dd8d48cdcc36bc810927"
+    }
+  },
+  "result_sha256": "7efcf04ad01d9101f157d436a3c4985709cae8e5d047bde50561ce9e2bde267f",
+  "seconds": 1976.654
+}

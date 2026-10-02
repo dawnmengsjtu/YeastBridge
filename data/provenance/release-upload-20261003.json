@@ -1,0 +1,37 @@
+{
+  "release_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/tag/reproducibility-assets-20261003",
+  "release_tag": "reproducibility-assets-20261003",
+  "source_commit": "7cba3c8fba4529eb2c15b8bec0328ef53b677f76",
+  "assets": [
+    {
+      "name": "b2-inputs.tar.gz",
+      "size": 82587295,
+      "digest": "sha256:70dc0666d4c389dc2bdda3db492e9e65e324480210a8b595e5c483ab22835dde",
+      "download_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/b2-inputs.tar.gz"
+    },
+    {
+      "name": "expr_full.tsv.gz",
+      "size": 167629452,
+      "digest": "sha256:e20b4ab0af881d8b230952f2ee9f1e223cf4f69f30b04a50c55c3cc9bc5a254e",
+      "download_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/expr_full.tsv.gz"
+    },
+    {
+      "name": "final_model.pt",
+      "size": 456735834,
+      "digest": "sha256:112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
+      "download_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/final_model.pt"
+    },
+    {
+      "name": "MODEL_LICENSE",
+      "size": 2310,
+      "digest": "sha256:bdcd01b3213efb813f4461ef60c2a30d56cf07b63446d234283d8c0547ee3cbb",
+      "download_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/MODEL_LICENSE"
+    },
+    {
+      "name": "strain_response.npz",
+      "size": 81279744,
+      "digest": "sha256:d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
+      "download_url": "https://github.com/dawnmengsjtu/YeastBridge/releases/download/reproducibility-assets-20261003/strain_response.npz"
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Build a small review bundle, or a full bundle only after asset/training checks pass."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -9,7 +8,7 @@ import sys
 import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.project_io import ROOT, revision
+from scripts.project_io import ROOT, revision, sha256
 from scripts.check_assets import inventory
 
 
@@ -18,8 +17,9 @@ def main():
     p.add_argument(
         "--profile", choices=["review", "inference", "full"], default="review"
     )
-    p.add_argument("--output", type=Path, default=ROOT / "dist/YeastBridge-review.zip")
+    p.add_argument("--output", type=Path)
     args = p.parse_args()
+    args.output = args.output or ROOT / f"dist/YeastBridge-{args.profile}.zip"
     tracked = (
         subprocess.check_output(
             ["git", "ls-files", "--cached", "-z"],
@@ -76,6 +76,7 @@ def main():
             "predict.py",
             "train.py",
             "requirements-training.txt",
+            "requirements-training.lock.txt",
             "environment-preprocessing.yml",
             "run.sh",
             "requirements.txt",
@@ -96,6 +97,7 @@ def main():
             "configs/",
             "configs_a6000_frozen/",
             "panels/",
+            "repro/20261003/",
         )
         keep_results = {
             "results.csv",
@@ -123,9 +125,8 @@ def main():
     sums = []
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED) as z:
         for name in sorted(paths):
-            data = (ROOT / name).read_bytes()
-            z.writestr("YeastBridge/" + name, data)
-            sums.append(hashlib.sha256(data).hexdigest() + "  " + name)
+            z.write(ROOT / name, "YeastBridge/" + name)
+            sums.append(sha256(ROOT / name) + "  " + name)
         z.writestr("YeastBridge/MANIFEST.release.sha256", "\n".join(sums) + "\n")
         z.writestr(
             "YeastBridge/BUNDLE.json",
