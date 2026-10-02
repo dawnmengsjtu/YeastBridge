@@ -27,7 +27,11 @@ def main():
     ap.add_argument("--neg-screen", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--top-n", type=int, default=40)
+    ap.add_argument("--screen-permutations", type=int, default=1000)
     args = ap.parse_args()
+    if args.top_n < 1 or args.screen_permutations < 1:
+        ap.error("counts must be positive")
+    selected = set()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     rec = {"mode": "ej_dc_two_stage_nomination",
@@ -43,18 +47,23 @@ def main():
                                   "emp_p", "null_mean", "null_sd"])
         df["z"] = (df.spearman_rho - df.null_mean) / df.null_sd.replace(0, np.nan)
         top = df.nlargest(args.top_n, "z")
+        # Keep the direction selected first; do not silently duplicate a hypothesis.
+        top = top[[tuple(row) not in selected for row in top[["target_id", "inchikey"]].itertuples(index=False, name=None)]]
+        selected.update(top[["target_id", "inchikey"]].itertuples(index=False, name=None))
+        if top.empty:
+            raise ValueError(f"No distinct nominations in {tag}; inspect input screens")
         top[["target_id", "inchikey"]].to_csv(out / f"pair_allowlist_{tag}40.tsv",
                                               sep="\t", index=False)
         frames[tag] = top
-        n_floor = int((df.emp_p <= 1.0 / 1001 + 1e-12).sum())
+        n_floor = int((df.emp_p <= 1.0 / (args.screen_permutations + 1) + 1e-12).sum())
         rec["stage1_screens"][tag]["floor_pairs"] = n_floor
-        rec["stage1_screens"][tag]["floor_null_expectation"] = round(len(df) / 1001, 1)
+        rec["stage1_screens"][tag]["floor_null_expectation"] = round(len(df) / (args.screen_permutations + 1), 1)
         rec["directions"][tag] = {
             "n": len(top), "z_range": [float(top.z.min()), float(top.z.max())],
             "unique_compounds": int(top.inchikey.nunique()),
             "compound_counts_top4": top.inchikey.value_counts().head(4).to_dict()}
         print(tag, "top written; compounds:", top.inchikey.nunique(),
-              "floor:", n_floor, "vs expect", round(len(df) / 1001, 1))
+              "floor:", n_floor, "vs expect", round(len(df) / (args.screen_permutations + 1), 1))
     pos, neg = frames["pos"][["target_id", "inchikey"]], frames["neg"][["target_id", "inchikey"]]
     rec["cross_direction_overlap_pairs"] = int(len(pd.merge(pos, neg, on=["target_id", "inchikey"])))
     for f in ("pair_allowlist_pos40.tsv", "pair_allowlist_neg40.tsv"):

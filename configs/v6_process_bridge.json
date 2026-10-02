@@ -3,7 +3,7 @@
   "date_frozen": "2026-09-12",
   "run_mode": "single_formal_run_predeclared_decision_rules",
   "user_directive": "2026-09-12: A(同源对齐)降级为门控成员, B(过程级融合)升级为管线骨架并接入应用层; 从读出层起局限于信号+跨膜运输邻域; 不做扩池审计",
-  "stage_root": "/root/private_data/yeastbridge_clean",
+  "stage_root": ".",
   "v51_reference": {
     "config": "configs/v5_1_joint_formal.json",
     "run_dir": "v5_1_joint_formal_20260909",
@@ -15,23 +15,23 @@
       "sha256": "37e48c474d8b5dead4151f96ea8f5fe7bbe6beb10eeea48685b740c3f74490a2"
     },
     "yeast_matrix": {
-      "path": "raw/tier1_benchmark/yeast_matrix.tsv.gz",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
       "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
     },
     "higher_matrix": {
-      "path": "raw/tier1_benchmark/higher_matrix.tsv.gz",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
       "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
     },
     "yeast_metadata": {
-      "path": "raw/tier1_benchmark/yeast_metadata.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
       "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
     },
     "higher_metadata": {
-      "path": "raw/tier1_benchmark/higher_metadata.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
       "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
     },
     "orthodb_edges": {
-      "path": "raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
       "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
     },
     "go_bp_ancestors": {

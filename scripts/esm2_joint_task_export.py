@@ -48,7 +48,7 @@ def main():
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
     cfg = json.loads(Path(args.config).read_text())
-    root = Path(cfg["stage_root"])
+    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
     outdir = Path(args.output)
     outdir.mkdir(parents=True, exist_ok=True)
     mp = cfg["method"]

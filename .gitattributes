@@ -1,0 +1,3 @@
+# Preserve frozen byte-level checksums across platforms.
+raw/tier1_models/route_b/A2_init.tsv -text whitespace=-blank-at-eol,cr-at-eol
+raw/externalvalidation/frozen_inputs/yeastbridge_re_mvp/feasibility/transfer_routes/assets/scf_yeast/A2_init.tsv -text whitespace=-blank-at-eol,cr-at-eol

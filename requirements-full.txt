@@ -1,0 +1,6 @@
+-r requirements.txt
+# Additional dependencies for the original EJ export and representation benchmarks.
+anndata==0.11.4
+h5py==3.12.1
+torch==2.9.0
+fair-esm==2.0.0

@@ -16,3 +16,11 @@ results_a6000/externalvalidation/ev1_adamson/adamson_matrix.tsv
 __pycache__/
 *.pyc
 results_a6000/literature_validation/
+
+.venv/
+outputs/
+dist/
+.pytest_cache/
+.DS_Store
+
+/results.metadata.json

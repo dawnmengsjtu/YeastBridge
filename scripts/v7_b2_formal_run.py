@@ -57,7 +57,7 @@ def pct_rows(S):
 # ------------------------------------------------------------------ setup
 def v7_setup(config_path):
     cfg = json.loads(Path(config_path).read_text())
-    root = Path(cfg["stage_root"])
+    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
     manifest = {}
     for k, v in cfg["inputs"].items():
         if not isinstance(v, dict):

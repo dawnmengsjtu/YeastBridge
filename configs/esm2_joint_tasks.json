@@ -1,7 +1,7 @@
 {
   "method_freeze_doc": "docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md",
   "date_frozen": "2026-09-12",
-  "stage_root": "/root/private_data/yeastbridge_clean",
+  "stage_root": ".",
   "user_rulings": [
     "2026-09-12 晚: 轴=esm2 路线, 基座保留",
     "2026-09-12 深夜: V9 G2-vs-human-only p=0.0513 接受; 固定该思路跑流程"

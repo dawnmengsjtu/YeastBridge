@@ -76,7 +76,7 @@ floor 质量的化合物集中度（每化合物零期望 ≈1-3 对）：
   杂䓬，钙通道调节剂骨架类) × GPR82/GPR152 等；
 - 执行器为本运行新增披露式 two-stage 模式（--allowlist-two-stage-rule-doc，
   规则文档哈希入 freeze record；原盲态面板路径逐字不变；补丁前版本备份为
-  product_execute_hiphop.py.bak_pre_two_stage_20260912）。
+  [历史执行器备份](https://github.com/dawnmengsjtu/YeastBridge/blob/480e0e13638517c1f6e12a5a495d2d6661df8a4c/scripts/product_execute_hiphop.py.bak_pre_two_stage_20260912)）。
 
 ### 证据层级（对外口径，强制随附）
 

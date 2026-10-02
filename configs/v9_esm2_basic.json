@@ -3,7 +3,7 @@
   "date_frozen": "2026-09-12",
   "run_mode": "single_formal_run_basic_structure",
   "user_directive": "2026-09-12 深夜澄清: 三臂两门 = v3 基本结构语义 (human-only/yeast-only/joint); 交付 = 一个方法, joint 显著最优, 且跨物种匹配显著; 轴维持 esm2 裁定",
-  "stage_root": "/root/private_data/yeastbridge_clean",
+  "stage_root": ".",
   "axis_discipline": "执行层轴纪律(2026-09-11 用户裁定): B2 轴为主, esm2_mean 只作注册参照臂并列报告; 不按结果选轴",
   "inputs": {
     "esm2_human": {
@@ -27,9 +27,9 @@
       "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c"
     },
     "yeast_esm2": {
-      "path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
+      "path_abs": "raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
       "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
-      "index_path_abs": "/root/private_data/yeastbridge_clean/raw/tier1_esm2/yeast_650m/index.tsv",
+      "index_path_abs": "raw/tier1_esm2/yeast_650m/index.tsv",
       "index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
     },
     "scyeast_prior": {
@@ -39,7 +39,7 @@
       "gene_order_sha256": "7f0f16a9e4ba55d4071ee6b8cbe43d825640e6a03a9724ceebdc614569ed0b74"
     },
     "orthodb_edges": {
-      "path": "raw/tier1_benchmark/orthodb_bipartite_edges.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
       "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
     },
     "v51_pair_list": {
@@ -47,19 +47,19 @@
       "note": "V5.1 官方 753 对(human,yeast_orf,split,fold)冻结清单; 主分析对集=该清单 ∩ B2 表示可用(人 ESM2 ok 且 ORF 在池中); 扩展对集=全部可行 edges, 仅描述性报告"
     },
     "yeast_matrix": {
-      "path": "raw/tier1_benchmark/yeast_matrix.tsv.gz",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
       "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
     },
     "yeast_metadata": {
-      "path": "raw/tier1_benchmark/yeast_metadata.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
       "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
     },
     "higher_matrix": {
-      "path": "raw/tier1_benchmark/higher_matrix.tsv.gz",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
       "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
     },
     "higher_metadata": {
-      "path": "raw/tier1_benchmark/higher_metadata.tsv",
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
       "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
     },
     "goslim_projection": {

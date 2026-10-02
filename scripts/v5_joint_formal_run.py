@@ -134,7 +134,7 @@ def load_foundation_reprs(st, scf_npy, scyeast_prior_npy, raw_h5ad):
     import anndata as ad
 
     cfg = st["config"]
-    root = Path(cfg["stage_root"])
+    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
     Ek1, Ey1 = st["Ek1"], st["Ey1"]
 
     # ---- 人侧 scF 表示 ----
@@ -268,7 +268,7 @@ def main():
     if not args.output:
         ap.error("--output is required unless --repr-grid is given")
     cfg = json.loads(Path(args.config).read_text())
-    root = Path(cfg["stage_root"])
+    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
     out_dir = Path(args.output)
     out_dir.mkdir(parents=True, exist_ok=True)
     res = {"protocol": cfg["protocol"], "config_sha256": sha256_file(args.config),
@@ -725,7 +725,7 @@ def _auc_p(pos, neg):
 def bridge_setup(config_path):
     """一次性加载冻结数据 → ES 空间 → 对齐器。返回可复用的桥状态。"""
     cfg = json.loads(Path(config_path).read_text())
-    root = Path(cfg["stage_root"])
+    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
     gate = cfg["data_quality_gate"]["column_abs_max_threshold"]
 
     a = ad.read_h5ad(root / cfg["inputs"]["k562_h5ad"]["path"])

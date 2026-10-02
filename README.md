@@ -1,138 +1,126 @@
 # YeastBridge
 
-YeastBridge 是面向 GPCR、离子通道等人源靶点的小分子候选筛选项目。它将人和酵母的蛋白表示进行跨物种匹配，再结合酵母化学遗传学响应数据，为后续人源化酵母及其他实验验证筛选候选化合物。
+YeastBridge 面向 GPCR、离子通道等人源靶点，将跨物种蛋白匹配与酵母化学遗传学响应结合，用于小分子候选筛选。仓库包含分析代码、冻结参数、候选清单和评估记录。
 
-仓库包含分析代码、配置、评估记录和候选清单。可以直接查看 [results.csv](results.csv)，也可以运行 `predict.py` 重新导出清单；完整分析需要另外准备模型权重和原始数据。
+[候选清单](results.csv) · [模型说明](models/MODEL_CARD.md) · [数据来源](data/DATA_SOURCES.md) · [参赛提交状态](docs/submission/STATUS.md)
 
-## 工作流程
+目前可直接运行已发表于本仓库的候选清单导出和合成演示。完整科研流程仍需补齐 B2 权重与 HIP/HOP 响应矩阵；B2 训练材料和部分数据许可记录也尚待恢复，详见提交状态。
+
+## 方法
 
 ```text
-人源靶点与酵母蛋白表示
-        ↓
-跨物种匹配与排序融合（EJ）
-        ↓
-去除共享分量，生成靶点对应的酵母基因排序（EJ-dc）
-        ↓
-与 HIP/HOP 化合物响应谱匹配，进行双向筛选
-        ↓
-两阶段统计确认与家族特异性分析
-        ↓
-候选清单 results.csv
+人和酵母的蛋白表示
+    → 三成员匹配与 RRF 融合（EJ）
+    → 去除任务谱共享分量（EJ-dc）
+    → HIP/HOP 双向响应筛选
+    → 候选提名、置换确认与家族分解
+    → results.csv
 ```
 
-EJ 使用倒数排名融合（RRF，`k=20`）整合三种匹配结果：去除第一主成分后的 ESM-2 相似度、配对监督对齐，以及 B2 投影。EJ-dc 在此基础上去除不同靶点间共享的任务谱分量。筛选层使用 Spearman 相关、置换检验和多重检验校正评估靶点与化合物响应谱的关联。
+EJ 融合去 PC1 的 ESM-2 相似度、配对监督对齐和 B2 投影，RRF 参数为 `k=20`。筛选使用 Spearman 相关、置换检验和多重检验校正。结果用于安排后续实验，指标不代表已测得的结合亲和力或药效。
 
-## 快速开始
+## 安装
 
-### 导出已有候选清单
-
-使用 Python 3.10，在终端运行：
+使用 Python 3.10。导出和合成演示在 CPU 上运行，无需 CUDA 或模型下载。Linux 和 macOS 可使用以下命令；Windows 激活环境时使用 `.venv\Scripts\activate`。
 
 ```bash
 git clone https://github.com/dawnmengsjtu/YeastBridge.git
 cd YeastBridge
-
 python3.10 -m venv .venv
 source .venv/bin/activate
-python -m pip install numpy==1.26.4 pandas==2.3.3
+python -m pip install -r requirements.txt
+```
 
+核心依赖为 NumPy 1.26.4、pandas 2.3.3、SciPy 1.15.3。测试环境中的传递依赖见 [requirements.lock.txt](requirements.lock.txt)。正式 EJ 导出另需 anndata 0.11.4、h5py 3.12.1、torch 2.9.0 和 fair-esm 2.0.0：
+
+```bash
+python -m pip install -r requirements-full.txt
+```
+
+已验证的完整分析环境版本锁定见 [requirements-full.lock.txt](requirements-full.lock.txt)。
+
+完整流程读取预计算嵌入，分析阶段不要求 GPU。历史模型训练的硬件、驱动、完整依赖和耗时记录尚待补齐；现有旧训练脚本不包含在已验证运行范围内。
+
+## 运行
+
+### 导出提交清单
+
+```bash
 python predict.py
+# 等效主入口
+bash run.sh
 ```
 
-脚本读取仓库内已保存的确认结果、家族特异性结果和化合物信息，生成或覆盖根目录的 `results.csv`。这一步不需要下载模型权重，也不会重新执行筛选。
+输出根目录的 `results.csv` 和 `results.metadata.json`。清单为80条记录，涉及78个靶点、5个化合物；元数据记录输入哈希、代码版本、排序和统计口径。此命令读取已有确认结果，不重新筛选。
 
-当前输出为 80 条候选记录，涉及 78 个靶点和 5 个化合物，包含以下信息：
-
-| 字段 | 内容 |
-| --- | --- |
-| 候选编号、靶点 | 候选 ID 与人源靶点名称 |
-| 化合物_InChIKey、化合物_CID、SMILES | 化合物标识与结构 |
-| 方向、剂量 | 酵母响应方向及原始记录中的剂量 |
-| spearman_rho、emp_p、q_bh | 相关系数、经验 p 值和 BH 校正值 |
-| 证据等级、模型与版本、备注 | 统计证据分类及方法说明 |
-
-`+z` 表示耐药富集方向，`-z` 表示超敏方向。证据等级按残差检验和任务谱聚类结果划分，用于区分靶点级与家族级的统计关联；候选的结合活性和作用机制仍需实验验证。
-
-### 运行完整分析
-
-完整分析使用 Python 3.10，建议在 Linux 下运行。使用预计算嵌入时，分析链可在 CPU 上运行。除上述依赖外，还需安装：
+可以指定其他输出文件：
 
 ```bash
-python -m pip install scipy==1.15.3 anndata==0.11.4 h5py==3.12.1 \
-    torch==2.9.0 fair-esm==2.0.0
+python predict.py --output outputs/published/results.csv
 ```
 
-运行前需要完成数据和路径配置：
-
-1. 按 [数据说明](data/DATA_SOURCES.md) 和 [模型说明](models/MODEL_CARD.md) 准备嵌入、B2 投影权重、表达数据及 HIP/HOP 响应矩阵。大文件未随仓库发布，部分 `raw/` 条目是指向原归档的符号链接，需要替换为本机可访问的文件。
-2. 对照配置中的 SHA-256 和 `MANIFEST.sha256` 核对所需输入。该清单记录的是原始运行环境中的文件，公开仓库不包含清单中的全部内容。
-3. 将 `configs/` 中的 `stage_root` 和输入、输出路径改为本机路径，同时检查被引用的配置，例如 `esm2_joint_tasks.json` 中的 `method.v7_config`。`configs_a6000_frozen/` 保存原运行配置，供结果核对。
-4. 将正、负方向执行配置中的 `task_dir` 指向下方生成的 `repro/tasks_ej_dc/`，并分别设置 `response_npz`、`compound_table` 和 `results_dir`。
-
-完成配置后，依次运行：
+### 运行小规模演示
 
 ```bash
-# 生成 EJ 任务表
-python scripts/esm2_joint_task_export.py \
-    --config configs/esm2_joint_tasks.json \
-    --output repro/tasks_ej
-
-# 去除共享分量
-python scripts/task_axis_double_center.py \
-    --input repro/tasks_ej \
-    --output repro/tasks_ej_dc
-
-# 耐药富集与超敏两个方向的筛选
-python scripts/product_execute_hiphop.py \
-    --config configs/product_execute.esm2joint_dc.json \
-    --results-suffix _screen_repro
-
-python scripts/product_execute_hiphop.py \
-    --config configs/product_execute.esm2joint_dc_neg.json \
-    --results-suffix _neg_screen_repro
+python main.py --mode demo --output outputs/demo
 ```
 
-两阶段确认的提名规则、置换次数和参数见 [EJ-dc 分析说明](docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md)；家族分解见 [家族特异性分析协议](docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md)。导出新一轮候选前，需要完成这些分析，并相应更新 `predict.py` 的结果目录及配套面板、化合物信息。
+演示从固定种子的合成表示开始，完成小型 ridge 拟合、任务设计、共模去除、双向筛选、提名、确认、家族分析和结果导出。输入、拟合参数、配置、日志和结果均保存到输出目录，通常为数秒至一分钟，实际耗时随机器与首次导入依赖而变化。
 
-仓库中的 `run.sh` 保留了原运行环境的串联命令，使用 `configs_a6000_frozen/` 下的配置。迁移到新机器时需要同步修改路径；其最后一步仍由 `predict.py` 读取已有确认结果。
+演示包含10个模拟靶点、160株模拟酵母和3个示例结构，不使用正式模型权重。所有候选均标为“合成演示，非科研候选”。详见 [演示说明](data/demo/README.md)。重复运行请使用新的输出目录，程序不会混用旧运行结果。
 
-## 评估与结果
+### 运行完整筛选
 
-| 评估任务 | 已保存结果 | 详细记录 |
-| --- | --- | --- |
-| 跨物种检索 | ESM-2 去 PC1 的 test AUC 为 0.9638；配对监督联合臂为 0.8770 | [V8 结果](docs/cross_species_match/V8_ESM2_FORMAL_RESULT.md) |
-| 基本结构基准 | 联合方法 MRR 为 0.403，human-only 为 0.365，yeast-only 为 0.356 | [V9 结果](docs/cross_species_match/V9_ESM2_BASIC_RESULT.md) |
-| 候选确认与特异性分析 | 80 条候选记录；残差检验、任务谱聚类和家族均值分析用于区分证据等级 | [确认结果](docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md)、[特异性结果](docs/cross_species_match/FAMILY_SPECIFICITY_RESULT.md) |
-| 外部验证 | EV0 跨物种检索与 EV1 基本结构评估 | [验证协议](docs/cross_species_match/EV_PROTOCOL.md)、[运行结果](results_a6000/externalvalidation/) |
+先按 [资产说明](data/ASSETS.md) 安装原始冻结文件，再检查输入：
 
-V9 中联合方法相对 human-only 的比较为 `p=0.0513`，未达到 0.05 阈值。候选确认使用同一响应数据上的两阶段筛选，家族内 BH 校正未覆盖第一阶段的选择多重度，不能将 80 条候选解释为 80 个独立验证的药物靶点发现。详细统计口径和效应量见对应结果文档。
+```bash
+python main.py --mode check
+python main.py --mode full --output outputs/full
+```
+
+完整流程会执行 EJ 导出、EJ-dc、双向全库筛选、每方向最多40对提名、100,000次置换确认、家族和残差检验，最后从本次运行生成候选清单。缺失文件或哈希不符时在计算前退出，不会用已保存结果替代新计算。
+
+完整库每个方向约382万对，运行量明显大于演示。原环境说明为单机 CPU 数小时；本次尚未在完整数据上验证该耗时和峰值内存，不应按演示资源估算正式任务。
+
+## 输出与结果
+
+清单包含候选编号、赛道、靶点、InChIKey、PubChem CID、SMILES、方向、Spearman 相关、经验 p 值、BH 校正值、剂量、证据等级、模型说明和备注。字段类型、精度、排序及缺失值规则见 [输出说明](docs/submission/RESULTS_SCHEMA.md)。
+
+`+z` 为耐药富集方向，`-z` 为超敏方向。默认导出保留历史数值；新运行对两个方向合并后的确认家族计算 BH。两者均未校正前序提名选择，候选不等于独立验证的药物靶点发现。原始剂量单位尚待核实。
+
+主要评估记录：
+
+- [跨物种检索](docs/cross_species_match/V8_ESM2_FORMAL_RESULT.md)：去 PC1 的 ESM-2 test AUC 为0.9638，配对监督联合臂为0.8770。
+- [基本结构基准](docs/cross_species_match/V9_ESM2_BASIC_RESULT.md)：联合方法 MRR 为0.403，human-only 为0.365，yeast-only 为0.356；与 human-only 比较的 `p=0.0513` 未达0.05阈值。
+- [两阶段确认](docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md)与[家族特异性](docs/cross_species_match/FAMILY_SPECIFICITY_RESULT.md)。
+- [外部验证协议](docs/cross_species_match/EV_PROTOCOL.md)与[运行结果](results_a6000/externalvalidation/)。
+
+## 验证与打包
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/build_submission.py --profile review
+```
+
+`dist/YeastBridge-review.zip` 是用于候选导出与合成演示的精简复核包，含实际文件的 SHA-256 清单。它省去大体积数据、重复嵌入、历史中间任务和绘图取数表，不作为完整科研提交包。
+
+完整包使用 `--profile full`。在关键资产或 B2 训练证据不齐时，打包器会拒绝生成完整包。附件5各项现状与剩余材料见 [提交状态](docs/submission/STATUS.md)。
 
 ## 仓库结构
 
-```text
-predict.py               从已有确认结果导出候选清单
-results.csv              已导出的候选清单
-run.sh                   原环境下的分析链入口
-scripts/                 匹配、筛选、验证与模型选型脚本
-configs/                 分析配置，运行前需适配本机路径
-configs_a6000_frozen/     原运行配置
-data/                   数据来源说明与化合物信息
-models/                  模型来源与权重说明
-raw/                     输入数据、索引和归档链接
-tasks/                  靶点对应的酵母基因任务表
-panels/                  筛选面板、候选列表及构建记录
-results_a6000/           主分析与外部验证的运行结果
-results_model_selection/ 模型选型结果
-docs/                   方法、分析协议与结果说明
-repro/                   复现输出
-MANIFEST.sha256          原始运行文件的哈希清单
-```
+| 路径 | 内容 |
+| --- | --- |
+| `main.py`、`run.sh` | 统一运行入口 |
+| `predict.py`、`results.csv` | 候选导出与已提交清单 |
+| `scripts/` | 分析、校验、资产安装和打包代码 |
+| `requirements*.txt`、`tests/` | 环境与验证 |
+| `data/`、`models/` | 数据、演示和模型说明 |
+| `configs/` | 主流程相对路径配置，以及历史基准配置 |
+| `configs_a6000_frozen/` | 原环境配置，仅作溯源 |
+| `raw/`、`tasks/`、`panels/` | 已保存输入、任务表与面板 |
+| `results_a6000/`、`results_model_selection/`、`repro/` | 历史结果及复现记录 |
+| `docs/` | 协议、结果、勘误和提交说明 |
 
-## 文档与引用
+`v5/v7/v8` 等模块仍被最终方法导入，不能按版本名称删除。历史协议、相反证据与勘误保留用于溯源；临时备份和绘图中间表可从 Git 历史恢复。
 
-- [跨物种匹配文档](docs/cross_species_match/README.md)
-- [EJ 方法与参数](docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md)
-- [模型选型结果](docs/model_selection/RESULTS_v3.md)及[勘误](docs/model_selection/ERRATUM.md)
-- [数据来源](data/DATA_SOURCES.md)与[模型说明](models/MODEL_CARD.md)
-
-引用本项目请使用 [CITATION.cff](CITATION.cff)。问题或复现反馈可提交到 [Issues](https://github.com/dawnmengsjtu/YeastBridge/issues)。
+引用信息见 [CITATION.cff](CITATION.cff)，第三方许可说明见 [NOTICE.md](NOTICE.md)。问题与复现反馈请提交到 [Issues](https://github.com/dawnmengsjtu/YeastBridge/issues)。

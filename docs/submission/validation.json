@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-03",
+  "python": "3.10",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "published_export": {
+    "rows": 80,
+    "columns": 14,
+    "byte_identical": true
+  },
+  "family_regression": {
+    "family_task_files": 71,
+    "residual_task_files": 19,
+    "byte_identical": true,
+    "classification_identical": true
+  },
+  "integration_tests": {
+    "count": 4,
+    "passed": 4,
+    "isolated_demo_without_historical_results": true,
+    "test_seconds": 5.054
+  },
+  "asset_preflight": {
+    "checked": 21,
+    "present_and_verified": 19,
+    "missing": [
+      "raw/tier1_models/route_b/final_model.pt",
+      "raw/tier1_response/strain_response.npz"
+    ]
+  },
+  "full_research_run": "not executed: missing assets",
+  "original_B2_training": "not reproduced: original training materials incomplete",
+  "dependency_checks": {
+    "core_install": "passed",
+    "full_requirements_install": "passed",
+    "pip_check": "passed",
+    "full_analysis_imports": "passed"
+  },
+  "review_bundle": {
+    "files": 141,
+    "all_checksums_verified": true,
+    "export_byte_identical": true
+  }
+}
