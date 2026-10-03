@@ -1,0 +1,137 @@
+{
+  "id": 20029387,
+  "title": "\"Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq\" Replogle et al. 2022 processed Perturb-seq datasets",
+  "doi": "10.25452/figshare.plus.20029387.v1",
+  "published_date": "2022-06-09T04:56:24Z",
+  "modified_date": "2023-05-30T14:18:26Z",
+  "version": 1,
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "files": [
+    {
+      "id": 35773070,
+      "name": "K562_essential_raw_bulk_01.h5ad",
+      "size": 79766954,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35773070",
+      "supplied_md5": "8321d5d3ffc99db2a5c71edca4189735",
+      "computed_md5": "8321d5d3ffc99db2a5c71edca4189735",
+      "mimetype": "application/x-hdf"
+    },
+    {
+      "id": 35773075,
+      "name": "K562_essential_normalized_singlecell_01.h5ad",
+      "size": 10661879995,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35773075",
+      "supplied_md5": "f1e221fbf6eac774c21c4242ed440c3f",
+      "computed_md5": "f1e221fbf6eac774c21c4242ed440c3f",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35773217,
+      "name": "K562_gwps_normalized_bulk_01.h5ad",
+      "size": 374587922,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35773217",
+      "supplied_md5": "a3dfaa94ea8724217f5ecb1e14a5f0c8",
+      "computed_md5": "a3dfaa94ea8724217f5ecb1e14a5f0c8",
+      "mimetype": "application/x-hdf"
+    },
+    {
+      "id": 35773219,
+      "name": "K562_essential_raw_singlecell_01.h5ad",
+      "size": 10661879995,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35773219",
+      "supplied_md5": "4f1122ce1c7f13299a68df6459a266d3",
+      "computed_md5": "4f1122ce1c7f13299a68df6459a266d3",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35774440,
+      "name": "K562_gwps_normalized_singlecell_01.h5ad",
+      "size": 65830941948,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35774440",
+      "supplied_md5": "6cd393e369506849ebf959175989d632",
+      "computed_md5": "",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35774443,
+      "name": "K562_gwps_raw_bulk_01.h5ad",
+      "size": 374587922,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35774443",
+      "supplied_md5": "4570b53c9d62ff6df281e622f0350060",
+      "computed_md5": "4570b53c9d62ff6df281e622f0350060",
+      "mimetype": "application/x-hdf"
+    },
+    {
+      "id": 35775507,
+      "name": "K562_gwps_raw_singlecell_01.h5ad",
+      "size": 65830941948,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35775507",
+      "supplied_md5": "887e3e6a8c8df6eadf7a3030a53c9546",
+      "computed_md5": "",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35775512,
+      "name": "rpe1_normalized_bulk_01.h5ad",
+      "size": 95350546,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35775512",
+      "supplied_md5": "6f1e7d6a09e2f869759e3c4526b7f171",
+      "computed_md5": "6f1e7d6a09e2f869759e3c4526b7f171",
+      "mimetype": "application/x-hdf"
+    },
+    {
+      "id": 35775554,
+      "name": "rpe1_normalized_singlecell_01.h5ad",
+      "size": 8700873216,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35775554",
+      "supplied_md5": "2c36a053960f3fae157adacdbccd4485",
+      "computed_md5": "2c36a053960f3fae157adacdbccd4485",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35775581,
+      "name": "rpe1_raw_bulk_01.h5ad",
+      "size": 95350546,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35775581",
+      "supplied_md5": "74765fa87635467a869ea972356ae0e7",
+      "computed_md5": "74765fa87635467a869ea972356ae0e7",
+      "mimetype": "application/x-hdf"
+    },
+    {
+      "id": 35775606,
+      "name": "rpe1_raw_singlecell_01.h5ad",
+      "size": 8700873216,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35775606",
+      "supplied_md5": "6a2a9d0d2bf4ec147f4d1104043b268c",
+      "computed_md5": "",
+      "mimetype": "undefined"
+    },
+    {
+      "id": 35780870,
+      "name": "K562_essential_normalized_bulk_01.h5ad",
+      "size": 79766954,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/35780870",
+      "supplied_md5": "30496767641cd2e660ee6ecb5baee132",
+      "computed_md5": "30496767641cd2e660ee6ecb5baee132",
+      "mimetype": "application/x-hdf"
+    }
+  ],
+  "url": "https://api.figshare.com/v2/articles/20029387",
+  "url_public_html": "https://plus.figshare.com/articles/dataset/_Mapping_information-rich_genotype-phenotype_landscapes_with_genome-scale_Perturb-seq_Replogle_et_al_2022_processed_Perturb-seq_datasets/20029387"
+}

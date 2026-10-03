@@ -1,5 +1,5 @@
-# Linux x86_64 / Python 3.10 / PyTorch CUDA 12.4; verified installed dependency closure on 2026-10-03.
-# Recovery environment, not a claim about the original training-time environment.
+# Linux x86_64 / Python 3.10 / PyTorch CUDA 12.4, submission-v2 observed environment.
+# Includes count-preparation dependencies; not a historical September lock.
 einops==0.8.2
 filelock==3.29.0
 fsspec==2024.6.1
@@ -23,8 +23,13 @@ nvidia-cusparselt-cu12==0.6.2
 nvidia-nccl-cu12==2.21.5
 nvidia-nvjitlink-cu12==12.4.127
 nvidia-nvtx-cu12==12.4.127
+pandas==2.3.2
+python-dateutil==2.9.0.post0
+pytz==2026.3.post1
+six==1.17.0
 sympy==1.13.1
-torch==2.6.0
 torch-einops-utils==0.1.21
+torch==2.6.0
 triton==3.2.0
 typing-extensions==4.15.0
+tzdata==2026.3

@@ -1,0 +1,162 @@
+{
+  "recovered_at_utc": "2026-10-03T06:43:00.584618+00:00",
+  "original_acquisition_time_policy": "Only contemporaneous manifests or HTTP headers establish original acquisition. mtime does not. This record identifies bytes recovered for the new submission run.",
+  "assets": [
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw/go-basic.obo",
+      "sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc",
+      "bytes": 32227785,
+      "mtime_utc_not_acquisition_time": "2026-09-01T14:28:31.265664+00:00",
+      "first_four_lines": [
+        "format-version: 1.2",
+        "data-version: releases/2026-07-26",
+        "subsetdef: chebi_ph7_3 \"Rhea list of ChEBI terms representing the major species at pH 7.3.\"",
+        "subsetdef: gocheck_do_not_annotate \"Term not to be used for direct annotation\""
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw/goslim_generic.obo",
+      "sha256": "a28d9dd0364e39a6dc926599bd628c524d3c389017b5398642c8cf2484d9f111",
+      "bytes": 125864,
+      "mtime_utc_not_acquisition_time": "2026-09-01T14:28:37.695663+00:00",
+      "first_four_lines": [
+        "format-version: 1.2",
+        "data-version: go/releases/2026-07-26/subsets/goslim_generic.owl",
+        "subsetdef: chebi_ph7_3 \"Rhea list of ChEBI terms representing the major species at pH 7.3.\"",
+        "subsetdef: gocheck_do_not_annotate \"Term not to be used for direct annotation\""
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw/HUMAN-uniprot.gaf.gz",
+      "sha256": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2",
+      "bytes": 12109254,
+      "mtime_utc_not_acquisition_time": "2026-09-01T14:28:45.204663+00:00",
+      "first_four_lines": [
+        "!gaf-version: 2.2",
+        "!generated-by: UniProt",
+        "!date-generated: 2026-07-28 19:42",
+        "!go-version: http://purl.obolibrary.org/obo/go/releases/2026-07-26/extensions/go-plus.ofn"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw/YEAST-mod.gaf.gz",
+      "sha256": "bea6d4453bb47db293d9103b73866801fe8e341975e5f8b5f3ca42053098d089",
+      "bytes": 2249310,
+      "mtime_utc_not_acquisition_time": "2026-09-01T14:28:53.311663+00:00",
+      "first_four_lines": [
+        "!gaf-version: 2.2",
+        "!generated-by: UniProt",
+        "!date-generated: 2026-08-04 15:09",
+        "!go-version: http://purl.obolibrary.org/obo/go/releases/2026-08-02/extensions/go-plus.ofn"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/orthodb_yeast_human.tsv",
+      "sha256": "c5785324826e84eb5b0ae68c5a4b269e5c61b53487648f5f3b9e4315c18d0147",
+      "bytes": 19543157,
+      "mtime_utc_not_acquisition_time": "2026-07-31T15:02:44.877217+00:00",
+      "first_four_lines": [
+        "og_id\tog_name\tyeast_gene\thuman_gene",
+        "1723139at2759\tCationic amino acid transporter\tVIN7_2492\tSLC7A14",
+        "1723139at2759\tCationic amino acid transporter\tVIN7_2492\tCAT-2",
+        "1723139at2759\tCationic amino acid transporter\tVIN7_2492\tCAT-1"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/orthodb_yeast_human_s288c.tsv",
+      "sha256": "d7f7680f93c2c8d4817200536c2422c9ba294762602233136b4062e2f639974a",
+      "bytes": 294711,
+      "mtime_utc_not_acquisition_time": "2026-07-31T15:04:09.629214+00:00",
+      "first_four_lines": [
+        "og_id\tog_name\tyeast_sgd\tyeast_desc\thuman_symbol\thuman_desc",
+        "1723139at2759\tCationic amino acid transporter\tYFL055W\tGeneral amino acid permease AGP3\tSLC7A14\tSolute carrier family 7 member 14",
+        "1723139at2759\tCationic amino acid transporter\tYFL055W\tGeneral amino acid permease AGP3\tCAT-2\tCationic amino acid transporter 2",
+        "1723139at2759\tCationic amino acid transporter\tYFL055W\tGeneral amino acid permease AGP3\tCAT-1\tHigh affinity cationic amino acid transporter 1"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/orthodb_yeast_human_raw_tab.tsv",
+      "sha256": "5d30d1e54c75d31a5af2f50cbfcb11b03be722b5ad7bcc30b72d27d3e6f44f62",
+      "bytes": 185394976,
+      "mtime_utc_not_acquisition_time": "2026-07-31T15:02:44.351217+00:00",
+      "first_four_lines": [
+        "pub_og_id\tog_name\tlevel_taxid\torganism_taxid\torganism_name\tpub_gene_id\tdescription",
+        "1723139at2759\tCationic amino acid transporter\t2759\t100035_0\tMassariosphaeria phaeospora\tBDV95DRAFT_575071\tamino acid permease-like protein",
+        "1723139at2759\tCationic amino acid transporter\t2759\t1001064_0\tRhodotorula toruloides ATCC 204091\tRTG_02527\tAPC amino acid permease",
+        "1723139at2759\tCationic amino acid transporter\t2759\t1001832_0\tDaldinia sp. EC12\tK445DRAFT_313291\tAmino acid permease/ SLC12A domain-containing protein"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/oma_yeast_human.tsv",
+      "sha256": "d0649d0f6e9db5babd25b5ed6c052c980e998bbdcea6efaa0db3f4a982191e2a",
+      "bytes": 325927,
+      "mtime_utc_not_acquisition_time": "2026-08-08T12:19:37.863156+00:00",
+      "first_four_lines": [
+        "yeast_systematic\tyeast_common\tyeast_uniprot\tyeast_omaid\thuman_symbol\thuman_uniprot\thuman_omaid\tortholog_type\tscore\tdistance\tis_main_isoform_pair\tsource",
+        "YAL016W\tTPD3\tP31383\tYEAST00002\tPPP2R1A\tP30153\tHUMAN45628\t1:n\t1869.8399658203125\t85.0\tyes\tOMA All.May2026 (API)",
+        "YAL016W\tTPD3\tP31383\tYEAST00002\tPPP2R1B\tP30154\tHUMAN09272\t1:n\t1895.989990234375\t83.0\tyes\tOMA All.May2026 (API)",
+        "YAL003W\tEFB1\tP32471\tYEAST00003\tEEF1B2\tP24534\tHUMAN66559\t1:1\t794.969970703125\t64.0\tyes\tOMA All.May2026 (API)"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/inparanoid_yeast_human.tsv",
+      "sha256": "280d3dadc8d7511fbb4ba5bb6f8de75dc9a74b9c24adb72b0019c9071f308cbf",
+      "bytes": 255396,
+      "mtime_utc_not_acquisition_time": "2026-08-08T11:53:18.379212+00:00",
+      "first_four_lines": [
+        "yeast_systematic\tyeast_common\tyeast_uniprot\thuman_symbol\thuman_uniprot\tortholog_type\tcluster_id\tcluster_score\tyeast_confidence\thuman_confidence\tsource",
+        "YHR165C\tPRP8\tP33334\tPRPF8\tQ6P2Q9\t1:1\t1\t3010\t1.0\t1.0\tInParanoid9",
+        "YJL130C\tURA2\tP07259\tCAD\tP27708\t1:1\t2\t2084\t1.0\t1.0\tInParanoid9",
+        "YKR054C\tDYN1\tP36022\tDYNC1H1\tQ14204\t1:1\t3\t1909\t1.0\t1.0\tInParanoid9"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/gene_master.tsv",
+      "sha256": "bb23f5116fa2a261a78e7be2080d63896a3591f3cde4eab426f2b0dbfce6991d",
+      "bytes": 161809,
+      "mtime_utc_not_acquisition_time": "2026-08-01T03:22:37.029649+00:00",
+      "first_four_lines": [
+        "systematic\tcommon\tuniprot\tin_orthodb\torthodb_og",
+        "Q0010\tQ0010\tQ9ZZX9\tN\t",
+        "Q0017\tQ0017\tQ9ZZX8\tN\t",
+        "Q0032\tQ0032\tQ9ZZX7\tN\t"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/single_cell/GSE125162_ALL-fastqTomat0-Counts.tsv",
+      "sha256": "9028159a6ee22f994c5131be68cd0f9643f60d099c26baf4fd00978a64d40d92",
+      "bytes": 526255104,
+      "mtime_utc_not_acquisition_time": "2026-07-31T14:02:22.262345+00:00",
+      "first_four_lines": [
+        "\"YDL248W\"\t\"YDL247W.A\"\t\"YDL247W\"\t\"YDL246C\"\t\"YDL245C\"\t\"YDL244W\"\t\"YDL243C\"\t\"YDL242W\"\t\"YDL241W\"\t\"YDL240C.A\"\t\"YDL240W\"\t\"YDL239C\"\t\"YDL238C\"\t\"YDL237W\"\t\"YDL236W\"\t\"YDL235C\"\t\"YDL234C\"\t\"YDL233W\"\t\"YDL232W\"\t\"YDL231C\"\t\"YDL230W\"\t\"YDL229W\"\t\"YDL228C\"\t\"YDL227C\"\t\"YDL226C\"\t\"YDL225W\"\t\"YDL224C\"\t\"YDL223C\"\t\"YDL222C\"\t\"YDL22...[truncated]",
+        "\"1_Glutamine\"\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t3\t0\t0\t9\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t2\t0\t0\t0\t0\t0\t0\t0\t4\t2\t0\t0\t0\t0\t0\t0\t1\t9\t0\t2\t1\t0\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t0\t0\t0\t2\t1\t0\t0\t1\t0\t0\t0\t0\t10\t0\t1\t0\t0\t1\t3\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0...[truncated]",
+        "\"2_Glutamine\"\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t1\t0\t0\t4\t0\t1\t11\t1\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t5\t0\t0\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t3\t0\t0\t0\t0\t0\t9\t7\t2\t0\t0\t0\t0\t0\t0\t31\t0\t3\t2\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t0\t4\t0\t1\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t1\t0\t0\t0\t0\t0\t1\t0\t2\t0\t1\t1\t0\t1\t0\t0\t0\t0\t8\t5\t1\t1\t8\t0\t0\t1\t1\t15\t0\t0\t0\t2\t5\t5\t0\t0\t2\t0\t0\t0\t1\t0\t1...[truncated]",
+        "\"3_Glutamine\"\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t1\t0\t0\t0\t3\t0\t0\t1\t5\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t2\t0\t0\t0\t0\t0\t0\t0\t3\t0\t0\t3\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t2\t1\t0\t1\t0\t0\t0\t3\t0\t1\t0\t1\t0\t2\t2\t3\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\t...[truncated]"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/SGD_features.tab",
+      "sha256": "75c6e884c5599974d7a923dc5308cfc5b9c8d9bbe33644069e0440695b7b6a09",
+      "bytes": 3380683,
+      "mtime_utc_not_acquisition_time": "2026-07-31T15:05:10.531212+00:00",
+      "first_four_lines": [
+        "S000350094\tORF\tVerified\tYDL204W-A\t\t\tchromosome 4\t\t4\t94133\t94285\tW\t\t2024-05-28\t2024-05-28\tProtein of unknown function, translated but not conserved; translation inhibition causes strong growth phenotypes",
+        "S000350094\tCDS\t\t\t\t\tYDL204W-A\t\t4\t94133\t94285\tW\t\t2024-05-28\t2024-05-28\t",
+        "S000350095\tORF\tVerified\tYFR035W-A\t\t\tchromosome 6\t\t6\t226260\t226550\tW\t\t2024-05-28\t2024-05-28\tProtein of unknown function; added to genome annotation based on evolutionary, translation, and proteomics evidence",
+        "S000350095\tCDS\t\t\t\t\tYFR035W-A\t\t6\t226260\t226550\tW\t\t2024-05-28\t2024-05-28\t"
+      ]
+    },
+    {
+      "source_path": "/public/home/mengxl/dzy/yeastbridge/data/mappings/gene_to_sequence.csv",
+      "sha256": "a0a6135d3d5c1829c229a1234eb99ad90fd92deeeda78caef30ffe4968a3f3d3",
+      "bytes": 1857705,
+      "mtime_utc_not_acquisition_time": "2026-07-31T14:01:16.463347+00:00",
+      "first_four_lines": [
+        "gene,protein_sequence",
+        "STE2,MSDAAPSLSNLFYDPTYNPGQSTINYTSIYGNGSTITFDELQGLVNSTVTQAIMFGVRCGAAALTLIVMWMTSRSRKTPIFIINQVSLFLIILHSALYFKYLLSNYSSVTYALTGFPQFISRGDVHVYGATNIIQVLLVASIETSLVFQIKVIFTGDNFKRIGLMLTSISFTLGIATVTMYFVSAVKGMIVTYNDVSATQDKYFNASTILLASSINFMSFVLVVKLILAIRSRRFLGLKQFDSFHILLIMSCQSLLVPSIIFILAYSLKPNQGTDVLTTVATLLAVLSLPLSSMW...[truncated]",
+        "CET1,MSYTDNPPQTKRALSLDDLVNHDENEKVKLQKLSEAANGSRPFAENLESDINQTETGQAAPIDNYKESTGHGSHSQKPKSRKSSNDDEETDTDDEMGASGEINFDSEMDFDYDKQHRNLLSNGSPPMNDGSDANAKLEKPSDDSIHQNSKSDEEQRIPKQGNEGNIASNYITQVPLQKQKQTEKKIAGNAVGSVVKKEEEANAAVDNIFEEKATLQSKKNNIKRDLEVLNEISASSKPSKYRNVPIWAQKWKPTIKALQSINVKDLKIDPSFLNIIPDDDLTKSVQDWVYATIYS...[truncated]",
+        "FOB1,MTKPRYNDVLFDDDDSVPSESVTRKSQRRKATSPGESRESSKDRLLILPSMGESYTEYVDSYLNLELLERGERETPIFLESLTRQLTQKIYELIKTKSLTADTLQQISDKYDGVVAENKLLFLQRQYYVDDEGNVRDGRNNDKIYCEPKHVYDMVMATHLMNKHLRGKTLHSFLFSHFANISHAIIDWVQQFCSKCNKKGKIKPLKEYKRPDMYDKLLPMERIHIEVFEPFNGEAIEGKYSYVLLCRDYRSSFMWLLPLKSTKFKHLIPVVSSLFLTFARVPIFVTSSTLDKDDL...[truncated]"
+      ]
+    }
+  ]
+}

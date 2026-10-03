@@ -1,0 +1,153 @@
+{
+  "dataset": {
+    "accession": "GSE42528",
+    "assay": "Expression profiling by array",
+    "canonical_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42528",
+    "organism": "Saccharomyces cerevisiae",
+    "platform": "GPL11232",
+    "platform_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL11232",
+    "pubmed": [
+      {
+        "pmid": "24766815",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24766815/"
+      },
+      {
+        "pmid": "24952590",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24952590/"
+      }
+    ],
+    "title": "Compendium of deletion mutant gene expression profiles"
+  },
+  "expected": {
+    "multi_probe_genes": 12,
+    "response_genes": 6170,
+    "signatures": 1484,
+    "source_gsm_arrays": 2633,
+    "source_probe_rows": 6182
+  },
+  "processing_contract": {
+    "direct_control": "two-colour within-array refpool or wild type",
+    "drug_response_used_as_ko_truth": false,
+    "hiphop_used_as_ko_truth": false,
+    "input_grain": "one PROBE_ID by one final deletion signature",
+    "missing_filled_with_zero": false,
+    "missing_value": "NA",
+    "multi_probe_bh_fdr_rule": "maximum observed probe BH-FDR value (conservative)",
+    "multi_probe_m_rule": "arithmetic mean of observed probe M values",
+    "normalization": "print-tip LOESS without background subtraction; gene-specific dye-bias correction; limma 2.12.0; BH FDR",
+    "output_grain": "one systematic yeast gene by one final deletion signature",
+    "signed_value": "submitter final limma M"
+  },
+  "retrieved_at": "2026-09-01",
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "bytes": 83315,
+      "content_scope": "complete Series and Sample metadata header for all 2633 GSMs; expression table body intentionally excluded",
+      "filename": "GSE42528_series_matrix_header.txt.gz",
+      "id": "gse42528_series_matrix",
+      "mode": "stream_extract_series_header",
+      "sha256": "54d133eaf3b55ee0e488b8e3976e055b87b9098dfaff1ce549e69fa622ff65fb",
+      "source_container_bytes": 260904665,
+      "stream_stop_after_line": "!series_matrix_table_begin",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42528/matrix/GSE42528_series_matrix.txt.gz"
+    },
+    {
+      "bytes": 67507834,
+      "filename": "GSE42526_final_GeneExpressionMatrix.txt.gz",
+      "id": "gse42526_final_matrix",
+      "mode": "download",
+      "observed_lineage": {
+        "cache_bytes": 67507834,
+        "cache_path": "/public/home/mengxl/dzy/yeastbridge/data/ko_kemmeren/kemmeren_2014/GSE42526_final_GeneExpressionMatrix.txt.gz",
+        "cache_sha256": "a8a94f4e637bce1843ccade63a7a9c7ac44bd23853ba282f61061dcd5b8f22fe",
+        "method": "read_only_copy_from_preexisting_host_cache_then_hash_verify"
+      },
+      "sha256": "a8a94f4e637bce1843ccade63a7a9c7ac44bd23853ba282f61061dcd5b8f22fe",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42526/suppl/GSE42526_final_GeneExpressionMatrix.txt.gz"
+    },
+    {
+      "bytes": 63790953,
+      "filename": "GSE42527_final_GeneExpressionMatrix.txt.gz",
+      "id": "gse42527_final_matrix",
+      "mode": "download",
+      "observed_lineage": {
+        "cache_bytes": 63790953,
+        "cache_path": "/public/home/mengxl/dzy/yeastbridge/data/ko_kemmeren/kemmeren_2014/GSE42527_final_GeneExpressionMatrix.txt.gz",
+        "cache_sha256": "7ff46469cd66c1f960c3cb811e808811b964d7bba11ff8fbfacadf38d129a255",
+        "method": "read_only_copy_from_preexisting_host_cache_then_hash_verify"
+      },
+      "sha256": "7ff46469cd66c1f960c3cb811e808811b964d7bba11ff8fbfacadf38d129a255",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42527/suppl/GSE42527_final_GeneExpressionMatrix.txt.gz"
+    },
+    {
+      "bytes": 10404,
+      "filename": "GSE42526_protocols.txt.gz",
+      "id": "gse42526_protocols",
+      "mode": "download",
+      "sha256": "b85b472125de045a1bff802218986d5431c53dd80709cb08fef5296b68e0e9da",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42526/suppl/GSE42526_protocols.txt.gz"
+    },
+    {
+      "bytes": 10414,
+      "filename": "GSE42527_protocols.txt.gz",
+      "id": "gse42527_protocols",
+      "mode": "download",
+      "sha256": "223e573247edf65a737cae4f342b05781d6f988ab909a968e7c7ad72f1b0be24",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE42nnn/GSE42527/suppl/GSE42527_protocols.txt.gz"
+    },
+    {
+      "bytes": 2718730,
+      "content_scope": "complete 15552-row GPL11232 platform table",
+      "filename": "GPL11232_platform_table.tsv",
+      "id": "gpl11232_platform_table",
+      "mode": "stream_extract_platform_table",
+      "sha256": "2d4ea210b4c6b87426f04511c844fb9a92ec8456352f0ae90bc3d495cdc6b1ff",
+      "source_container_bytes": 1243668613,
+      "stream_start_after_line": "!platform_table_begin",
+      "stream_stop_before_line": "!platform_table_end",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPL11nnn/GPL11232/soft/GPL11232_family.soft.gz"
+    }
+  ],
+  "subseries": {
+    "GSE42526": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42526",
+      "response_class": "non_responsive_le3_significant_mrna_changes",
+      "response_class_role": "provenance_only_not_a_model_label",
+      "signatures": 784
+    },
+    "GSE42527": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42527",
+      "response_class": "responsive_ge4_significant_mrna_changes",
+      "response_class_role": "provenance_only_not_a_model_label",
+      "signatures": 700
+    }
+  },
+  "target_id_overrides": {
+    "NHP6A": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/gene/856165",
+      "ncbi_gene_id": "856165",
+      "stable_id": "YPR052C"
+    },
+    "RCM1": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/gene/855709",
+      "ncbi_gene_id": "855709",
+      "stable_id": "YNL022C"
+    },
+    "RSC30": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/gene/856453",
+      "ncbi_gene_id": "856453",
+      "stable_id": "YHR056C"
+    },
+    "SUS1": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/gene/1466445",
+      "ncbi_gene_id": "1466445",
+      "stable_id": "YBR111W-A"
+    },
+    "TLC1": {
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/gene/9164870",
+      "ncbi_gene_id": "9164870",
+      "stable_id": "YNCB0010W"
+    }
+  }
+}

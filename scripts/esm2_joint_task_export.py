@@ -73,7 +73,11 @@ def main():
 
     # ---- V7 机械复用（池/配对/W_inj/酵母表, 哈希核对在内） ----
     # v7_config 路径相对仓库根（yeastbridge_re_mvp），非 stage_root
-    st = v7_setup(str(HERE.parent / mp["v7_config"]))
+    if mp.get("setup_mode") == "task-export-only":
+        from task_export_inputs import setup
+        st = setup(HERE.parent / mp["v7_config"])
+    else:
+        st = v7_setup(str(HERE.parent / mp["v7_config"]))
 
     # ---- 超参断言：与 V8 冻结选择一致 ----
     v8res = json.loads((root / cfg["inputs"]["v8_result_for_hyper_assert"]["path"]).read_text())

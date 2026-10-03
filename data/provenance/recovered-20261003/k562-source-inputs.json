@@ -1,0 +1,32 @@
+{
+  "gse42528_deletion_metadata": {
+    "bytes": 657178,
+    "filename": "yeast_deletion_metadata.tsv",
+    "sha256": "81baed8e69d25cf4d3c7aca93327253a27f07f681fc6b05b45a33c3a798b3e5a"
+  },
+  "gse42528_derived_manifest": {
+    "bytes": 1907,
+    "filename": "DERIVED_MANIFEST.json",
+    "sha256": "cfad65ecc28d962650fa442edc3ab22019254db2778024d53301f9c35d35ae54"
+  },
+  "human_source_manifest": {
+    "bytes": 9427,
+    "filename": "human_ko_base.sources.json",
+    "sha256": "c8559ba35e6aeeb54c0697243bdce5c6d8ee5076125fe6bee3be19708126d29d"
+  },
+  "orthodb_human_yeast_pairs": {
+    "bytes": 96342,
+    "filename": "orthodb_yeast_human_s288c.tsv",
+    "sha256": "9daadfbd5e4fb8c941962d4b4979aba39d16413de2ee22a398bd594b350e2215"
+  },
+  "protocol": {
+    "bytes": 2970,
+    "filename": "k562_gse42528_bridge_input.v1.json",
+    "sha256": "fbde5ce53546cbc9acaf90444fe795b955842b4cc069c090fbb8d6b181475133"
+  },
+  "replogle_k562_normalized_bulk": {
+    "bytes": 374587922,
+    "filename": "K562_gwps_normalized_bulk_01.h5ad",
+    "md5": "a3dfaa94ea8724217f5ecb1e14a5f0c8"
+  }
+}

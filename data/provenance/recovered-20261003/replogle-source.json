@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "audited_at": "2026-09-02",
+  "overall_status": "RECOMMEND_K562_GWPS_WITH_REQUIRED_FINITE_FEATURE_GATE",
+  "scope_contract": {
+    "purpose": "download and input audit only",
+    "model_results_read": false,
+    "norman_split_reused": false,
+    "norman_go_labels_reused": false,
+    "claim_boundary": "This manifest establishes a larger human loss-of-function transcriptomic base and its direct OrthoDB overlap with GSE42528. It does not show that a joint human-plus-yeast model outperforms either single-species arm."
+  },
+  "recommended_dataset": {
+    "name": "Replogle 2022 K562 genome-scale Perturb-seq",
+    "perturbation": "CRISPRi",
+    "cell_line": "K562",
+    "sampling_day_post_transduction": 8,
+    "processed_data_doi": "10.25452/figshare.plus.20029387.v1",
+    "processed_data_url": "https://doi.org/10.25452/figshare.plus.20029387.v1",
+    "figshare_api_url": "https://api.figshare.com/v2/articles/20029387",
+    "paper_doi": "10.1016/j.cell.2022.05.013",
+    "paper_url": "https://doi.org/10.1016/j.cell.2022.05.013",
+    "pmcid": "PMC9380471",
+    "pmc_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9380471/",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35688146/",
+    "raw_sequence_bioproject": "PRJNA831566",
+    "raw_sequence_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA831566",
+    "license": {
+      "name": "Creative Commons Attribution 4.0 International",
+      "spdx": "CC-BY-4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "Figshare article metadata"
+    }
+  },
+  "processed_files": [
+    {
+      "role": "recommended_model_input_after_finite_column_gate",
+      "filename": "K562_gwps_normalized_bulk_01.h5ad",
+      "figshare_file_id": 35773217,
+      "url": "https://ndownloader.figshare.com/files/35773217?download=1",
+      "bytes": 374587922,
+      "md5": "a3dfaa94ea8724217f5ecb1e14a5f0c8",
+      "md5_verified_on_isolated_server_copy": true
+    },
+    {
+      "role": "audit_and_reprocessing_fallback",
+      "filename": "K562_gwps_raw_bulk_01.h5ad",
+      "figshare_file_id": 35774443,
+      "url": "https://ndownloader.figshare.com/files/35774443?download=1",
+      "bytes": 374587922,
+      "md5": "4570b53c9d62ff6df281e622f0350060",
+      "md5_verified_on_isolated_server_copy": true
+    },
+    {
+      "role": "optional_not_required_for_competition_mvp",
+      "filename": "K562_gwps_normalized_singlecell_01.h5ad",
+      "figshare_file_id": 35774440,
+      "url": "https://ndownloader.figshare.com/files/35774440?download=1",
+      "bytes": 65830941948,
+      "md5": "6cd393e369506849ebf959175989d632"
+    },
+    {
+      "role": "optional_not_required_for_competition_mvp",
+      "filename": "K562_gwps_raw_singlecell_01.h5ad",
+      "figshare_file_id": 35775507,
+      "url": "https://ndownloader.figshare.com/files/35775507?download=1",
+      "bytes": 65830941948,
+      "md5": "887e3e6a8c8df6eadf7a3030a53c9546"
+    }
+  ],
+  "fallback_files": [
+    {
+      "dataset": "K562 essential-scale CRISPRi",
+      "filename": "K562_essential_raw_bulk_01.h5ad",
+      "figshare_file_id": 35773070,
+      "url": "https://ndownloader.figshare.com/files/35773070?download=1",
+      "bytes": 79766954,
+      "md5": "8321d5d3ffc99db2a5c71edca4189735",
+      "paper_target_genes": 2057,
+      "use": "low-cost replication and pipeline smoke test"
+    },
+    {
+      "dataset": "RPE1 essential-scale CRISPRi",
+      "filename": "rpe1_raw_bulk_01.h5ad",
+      "figshare_file_id": 35775581,
+      "url": "https://ndownloader.figshare.com/files/35775581?download=1",
+      "bytes": 95350546,
+      "md5": "74765fa87635467a869ea972356ae0e7",
+      "paper_target_genes": 2393,
+      "use": "non-cancer, near-euploid, p53-positive robustness check"
+    }
+  ],
+  "observed_h5ad_audit": {
+    "shape_profiles_by_features": [11258, 8248],
+    "target_profile_rows": 10673,
+    "unique_target_symbols": 9866,
+    "primary_transcript_profile_rows": 9608,
+    "unique_primary_target_symbols": 9605,
+    "eligible_primary_profile_rows_ge10_cells_with_ensembl": 9580,
+    "eligible_primary_target_symbols_ge10_cells_with_ensembl": 9577,
+    "non_targeting_control_rows": 585,
+    "core_control_rows": 514,
+    "filtered_target_cells_sum": 1914250,
+    "filtered_control_cells_sum": 75328,
+    "var_rows": 8248,
+    "unique_var_gene_symbols": 8246,
+    "duplicate_var_gene_symbols": ["HSPA14", "TBCE"],
+    "obs_index": "gene_transcript",
+    "obs_columns": [
+      "UMI_count_unfiltered",
+      "num_cells_unfiltered",
+      "num_cells_filtered",
+      "control_expr",
+      "fold_expr",
+      "pct_expr",
+      "core_control",
+      "mean_leverage_score",
+      "std_leverage_score",
+      "energy_test_p_value",
+      "anderson_darling_counts",
+      "mann_whitney_counts",
+      "z_gemgroup_UMI",
+      "mitopercent",
+      "TE_ratio",
+      "cnv_score_z"
+    ],
+    "var_index": "gene_id",
+    "var_columns": [
+      "gene_name",
+      "mean",
+      "std",
+      "cv",
+      "in_matrix",
+      "gini",
+      "clean_mean",
+      "clean_std",
+      "clean_cv"
+    ],
+    "raw_vs_normalized": {
+      "same_shape": true,
+      "same_obs_index_and_table": true,
+      "same_var_index_and_table": true,
+      "same_byte_count": true,
+      "same_md5": false,
+      "all_x_elements_differ": true,
+      "raw_x_nonfinite_elements": 0,
+      "normalized_x_positive_infinity_elements": 6881,
+      "normalized_x_rows_with_nonfinite": 2341,
+      "normalized_x_features_with_nonfinite": 73,
+      "normalized_x_features_retained_by_finite_gate": 8175,
+      "normalized_x_unique_gene_symbols_retained_by_finite_gate": 8173,
+      "required_gate": "Retain only response columns finite in every profile; do not impute infinities. Freeze the resulting Ensembl feature manifest before reading labels or scores."
+    }
+  },
+  "direct_orthodb_audit_against_gse42528": {
+    "mapping_input": {
+      "orthodb_pairs_sha256": "9daadfbd5e4fb8c941962d4b4979aba39d16413de2ee22a398bd594b350e2215",
+      "gse42528_derived_manifest_sha256": "cfad65ecc28d962650fa442edc3ab22019254db2778024d53301f9c35d35ae54",
+      "gse42528_deletion_targets": 1484,
+      "gse42528_response_genes": 6170
+    },
+    "all_target_symbols": {
+      "human_total": 9866,
+      "mapped_human": 722,
+      "mapped_human_fraction": 0.07318062031218325,
+      "mapped_yeast_deletion_targets": 493,
+      "direct_pairs": 881
+    },
+    "eligible_primary_target_symbols": {
+      "human_total": 9577,
+      "mapped_human": 708,
+      "mapped_human_fraction": 0.07392711705126867,
+      "mapped_yeast_deletion_targets": 493,
+      "direct_pairs": 857
+    },
+    "response_features_after_required_finite_gate": {
+      "human_feature_rows": 8175,
+      "human_unique_symbols": 8173,
+      "mapped_human": 2269,
+      "mapped_human_fraction": 0.27762143643704884,
+      "mapped_yeast_response_genes": 2106,
+      "direct_pairs": 3115
+    },
+    "full_target_graph_components": {
+      "components": 427,
+      "one_human_one_yeast": 271,
+      "one_to_many_or_many_to_many": 156,
+      "largest_component_human_genes": 22,
+      "largest_component_yeast_genes": 5,
+      "largest_component_edges": 24
+    }
+  },
+  "pre_registered_input_protocol": {
+    "primary_human_rows": "P1 or P1P2 transcript profiles with num_cells_filtered >= 10 and a non-null Ensembl target ID",
+    "feature_gate": "Use normalized bulk, remove every Ensembl response column containing any non-finite value across all 11258 rows, then mask the perturbed gene itself. Raw bulk remains the no-nonfinite audit fallback.",
+    "identifier_policy": "Use obs embedded Ensembl target ID and var Ensembl gene_id as stable identifiers; gene symbols are display and OrthoDB-join fields with explicit ambiguity records.",
+    "one_to_many_policy": "Keep each human and yeast perturbation signature as its own row. Do not choose a best ortholog and do not explode 881 edges into IID samples.",
+    "split_policy": "Construct the full human-target to GSE42528-deletion bipartite graph from the frozen OrthoDB table. Assign every connected component wholly to exactly one train, validation, or test partition. Freeze the component manifest before GO labels, model fitting, or score inspection.",
+    "go_policy": "Rebuild GO Biological Process/GO-slim projection for the K562 scope from the already frozen GO releases. Do not copy Norman labels, Norman development/final_test membership, or any Norman-derived tuning decision.",
+    "effect_direction_boundary": "CRISPRi knockdown and yeast deletion are both loss-of-function transcriptomic perturbations, but their magnitudes are not commensurate. Standardize within species; compare conserved direction/program structure, not raw numeric effect size.",
+    "forbidden": [
+      "using drug-response profiles as KO truth",
+      "selecting one ortholog after seeing benchmark performance",
+      "splitting members of one ortholog component across partitions",
+      "imputing normalized positive infinity as zero",
+      "claiming joint-model superiority from mapping coverage alone"
+    ]
+  },
+  "storage_plan": {
+    "competition_minimum_bytes": 374587922,
+    "competition_minimum_file": "K562_gwps_normalized_bulk_01.h5ad",
+    "recommended_working_reserve": "1 GiB for one processed file plus finite-feature and mapping manifests",
+    "two_bulk_files_bytes": 749175844,
+    "single_cell_download_required": false,
+    "raw_sra_download_required": false
+  }
+}

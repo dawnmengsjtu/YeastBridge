@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-10-03",
+  "version_policy": "An original release identifier when known; otherwise exact accession/filename/hash of the recovered snapshot. Recovery time is never presented as original download time.",
+  "datasets": [
+    {
+      "name": "GSE125162 yeast single-cell counts",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE125162",
+      "content_version": "GEO accession + raw SHA256 9028159a6ee22f994c5131be68cd0f9643f60d099c26baf4fd00978a64d40d92",
+      "role": "B2 self-supervised fine-tuning; 36314 train cells and 1911 validation cells",
+      "terms_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Raw original download timestamp was not retained. The recovered 2026-10-03 snapshot is the input to the new training run; not a reconstructed historical download date.",
+      "artifacts": {
+        "models/training/evidence/corpus_cells.tsv": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4",
+        "configs/b2_training_v2.json": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb"
+      }
+    },
+    {
+      "name": "UniProt proteins and SGD gene identifiers",
+      "source": "https://www.uniprot.org/",
+      "content_version": "Frozen sequence-derived ESM-2 matrices and gene indices, identified per file by SHA256",
+      "role": "B2 protein input and human/yeast matching",
+      "terms_url": "https://www.uniprot.org/api-documentation/support-data",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "SGD attribution and CC BY 4.0 also apply; see THIRD_PARTY_DATA.md. Original embedding calls and parameters are retained in raw/tier1_esm2. Public upstream release number was not saved for every sequence request; the actual frozen inputs are versioned by hash.",
+      "artifacts": {
+        "raw/tier1_esm2/human_810/index.tsv": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+        "raw/tier1_esm2/human_810/esm2_mean_fp32.npy": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+        "raw/tier1_esm2/yeast_650m/index.tsv": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214",
+        "raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+        "raw/tier1_esm2/universe_1175/index.tsv": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665",
+        "raw/tier1_esm2/universe_1175/esm2_mean_fp32.npy": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+        "raw/externalvalidation/mappings/gene_master.tsv": "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07"
+      }
+    },
+    {
+      "name": "ESM-2 pretraining corpus",
+      "source": "https://github.com/facebookresearch/esm#available-models",
+      "content_version": "UR50/D 2021_04; esm2_t33_650M_UR50D",
+      "role": "Third-party pretraining, not rerun by this project",
+      "terms_url": "https://github.com/facebookresearch/esm/blob/main/LICENSE",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Only model outputs and their indices are used in the final pipeline; the full upstream pretraining corpus was not acquired by the project. 2026-10-03 is model/source review date, not corpus-download date.",
+      "artifacts": {}
+    },
+    {
+      "name": "scFoundation pretraining corpus",
+      "source": "https://doi.org/10.1038/s41592-024-02305-7",
+      "content_version": "xTrimoscFoundation alpha / models.ckpt SHA256 9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9",
+      "role": "Third-party human single-cell pretraining; initialization for yeast B2",
+      "terms_url": "https://github.com/biomap-research/scFoundation/blob/main/MODEL_LICENSE",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "GEO, Single Cell Portal, HCA and EMBL-EBI; detailed upstream dataset list is Supplementary Data 1 and 2. Corpus itself was not reacquired. Initialization checkpoint was recovered and verified for this run.",
+      "artifacts": {
+        "models/training/vendor/scfoundation/MODEL_LICENSE": "bdcd01b3213efb813f4461ef60c2a30d56cf07b63446d234283d8c0547ee3cbb"
+      }
+    },
+    {
+      "name": "Lee et al. 2014 HIP/HOP E-MTAB-2391",
+      "source": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-2391",
+      "content_version": "Accession E-MTAB-2391, 18 raw archives identified by SHA256; processed NPZ d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
+      "role": "Screening response data, reused for nomination and confirmation",
+      "terms_url": "https://www.ebi.ac.uk/about/terms-of-use/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Original metadata HTTP acquisition evidence: 2026-08-16. Confirmation is conditional on outcome-derived nomination; no independent holdout claim.",
+      "artifacts": {
+        "data/provenance/hiphop/E-MTAB-2391.idf.txt": "0628319b7f83cd53be548a702fffcff5ee5f6888efda026d599c708c260ec68a",
+        "data/provenance/hiphop/E-MTAB-2391.sdrf.txt": "c842688dd1ac565a9779b4b4d7515b8cfa0e18f52d255bdcbad10396d1cc763f",
+        "data/provenance/hiphop/hiphop_readiness_final.json": "6b0e4ec7b9ae21ca9cafa7cbd6a8fbc9ee5236aab9275716b59ca63e3886c457"
+      }
+    },
+    {
+      "name": "OrthoDB human–yeast orthology",
+      "source": "https://data.orthodb.org/current",
+      "content_version": "Frozen mapping snapshot SHA256 9daadfbd5e4fb8c941962d4b4979aba39d16413de2ee22a398bd594b350e2215; original current-API release number unrecorded",
+      "role": "Paired alignment supervision; grouped train/validation/test",
+      "terms_url": "https://www.orthodb.org/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Original builder mentions v11/current, but requests current. No unsupported inference of the upstream release number is made. The actual file is the frozen version; mapping source record and pair-split audit retained.",
+      "artifacts": {
+        "results_a6000/v51_per_query_ranks_trackA.tsv": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15",
+        "raw/externalvalidation/mappings/orthodb_yeast_human.tsv": "03a8dea6ea3489b6a7f1462073c4d6ca4c1af07a71bf639db9ddd813cc01f504"
+      }
+    },
+    {
+      "name": "Kemmeren yeast deletion expression GSE42528 / GSE42526",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42528",
+      "content_version": "GPL11232, submitter final matrices; source manifest hashes",
+      "role": "Defines eligible yeast strain universe; historical expression benchmark",
+      "terms_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Original source snapshot acquired 2026-09-01. GSE42526 supplement supplies the final expression matrix; GSE42528 supplies metadata.",
+      "artifacts": {
+        "data/provenance/recovered-20261003/gse42528-source.json": "144538163c844d00a4957f65176d517b4eb4b11cb799ca0a6a54f2e0fd980159",
+        "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+      }
+    },
+    {
+      "name": "Replogle K562 genome-scale Perturb-seq",
+      "source": "https://doi.org/10.25452/figshare.plus.20029387.v1",
+      "content_version": "Figshare article 20029387 v1, normalized bulk file 35773217 (MD5 a3dfaa94ea8724217f5ecb1e14a5f0c8)",
+      "role": "Historical alignment development and external evaluation; no expression matrix loaded in final task export",
+      "terms_url": "https://creativecommons.org/licenses/by/4.0/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Original input audit dated 2026-09-02; exact original download time not retained. Nonfinite feature removal and graph-component partitions are specified in source manifest.",
+      "artifacts": {
+        "data/provenance/recovered-20261003/replogle-source.json": "c8559ba35e6aeeb54c0697243bdce5c6d8ee5076125fe6bee3be19708126d29d",
+        "data/provenance/recovered-20261003/replogle-figshare-metadata.json": "4e8abf716b489920198bb7f0c17b07cbf2ce3b1b0d0a61338d055077bea7cf95"
+      }
+    },
+    {
+      "name": "Norman 2019 GSE133349",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133349",
+      "content_version": "Accession and frozen higher-matrix/metadata SHA256",
+      "role": "Historical 207-query GO benchmark and method development; not B2 training",
+      "terms_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Content version is the retained matrix; original download time not retained. It is not relabeled an untouched external test after method development.",
+      "artifacts": {
+        "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c",
+        "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
+      }
+    },
+    {
+      "name": "GO ontology, GO-slim and GAF",
+      "source": "https://geneontology.org/docs/download-ontology/",
+      "content_version": "Ontology/GO-slim/human GAF 2026-07-26; yeast GAF 2026-08-02",
+      "role": "Historical functional-label projection and evaluation",
+      "terms_url": "https://geneontology.org/docs/go-citation-policy/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Original downloads 2026-09-01T14:28:31–53Z; original manifest and verified file headers retained.",
+      "artifacts": {
+        "data/provenance/recovered-20261003/go-sources.json": "7040b92e83deb4b4a7edae966e8e1aeb5b8b908f3cbc060224da7b4b27fe7e1b",
+        "raw/tier1_projections/gene_goslim_projection.tsv.gz": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
+      }
+    },
+    {
+      "name": "OMA Browser",
+      "source": "https://doi.org/10.5281/zenodo.20922901",
+      "content_version": "All.May2026",
+      "role": "Historical initialization alternatives and external orthology evaluation",
+      "terms_url": "https://creativecommons.org/licenses/by/4.0/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "",
+      "artifacts": {
+        "raw/externalvalidation/mappings/oma_yeast_human.tsv": "d09f6062f8dd5d899c72d1bed3ca627c955ece093c09e5002613be92da28e281",
+        "data/provenance/recovered-20261003/oma-zenodo-metadata.json": "59c40eee10b4c99aefb7b7a4853e6c527af65645c6b6e707ef173ba56a2e0a74"
+      }
+    },
+    {
+      "name": "InParanoiDB",
+      "source": "https://inparanoidb.sbc.su.se/about/",
+      "content_version": "InParanoid9 protein ortholog groups 559292 × 9606",
+      "role": "Historical initialization alternatives and external orthology evaluation",
+      "terms_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "",
+      "artifacts": {
+        "raw/externalvalidation/mappings/inparanoid_yeast_human.tsv": "a0d6d2142dec01b36858b040dea683f088e890e39ee4cd1ef2ce113943a7ca71"
+      }
+    },
+    {
+      "name": "Adamson GSE90546",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90546",
+      "content_version": "GEO accession; historical 2026-08 record",
+      "role": "Historical auxiliary validation; not used for final B2 training or screening",
+      "terms_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "Only provenance and historical analysis remain; original raw data is not redistributed in the submission bundle.",
+      "artifacts": {}
+    },
+    {
+      "name": "LINCS L1000 GSE92742",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742",
+      "content_version": "GSE92742 Broad LINCS Level5 COMPZ.MODZ n473647x12328",
+      "role": "Historical fallback explored in 2026-09; not used for final candidate list",
+      "terms_url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+      "acquired_for_submission": "2026-10-03",
+      "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
+      "note": "No downstream LINCS model or validation result is claimed in this submission; raw GCTX not distributed.",
+      "artifacts": {}
+    }
+  ]
+}

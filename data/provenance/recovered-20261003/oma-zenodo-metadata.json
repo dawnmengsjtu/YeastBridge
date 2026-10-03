@@ -1,0 +1,126 @@
+{
+  "id": 20922901,
+  "doi": "10.5281/zenodo.20922901",
+  "created": "2026-07-01T22:43:36.773756+00:00",
+  "updated": "2026-07-01T22:43:38.407372+00:00",
+  "metadata": {
+    "title": "OMA Browser Datasets",
+    "doi": "10.5281/zenodo.20922901",
+    "publication_date": "2026-05-26",
+    "description": "<p>OMA is a method and database for the inference of orthologs among complete genomes. We provide browsable orthology predictions, APIs, flat file downloads and a standalone version of the inference algorithm on our main website: https://omabrowser.org</p>\n<p>This zenodo record contains flat files of archive and current releases of the OMA Browser.</p>\n<p>The most important files are:</p>\n<table>\n<tbody>\n<tr>\n<td><strong>Dataset</strong></td>\n<td><strong>Filename</strong></td>\n<td><strong>Format</strong></td>\n</tr>\n<tr>\n<td>Hierarchical Orthologous Groups (HOGs)</td>\n<td>oma-hogs.orthoXML.gz</td>\n<td>OrthoXML format</td>\n</tr>\n<tr>\n<td>OMA Groups, aka Strict Orthologous Groups (SOG)</td>\n<td>oma-groups.txt.gz</td>\n<td>\n<p>TXT; flat groups</p>\n</td>\n</tr>\n<tr>\n<td>&nbsp;</td>\n<td>oma-groups.orthoXML.gz</td>\n<td>\n<p>OrthoXML format</p>\n</td>\n</tr>\n<tr>\n<td>Pairwise Orthologs (Pairs of Proteins)</td>\n<td>oma-pairs.txt.gz</td>\n<td>\n<p>TSV file</p>\n</td>\n</tr>\n<tr>\n<td>Species / Genomes used in dataset</td>\n<td>oma-species.txt</td>\n<td>\n<p>TSV file</p>\n</td>\n</tr>\n<tr>\n<td>Protein sequences of all species / genome</td>\n<td>oma-seqs.fa.gz</td>\n<td>\n<p>Fasta file</p>\n</td>\n</tr>\n<tr>\n<td>Gene Ontology Annotations of all proteins</td>\n<td>oma-go.txt.gz</td>\n<td>\n<p>TSV file</p>\n</td>\n</tr>\n<tr>\n<td>Cross-references to various databases <br>(Ensembl, RefSeq, UniProtKB, ...)&nbsp;</td>\n<td>oma-&lt;xxx&gt;.txt.gz</td>\n<td>\n<p>TSV file</p>\n</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Altenhoff, Adrian",
+        "affiliation": "SIB Swiss Institute of Bioinformatics",
+        "orcid": "0000-0001-7492-1273"
+      },
+      {
+        "name": "Dessimoz, Christophe",
+        "affiliation": "SIB Swiss Institute of Bioinformatics",
+        "orcid": "0000-0002-2170-853X"
+      },
+      {
+        "name": "Glover, Natasha",
+        "affiliation": "SIB Swiss Institute of Bioinformatics",
+        "orcid": "0000-0003-1811-4340"
+      }
+    ],
+    "keywords": [
+      "Comparative Genomics"
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.1093/nar/gku1158",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.1093/nar/gkx1019",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.1093/nar/gkq1238",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.1093/bioinformatics/btm295",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.1093/nar/gkaa1007",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      },
+      {
+        "identifier": "10.1093/nar/gkad1020",
+        "relation": "isDescribedBy",
+        "resource_type": "publication",
+        "scheme": "doi"
+      }
+    ],
+    "version": "All.May2026",
+    "language": "eng",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 13,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20816667"
+          }
+        }
+      ]
+    }
+  },
+  "links": {
+    "self": "https://zenodo.org/api/records/20922901",
+    "self_html": "https://zenodo.org/records/20922901",
+    "preview_html": "https://zenodo.org/records/20922901?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.20922901",
+    "self_doi": "https://doi.org/10.5281/zenodo.20922901",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20922901",
+    "reserve_doi": "https://zenodo.org/api/records/20922901/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/20816667",
+    "parent_html": "https://zenodo.org/records/20816667",
+    "parent_doi": "https://doi.org/10.5281/zenodo.20816667",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20816667",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:20922901/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:20922901/sequence/default",
+    "files": "https://zenodo.org/api/records/20922901/files",
+    "media_files": "https://zenodo.org/api/records/20922901/media-files",
+    "archive": "https://zenodo.org/api/records/20922901/files-archive",
+    "archive_media": "https://zenodo.org/api/records/20922901/media-files-archive",
+    "latest": "https://zenodo.org/api/records/20922901/versions/latest",
+    "latest_html": "https://zenodo.org/records/20922901/latest",
+    "versions": "https://zenodo.org/api/records/20922901/versions",
+    "draft": "https://zenodo.org/api/records/20922901/draft",
+    "access_links": "https://zenodo.org/api/records/20922901/access/links",
+    "access_grants": "https://zenodo.org/api/records/20922901/access/grants",
+    "access_users": "https://zenodo.org/api/records/20922901/access/users",
+    "access_request": "https://zenodo.org/api/records/20922901/access/request",
+    "access": "https://zenodo.org/api/records/20922901/access",
+    "communities": "https://zenodo.org/api/records/20922901/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/20922901/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/20922901/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/20922901/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/20922901/quota-increase",
+    "requests": "https://zenodo.org/api/records/20922901/requests"
+  }
+}

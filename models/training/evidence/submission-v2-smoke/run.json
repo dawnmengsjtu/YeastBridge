@@ -1,0 +1,68 @@
+{
+  "started_at_utc": "2026-10-03T06:39:33.771319+00:00",
+  "implementation": "submission-v2",
+  "mode": "training-smoke",
+  "status": "complete",
+  "code_revision": "source-archive (see MANIFEST.release.sha256)",
+  "source_sha256": "a58d9cbf68ba40d83f975ba35f9a3b5de380101429b771a7607983eeb2c84dfb",
+  "wrapper_sha256": "6b25654630133730f2d411e1236258fe71230f19c376659715a11b4dc8755bcf",
+  "config_sha256": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+  "seed": 42,
+  "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "packages": {
+    "torch": "2.6.0",
+    "numpy": "1.26.4",
+    "einops": "0.8.2",
+    "local-attention": "1.11.2"
+  },
+  "required_assets": {
+    "pretrained_checkpoint": {
+      "path": "raw/training/models.ckpt",
+      "sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9"
+    },
+    "counts": {
+      "path": "raw/training/corpus_counts.npy",
+      "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1"
+    },
+    "protein_matrix": {
+      "path": "raw/training/B2_esm2_matrix.npy",
+      "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7"
+    },
+    "cells": {
+      "path": "raw/training/corpus_cells.tsv",
+      "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4"
+    }
+  },
+  "command": [
+    "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+    "-u",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/scf_finetune_yeast.py",
+    "--config",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/configs/b2_training_v2.json",
+    "--output",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/v2-smoke/model",
+    "--device",
+    "cuda",
+    "--smoke",
+    "--smoke-batch",
+    "2"
+  ],
+  "cuda_visible_devices": "0",
+  "gpu": [
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB",
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB"
+  ],
+  "returncode": 0,
+  "finished_at_utc": "2026-10-03T06:39:56.188966+00:00",
+  "seconds": 18.903,
+  "log_sha256": "ebda4aa94fbab258ac1c269d9cd5781fa60c06921179247b8863e19c197d332e",
+  "artifacts": {
+    "config.json": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+    "model/gene_table_smoke.npy": "af5e2c64c88e3b7c41f7515f1e1a33d532fb5b1d98b7b7b89cce8e97c9e77c5e",
+    "model/run_config.json": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+    "model/split.tsv": "1a8bdf8cd718c68139d59121ae5df39998c2cdb3d265690c331db7f7eaec3f97",
+    "requirements-observed.txt": "140e67ceaa3e528078a69b153e309328372e1124c5197eb484d0be81c5def83f",
+    "train.log": "ebda4aa94fbab258ac1c269d9cd5781fa60c06921179247b8863e19c197d332e"
+  }
+}

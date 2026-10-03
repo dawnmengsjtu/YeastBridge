@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "retrieved_at_utc": "2026-09-01T14:28:53Z",
+  "isolated_server_directory": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/go_bridge_assets_v1/raw",
+  "license": {
+    "name": "Creative Commons Attribution 4.0 International",
+    "spdx": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "citation_policy": "https://geneontology.org/docs/go-citation-policy/"
+  },
+  "assets": [
+    {
+      "id": "go_basic",
+      "filename": "go-basic.obo",
+      "url": "https://current.geneontology.org/ontology/go-basic.obo",
+      "release": "2026-07-26",
+      "downloaded_at_utc": "2026-09-01T14:28:31Z",
+      "bytes": 32227785,
+      "sha256": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc"
+    },
+    {
+      "id": "goslim_generic",
+      "filename": "goslim_generic.obo",
+      "url": "https://current.geneontology.org/ontology/subsets/goslim_generic.obo",
+      "release": "2026-07-26",
+      "downloaded_at_utc": "2026-09-01T14:28:37Z",
+      "bytes": 125864,
+      "sha256": "a28d9dd0364e39a6dc926599bd628c524d3c389017b5398642c8cf2484d9f111"
+    },
+    {
+      "id": "human_go_annotations",
+      "filename": "HUMAN-uniprot.gaf.gz",
+      "url": "https://current.geneontology.org/annotations/gaf/HUMAN-uniprot.gaf.gz",
+      "release": "2026-07-26",
+      "generated_at": "2026-07-28T19:42:00Z",
+      "downloaded_at_utc": "2026-09-01T14:28:45Z",
+      "bytes": 12109254,
+      "sha256": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2"
+    },
+    {
+      "id": "yeast_go_annotations",
+      "filename": "YEAST-mod.gaf.gz",
+      "url": "https://current.geneontology.org/annotations/gaf/YEAST-mod.gaf.gz",
+      "release": "2026-08-02",
+      "generated_at": "2026-08-04T15:09:00Z",
+      "downloaded_at_utc": "2026-09-01T14:28:53Z",
+      "bytes": 2249310,
+      "sha256": "bea6d4453bb47db293d9103b73866801fe8e341975e5f8b5f3ca42053098d089"
+    }
+  ],
+  "release_alignment_note": "The current ontology snapshot reports 2026-07-26. The human GAF cites that release; the yeast GAF cites 2026-08-02. The builder records unresolved annotation terms rather than silently dropping the mismatch."
+}

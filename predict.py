@@ -18,7 +18,15 @@ HISTORICAL = {
 }
 
 
-def export(run_dir=None, output=None, compounds=None, demo=False):
+def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
+    published = run_dir is None
+    submission_path = ROOT / "models/submission.json"
+    if published and not legacy and submission_path.is_file():
+        submission = json.loads(submission_path.read_text())
+        for name, expected in submission["export_sources"].items():
+            if sha256(ROOT / name) != expected:
+                raise ValueError(f"Published source checksum mismatch: {name}")
+        run_dir = ROOT / submission["run_dir"]
     historical = run_dir is None
     base = (
         ROOT / "results_a6000/execute_hiphop" if historical else Path(run_dir).resolve()
@@ -101,6 +109,15 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
             key = (condition.inchikey, float(condition.dose))
             unit_map.setdefault(key, set()).add(condition.dose_unit)
     rows = rows.sort_values(["direction", "target_id"], kind="stable")
+    model_version = "EJ-dc-B2-20260912"
+    run_record = base / "run.json"
+    if not historical and not demo and run_record.is_file():
+        model_version = (
+            json.loads(run_record.read_text())
+            .get("model", {})
+            .get("version", model_version)
+        )
+        sources.append(run_record)
     out = []
     for i, r in enumerate(rows.itertuples(), 1):
         if not historical and r.q >= 0.1:
@@ -143,7 +160,9 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
                 "剂量单位": next(iter(units)),
                 "证据等级": tier,
                 "模型与版本": (
-                    "synthetic-demo-v1 (not ESM-2/B2 weights)" if demo else MODEL
+                    "synthetic-demo-v1 (not ESM-2/B2 weights)"
+                    if demo
+                    else (MODEL if historical else MODEL + "; " + model_version)
                 ),
                 "备注": note,
             }
@@ -156,7 +175,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False):
         {
             "mode": (
                 "published-export"
-                if historical
+                if published
                 else "synthetic-demo" if demo else "new-run"
             ),
             "code_revision": revision(),
@@ -196,10 +215,13 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "results.csv")
     parser.add_argument("--compounds", type=Path)
     parser.add_argument("--demo", action="store_true")
+    parser.add_argument(
+        "--legacy", action="store_true", help="Export archived September records"
+    )
     args = parser.parse_args()
     if args.demo and not args.run_dir:
         parser.error("--demo requires --run-dir")
-    export(args.run_dir, args.output, args.compounds, args.demo)
+    export(args.run_dir, args.output, args.compounds, args.demo, args.legacy)
 
 
 if __name__ == "__main__":

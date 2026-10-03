@@ -1,0 +1,77 @@
+[
+  {
+    "id": "replogle-figshare",
+    "url": "https://api.figshare.com/v2/articles/20029387",
+    "checked_at_utc": "2026-10-03T06:38:44.678000+00:00",
+    "status": 200,
+    "sha256": "8fca06c135b0a5ec3f37f15b6e27f841ab865578f33aa96e14c124d21ecb1eda",
+    "bytes": 11400
+  },
+  {
+    "id": "oma-zenodo",
+    "url": "https://zenodo.org/api/records/20922901",
+    "checked_at_utc": "2026-10-03T06:38:44.678561+00:00",
+    "status": 200,
+    "sha256": "fc141b0660d9035c5fcfeb99a2d2bbf087ed35a817f79cbca3d79b2a3d5528dc",
+    "bytes": 11743
+  },
+  {
+    "id": "orthodb-home",
+    "url": "https://www.orthodb.org/",
+    "checked_at_utc": "2026-10-03T06:38:44.678760+00:00",
+    "status": 200,
+    "sha256": "1a1a027bf547625d4478ddb952b8d3c0d75a98232cfe2c94629fa30ca7bb7361",
+    "bytes": 12530,
+    "license_structured_data": {
+      "@type": "CreativeWork",
+      "name": "Creative Commons Attribution 4.0 (CC-BY-4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  {
+    "id": "oma-terms",
+    "url": "https://omabrowser.org/oma/terms_of_use/",
+    "checked_at_utc": "2026-10-03T06:38:44.678924+00:00",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "inparanoid-about",
+    "url": "https://inparanoidb.sbc.su.se/about/",
+    "checked_at_utc": "2026-10-03T06:38:44.679081+00:00",
+    "status": 200,
+    "sha256": "5cbf688ac0323245a772bad4cf0d8a0b31d87e4538c6f06f710d715127185cff",
+    "bytes": 10354
+  },
+  {
+    "id": "geo-terms",
+    "url": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+    "checked_at_utc": "2026-10-03T06:38:44.679258+00:00",
+    "status": 200,
+    "sha256": "8ad8f6f186ca51ec73a5fb8935ecfa17b8cbaad300b7025b381898ab72621869",
+    "bytes": 38936
+  },
+  {
+    "id": "ebi-terms",
+    "url": "https://www.ebi.ac.uk/about/terms-of-use/",
+    "checked_at_utc": "2026-10-03T06:38:45.368738+00:00",
+    "status": 200,
+    "sha256": "f3c148e6b91501af2a516e24edf0be61c21e2ce1b4e9f40bd834c606f1f23ae9",
+    "bytes": 30152
+  },
+  {
+    "id": "go-terms",
+    "url": "https://geneontology.org/docs/go-citation-policy/",
+    "checked_at_utc": "2026-10-03T06:38:45.634673+00:00",
+    "status": 200,
+    "sha256": "55c7367f6325116753e644828d70bb68d246637cc48e1c3b9ec1b4c06eb0b356",
+    "bytes": 24216
+  },
+  {
+    "id": "uniprot-terms",
+    "url": "https://www.uniprot.org/api-documentation/support-data",
+    "checked_at_utc": "2026-10-03T06:38:46.090782+00:00",
+    "status": 200,
+    "sha256": "836bb21e210620a076efd2c4aa6a13d5f1844f35d4bdbda860ef8e47ddb8ee0b",
+    "bytes": 6577
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "url": "https://www.orthodb.org/",
+  "checked_on": "2026-10-03",
+  "html_sha256": "1a1a027bf547625d4478ddb952b8d3c0d75a98232cfe2c94629fa30ca7bb7361",
+  "license": {
+    "@type": "CreativeWork",
+    "name": "Creative Commons Attribution 4.0 (CC-BY-4.0)",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "scope": "Official site structured metadata; not inferred from BUSCO or historical OrthoDB v9 terms"
+}

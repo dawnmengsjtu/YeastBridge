@@ -9,9 +9,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.project_io import ROOT, sha256, write_json
 
 
-def inventory(mode="full"):
+def default_task_config():
+    submission = ROOT / "models/submission.json"
+    if submission.is_file():
+        return ROOT / json.loads(submission.read_text())["task_config"]
+    return ROOT / "configs/esm2_joint_tasks.json"
+
+
+def inventory(mode="full", task_config=None):
     entries = {}
-    configs = ["configs/esm2_joint_tasks.json", "configs/v7_b2_joint_formal.json"]
+    task_config = Path(task_config or default_task_config())
+    task = json.loads(task_config.read_text())
+    configs = [task_config, ROOT / task["method"]["v7_config"]]
     for relative in configs:
         cfg = json.loads((ROOT / relative).read_text())
         root = (ROOT / cfg.get("stage_root", ".")).resolve()

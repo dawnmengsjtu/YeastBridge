@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """Portable B2 training entry adapted from the recovered original script.
 
-Only path/configuration handling, output guards, split export and run metadata
-are added. The historical numerical recipe is retained for checkpoint provenance.
-See models/TRAINING.md for known limitations of that recipe.
+The original recipe remains available through implementation=historical-v1.
+The submission-v2 recipe excludes per-row padding/special tokens from masking
+and evaluates fixed validation masks in eval mode without gradients.
 """
 import argparse
 import json
@@ -44,6 +44,7 @@ CLIP = CFG["clip"]
 SEED = CFG["seed"]
 MASK_P = CFG["mask_p"]
 ZERO_MASK_P = CFG["zero_mask_p"]
+FIXED = CFG.get("implementation", "historical-v1") == "submission-v2"
 
 
 class ProteinEmbeddingInjector(nn.Module):
@@ -86,8 +87,10 @@ def encdec_subset(data, data_raw, gene_ids, config):
     """load.getEncoerDecoderData 的逐字逻辑,唯一改动:data_gene_ids 由调用方给出
     (子集行的真实基因列号),不再假设 arange(全词表宽)。"""
     decoder_data = data.clone().detach()
-    decoder_data_padding = torch.full_like(data, False, dtype=torch.bool).to(
-        data.device
+    decoder_data_padding = (
+        (gene_ids == config["seq_len"])
+        if FIXED
+        else torch.full_like(data, False, dtype=torch.bool)
     )
     encoder_data_labels = data_raw > 0
     encoder_data, encoder_data_padding = gatherData(
@@ -259,11 +262,25 @@ def main():
     def step(batch_raw, train):
         x, gene_ids = build_subset(batch_raw)
         x, gene_ids = x.to(device), gene_ids.to(device)
-        expressed = x[:, :-2] > 0
-        r = torch.rand_like(x[:, :-2])
-        mask = (expressed & (r < MASK_P)) | (~expressed & (r < ZERO_MASK_P))
-        masked = x.clone()
-        masked[:, :-2][mask] = float(cfg["mask_token_id"])
+        if FIXED:
+            # Actual gene IDs identify eligible positions independently in each row.
+            eligible = gene_ids < N_GENES
+            r = torch.rand_like(x)
+            mask = eligible & (
+                ((x > 0) & (r < MASK_P)) | ((x == 0) & (r < ZERO_MASK_P))
+            )
+            if not mask.any():
+                mask.flatten()[
+                    torch.nonzero(eligible.flatten(), as_tuple=True)[0][0]
+                ] = True
+            masked = x.clone()
+            masked[mask] = float(cfg["mask_token_id"])
+        else:
+            expressed = x[:, :-2] > 0
+            r = torch.rand_like(x[:, :-2])
+            mask = (expressed & (r < MASK_P)) | (~expressed & (r < ZERO_MASK_P))
+            masked = x.clone()
+            masked[:, :-2][mask] = float(cfg["mask_token_id"])
         enc = encdec_subset(masked, x, gene_ids, cfg)
         (enc_data, enc_pos, enc_pad, enc_labels, dec_data, dec_pad, _, _, dec_pos) = enc
         with torch.autocast(
@@ -280,10 +297,14 @@ def main():
                 decoder_position_gene_ids=dec_pos,
                 decoder_data_padding_labels=dec_pad,
             )
-            loss = nn.functional.mse_loss(out[:, :-2][mask], x[:, :-2][mask])
+            loss = (
+                nn.functional.mse_loss(out[mask], x[mask])
+                if FIXED
+                else nn.functional.mse_loss(out[:, :-2][mask], x[:, :-2][mask])
+            )
         if train:
             (loss / ACCUM).backward()
-        return float(loss)
+        return float(loss.detach()), int(mask.sum())
 
     def save_table(tag):
         model.eval()
@@ -305,20 +326,26 @@ def main():
     t0 = time.time()
     if args.smoke:
         batch = counts[np.sort(train_idx[: args.smoke_batch])]
-        loss = step(batch, train=True)
+        loss, n_masked = step(batch, train=True)
         nn.utils.clip_grad_norm_(trainable, CLIP)
         opt.step()
         save_table("smoke")
         print(f"[smoke] one step OK, loss={loss:.4f}; table saved", flush=True)
         return
+    metrics = []
     for epoch in range(1, EPOCHS + 1):
+        epoch_started = time.time()
+        model.train()
         order = rng.permutation(len(train_idx))
         opt.zero_grad(set_to_none=True)
         running, seen = 0.0, 0
+        train_sse, train_n = 0.0, 0
         for b in range(0, len(order), BATCH):
             batch = counts[np.sort(train_idx[order[b : b + BATCH]])]
-            loss = step(batch, train=True)
+            loss, n_masked = step(batch, train=True)
             running += loss
+            train_sse += loss * n_masked
+            train_n += n_masked
             seen += 1
             if seen % ACCUM == 0:
                 nn.utils.clip_grad_norm_(trainable, CLIP)
@@ -331,10 +358,44 @@ def main():
                     f"elapsed={el/60:.1f}min",
                     flush=True,
                 )
-        vloss, vb = 0.0, 0
-        for b in range(0, len(val_idx), BATCH):
-            vloss += step(counts[np.sort(val_idx[b : b + BATCH])], train=False)
-            vb += 1
+        vloss, vb, val_sse, val_n = 0.0, 0, 0.0, 0
+        if FIXED:
+            model.eval()
+        # Fork preserves the training RNG stream while replaying exactly the same
+        # gene subsampling and validation masks at every epoch.
+        import contextlib
+
+        with (
+            torch.random.fork_rng(
+                devices=[device.index or 0] if device.type == "cuda" else []
+            )
+            if FIXED
+            else contextlib.nullcontext()
+        ):
+            if FIXED:
+                torch.manual_seed(SEED + 100000)
+            with torch.no_grad() if FIXED else contextlib.nullcontext():
+                for b in range(0, len(val_idx), BATCH):
+                    loss, n_masked = step(
+                        counts[np.sort(val_idx[b : b + BATCH])], train=False
+                    )
+                    vloss += loss
+                    vb += 1
+                    val_sse += loss * n_masked
+                    val_n += n_masked
+        metrics.append(
+            {
+                "epoch": epoch,
+                "train_mse_batch_mean": running / seen,
+                "validation_mse_batch_mean": vloss / vb,
+                "train_mse_mask_weighted": train_sse / train_n,
+                "validation_mse_mask_weighted": val_sse / val_n,
+                "train_masked_entries": train_n,
+                "validation_masked_entries": val_n,
+                "seconds": time.time() - epoch_started,
+            }
+        )
+        write_json(outdir / "epoch_metrics.json", metrics)
         print(
             f"[ep{epoch}] train={running/max(seen,1):.4f} val={vloss/max(vb,1):.4f}",
             flush=True,
@@ -345,6 +406,9 @@ def main():
         {
             "state_dict": {k: v.cpu() for k, v in model.state_dict().items()},
             "route": args.route,
+            "implementation": CFG.get("implementation", "historical-v1"),
+            "training_config": CFG,
+            "epoch_metrics": metrics,
             "config": cfg,
         },
         outdir / "final_model.pt",
@@ -361,6 +425,11 @@ def main():
         "seed": SEED,
         "n_train": len(train_idx),
         "n_val": len(val_idx),
+        "implementation": CFG.get("implementation", "historical-v1"),
+        "validation_fixed_masks": FIXED,
+        "checkpoint_sha256": sha256(outdir / "final_model.pt"),
+        "gene_table_sha256": sha256(outdir / "gene_table_final.npy"),
+        "split_sha256": sha256(outdir / "split.tsv"),
     }
     (outdir / "train_meta.json").write_text(json.dumps(meta, indent=2))
     print(f"[done] {outdir} ({(time.time()-t0)/60:.1f} min)", flush=True)

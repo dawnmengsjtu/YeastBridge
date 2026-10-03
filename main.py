@@ -14,14 +14,17 @@ from datetime import datetime, timezone
 from scripts.project_io import ROOT, revision, sha256, write_json
 
 
-def pipeline(mode, output, threads=4):
-    from scripts.check_assets import inventory
+def pipeline(mode, output, threads=4, task_config=None):
+    from scripts.check_assets import inventory, default_task_config
 
     # Apply before importing NumPy and inherit the same limits in every worker.
     for name in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
         os.environ[name] = str(threads)
     if mode == "full":
-        problems = [x for x in inventory() if x["status"] != "ok"]
+        task_config = Path(task_config or default_task_config()).resolve()
+        problems = [
+            x for x in inventory(task_config=task_config) if x["status"] != "ok"
+        ]
         if problems:
             raise ValueError(
                 "Full run blocked by missing/changed assets:\n"
@@ -56,6 +59,18 @@ def pipeline(mode, output, threads=4):
         },
         "steps": [],
     }
+
+    if mode == "full":
+        task = json.loads(task_config.read_text())
+        v7 = json.loads((ROOT / task["method"]["v7_config"]).read_text())
+        record["model"] = {
+            "version": task.get("model_version", "EJ-dc-B2-20260912"),
+            "task_config_sha256": sha256(task_config),
+            "checkpoint_sha256": v7["inputs"]["route_b_model"]["sha256"],
+            "gene_table_sha256": v7["inputs"]["route_b_table"]["sha256"],
+        }
+        write_json(output / "configs/task.json", task)
+        write_json(output / "configs/model.json", v7)
 
     def run(label, script, *args):
         command = [sys.executable, str(ROOT / script), *map(str, args)]
@@ -98,7 +113,7 @@ def pipeline(mode, output, threads=4):
                 "export",
                 "scripts/esm2_joint_task_export.py",
                 "--config",
-                ROOT / "configs/esm2_joint_tasks.json",
+                task_config,
                 "--output",
                 tasks,
             )
@@ -272,17 +287,27 @@ def main():
         default=4,
         help="BLAS/OpenMP thread limit for demo/full (default: 4)",
     )
+    p.add_argument(
+        "--task-config",
+        type=Path,
+        help="Explicit task/model configuration for full/check; defaults to submission version",
+    )
+    p.add_argument(
+        "--legacy",
+        action="store_true",
+        help="Export the archived September candidate table",
+    )
     args = p.parse_args()
     if args.threads < 1:
         p.error("--threads must be positive")
     if args.mode == "export":
         from predict import export
 
-        export(output=args.output)
+        export(output=args.output, legacy=args.legacy)
     elif args.mode == "check":
-        from scripts.check_assets import inventory
+        from scripts.check_assets import inventory, default_task_config
 
-        items = inventory()
+        items = inventory(task_config=args.task_config)
         print(json.dumps(items, ensure_ascii=False, indent=2))
         return 0 if all(x["status"] == "ok" for x in items) else 2
     else:
@@ -290,6 +315,7 @@ def main():
             args.mode,
             (args.output or ROOT / "outputs" / args.mode).resolve(),
             args.threads,
+            args.task_config,
         )
     return 0
 

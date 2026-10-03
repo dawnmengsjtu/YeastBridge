@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Download or install large assets after frozen checksum verification."""
 import argparse
+import json
 import shutil
 from pathlib import Path
 import sys
@@ -8,15 +9,10 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.project_io import ROOT, sha256
 
+ASSET_MANIFEST = json.loads((ROOT / "data/asset_downloads.json").read_text())["assets"]
 ASSETS = {
-    "weights": (
-        "raw/tier1_models/route_b/final_model.pt",
-        "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
-    ),
-    "response": (
-        "raw/tier1_response/strain_response.npz",
-        "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf",
-    ),
+    key: (ASSET_MANIFEST[key]["path"], ASSET_MANIFEST[key]["sha256"])
+    for key in ("weights", "response")
 }
 
 

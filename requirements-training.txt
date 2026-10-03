@@ -1,6 +1,7 @@
-# Separate Linux/CUDA training environment; versions observed during recovery.
-# This is not a contemporaneous lock of the September training environment.
+# Linux/CUDA training and count-preparation environment for submission-v2.
+# Historical September training was not locked with this file.
 numpy==1.26.4
 torch==2.6.0
 einops==0.8.2
 local-attention==1.11.2
+pandas==2.3.2

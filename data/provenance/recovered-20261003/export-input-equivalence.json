@@ -1,0 +1,7 @@
+{
+  "compared_files": 1175,
+  "different_files": [],
+  "baseline": "repro/20261003 full run with historical v7_setup",
+  "purpose": "Remove evaluation-only assets without changing EJ scores",
+  "status": "pass"
+}
