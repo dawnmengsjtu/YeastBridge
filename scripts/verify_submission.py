@@ -66,6 +66,8 @@ def verify_training():
             f"[ep{epoch}] train=" not in log for epoch in range(1, config["epochs"] + 1)
         ):
             problems.append("stdout lacks complete epoch train/validation records")
+        if sha256(ROOT / manifest["config"]) != run["config_sha256"]:
+            problems.append("training configuration differs from recorded run")
         if run["required_assets"] != config["required_assets"]:
             problems.append("training input versions disagree")
         if (
@@ -78,10 +80,7 @@ def verify_training():
     return problems
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path)
-    args = parser.parse_args()
+def verify_submission():
     checks = {}
     checks["training"] = verify_training()
     try:
@@ -91,13 +90,58 @@ def main():
         submission = read("models/submission.json")
         run = read(submission["run_dir"] + "/run.json")
         manifest = read("models/training_manifest.json")
+        training = read(manifest["run_record"])
+        task = read(submission["task_config"])
+        assets = read(task["method"]["v7_config"])
         checks["run"] = []
-        if run["status"] != "complete" or any(
-            s.get("returncode") != 0 for s in run["steps"]
+        if (
+            run["status"] != "complete"
+            or run["mode"] != "full"
+            or any(s.get("returncode") != 0 for s in run["steps"])
         ):
             checks["run"].append("full screening did not complete successfully")
+        expected_steps = [
+            "export",
+            "double_center",
+            "screen_pos",
+            "screen_neg",
+            "nominate",
+            "confirm_pos",
+            "confirm_neg",
+            "family_build",
+            "fam_pos",
+            "fam_neg",
+            "resid_pos",
+            "resid_neg",
+            "uncertainty",
+            "predict",
+        ]
+        if [step["name"] for step in run["steps"]] != expected_steps:
+            checks["run"].append("full screening step sequence is incomplete")
         if run["model"]["checkpoint_sha256"] != manifest["final_checkpoint_sha256"]:
             checks["run"].append("candidate pipeline used a different checkpoint")
+        if not (
+            run["model"]["version"]
+            == submission["model_version"]
+            == task["model_version"]
+            and run["model"]["task_config_sha256"]
+            == sha256(ROOT / submission["task_config"])
+            and run["model"]["checkpoint_sha256"]
+            == assets["inputs"]["route_b_model"]["sha256"]
+            and run["model"]["gene_table_sha256"]
+            == assets["inputs"]["route_b_table"]["sha256"]
+            == training["artifacts"]["model/gene_table_final.npy"]
+        ):
+            checks["run"].append(
+                "published configuration differs from the completed run"
+            )
+        if run["result_sha256"] != sha256(ROOT / "results.csv"):
+            checks["run"].append("published candidates differ from the full-run result")
+        for step in run["steps"]:
+            if "log_sha256" in step:
+                log = ROOT / submission["run_dir"] / "logs" / (step["name"] + ".log")
+                if sha256(log) != step["log_sha256"]:
+                    checks["run"].append(f"run log checksum mismatch: {step['name']}")
         from predict import export
 
         with tempfile.TemporaryDirectory() as temp:
@@ -163,6 +207,14 @@ def main():
         "checks": checks,
         "scope": "Attachment 5 artifact consistency and default CSV contract; not an organizer acceptance decision",
     }
+    return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+    report = verify_submission()
     if args.output:
         write_json(args.output, report)
     print(json.dumps(report, ensure_ascii=False, indent=2))

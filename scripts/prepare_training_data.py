@@ -31,7 +31,12 @@ def main():
     if sha256(args.counts_tsv) != recovery["raw_counts"]["sha256"]:
         parser.error("Raw GEO count TSV differs from the recorded snapshot")
     master_path = ROOT / "raw/externalvalidation/mappings/gene_master.tsv"
-    if sha256(master_path) != recovery["gene_master"]["sha256"]:
+    # Git's historical LF copy and the original CRLF file contain identical rows.
+    master_sha = sha256(master_path)
+    if master_sha not in {
+        recovery["gene_master"]["sha256"],
+        "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07",
+    }:
         parser.error("Gene master differs from the recorded snapshot")
     master = pd.read_csv(master_path, sep="\t", dtype=str).fillna("")
     genes = [g.strip() for g in master.systematic if g.strip()]
@@ -96,6 +101,7 @@ def main():
     record = {
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "source_sha256": sha256(args.counts_tsv),
+        "gene_master_sha256": master_sha,
         "script_sha256": sha256(Path(__file__)),
         "n_cells": n_cells,
         "n_genes": len(genes),

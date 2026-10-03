@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-10-03T06:57:33.951702+00:00",
+  "source_sha256": "9028159a6ee22f994c5131be68cd0f9643f60d099c26baf4fd00978a64d40d92",
+  "gene_master_sha256": "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07",
+  "script_sha256": "39678316ca8356accbe3fb0aa15b94d65f9f00ade00a0d8e0563762aa09fd512",
+  "n_cells": 38225,
+  "n_genes": 6733,
+  "count_columns_matched": 6075,
+  "missing_protein_rows": 6,
+  "checks": {
+    "corpus_counts.npy": {
+      "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1",
+      "expected_sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1",
+      "match": true
+    },
+    "B2_esm2_matrix.npy": {
+      "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7",
+      "expected_sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7",
+      "match": true
+    },
+    "corpus_cells.tsv": {
+      "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4",
+      "expected_sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4",
+      "match": true
+    }
+  },
+  "status": "pass"
+}

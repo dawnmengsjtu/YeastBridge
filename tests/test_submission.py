@@ -15,6 +15,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SubmissionTests(unittest.TestCase):
+    def test_optional_cid_format_is_stable(self):
+        sys.path.insert(0, str(ROOT))
+        from predict import canonical_cid
+
+        self.assertEqual(canonical_cid("46495113.0"), "46495113")
+        self.assertEqual(canonical_cid(46495113), "46495113")
+        self.assertEqual(canonical_cid(""), "")
+        for invalid in ["nan", "inf", "-1", "12.5", "unknown"]:
+            with self.assertRaises(ValueError):
+                canonical_cid(invalid)
+
     def test_published_export_is_identical(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "results.csv"
@@ -63,6 +74,22 @@ class SubmissionTests(unittest.TestCase):
             self.assertFalse((root / "raw").exists())
             metadata = json.loads((out / "results.metadata.json").read_text())
             self.assertEqual(metadata["mode"], "synthetic-demo")
+            uncertainty = json.loads(
+                (out / "uncertainty/interpretation.json").read_text()
+            )
+            self.assertEqual(uncertainty["rows"], metadata["rows"])
+            with (out / "uncertainty/monte_carlo_intervals.tsv").open() as f:
+                intervals = list(csv.DictReader(f, delimiter="\t"))
+            self.assertTrue(all(int(r["n_perm"]) == 199 for r in intervals))
+            self.assertTrue(
+                all(
+                    0
+                    <= float(r["null_probability_ci95_low"])
+                    < float(r["null_probability_ci95_high"])
+                    <= 1
+                    for r in intervals
+                )
+            )
             text = (out / "results.csv").read_text()
             self.assertIn("DEMO-", text)
             self.assertIn("合成演示，非科研候选", text)

@@ -72,3 +72,16 @@ python scripts/prepare_training_data.py \
 ```
 
 程序按冻结gene master顺序排列6,733个基因，原计数中缺列者填零；蛋白表示按酵母ESM-2索引重排，缺失者填零。它分别验证原始TSV、基因表、蛋白嵌入、输出计数矩阵、蛋白矩阵和细胞顺序的SHA-256，输出`preprocessing.json`。此步骤不对已经冻结的输入另加QC或标准化；CPM-10k和log1p在训练中逐批执行。
+
+2026-10-03已在原服务器执行完整重建：计数矩阵、蛋白矩阵、细胞清单三者的SHA-256全部与训练输入一致，见[重建记录](../data/provenance/recovered-20261003/b2-preprocessing-rebuild.json)。原gene master使用CRLF，Git中的已知LF副本经逐字节换行比较确认内容一致，处理器明确允许这两个哈希。
+
+## 用重训模型生成候选
+
+训练完成后，以下两条命令将新权重接入相同的EJ-dc方法，完成筛选和标准结果导出：
+
+```bash
+python scripts/configure_trained_model.py --training-run outputs/b2-training --output outputs/b2-config
+python main.py --mode full --task-config outputs/b2-config/task.json --output outputs/b2-screen
+```
+
+配置器拒绝未完成或smoke训练，核验最终权重、基因表、划分及逐轮指标的哈希，生成相对路径配置。旧模型与旧候选不被覆盖。`outputs/b2-screen/results.csv`中的模型版本来自本次配置，证据与置换不确定性记录也从本次运行生成。

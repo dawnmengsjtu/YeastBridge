@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Export the published candidate table, or results from an explicitly selected run."""
 import argparse
+from decimal import Decimal, InvalidOperation
 import json
 from pathlib import Path
 
@@ -16,6 +17,23 @@ HISTORICAL = {
     "resid_pos": "results_esm2jointdc_resid_pos_20260913",
     "resid_neg": "results_esm2jointdc_resid_neg_neg_20260913",
 }
+
+
+def canonical_cid(value):
+    """Keep optional PubChem identifiers independent of pandas' NA/type inference."""
+    if value == "":
+        return ""
+    try:
+        number = Decimal(str(value))
+        if (
+            not number.is_finite()
+            or number <= 0
+            or number != number.to_integral_value()
+        ):
+            raise ValueError(f"Invalid PubChem CID: {value}")
+        return str(int(number))
+    except InvalidOperation as error:
+        raise ValueError(f"Invalid PubChem CID: {value}") from error
 
 
 def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
@@ -72,7 +90,9 @@ def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
     )
     build = json.loads(build_path.read_text())
     singles = set(build["nominated_singletons"])
-    comp = pd.read_csv(compound_path, sep="\t").fillna("")
+    comp = pd.read_csv(compound_path, sep="\t", dtype={"pubchem_cid": str}).fillna("")
+    if "pubchem_cid" in comp:
+        comp["pubchem_cid"] = comp["pubchem_cid"].map(canonical_cid)
     # The source table contains repeated records from multiple screens. Collapse only
     # consistent metadata; never arbitrarily choose among conflicting structures.
     cmap = {}
@@ -167,6 +187,9 @@ def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
                 "备注": note,
             }
         )
+    uncertainty = base / "uncertainty/monte_carlo_intervals.tsv"
+    if not historical and uncertainty.is_file():
+        sources += [uncertainty, uncertainty.with_name("interpretation.json")]
     output.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(out).to_csv(output, index=False, encoding="utf-8")
     sources += [build_path, compound_path]

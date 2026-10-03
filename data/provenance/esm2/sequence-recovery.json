@@ -1,0 +1,32 @@
+{
+  "recovered_at_utc": "2026-10-03T07:04:22.730564+00:00",
+  "source": "Frozen original UniProt sequence inputs; retain UniProt attribution and CC BY 4.0 terms.",
+  "files": [
+    {
+      "file": "data/provenance/esm2/yeast_6742.fasta.gz",
+      "sha256": "ec80fade151f471b2fc0540f6efd2a2412f17e5f9671a39e28f05da93d1da610",
+      "source_file_sha256": "a04f9b05a1f1a78a3e0f82ba053e71f0cf12b395e43b3ef222dc1861410522e3",
+      "recovered_from": "/public/home/mengxl/dzy/yeastbridge/data/proteome/teacher_sa.fasta",
+      "fasta_records": 6742,
+      "index_validation": "Every frozen embedding index accession and sequence length matches this FASTA; this is not a new embedding recomputation."
+    },
+    {
+      "file": "data/provenance/esm2/human_810.fasta.gz",
+      "sha256": "30b6fcf88d0f76cf9419ffc5f685736fd7de1e9f9ebe3c61f2837db3263992b8",
+      "source_file_sha256": "764dac86f7a0edc6fa297d6d2bfb0c23f43da9e035b96b4a3049362eb85440ce",
+      "recovered_from": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/v7_b2_formal_20260912/assets/batch.fasta",
+      "fasta_records": 810,
+      "index_validation": "Every frozen embedding index accession and sequence length matches this FASTA; this is not a new embedding recomputation."
+    }
+  ],
+  "scope": "Yeast training/projection proteins and human paired-alignment inputs. The separate 1175-target screening universe is supplied as frozen embeddings and accession/length index; no sequence-rebuild equivalence is claimed for it.",
+  "esm2_checkpoint": {
+    "name": "esm2_t33_650M_UR50D.pt",
+    "sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c",
+    "source_path": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/models/esm2/esm2_t33_650M_UR50D.pt",
+    "recovered_hash_date": "2026-10-03",
+    "repr_layer": 33,
+    "pooling": "float32 mean over residue tokens, excluding BOS/EOS; GPU model in fp16",
+    "original_call_time": "Not retained in the recovered run_info.json; no historical timestamp is inferred."
+  }
+}

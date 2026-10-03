@@ -33,7 +33,9 @@
         "raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
         "raw/tier1_esm2/universe_1175/index.tsv": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665",
         "raw/tier1_esm2/universe_1175/esm2_mean_fp32.npy": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
-        "raw/externalvalidation/mappings/gene_master.tsv": "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07"
+        "raw/externalvalidation/mappings/gene_master.tsv": "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07",
+        "data/provenance/esm2/yeast_6742.fasta.gz": "ec80fade151f471b2fc0540f6efd2a2412f17e5f9671a39e28f05da93d1da610",
+        "data/provenance/esm2/human_810.fasta.gz": "30b6fcf88d0f76cf9419ffc5f685736fd7de1e9f9ebe3c61f2837db3263992b8"
       }
     },
     {

@@ -65,12 +65,22 @@ def main():
             "results_esm2jointdc_resid_neg_neg_20260913",
         ]
     }
+    model_call_records = {
+        "raw/tier1_esm2/human_810/run_info.json",
+        "raw/tier1_esm2/human_810/build_manifest.tsv",
+        "raw/tier1_esm2/yeast_650m/run_info.json",
+    }
     paths = {
         name
         for name in tracked
         if name
         and (ROOT / name).is_file()
-        and (name in roots or name in historical or name.startswith(prefixes))
+        and (
+            name in roots
+            or name in historical
+            or name in model_call_records
+            or name.startswith(prefixes)
+        )
         and "__pycache__" not in name
     }
     if args.profile in {"inference", "full"}:
@@ -81,9 +91,14 @@ def main():
             )
         paths.update(item["path"] for item in items)
     if args.profile == "full":
-        from scripts.verify_submission import verify_training
+        from scripts.verify_submission import verify_submission
 
-        issues = verify_training()
+        report = verify_submission()
+        issues = [
+            f"{name}: {issue}"
+            for name, group in report["checks"].items()
+            for issue in group
+        ]
         if issues:
             p.error("Full bundle blocked: " + "; ".join(issues))
         archive = "raw/training/b2-inputs.tar.gz"
@@ -95,6 +110,7 @@ def main():
                 "Full bundle requires the verified training-input archive; run install_training_assets.py"
             )
         paths.add(archive)
+        paths.add("raw/externalvalidation/mappings/gene_master.tsv")
     # Every package uses one explicit allowlist; historical task matrices and
     # evaluation-only model assets are never pulled in by a broad raw/ prefix.
     args.output.parent.mkdir(parents=True, exist_ok=True)

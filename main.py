@@ -55,7 +55,12 @@ def pipeline(mode, output, threads=4, task_config=None):
         "python": sys.version,
         "platform": platform.platform(),
         "packages": {
-            p: importlib.metadata.version(p) for p in ["numpy", "pandas", "scipy"]
+            p: importlib.metadata.version(p)
+            for p in (
+                ["numpy", "pandas", "scipy", "torch", "anndata", "h5py", "fair-esm"]
+                if mode == "full"
+                else ["numpy", "pandas", "scipy"]
+            )
         },
         "steps": [],
     }
@@ -250,6 +255,7 @@ def pipeline(mode, output, threads=4, task_config=None):
                         else "docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md"
                     ),
                 )
+        run("uncertainty", "scripts/assess_uncertainty.py", "--run-dir", output)
         args = [
             "--run-dir",
             output,
@@ -269,7 +275,21 @@ def pipeline(mode, output, threads=4, task_config=None):
         raise
     finally:
         record["seconds"] = round(time.time() - started, 3)
+        record["finished_at_utc"] = datetime.now(timezone.utc).isoformat()
         write_json(output / "run.json", record)
+    # predict reads run.json for the model version before this wrapper finalizes it.
+    # Bind its metadata to the completed record, rather than the transient hash.
+    if mode == "full":
+        metadata_path = output / "results.metadata.json"
+        metadata = json.loads(metadata_path.read_text())
+        run_path = output / "run.json"
+        key = (
+            str(run_path.relative_to(ROOT))
+            if run_path.is_relative_to(ROOT)
+            else str(run_path)
+        )
+        metadata["sources"][key] = sha256(run_path)
+        write_json(metadata_path, metadata)
     print(f'Completed {mode}: {output / "results.csv"}', flush=True)
 
 
