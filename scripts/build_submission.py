@@ -20,11 +20,19 @@ def main():
     p.add_argument("--output", type=Path)
     args = p.parse_args()
     args.output = args.output or ROOT / f"dist/YeastBridge-{args.profile}.zip"
-    tracked = (
-        subprocess.check_output(["git", "ls-files", "--cached", "-z"], cwd=ROOT)
-        .decode()
-        .split("\0")
-    )
+    if (ROOT / ".git").exists():
+        tracked = (
+            subprocess.check_output(["git", "ls-files", "--cached", "-z"], cwd=ROOT)
+            .decode()
+            .split("\0")
+        )
+    elif (ROOT / "MANIFEST.release.sha256").is_file():
+        tracked = [
+            line.split("  ", 1)[1]
+            for line in (ROOT / "MANIFEST.release.sha256").read_text().splitlines()
+        ]
+    else:
+        p.error("Run from a Git checkout or an extracted YeastBridge release bundle")
     roots = {
         "README.md",
         "CITATION.cff",
