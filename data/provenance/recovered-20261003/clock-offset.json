@@ -1,0 +1,9 @@
+{
+  "workstation_observed_at_utc": "2026-10-03T07:39:41.584399+00:00",
+  "server_reported_utc": "2026-10-03T07:45:34+00:00",
+  "round_trip_seconds": 0.12363815307617188,
+  "server_minus_workstation_seconds": 352.41560101509094,
+  "server_timestamp_precision_seconds": 1,
+  "action": "Read-only comparison; neither host clock was modified.",
+  "interpretation": "Training timestamps use the A6000 clock; screening timestamps use the workstation clock. Preserve original timestamps. Model/file hashes and recorded successful completion establish run dependencies; do not compare cross-host wall-clock timestamps as if synchronized."
+}
