@@ -192,7 +192,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
     if not historical and uncertainty.is_file():
         sources += [uncertainty, uncertainty.with_name("interpretation.json")]
     output.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(out).to_csv(output, index=False, encoding="utf-8")
+    pd.DataFrame(out).to_csv(output, index=False, encoding="utf-8", lineterminator="\n")
     sources += [build_path, compound_path]
     write_json(
         output.with_suffix(".metadata.json"),
