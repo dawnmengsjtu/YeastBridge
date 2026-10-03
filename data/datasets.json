@@ -96,7 +96,9 @@
       "artifacts": {
         "results_a6000/v51_per_query_ranks_trackA.tsv": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15",
         "raw/externalvalidation/mappings/orthodb_yeast_human.tsv": "03a8dea6ea3489b6a7f1462073c4d6ca4c1af07a71bf639db9ddd813cc01f504"
-      }
+      },
+      "historical_data_terms_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9825584/",
+      "terms_note": "Current website metadata states CC BY 4.0; the v11 data paper states CC BY 3.0. Both source declarations and attribution are retained because the frozen current-API response did not record its server release number. No inference that website metadata relicenses historical data."
     },
     {
       "name": "Kemmeren yeast deletion expression GSE42528 / GSE42526",

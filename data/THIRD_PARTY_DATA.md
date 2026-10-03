@@ -7,7 +7,7 @@
 | Gene Ontology Consortium | [CC BY 4.0与引用要求](https://geneontology.org/docs/go-citation-policy/) | 注释投影是派生数据；保留GO来源、发布日期和许可。本体为2026-07-26，人GAF对应同版本，酵母GAF对应2026-08-02，未把不同日期写成同一版 |
 | UniProt Consortium | [数据库版权部分采用CC BY 4.0](https://www.uniprot.org/api-documentation/support-data) | 蛋白索引与嵌入标明UniProt来源、模型和文件哈希；均值池化为本项目计算 |
 | Saccharomyces Genome Database (SGD) | [数据库作者的使用说明](https://pmc.ncbi.nlm.nih.gov/articles/PMC11912841/)：CC BY 4.0 | 基因标识与注释转换到项目gene master；保留来源，内容版本由恢复记录中的文件哈希固定 |
-| OrthoDB，EM Zdobnov lab | 官方页面结构化元数据给出[CC BY 4.0](https://www.orthodb.org/)；[证据记录](provenance/recovered-20261003/orthodb-license-evidence.json) | 保留下载映射的内容哈希和处理规则；未把BUSCO数据集的CC BY-ND条款套用到OrthoDB映射 |
+| OrthoDB，EM Zdobnov lab | 当前官网元数据注明[CC BY 4.0](https://www.orthodb.org/)；[v11数据论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC9825584/)声明CC BY 3.0；[证据记录](provenance/recovered-20261003/orthodb-license-evidence.json) | 冻结映射来自current API，未保存服务端发布号；保留两项出处、作者署名及转换说明，不仅凭当前网页元数据改写历史数据许可，也不套用BUSCO的CC BY-ND条款 |
 | OMA Browser，All.May2026 | [该次发布记录](https://doi.org/10.5281/zenodo.20922901)明确为CC BY 4.0；[保存的元数据](provenance/recovered-20261003/oma-zenodo-metadata.json) | 映射为OMA预测经本项目基因ID转换的派生表；注明修改。旧FAQ曾给出CC BY-SA 2.5，本表依据实际All.May2026发布记录 |
 | InParanoiDB 9 | [官方关于页](https://inparanoidb.sbc.su.se/about/)：CC BY-SA 4.0 | `raw/externalvalidation/mappings/inparanoid_yeast_human.tsv`为转换后的映射，保留署名和相同许可；不将其并入无约束的项目许可 |
 | Replogle et al. 2022 | [Figshare v1](https://doi.org/10.25452/figshare.plus.20029387.v1)：CC BY 4.0；[元数据](provenance/recovered-20261003/replogle-figshare-metadata.json) | 使用公开细胞系扰动表达数据，保留文件ID、MD5、预处理和划分清单；不分发原始人体身份信息 |
