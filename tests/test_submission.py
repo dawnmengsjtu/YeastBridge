@@ -15,6 +15,55 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class SubmissionTests(unittest.TestCase):
+    def test_residual_evidence_stays_in_its_direction(self):
+        sys.path.insert(0, str(ROOT))
+        import predict
+        import pandas as pd
+        from unittest.mock import patch
+
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            for name, pvalue in [
+                ("confirm_pos", 0.001),
+                ("confirm_neg", 0.001),
+                ("resid_pos", 0.9),
+                ("resid_neg", 0.001),
+            ]:
+                folder = base / name
+                folder.mkdir()
+                pd.DataFrame(
+                    [
+                        {
+                            "target_id": "TEST",
+                            "inchikey": "TESTKEY",
+                            "emp_p": pvalue,
+                            "spearman_rho": 0.8,
+                            "dose": 1,
+                        }
+                    ]
+                ).to_csv(folder / "exec_matrix.tsv", sep="\t", index=False)
+            (base / "family/panel").mkdir(parents=True)
+            (base / "family/panel/build_record.json").write_text(
+                '{"nominated_singletons": []}'
+            )
+            (base / "data").mkdir()
+            pd.DataFrame(
+                [{"inchikey": "TESTKEY", "dose": 1, "dose_unit": "micromolar"}]
+            ).to_csv(base / "data/response_conditions.tsv", sep="\t", index=False)
+            compounds = base / "compounds.tsv"
+            pd.DataFrame(
+                [{"inchikey": "TESTKEY", "smiles": "CCO", "pubchem_cid": ""}]
+            ).to_csv(compounds, sep="\t", index=False)
+            with patch.object(predict, "ROOT", base):
+                out = predict.export(
+                    run_dir=base, output=base / "results.csv", compounds=compounds
+                )
+            rows = pd.read_csv(out)
+            positive = rows[rows["方向"].str.startswith("+")].iloc[0]
+            negative = rows[rows["方向"].str.startswith("-")].iloc[0]
+            self.assertEqual(positive["证据等级"], "确认关联（家族内未分辨）")
+            self.assertEqual(negative["证据等级"], "靶点级（残差检验过阈）")
+
     def test_optional_cid_format_is_stable(self):
         sys.path.insert(0, str(ROOT))
         from predict import canonical_cid

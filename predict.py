@@ -77,11 +77,12 @@ def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
     resid_sig = set()
     for name in ("resid_pos", "resid_neg"):
         frame = read(name)
-        resid_sig |= set(
-            map(
-                tuple,
-                frame.loc[frame.emp_p < threshold, ["target_id", "inchikey"]].values,
-            )
+        direction = "+z（耐药富集）" if name == "resid_pos" else "-z（超敏）"
+        resid_sig.update(
+            (target, key, direction)
+            for target, key in frame.loc[
+                frame.emp_p < threshold, ["target_id", "inchikey"]
+            ].itertuples(index=False, name=None)
         )
     build_path = (
         ROOT / "panels/family_specificity_panel_20260913/build_record.json"
@@ -142,7 +143,7 @@ def export(run_dir=None, output=None, compounds=None, demo=False, legacy=False):
     for i, r in enumerate(rows.itertuples(), 1):
         if not historical and r.q >= 0.1:
             tier, note = "候选（未通过确认阈值）", "联合确认家族 BH q≥0.1"
-        elif (r.target_id, r.inchikey) in resid_sig:
+        elif (r.target_id, r.inchikey, r.direction) in resid_sig:
             tier, note = "靶点级（残差检验过阈）", "去掉家族公共分量后仍显著"
         elif r.target_id in singles:
             tier, note = "靶点级（构造性，无近同谱）", "0.9 阈值下为单例靶点"
