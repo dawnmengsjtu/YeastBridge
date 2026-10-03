@@ -21,7 +21,8 @@ scFoundation和ESM-2的上游预训练数据属于第三方模型来源，单独
 
 - B2按固定细胞顺序与seed 42划分36,314训练细胞、1,911验证细胞，实际清单随每次训练输出。未设置独立测试集，未按实验批次划分，因此验证MSE仅作为同研究内的训练诊断。
 - [去重核验](provenance/recovered-20261003/split-audit.json)未发现重复细胞编号、完全重复计数行或跨训练/验证集的相同计数行。可运行 `python scripts/audit_data_split.py --counts raw/training/corpus_counts.npy --output outputs/split-audit.json` 复核。
-- 配对监督沿用753对冻结清单：train 511、validation 100、test 142；各划分没有重叠的人源基因或酵母ORF。表示可用性筛选后训练使用510对，最终清单写入任务导出记录。对齐参数只在训练对上拟合。
+- 配对监督沿用753对冻结清单：train 511、validation 100、test 142；各划分没有重叠的人源基因或酵母ORF。表示可用性筛选后训练使用510对，最终清单写入任务导出记录。Ridge、identity-anchored和PLS的监督算子只在训练配对上拟合。
+- PC基从完整810条人源参考表示和酵母候选池表示拟合，因此无监督预处理可见非训练配对实体；该步骤不使用配对标签。它属于全参考集合上的预处理，不表述为所有变换均仅由训练集拟合的严格归纳评测。
 - GO本体和GAF的发布日期不完全一致，原构建器记录未解析术语；本次保留原投影，不以“更新数据库”悄悄改动历史标签。
 - HIP/HOP用于筛选、提名和确认；确认置换重复剂量选择，BH范围是两方向合并的候选家族，未校正此前提名选择。结果是探索性关联，不是独立测试集上的发现率保证。
 - 历史选型、开发数据与评估协议继续保留，尤其不把已经用于方法选择的数据称为新的外部测试。规则见[V9协议](../docs/cross_species_match/V9_ESM2_BASIC_STRUCTURE_PROTOCOL.md)和[外部验证协议](../docs/cross_species_match/EV_PROTOCOL.md)。
