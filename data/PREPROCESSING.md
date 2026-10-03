@@ -1,4 +1,4 @@
-# HIP/HOP 数据准备与复核
+# 数据准备与复核
 
 主筛选读取冻结响应矩阵，不需要重新处理原始CEL。响应矩阵的来源链是：
 
@@ -41,8 +41,8 @@ R环境：4.2.3、affyio 1.68.0、preprocessCore 1.60.2。记录见 [R环境](pr
 - 官方数据：[E-MTAB-2391](https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-2391)，Lee et al., DOI [10.1126/science.1250217](https://doi.org/10.1126/science.1250217)。
 - 原始记录：SDRF、IDF、HTTP响应头、归档哈希、处理记录在 `data/provenance/hiphop/`。HTTP响应头记录获取响应的时间；没有将文件修改时间当作下载时间。
 - 3,850个条件包含494个vehicle、3,356个处理条件，涉及3,250个化合物、5,668株酵母。`data/response_conditions.tsv` 从冻结NPZ提取条件、化合物、剂量与单位，并保留源文件哈希。
-- 原始库的剂量单位有micromolar、nanomolar、millimolar、picomolar及percent。现有80条候选均为micromolar；导出程序按化合物和剂量匹配单位，遇到缺失或歧义时停止。
-- 冻结数据的具体再分发许可仍需结合来源条款核对；原始项目的许可记录为unknown，没有据公开可下载推定为CC-BY。
+- 原始库的剂量单位有micromolar、nanomolar、millimolar、picomolar及percent。9月历史清单的80条候选均为micromolar；当前提交表按每条候选的原始条件记录剂量单位。导出程序按化合物和剂量匹配单位，遇到缺失或歧义时停止。
+- EMBL-EBI公开数据使用政策及原作者权利说明见[第三方数据条款](THIRD_PARTY_DATA.md)。原始项目曾把许可记为unknown；当前披露保留平台条款和作者署名，不将未声明CC许可的数据另行标为CC-BY。
 
 
 ## ESM-2蛋白表示重建
