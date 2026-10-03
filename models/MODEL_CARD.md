@@ -1,33 +1,43 @@
 # YeastBridge 模型说明
 
-## 方法与用途
+## 用途与版本
 
-YeastBridge 使用蛋白表示与酵母化学遗传学响应谱进行候选筛选，面向 GPCR、离子通道等靶点。输入包括人和酵母的蛋白嵌入、B2 投影参数、酵母任务表及化合物响应矩阵；输出为带相关系数、置换 p 值和证据分类的候选清单。
+当前提交模型为 `B2-submission-v2-20261003`，以人源靶点的蛋白表示和酵母化学遗传学响应生成小分子候选。输入为冻结的人/酵母ESM-2表示、B2投影参数、配对监督和HIP/HOP矩阵；输出为相关系数、置换p值、校正值、证据分类及条件置换区间。
 
-最终 EJ 方法以 `k=20` 的倒数排名融合整合去 PC1 的 ESM-2 相似度、配对监督对齐、B2 投影。EJ-dc 再去除任务谱共享分量。项目实现工作包括匹配与融合、共模去除、双向响应匹配、两阶段统计确认和家族分解。方法定义见 [冻结记录](../docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md)。
+最终checkpoint的SHA-256为 `281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad`。精确配置见 [esm2_joint_tasks_v2.json](../configs/esm2_joint_tasks_v2.json)，训练与结果的关联见 [training_manifest.json](training_manifest.json)和[submission.json](submission.json)。
 
-## 模型组件与来源
+## 组成与实际贡献
 
-| 组件 | 版本与使用方式 | 训练状态 | 来源与许可 |
-| --- | --- | --- | --- |
-| ESM-2 | `esm2_t33_650M_UR50D`，fair-esm 2.0.0，layer 33 均值池化，1280维；主流程读取预计算嵌入 | 使用第三方预训练模型 | [官方仓库](https://github.com/facebookresearch/esm)，[MIT 许可](https://github.com/facebookresearch/esm/blob/main/LICENSE) |
-| B2 投影 | `final_model.pt` 中 `state_dict.pos_emb.proj.weight/bias`，将1280维嵌入映射到768维 route-B 空间 | 项目曾在 scFoundation 骨干上训练，推理阶段读取冻结参数 | [本项目训练记录](TRAINING.md)；上游 [scFoundation](https://github.com/biomap-research/scFoundation) 的代码许可与模型权重许可分别适用 |
-| Ridge / identity-anchored / PLS | 冻结超参数为 λ=1、λ=1、k=8；在指定训练配对上拟合 | 运行时确定性拟合 | 实现位于 `scripts/esm2_joint_task_export.py` |
+| 组件 | 版本、参数及用途 | 训练状态 |
+| --- | --- | --- |
+| ESM-2 | `esm2_t33_650M_UR50D`，fair-esm 2.0.0，layer 33，排除BOS/EOS后按残基均值池化；1280维 | 使用第三方预训练表示，项目未重训ESM-2 |
+| B2 | 1280→768线性蛋白投影，接入scFoundation；12层768维编码器、6层512维解码器 | GSE125162酵母表达上微调6轮；约34.6M参数参与更新 |
+| 配对对齐 | 去除3个PC；ridge λ=1、identity-anchored λ=1、PLS k=8 | 在冻结划分中有表示的510个训练配对上拟合 |
+| EJ / EJ-dc | 去PC1的ESM-2、对齐集成和B2三个成员；RRF k=20；任务谱共模双去除 | 项目实现的组合与任务设计 |
+| 响应筛选 | Spearman、双向全库筛选、每方向最多40对提名、100,000次确认置换、家族/残差检验 | 统计计算，无第三方商业API调用 |
 
-scFoundation 官方代码采用 Apache-2.0；模型权重采用单独的[非商业研究许可](https://github.com/biomap-research/scFoundation/blob/main/MODEL_LICENSE)。B2 是基于该上游模型训练的组件，不应将整份 checkpoint 笼统标为“自有、无第三方限制”。分发前需要保留上游许可并核对适用条件。
+项目贡献包括蛋白表示接入酵母表达微调、跨物种配对与融合、任务谱共模去除，以及双向筛选、两阶段确认和家族分解的可运行流程。ESM-2和scFoundation预训练本身来自第三方。
 
-scGPT、Geneformer 和 scYeast 在历史选型或基准中使用；相关脚本、结果与勘误保留在 `scripts/model_selection/`、`results_model_selection/` 和 `docs/model_selection/`。这些模型不是所有运行模式的依赖，历史 scGPT 训练脚本不等同于 B2 训练入口。
+## 训练与运行记录
 
-## 资产、参数与调用记录
+B2从哈希固定的scFoundation初始模型训练，不接续9月B2。共38,225个细胞，其中36,314训练、1,911验证，seed 42。第6轮按遮蔽条目加权的训练MSE为0.141101，验证MSE为0.137655；验证误差描述表达重建，不能替代药物筛选准确性评测。
 
-嵌入的索引、运行时间和模型信息见 `raw/tier1_esm2/*/run_info.json` 与 `human_810/build_manifest.tsv`。算法配置及种子见 `configs/`。主流程使用本地文件，不调用商业 API。
+[训练记录](training/evidence/submission-v2/run.json)保存配置、实际环境、输入/输出哈希和耗时。[筛选记录](../repro/submission-v2-20261003/run.json)保存14步命令、日志及模型版本。当前候选共80条；冻结记录重新导出的CSV与完整筛选输出逐字节一致。
 
-B2 权重和 HIP/HOP 响应矩阵已从原环境恢复，下载、安装与 SHA-256 见 [资产说明](../data/ASSETS.md)。运行 `python main.py --mode check` 可核对当前完整流程是否具备输入条件。
+第一阶段每方向以1,000次置换检验3,818,750对假设，正向和反向通过全库BH q<0.1的数量分别为0和0。后续100,000次置换确认是在已提名候选上进行，不能把其确认家族内q值写成全库错误发现率控制。
 
-## 输出解释与限制
+ESM-2三组表示已从恢复的FASTA重新计算，索引与矩阵均逐字节一致；[重建记录](../data/provenance/esm2/rebuild-run.json)保存本次调用时间、参数、模型和输入输出哈希。[序列溯源](../data/provenance/esm2/sequence-recovery.json)保留原始文件来源，未留存的历史调用时间不由恢复日期代替。当前正式筛选的本地调用也保存在运行记录中。上游预训练数据及项目全部数据用途见[数据登记](../data/datasets.json)。
 
-输出指标是酵母响应谱的统计关联，不是结合亲和力或已验证药效。筛选、提名和确认使用同一响应数据；确认家族内的多重检验校正没有涵盖前序选择。任务谱相近的家族成员可能难以区分；残差显著也不直接证明作用机制。
+## 适用范围与局限
 
-历史候选清单保留原数值和证据标签。新运行重新计算两个方向联合确认家族的 BH 值，并把未通过确认阈值的记录标为候选。家族阈值、残差检验与解释见 [家族特异性协议](../docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md)。
+输出衡量人源任务轴与酵母响应的统计关联，不是结合亲和力、药效或机制的实验验证。候选由同一响应数据提名并确认，联合BH仅作用于确认家族，未覆盖前序选择。置换区间仅量化有限置换的Monte Carlo误差。近似任务谱可能难以分辨家族成员；残差过阈不等同于靶点机制证明。
 
-合成演示使用人工生成的小维度表示与响应，不使用 ESM-2/B2 权重。演示输出始终标为“合成演示，非科研候选”。
+配对监督算子仅使用训练配对；PC基则从完整人源参考表示与酵母候选池拟合，可见非训练配对实体，属于不使用配对标签的全参考集合预处理。
+
+训练按细胞随机划分，未按实验批次分组。未发现完全重复计数行或跨集同一细胞；这不证明不同批次独立，也不能核验未公开的赛事隐藏集。蛋白表示和上游预训练可能覆盖用于下游评估的生物实体，项目不将其描述为从未见过的序列。
+
+9月的检索、基本结构和外部验证成绩对应历史模型。新版本保留原EJ超参数并修正B2遮蔽/验证实现，没有把历史成绩改标为新模型结果。历史细节和相反证据保留在方法文档中。
+
+## 第三方许可
+
+ESM-2采用[MIT许可](https://github.com/facebookresearch/esm/blob/main/LICENSE)。scFoundation代码采用Apache-2.0，模型权重受单独[非商业研究许可](training/vendor/scfoundation/MODEL_LICENSE)约束；B2保留这些上游限制和声明。数据许可见 [THIRD_PARTY_DATA.md](../data/THIRD_PARTY_DATA.md)。合成演示使用模拟表示，不使用ESM-2/B2权重，所有结果另行标识。

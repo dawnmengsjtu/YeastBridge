@@ -1,0 +1,207 @@
+{
+  "date": "2026-10-03",
+  "python": "3.10",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "published_export": {
+    "rows": 80,
+    "columns": 15,
+    "original_14_columns_unchanged": true,
+    "dose_units": "micromolar (all 80 records)"
+  },
+  "family_regression": {
+    "family_task_files": 71,
+    "residual_task_files": 19,
+    "byte_identical": true,
+    "classification_identical": true
+  },
+  "integration_tests": {
+    "count": 5,
+    "passed": 5,
+    "isolated_demo_without_historical_results": true,
+    "test_seconds": 13.507
+  },
+  "asset_preflight": {
+    "checked": 21,
+    "present_and_verified": 21,
+    "missing": []
+  },
+  "full_research_run": {
+    "status": "complete",
+    "seconds": 1976.654,
+    "rows": 80,
+    "steps": 13,
+    "logs": "repro/20261003/",
+    "result_sha256": "7efcf04ad01d9101f157d436a3c4985709cae8e5d047bde50561ce9e2bde267f",
+    "numerical_comparison": "repro/20261003/comparison.json",
+    "execution_versions": "repro/20261003/execution_versions.json",
+    "cpu": "Apple M1",
+    "system_memory_bytes": 8589934592
+  },
+  "original_B2_training": "Original source and frozen assets recovered; final-checkpoint epoch logs remain missing; earlier-run logs are explicitly distinguished.",
+  "dependency_checks": {
+    "core_install": "passed",
+    "full_requirements_install": "passed",
+    "pip_check": "passed",
+    "full_analysis_imports": "passed"
+  },
+  "review_bundle": {
+    "files": 245,
+    "all_checksums_verified": true,
+    "packaged_tests": "5 checks run: 4 passed, 1 expected skip (frozen data omitted)",
+    "candidate_export_identical": true,
+    "test_seconds": 4.869
+  },
+  "B2_smoke": {
+    "mode": "training-smoke",
+    "status": "complete",
+    "code_revision": "source-archive (see MANIFEST.release.sha256)",
+    "source_sha256": "69e8adf0b401983bdcdf7aa7dc9ddf9ae31e4e2d0508b8d8a4e81f9c0f8c6865",
+    "seed": 42,
+    "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+    "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+    "packages": {
+      "torch": "2.6.0",
+      "numpy": "1.26.4",
+      "einops": "0.8.2",
+      "local-attention": "1.11.2"
+    },
+    "required_assets": {
+      "pretrained_checkpoint": {
+        "path": "raw/training/models.ckpt",
+        "sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9"
+      },
+      "counts": {
+        "path": "raw/training/corpus_counts.npy",
+        "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1"
+      },
+      "protein_matrix": {
+        "path": "raw/training/B2_esm2_matrix.npy",
+        "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7"
+      },
+      "cells": {
+        "path": "raw/training/corpus_cells.tsv",
+        "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4"
+      }
+    },
+    "command": [
+      "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+      "-u",
+      "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/scf_finetune_yeast.py",
+      "--config",
+      "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/configs/b2_training.json",
+      "--output",
+      "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/smoke-final/model",
+      "--device",
+      "cuda",
+      "--smoke",
+      "--smoke-batch",
+      "2"
+    ],
+    "cuda_visible_devices": "0",
+    "gpu": [
+      "NVIDIA RTX A6000, 550.54.15, 49140 MiB",
+      "NVIDIA RTX A6000, 550.54.15, 49140 MiB"
+    ],
+    "returncode": 0,
+    "seconds": 13.667,
+    "log_sha256": "9c0ddf2c26a9cba8e4a45a1d37c2788520734d4272e036c2d8b75734196b4ecb"
+  },
+  "hiphop_preprocessing": {
+    "array_comparison": {
+      "strain_orfs": {
+        "equal": true,
+        "shape": [
+          5668
+        ],
+        "dtype": "<U9"
+      },
+      "array_names": {
+        "equal": true,
+        "shape": [
+          3850
+        ],
+        "dtype": "<U20"
+      },
+      "compound_inchikeys": {
+        "equal": true,
+        "shape": [
+          3850
+        ],
+        "dtype": "<U27"
+      },
+      "doses": {
+        "equal": true,
+        "shape": [
+          3850
+        ],
+        "dtype": "<U6"
+      },
+      "dose_units": {
+        "equal": true,
+        "shape": [
+          3850
+        ],
+        "dtype": "<U10"
+      },
+      "is_vehicle": {
+        "equal": true,
+        "shape": [
+          3850
+        ],
+        "dtype": "bool"
+      },
+      "z_score": {
+        "equal": true,
+        "shape": [
+          5668,
+          3850
+        ],
+        "dtype": "float32",
+        "max_absolute_error": 0.0
+      },
+      "method": {
+        "equal": true,
+        "shape": [
+          1
+        ],
+        "dtype": "<U127"
+      }
+    },
+    "all_equal": true,
+    "numpy": "1.26.4",
+    "note": "NPZ ZIP compression/container bytes can differ; numerical and metadata arrays compared explicitly"
+  },
+  "inference_bundle": {
+    "all_checksums_verified": true,
+    "asset_preflight_ready": true,
+    "candidate_export_identical": true,
+    "independent_bundle_task_generation": 1175,
+    "all_tasks_byte_identical_to_frozen": true,
+    "OPENBLAS_NUM_THREADS": "4",
+    "isolated_test_snapshot_files": 215,
+    "final_expected_files": 266,
+    "final_manifest": "MANIFEST.release.sha256 inside the distributed ZIP"
+  },
+  "task_table_regression": {
+    "tasks_ej": {
+      "files": 1175,
+      "byte_identical": 1175,
+      "different": []
+    },
+    "tasks_dc": {
+      "files": 1175,
+      "byte_identical": 1175,
+      "different": []
+    }
+  },
+  "release_asset_validation": {
+    "public_runtime_urls": "HTTP 200",
+    "all_uploaded_github_sha256_digests_match": true,
+    "record": "data/provenance/release-upload-20261003.json"
+  },
+  "training_dependency_closure": {
+    "verified_versions": 28,
+    "platform": "Linux x86_64, Python 3.10",
+    "requirements": "requirements-training.lock.txt"
+  }
+}

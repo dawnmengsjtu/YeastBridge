@@ -1,0 +1,40 @@
+[setup] route=B2 device=cuda
+{'mask_gene_name': False, 'gene_num': 19266, 'seq_len': 19266, 'encoder': {'hidden_dim': 768, 'depth': 12, 'heads': 12, 'dim_head': 64, 'seq_len': 19266, 'module_type': 'transformer', 'norm_first': False}, 'decoder': {'hidden_dim': 512, 'depth': 6, 'heads': 8, 'dim_head': 64, 'module_type': 'performer', 'seq_len': 19266, 'norm_first': False}, 'n_class': 104, 'pad_token_id': 103, 'mask_token_id': 102, 'bin_num': 100, 'bin_alpha': 1.0, 'rawcount': True, 'model': 'mae_autobin', 'test_valid_train_idx_dict': '/nfs_beijing/minsheng/data/os10000w-new/global_shuffle/meta.csv.train_set_idx_dict.pt', 'valid_data_path': '/nfs_beijing/minsheng/data/valid_count_10w.npz', 'num_tokens': 13, 'train_data_path': None, 'isPanA': False, 'isPlanA1': False, 'max_files_to_load': 5, 'bin_type': 'auto_bin', 'value_mask_prob': 0.3, 'zero_mask_prob': 0.03, 'replace_prob': 0.8, 'random_token_prob': 0.1, 'mask_ignore_token_ids': [0], 'decoder_add_zero': True, 'mae_encoder_max_seq_len': 15000, 'isPlanA': False, 'mask_prob': 0.3, 'model_type': 'mae_autobin', 'pos_embed': False, 'device': 'cuda'}
+[setup] cells=38225 trainable_params=34.6M
+[ep1] step 200/1134 loss=0.3724 elapsed=4.6min
+[ep1] step 400/1134 loss=0.3143 elapsed=9.3min
+[ep1] step 600/1134 loss=0.2858 elapsed=13.9min
+[ep1] step 800/1134 loss=0.2674 elapsed=18.5min
+[ep1] step 1000/1134 loss=0.2539 elapsed=23.2min
+[ep1] train=0.2469 val=0.1865
+[ep2] step 200/1134 loss=0.1921 elapsed=31.3min
+[ep2] step 400/1134 loss=0.1888 elapsed=35.9min
+[ep2] step 600/1134 loss=0.1872 elapsed=40.5min
+[ep2] step 800/1134 loss=0.1850 elapsed=45.2min
+[ep2] step 1000/1134 loss=0.1831 elapsed=49.8min
+[ep2] train=0.1818 val=0.1677
+[ep3] step 200/1134 loss=0.1697 elapsed=57.9min
+[ep3] step 400/1134 loss=0.1678 elapsed=62.5min
+[ep3] step 600/1134 loss=0.1659 elapsed=67.2min
+[ep3] step 800/1134 loss=0.1650 elapsed=71.8min
+[ep3] step 1000/1134 loss=0.1639 elapsed=76.5min
+[ep3] train=0.1632 val=0.1541
+[ep4] step 200/1134 loss=0.1555 elapsed=84.6min
+[ep4] step 400/1134 loss=0.1553 elapsed=89.2min
+[ep4] step 600/1134 loss=0.1542 elapsed=93.9min
+[ep4] step 800/1134 loss=0.1536 elapsed=98.5min
+[ep4] step 1000/1134 loss=0.1529 elapsed=103.2min
+[ep4] train=0.1525 val=0.1462
+[ep5] step 200/1134 loss=0.1473 elapsed=111.3min
+[ep5] step 400/1134 loss=0.1471 elapsed=116.0min
+[ep5] step 600/1134 loss=0.1466 elapsed=120.6min
+[ep5] step 800/1134 loss=0.1463 elapsed=125.3min
+[ep5] step 1000/1134 loss=0.1457 elapsed=129.9min
+[ep5] train=0.1454 val=0.1420
+[ep6] step 200/1134 loss=0.1421 elapsed=138.0min
+[ep6] step 400/1134 loss=0.1417 elapsed=142.6min
+[ep6] step 600/1134 loss=0.1419 elapsed=147.3min
+[ep6] step 800/1134 loss=0.1416 elapsed=151.9min
+[ep6] step 1000/1134 loss=0.1413 elapsed=156.6min
+[ep6] train=0.1410 val=0.1377
+[done] /public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/b2-submission-v2-20261003/model (160.0 min)

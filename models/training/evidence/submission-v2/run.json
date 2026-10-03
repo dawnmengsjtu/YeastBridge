@@ -1,0 +1,74 @@
+{
+  "started_at_utc": "2026-10-03T06:40:14.773397+00:00",
+  "implementation": "submission-v2",
+  "mode": "training",
+  "status": "complete",
+  "code_revision": "source-archive (see MANIFEST.release.sha256)",
+  "source_sha256": "a58d9cbf68ba40d83f975ba35f9a3b5de380101429b771a7607983eeb2c84dfb",
+  "wrapper_sha256": "6b25654630133730f2d411e1236258fe71230f19c376659715a11b4dc8755bcf",
+  "config_sha256": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+  "seed": 42,
+  "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "packages": {
+    "torch": "2.6.0",
+    "numpy": "1.26.4",
+    "einops": "0.8.2",
+    "local-attention": "1.11.2"
+  },
+  "required_assets": {
+    "pretrained_checkpoint": {
+      "path": "raw/training/models.ckpt",
+      "sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9"
+    },
+    "counts": {
+      "path": "raw/training/corpus_counts.npy",
+      "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1"
+    },
+    "protein_matrix": {
+      "path": "raw/training/B2_esm2_matrix.npy",
+      "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7"
+    },
+    "cells": {
+      "path": "raw/training/corpus_cells.tsv",
+      "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4"
+    }
+  },
+  "command": [
+    "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+    "-u",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/scf_finetune_yeast.py",
+    "--config",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/configs/b2_training_v2.json",
+    "--output",
+    "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/b2-submission-v2-20261003/model",
+    "--device",
+    "cuda"
+  ],
+  "cuda_visible_devices": "0",
+  "gpu": [
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB",
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB"
+  ],
+  "returncode": 0,
+  "finished_at_utc": "2026-10-03T09:20:38.136037+00:00",
+  "seconds": 9619.836,
+  "log_sha256": "0727ad647c3f8703e736e797e2521cb8f3b818bf0ed1cf1caf3d978c7bf17740",
+  "artifacts": {
+    "config.json": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+    "model/epoch_metrics.json": "4024b0e4b47b242f02e4f7ce2c9ebc280fa09daeb9356fcaf9af2cfb3f17428c",
+    "model/final_model.pt": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad",
+    "model/gene_table_ep1.npy": "ed0b9f6d2a26e7d84b4ee983b380f91f0caf0534d9af486806bf52061b13222a",
+    "model/gene_table_ep2.npy": "13a494ec60a90d75a9fe3a1cef711ee8f0ee4c0076487b308a182165058616c7",
+    "model/gene_table_ep3.npy": "f734a6e72643cf189460cf899f132f11cac98814416019c9198746484481a4dc",
+    "model/gene_table_ep4.npy": "cc83acb6a30a00ded3ed4c4cac23604d62f095ca30aa3be259add223052e491c",
+    "model/gene_table_ep5.npy": "56356a9bc49fdc8787880dbfc9277425a6dbf020cd81055330a1c6d5d693f0f8",
+    "model/gene_table_ep6.npy": "7aba126eeefa159cda6ff3f9f79ace7f883e172fb9424105e3baf2f2f9310b19",
+    "model/gene_table_final.npy": "7aba126eeefa159cda6ff3f9f79ace7f883e172fb9424105e3baf2f2f9310b19",
+    "model/run_config.json": "6d5acc491750f3df1c630a59920bd586a39e75823cb689a4ca5a586c8601d8eb",
+    "model/split.tsv": "1a8bdf8cd718c68139d59121ae5df39998c2cdb3d265690c331db7f7eaec3f97",
+    "model/train_meta.json": "3b5dbed9d7f9374f9dfe91338c94e57f1dff18f03f89d937fc6bbeafac45b336",
+    "requirements-observed.txt": "140e67ceaa3e528078a69b153e309328372e1124c5197eb484d0be81c5def83f",
+    "train.log": "0727ad647c3f8703e736e797e2521cb8f3b818bf0ed1cf1caf3d978c7bf17740"
+  }
+}

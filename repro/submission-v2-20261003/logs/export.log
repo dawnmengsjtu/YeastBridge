@@ -1,0 +1,11 @@
+universe asset hashes: all match
+hyper assert vs V8 frozen picks: OK (npc=3, lam_r=1.0, lam_a=1.0, pls_k=8)
+universe targets: 1175 (dup/blank dropped 0)
+operators fitted on 510 train pairs
+pool 1279/1282, tail strains: ['YJL138C', 'YNL030W', 'YNL031C']
+  exported 200/1175
+  exported 400/1175
+  exported 600/1175
+  exported 800/1175
+  exported 1000/1175
+[done] 1175 targets -> /Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/tasks_ej

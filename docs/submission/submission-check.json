@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "checks": {
+    "training": [],
+    "runtime_assets": [],
+    "run": [],
+    "export": [],
+    "schema": [],
+    "data_disclosure": []
+  },
+  "scope": "Attachment 5 artifact consistency and default CSV contract; not an organizer acceptance decision"
+}

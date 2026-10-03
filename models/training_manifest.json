@@ -1,16 +1,28 @@
 {
   "entrypoint": "train.py",
   "environment": "requirements-training.lock.txt",
-  "config": "configs/b2_training.json",
+  "config": "configs/b2_training_v2.json",
+  "run_record": "models/training/evidence/submission-v2/run.json",
+  "epoch_metrics": "models/training/evidence/submission-v2/epoch_metrics.json",
+  "train_meta": "models/training/evidence/submission-v2/train_meta.json",
   "logs": [
-    "models/training/evidence/earlier-run/scf_train.log",
-    "models/training/evidence/smoke-20261003/train.log"
+    "models/training/evidence/submission-v2/train.log"
   ],
   "splits": [
-    "models/training/evidence/split-reconstructed.tsv"
+    "models/training/evidence/submission-v2/split.tsv"
   ],
-  "final_checkpoint_sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
-  "final_checkpoint_epoch_logs_verified": false,
-  "provenance_status": "Recovered original code, prepared data, checkpoint and reconstructed split. Earlier August training log and October smoke log do not match the final September checkpoint training run.",
-  "environment_status": "Observed at recovery, not contemporaneously frozen during final training."
+  "final_checkpoint_path": "raw/tier1_models/route_b_v2/final_model.pt",
+  "final_checkpoint_sha256": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad",
+  "final_checkpoint_epoch_logs_verified": true,
+  "evidence_artifacts": {
+    "models/training/evidence/submission-v2/config.json": "config.json",
+    "models/training/evidence/submission-v2/train.log": "train.log",
+    "models/training/evidence/submission-v2/requirements-observed.txt": "requirements-observed.txt",
+    "models/training/evidence/submission-v2/split.tsv": "model/split.tsv",
+    "models/training/evidence/submission-v2/epoch_metrics.json": "model/epoch_metrics.json",
+    "models/training/evidence/submission-v2/train_meta.json": "model/train_meta.json",
+    "models/training/evidence/submission-v2/run_config.json": "model/run_config.json"
+  },
+  "provenance_status": "Complete fresh six-epoch submission-v2 training from the hash-verified official scFoundation initialization; exact matching logs, split, metrics and checkpoint.",
+  "environment_status": "Recorded during this training run, with pip freeze and GPU/driver/platform metadata."
 }

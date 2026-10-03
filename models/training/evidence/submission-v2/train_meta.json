@@ -1,0 +1,17 @@
+{
+  "route": "B2",
+  "epochs": 6,
+  "batch": 32,
+  "accum": 1,
+  "lr": 0.0001,
+  "mask_p": 0.3,
+  "zero_mask_p": 0.03,
+  "seed": 42,
+  "n_train": 36314,
+  "n_val": 1911,
+  "implementation": "submission-v2",
+  "validation_fixed_masks": true,
+  "checkpoint_sha256": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad",
+  "gene_table_sha256": "7aba126eeefa159cda6ff3f9f79ace7f883e172fb9424105e3baf2f2f9310b19",
+  "split_sha256": "1a8bdf8cd718c68139d59121ae5df39998c2cdb3d265690c331db7f7eaec3f97"
+}

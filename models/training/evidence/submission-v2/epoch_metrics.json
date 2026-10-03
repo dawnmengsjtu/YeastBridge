@@ -1,0 +1,62 @@
+[
+  {
+    "epoch": 1,
+    "train_mse_batch_mean": 0.24693413389936944,
+    "validation_mse_batch_mean": 0.18651340454816817,
+    "train_mse_mask_weighted": 0.24734696787154753,
+    "validation_mse_mask_weighted": 0.18661570015049012,
+    "train_masked_entries": 8004280,
+    "validation_masked_entries": 422062,
+    "seconds": 1597.8524968624115
+  },
+  {
+    "epoch": 2,
+    "train_mse_batch_mean": 0.1818163127232228,
+    "validation_mse_batch_mean": 0.16767038702964782,
+    "train_mse_mask_weighted": 0.18200155887607444,
+    "validation_mse_mask_weighted": 0.16773980156124335,
+    "train_masked_entries": 8000667,
+    "validation_masked_entries": 422062,
+    "seconds": 1596.8141236305237
+  },
+  {
+    "epoch": 3,
+    "train_mse_batch_mean": 0.16320655923582908,
+    "validation_mse_batch_mean": 0.15411508257190387,
+    "train_mse_mask_weighted": 0.1632959130920809,
+    "validation_mse_mask_weighted": 0.1541223241074373,
+    "train_masked_entries": 8000724,
+    "validation_masked_entries": 422062,
+    "seconds": 1600.4167873859406
+  },
+  {
+    "epoch": 4,
+    "train_mse_batch_mean": 0.15251489672891894,
+    "validation_mse_batch_mean": 0.14624660164117814,
+    "train_mse_mask_weighted": 0.15261038390487217,
+    "validation_mse_mask_weighted": 0.14625202879342772,
+    "train_masked_entries": 8004121,
+    "validation_masked_entries": 422062,
+    "seconds": 1604.7936737537384
+  },
+  {
+    "epoch": 5,
+    "train_mse_batch_mean": 0.1454044983250454,
+    "validation_mse_batch_mean": 0.14201714346806207,
+    "train_mse_mask_weighted": 0.14545851760843717,
+    "validation_mse_mask_weighted": 0.14201325449611285,
+    "train_masked_entries": 7998073,
+    "validation_masked_entries": 422062,
+    "seconds": 1602.0693867206573
+  },
+  {
+    "epoch": 6,
+    "train_mse_batch_mean": 0.14103460269221124,
+    "validation_mse_batch_mean": 0.13765884439150491,
+    "train_mse_mask_weighted": 0.14110107717422626,
+    "validation_mse_mask_weighted": 0.13765451347635538,
+    "train_masked_entries": 8001949,
+    "validation_masked_entries": 422062,
+    "seconds": 1597.5863285064697
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "rows": 80,
+  "confidence_level": 0.95,
+  "method": "Clopper-Pearson exact binomial interval",
+  "quantity": "Probability that a random strain permutation produces a maximum-over-dose statistic at least as large as observed",
+  "emp_p_formula": "(null_exceedances + 1)/(n_perm + 1)",
+  "interval_formula": "Exact binomial confidence interval for b of B exceedances, before the +1 p-value correction",
+  "scope": "Monte Carlo sampling only, conditional on the selected candidate and observed assay data",
+  "not_covered": [
+    "stage-one nomination selection",
+    "assay measurement uncertainty",
+    "biological target specificity",
+    "drug potency"
+  ],
+  "source_sha256": {
+    "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirm_pos/exec_matrix.tsv": "10fa26780b466814230eaac728a6cc9541c4e92fd90e26e88d6203a956eafc37",
+    "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirm_pos/execute_summary.json": "3a2767516568b3fa927e04ff191dc88f2944ce6d4c4a19607de18ba5f9d4af07",
+    "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirm_neg/exec_matrix.tsv": "58804e02a7acc51facee546185f0bf615de0d1fdd88593d89e0f814546bdea32",
+    "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirm_neg/execute_summary.json": "b4c6f260592e04b6a3b92a053141a8d3e45c521e9530c4d5746fc768b798523a"
+  },
+  "output_sha256": "f6513317f6939e8d8e3440e032c84a0620898f1ac8c999e2273535f5eac72dbd"
+}

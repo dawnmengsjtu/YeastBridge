@@ -1,8 +1,8 @@
 # Third-party sources and distribution notes
 
-- ESM: https://github.com/facebookresearch/esm and its MIT LICENSE. The project reads precomputed ESM-2 embeddings in its full analysis mode.
-- scFoundation: https://github.com/biomap-research/scFoundation. Source code is Apache-2.0; model weights have a separate non-commercial research MODEL_LICENSE. B2 was trained using this backbone. Preserve applicable upstream notices when distributing a checkpoint; this repository does not relabel it as unrestricted original weights.
-- Historical scGPT, Geneformer and scYeast comparisons are identified in `docs/model_selection/`. They are not bundled third-party source/model distributions in the review package, and their old training environments have not been reconstructed here.
-- Dataset accessions, retained artifacts and unresolved license records are listed in `data/DATA_SOURCES.md`. Public accessibility alone is not an assertion of redistribution permission.
+- ESM-2: https://github.com/facebookresearch/esm, MIT license. The final pipeline reads frozen model outputs; the model name, extraction parameters, indices, recovered sequence inputs and checkpoint digest are documented in the model card and `data/provenance/esm2/`.
+- scFoundation: https://github.com/biomap-research/scFoundation. Source code is Apache-2.0; model weights use the separate non-commercial research `MODEL_LICENSE`. Both notices accompany the vendored implementation. The B2 checkpoint is derived from this backbone and retains applicable upstream restrictions.
+- UniProt/SGD protein and identifier data, orthology, GO annotations and expression datasets retain the terms and attribution listed in `data/THIRD_PARTY_DATA.md`. Exact content versions, use, source and acquisition evidence are recorded in `data/datasets.json`.
+- scGPT, Geneformer and scYeast belong to historical model comparisons. They are not required by the current candidate-screening pipeline and are not redistributed as additional pretrained weights in the submission package.
 
-This maintenance change does not assign a new project-wide license or replace upstream license terms. No external model weight is included in the review bundle. Numerical results remain subject to the statistical limitations described in the model card and protocols.
+This repository does not assign a new project-wide license or replace third-party terms. The review bundle contains no external model checkpoint; the full bundle contains the submitted B2 checkpoint and applicable model notice. Numerical results retain the scope and limitations stated in the model card.

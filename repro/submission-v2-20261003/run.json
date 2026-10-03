@@ -1,0 +1,329 @@
+{
+  "mode": "full",
+  "started_at_utc": "2026-10-03T09:15:57.839136+00:00",
+  "source_sha256": {
+    "main.py": "bfb63b3fc46bc1d396317bd219e1776506384852523698a2c92443e897a6e159",
+    "predict.py": "87187d041a230e0dc1249ed366159a22bc5ce705bf85d933a5276293ffa19adf",
+    "scripts/assess_uncertainty.py": "2fc066efe7c176756d24336af512009e1e47db1f14c09add88edb976a058df5e",
+    "scripts/audit_data_split.py": "0b97e77646e46dfff9245f6a3501375ab25eed76c312e50c5104aa04d0a32c52",
+    "scripts/build_submission.py": "434c3fa68de845e7e0f3b3c06fc0fa322143bc131069d7622acdfc08098c5a7f",
+    "scripts/check_assets.py": "8683fc0ff275d64bba09f8abec325018b9ee24be9e537bda852d50cb49fdf8e2",
+    "scripts/configure_trained_model.py": "fe39d244718105c4b9cfbdcb141c2f0b5c0f5a3f1c7f683fd58719af0aa6e943",
+    "scripts/cross_species_match.py": "eabc3d03c564f5db68699007622f9d9623c66db80cc0cbb7d9b75a7d235939b8",
+    "scripts/download_asset.py": "a5c2475656f3ad8bcb798985b44116ec32d6e9745c9ed4223fb03b922bdf8e33",
+    "scripts/ej_dc_nominate.py": "2edb6ad84a7a8dd6bbd51d1357fcfffb13044894b60308a68ae25c2e33068a5e",
+    "scripts/esm2_cross_match.py": "dc5c6468854465803d96e014cfdb45635c4c896314be45107968d929f8927842",
+    "scripts/esm2_joint_task_export.py": "05d0ad08979642e097731a262d9cd617d0525f27cdbf0ceaaf30e16113a955bb",
+    "scripts/ev0_run.py": "0991fabde44aa5e227b1fc3397d76842a3d38390bc8cbbb08c94fcb3042404c2",
+    "scripts/ev1a_run.py": "da14b8bffe5700ffd23eef2ee74f33aaa59f83fa32bbe64ea395977d757e49c5",
+    "scripts/ev_preprocess_adamson.py": "f7bd9d901c1c30b77d55e44724f37f0f2f667f8ffdf16a93081fd0e8873e1701",
+    "scripts/extract_esm2_candidates.py": "8ed6d1615801441705b43b50425550f28e698fb18dc263a53340a3ef6023bdec",
+    "scripts/family_specificity_build.py": "bb93444a694ecdcd57bd349a942c24c569f5ddbae1b70f3da0dabd538f61fc12",
+    "scripts/install_assets.py": "3f376d2ae392f991121c88d78fe41279d89c59af12f40af3a816d2d4445bcd95",
+    "scripts/install_training_assets.py": "8f516095b87672001da8e95613404606f78e95f4ebfc7de149b5b5a2f9025aba",
+    "scripts/make_demo.py": "e52b0fad1930347cb8837a79c4603097b0201aa5dcf329e666965d674a49d3ba",
+    "scripts/prepare_hiphop.py": "f1efe6c5c9b46c9af821bb2aa8b0c3efac91ab736a5c3f4998c92f568e62c53a",
+    "scripts/prepare_training_data.py": "39678316ca8356accbe3fb0aa15b94d65f9f00ade00a0d8e0563762aa09fd512",
+    "scripts/preprocess_hiphop.py": "9b48b887cee4a5b55c59190375a008418f5f6bdf2eaf6e53dcb7c17f97e2ae4f",
+    "scripts/product_execute_hiphop.py": "4ee1c337a9fdfecfa8319a6840a084a89678ee5a3dec15fea1a0b1fda6f4c99d",
+    "scripts/project_io.py": "b1d305dc2a11f566d89139641cbe550f5ada90304b2c43dbb2b69f2420f83e29",
+    "scripts/run_esm2joint_chain.py": "e8b675b6922ea166862cac83afd1cc7b941683db75729fee3ddabf2e257b6d6a",
+    "scripts/scf_finetune_yeast.py": "a58d9cbf68ba40d83f975ba35f9a3b5de380101429b771a7607983eeb2c84dfb",
+    "scripts/task_axis_double_center.py": "513f7b4ffc2a84aba5dec6691d599940274d4d2a062d950949818e090cccbf11",
+    "scripts/task_export_inputs.py": "ec8ed8aba969fba6b8d29aeaa05223e56d548c53f6a74a2d1cb9b5564f7a94ba",
+    "scripts/v5_joint_formal_run.py": "464fbe3d308bdd80d543b7539ca6c239a5ba47c84543cf81b01b9c46d6aaf382",
+    "scripts/v6_process_bridge_run.py": "5f711f24c9489204839215aa2b9a7cff5ee81baefcc11a895574a85a8e767ccc",
+    "scripts/v7_b2_formal_run.py": "93d2cd2b19b855ce3764b8a2b65f9d2dd5856de93bb523c9633e2d3252bd8c99",
+    "scripts/v8_esm2_formal_run.py": "207876402977658062fcd1d7e0abcfe4f93a3bb38954e18dccb67ed78dc65da3",
+    "scripts/v9_esm2_basic_run.py": "52f592dec55e984d85e1e3ef39438e8e0ca82c5507c658116224d063b34a73e2",
+    "scripts/verify_submission.py": "0008c32c621849a891bd7b299d7ac5e94f28c0f23182e479b866656613517cee"
+  },
+  "code_revision": "b81717bee42cc040dff7e677b7340ffebd714b69",
+  "status": "complete",
+  "seed": 42,
+  "blas_threads": 4,
+  "python": "3.10.20 (main, Mar  3 2026, 00:49:35) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "torch": "2.9.0",
+    "anndata": "0.11.4",
+    "h5py": "3.12.1",
+    "fair-esm": "2.0.0"
+  },
+  "steps": [
+    {
+      "name": "export",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/esm2_joint_task_export.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/configs/esm2_joint_tasks_v2.json",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/tasks_ej"
+      ],
+      "returncode": 0,
+      "seconds": 12.336,
+      "log_sha256": "ec9de948923d274bfccedd4034189a34fa7b7b7db5f6b2f46ba4db3c02ba393f"
+    },
+    {
+      "name": "double_center",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/task_axis_double_center.py",
+        "--input",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/tasks_ej",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/tasks_dc"
+      ],
+      "returncode": 0,
+      "seconds": 3.228,
+      "log_sha256": "f502d7309cec0a6ffc444202399cda64be77f0cb9b7df09dddc5b5ce5c59b708"
+    },
+    {
+      "name": "screen_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/screen_pos.json",
+        "--results-suffix",
+        ""
+      ],
+      "returncode": 0,
+      "seconds": 452.13,
+      "log_sha256": "6b129e91584e0b3e5ec93ca06805d3a812b9de1e56fccf6a404ce19482da4a9b"
+    },
+    {
+      "name": "screen_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/screen_neg.json",
+        "--results-suffix",
+        ""
+      ],
+      "returncode": 0,
+      "seconds": 502.12,
+      "log_sha256": "44a64baab544753d2f57b933de659ecdd144812076b5d56e5ed359885ea77e71"
+    },
+    {
+      "name": "nominate",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/ej_dc_nominate.py",
+        "--pos-screen",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/screen_pos",
+        "--neg-screen",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/screen_neg",
+        "--top-n",
+        "40",
+        "--screen-permutations",
+        "1000",
+        "--out",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirmation_panel"
+      ],
+      "returncode": 0,
+      "seconds": 12.886,
+      "log_sha256": "7041a813f2b52277ae709eb323cc144b4df24b840a527cd70fae632e2d1bb5f2"
+    },
+    {
+      "name": "confirm_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/confirm_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirmation_panel/pair_allowlist_pos40.tsv",
+        "--pair-allowlist-sha256",
+        "91abfbf5cc4743a81ada7d93384cd12401be6ea84e5dea5fb6d9dd1689fdc2db",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 31.824,
+      "log_sha256": "4d9bc35d3b60be241f313ffe7e7b2248aa93ef347257a2a7bc0636a754643806"
+    },
+    {
+      "name": "confirm_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/confirm_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirmation_panel/pair_allowlist_neg40.tsv",
+        "--pair-allowlist-sha256",
+        "d180b9bef4856147ed1f7de6dc4c22c7a59fe25698bcd6dce6f59a258a63bacb",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 37.686,
+      "log_sha256": "714d102e806fe05f1e70cbc1de3087798cbf46072bf4345f739c7e261b8b6dc8"
+    },
+    {
+      "name": "family_build",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/family_specificity_build.py",
+        "--tasks",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/tasks_dc",
+        "--confirmation-panel",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/confirmation_panel",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/family"
+      ],
+      "returncode": 0,
+      "seconds": 2.178,
+      "log_sha256": "c85d6895374485636a3374bc9c35ed08b57e255f09669ee4955bfcf39db676c4"
+    },
+    {
+      "name": "fam_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/fam_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/family/panel/fam_allowlist_pos.tsv",
+        "--pair-allowlist-sha256",
+        "8ffd6c9d4565e21e4d7f2da7ffabfd35da6f3acce78d7bcebea33a4df70d4da0",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 2.687,
+      "log_sha256": "805dd9a778952408ea96a55919aa0b67eab5e6038e6ddedb9b3a3d66c64dca78"
+    },
+    {
+      "name": "fam_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/fam_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/family/panel/fam_allowlist_neg.tsv",
+        "--pair-allowlist-sha256",
+        "580799f14dd8b3c88dbfd2678350be050fbb60fb080cee76f03e7cea22e07350",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 2.563,
+      "log_sha256": "d08c32745ab8ce980a142d18081a41b51b7e90986c9c7112c054445f5b779d9d"
+    },
+    {
+      "name": "resid_pos",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/resid_pos.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/family/panel/resid_allowlist_pos.tsv",
+        "--pair-allowlist-sha256",
+        "71a9186b603db6e47519bd5377ba1495cba3f30b13373b69d1fa6d1b4d1d2e94",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 3.173,
+      "log_sha256": "09f22e2766040650b16d480761359c9f86d3b8b001fe8dcaa32c014849a84dbe"
+    },
+    {
+      "name": "resid_neg",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/product_execute_hiphop.py",
+        "--config",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/configs/resid_neg.json",
+        "--results-suffix",
+        "",
+        "--pair-allowlist",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/family/panel/resid_allowlist_neg.tsv",
+        "--pair-allowlist-sha256",
+        "9d1ab1f6aaf26a240eedee1a9eb4757305d7ab074bd5dd52c292456ec1fa71ef",
+        "--allowlist-two-stage-rule-doc",
+        "/Users/dawnmeng/Projects/YeastBridge/docs/cross_species_match/FAMILY_SPECIFICITY_PROTOCOL.md",
+        "--allowlist-selection-basis",
+        "Outcome-derived two-stage nomination; exploratory family-only FDR; see supplied rule document."
+      ],
+      "returncode": 0,
+      "seconds": 3.679,
+      "log_sha256": "66f068dc381a8d13598002b2d1a0e3f951b1d80135d69cb60a2099570d45a5c7"
+    },
+    {
+      "name": "uncertainty",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/scripts/assess_uncertainty.py",
+        "--run-dir",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003"
+      ],
+      "returncode": 0,
+      "seconds": 1.207,
+      "log_sha256": "e237ea660a850c3b10cd3a201bcad535e40167c7a92ce8e04f9165dc1cc29821"
+    },
+    {
+      "name": "predict",
+      "command": [
+        "/Users/dawnmeng/Projects/YeastBridge/.venv/bin/python",
+        "/Users/dawnmeng/Projects/YeastBridge/predict.py",
+        "--run-dir",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003",
+        "--compounds",
+        "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/compounds.tsv.gz",
+        "--output",
+        "/Users/dawnmeng/Projects/YeastBridge/outputs/full-submission-v2-20261003/results.csv"
+      ],
+      "returncode": 0,
+      "seconds": 0.497,
+      "log_sha256": "050781516245a4fd7dbf5310ee630c6c8fcdd5bd8024e6dbe9d40a5a6512e762"
+    }
+  ],
+  "model": {
+    "version": "B2-submission-v2-20261003",
+    "task_config_sha256": "b6494aa75bb66064ea997eca171d2f789d24f092e2e1cbddb626c6d833770fca",
+    "checkpoint_sha256": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad",
+    "gene_table_sha256": "7aba126eeefa159cda6ff3f9f79ace7f883e172fb9424105e3baf2f2f9310b19"
+  },
+  "inputs": {
+    "response": {
+      "path": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/strain_response.npz",
+      "sha256": "d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf"
+    },
+    "compounds": {
+      "path": "/Users/dawnmeng/Projects/YeastBridge/raw/tier1_response/compounds.tsv.gz",
+      "sha256": "30d401dc02b426bb20ef1ec9b3182d6045c8f9f81282dd8d48cdcc36bc810927"
+    }
+  },
+  "result_sha256": "25cc14fc61029657a6775a2cda0a55de471d8b98e61207e9cf22d76acbc63394",
+  "seconds": 1068.67,
+  "finished_at_utc": "2026-10-03T09:33:46.508657+00:00"
+}

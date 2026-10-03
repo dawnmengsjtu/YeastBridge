@@ -1,0 +1,22 @@
+{
+  "mode": "new-run",
+  "code_revision": "b81717bee42cc040dff7e677b7340ffebd714b69",
+  "rows": 80,
+  "output_sha256": "25cc14fc61029657a6775a2cda0a55de471d8b98e61207e9cf22d76acbc63394",
+  "sorting": "direction then target symbol; candidate IDs are not a potency ranking",
+  "dose_unit": "per-row 剂量单位 column, recovered from the frozen response file",
+  "q_scope": "union of both directional confirmation families",
+  "selection_scope": "BH does not account for stage-one nomination; exploratory associations",
+  "sources": {
+    "outputs/full-submission-v2-20261003/confirm_pos/exec_matrix.tsv": "10fa26780b466814230eaac728a6cc9541c4e92fd90e26e88d6203a956eafc37",
+    "outputs/full-submission-v2-20261003/confirm_neg/exec_matrix.tsv": "58804e02a7acc51facee546185f0bf615de0d1fdd88593d89e0f814546bdea32",
+    "outputs/full-submission-v2-20261003/resid_pos/exec_matrix.tsv": "c74ed36eeeef6f5951c25191a652da1f12aded86188467ec309e54cde65f7125",
+    "outputs/full-submission-v2-20261003/resid_neg/exec_matrix.tsv": "f3d00134ab2e70efbe20104583e4ffdfdd4f79bbc92545eb1cadd1145c1203f5",
+    "data/response_conditions.tsv": "15f3c80e44cdb470628f1cdc8481f872d096dade1acaddce9a319883dab56123",
+    "outputs/full-submission-v2-20261003/run.json": "9bd9512b4d808a045b5d2796df3745122f3ec84fe8d8f976d2f96f8a32bb6293",
+    "outputs/full-submission-v2-20261003/uncertainty/monte_carlo_intervals.tsv": "f6513317f6939e8d8e3440e032c84a0620898f1ac8c999e2273535f5eac72dbd",
+    "outputs/full-submission-v2-20261003/uncertainty/interpretation.json": "02081f7c47ebe39623edd2c67e476b6ce4a1bd387c21bc57f5e3389d76706680",
+    "outputs/full-submission-v2-20261003/family/panel/build_record.json": "3ff0d537062194c23ed70389cafff3912128c5f840a7cc990830b9066f012486",
+    "raw/tier1_response/compounds.tsv.gz": "30d401dc02b426bb20ef1ec9b3182d6045c8f9f81282dd8d48cdcc36bc810927"
+  }
+}

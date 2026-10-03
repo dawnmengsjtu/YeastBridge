@@ -1,0 +1,18 @@
+{
+  "model_version": "B2-submission-v2-20261003",
+  "task_config": "configs/esm2_joint_tasks_v2.json",
+  "run_dir": "repro/submission-v2-20261003",
+  "rows": 80,
+  "export_sources": {
+    "repro/submission-v2-20261003/run.json": "9bd9512b4d808a045b5d2796df3745122f3ec84fe8d8f976d2f96f8a32bb6293",
+    "repro/submission-v2-20261003/family/panel/build_record.json": "3ff0d537062194c23ed70389cafff3912128c5f840a7cc990830b9066f012486",
+    "data/compounds_smiles.tsv": "4b47b22eec03cdb1445cf6421a774f9bee5d9b4f33ef5fb52bbb7c69d05d902c",
+    "data/response_conditions.tsv": "15f3c80e44cdb470628f1cdc8481f872d096dade1acaddce9a319883dab56123",
+    "repro/submission-v2-20261003/uncertainty/monte_carlo_intervals.tsv": "f6513317f6939e8d8e3440e032c84a0620898f1ac8c999e2273535f5eac72dbd",
+    "repro/submission-v2-20261003/uncertainty/interpretation.json": "02081f7c47ebe39623edd2c67e476b6ce4a1bd387c21bc57f5e3389d76706680",
+    "repro/submission-v2-20261003/confirm_pos/exec_matrix.tsv": "10fa26780b466814230eaac728a6cc9541c4e92fd90e26e88d6203a956eafc37",
+    "repro/submission-v2-20261003/confirm_neg/exec_matrix.tsv": "58804e02a7acc51facee546185f0bf615de0d1fdd88593d89e0f814546bdea32",
+    "repro/submission-v2-20261003/resid_pos/exec_matrix.tsv": "c74ed36eeeef6f5951c25191a652da1f12aded86188467ec309e54cde65f7125",
+    "repro/submission-v2-20261003/resid_neg/exec_matrix.tsv": "f3d00134ab2e70efbe20104583e4ffdfdd4f79bbc92545eb1cadd1145c1203f5"
+  }
+}

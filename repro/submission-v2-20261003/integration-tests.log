@@ -1,0 +1,26 @@
+test_response_header_variants_and_output_guard (test_submission.PreprocessingTests) ... ok
+test_asset_installer_rejects_wrong_version (test_submission.SubmissionTests) ... ok
+test_demo_runs_without_any_historical_results_or_models (test_submission.SubmissionTests) ... [double_center] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/double_center.log
+[screen_pos] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/screen_pos.log
+[screen_neg] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/screen_neg.log
+[nominate] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/nominate.log
+[confirm_pos] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/confirm_pos.log
+[confirm_neg] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/confirm_neg.log
+[family_build] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/family_build.log
+[fam_pos] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/fam_pos.log
+[resid_pos] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/resid_pos.log
+[uncertainty] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/uncertainty.log
+[predict] /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/logs/predict.log
+Completed demo: /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmp6zp1jkba/clean/output/results.csv
+ok
+test_frozen_row_order_bytes (test_submission.SubmissionTests) ... ok
+test_optional_cid_format_is_stable (test_submission.SubmissionTests) ... ok
+test_published_export_is_identical (test_submission.SubmissionTests) ... /private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmpvh9vishz/results.csv: 80 candidate records
+ok
+test_residual_evidence_stays_in_its_direction (test_submission.SubmissionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 5.557s
+
+OK
+/private/var/folders/nx/mw1llgc52pg5rh2nzwbxj2mh0000gn/T/tmpeao3w1dl/results.csv: 2 candidate records

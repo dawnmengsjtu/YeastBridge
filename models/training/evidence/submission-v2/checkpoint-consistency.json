@@ -1,0 +1,17 @@
+{
+  "checkpoint_sha256": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad",
+  "route": "B2",
+  "implementation": "submission-v2",
+  "protein_shape": [
+    6733,
+    1280
+  ],
+  "projection_shape": [
+    768,
+    1280
+  ],
+  "protein_matrix_exact_match": true,
+  "gene_table_max_absolute_error_cpu_vs_saved": 2.384185791015625e-06,
+  "gene_table_allclose_atol_1e-5_rtol_1e-5": true,
+  "note": "CPU versus training-GPU matrix multiplication is checked with floating-point tolerance. Frozen hashes identify the published weights/table."
+}

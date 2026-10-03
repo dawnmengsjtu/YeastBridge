@@ -1,0 +1,87 @@
+{
+  "captured_after_full_run_utc": "2026-10-03T09:35:08.916418+00:00",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "python": "3.10.20 (main, Mar  3 2026, 00:49:35) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "numpy_build": {
+    "Compilers": {
+      "c": {
+        "name": "clang",
+        "linker": "ld64",
+        "version": "14.0.0",
+        "commands": "cc",
+        "args": "-fno-strict-aliasing, -DBLAS_SYMBOL_SUFFIX=64_, -DHAVE_BLAS_ILP64",
+        "linker args": "-fno-strict-aliasing, -DBLAS_SYMBOL_SUFFIX=64_, -DHAVE_BLAS_ILP64"
+      },
+      "cython": {
+        "name": "cython",
+        "linker": "cython",
+        "version": "3.0.8",
+        "commands": "cython"
+      },
+      "c++": {
+        "name": "clang",
+        "linker": "ld64",
+        "version": "14.0.0",
+        "commands": "c++",
+        "args": "-DBLAS_SYMBOL_SUFFIX=64_, -DHAVE_BLAS_ILP64",
+        "linker args": "-DBLAS_SYMBOL_SUFFIX=64_, -DHAVE_BLAS_ILP64"
+      }
+    },
+    "Machine Information": {
+      "host": {
+        "cpu": "aarch64",
+        "family": "aarch64",
+        "endian": "little",
+        "system": "darwin"
+      },
+      "build": {
+        "cpu": "aarch64",
+        "family": "aarch64",
+        "endian": "little",
+        "system": "darwin"
+      }
+    },
+    "Build Dependencies": {
+      "blas": {
+        "name": "openblas64",
+        "found": true,
+        "version": "0.3.23.dev",
+        "detection method": "pkgconfig",
+        "include directory": "/opt/arm64-builds/include",
+        "lib directory": "/opt/arm64-builds/lib",
+        "openblas configuration": "USE_64BITINT=1 DYNAMIC_ARCH=1 DYNAMIC_OLDER= NO_CBLAS= NO_LAPACK= NO_LAPACKE= NO_AFFINITY=1 USE_OPENMP= SANDYBRIDGE MAX_THREADS=3",
+        "pc file directory": "/usr/local/lib/pkgconfig"
+      },
+      "lapack": {
+        "name": "dep4335948544",
+        "found": true,
+        "version": "1.26.4",
+        "detection method": "internal",
+        "include directory": "unknown",
+        "lib directory": "unknown",
+        "openblas configuration": "unknown",
+        "pc file directory": "unknown"
+      }
+    },
+    "Python Information": {
+      "path": "/private/var/folders/76/zy5ktkns50v6gt5g8r0sf6sc0000gn/T/cibw-run-iyy0yn4s/cp310-macosx_arm64/build/venv/bin/python",
+      "version": "3.10"
+    },
+    "SIMD Extensions": {
+      "baseline": [
+        "NEON",
+        "NEON_FP16",
+        "NEON_VFPV4",
+        "ASIMD"
+      ],
+      "found": [
+        "ASIMDHP"
+      ],
+      "not found": [
+        "ASIMDFHM"
+      ]
+    }
+  },
+  "torch_build": "PyTorch built with:\n  - GCC 4.2\n  - C++ Version: 201703\n  - clang 15.0.0\n  - OpenMP 201811\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: DEFAULT\n  - Build settings: BLAS_INFO=accelerate, BUILD_TYPE=Release, COMMIT_SHA=0fabc3ba44823f257e70ce397d989c8de5e362c1, CXX_COMPILER=/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_PYTORCH_QNNPACK -DAT_BUILD_ARM_VEC256_WITH_SLEEF -DUSE_XNNPACK -DUSE_PYTORCH_METAL_EXPORT -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DUSE_COREML_DELEGATE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=braced-scalar-init -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wvla-extension -Wsuggest-override -Wnewline-eof -Winconsistent-missing-override -Winconsistent-missing-destructor-override -Wno-pass-failed -Wno-error=old-style-cast -Wconstant-conversion -Qunused-arguments -faligned-new -fno-math-errno -fno-trapping-math -Werror=format -DUSE_MPS -Wno-missing-braces, LAPACK_INFO=accelerate, TORCH_VERSION=2.9.0, USE_CUDA=OFF, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_EIGEN_FOR_BLAS=ON, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=OFF, USE_MKLDNN=OFF, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+  "scope": "Observed workstation libraries used for the completed CPU screening run; model training has its own separately recorded Linux/CUDA runtime. Compiler/include paths in the binary-wheel build metadata are not required local installation paths."
+}
