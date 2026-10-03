@@ -1,0 +1,50 @@
+{
+  "all_arrays_exact": true,
+  "all_indices_exact": true,
+  "comparisons": [
+    {
+      "name": "human_810",
+      "shape": [
+        810,
+        1280
+      ],
+      "indices_exact": true,
+      "arrays_exact": true,
+      "max_absolute_error": 0.0,
+      "frozen_array_sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "rebuilt_array_sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "frozen_index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+      "rebuilt_index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf"
+    },
+    {
+      "name": "universe_1175",
+      "shape": [
+        1175,
+        1280
+      ],
+      "indices_exact": true,
+      "arrays_exact": true,
+      "max_absolute_error": 0.0,
+      "frozen_array_sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+      "rebuilt_array_sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+      "frozen_index_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665",
+      "rebuilt_index_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665"
+    },
+    {
+      "name": "yeast_650m",
+      "shape": [
+        6742,
+        1280
+      ],
+      "indices_exact": true,
+      "arrays_exact": true,
+      "max_absolute_error": 0.0,
+      "frozen_array_sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "rebuilt_array_sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "frozen_index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214",
+      "rebuilt_index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
+    }
+  ],
+  "rebuild_run_sha256": "05ab59321e6eb2460bc9cf22ce0516a7263bea4c1006220c99ed6343777dba37",
+  "scope": "Complete inference from recovered original FASTA with the hash-verified original ESM-2 checkpoint on a separate RTX A6000 GPU."
+}

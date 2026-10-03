@@ -1,0 +1,102 @@
+{
+  "started_at_utc": "2026-10-03T07:21:21.663843+00:00",
+  "status": "complete",
+  "model_sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c",
+  "contact_regression_sha256": "8ffe6edbd4173dc8d45c2cd5cb27d43aad77ec26b4c768200c58ae1f96693575",
+  "script_sha256": "8ed6d1615801441705b43b50425550f28e698fb18dc263a53340a3ef6023bdec",
+  "packages": {
+    "torch": "2.6.0",
+    "fair-esm": "2.0.0",
+    "numpy": "1.26.4",
+    "pandas": "2.3.2",
+    "pyarrow": "17.0.0"
+  },
+  "cuda_visible_devices": "1",
+  "steps": [
+    {
+      "name": "human_810",
+      "command": [
+        "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+        "-u",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/extract_esm2_candidates.py",
+        "--fasta",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/human-v7.fasta",
+        "--gene-master",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/gene_master.tsv",
+        "--model",
+        "/public/home/mengxl/dzy/yeastbridge/models/esm2/esm2_t33_650M_UR50D.pt",
+        "--outdir",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-20261003/human_810",
+        "--device",
+        "cuda"
+      ],
+      "returncode": 0,
+      "seconds": 53.67774844169617,
+      "fasta_sha256": "764dac86f7a0edc6fa297d6d2bfb0c23f43da9e035b96b4a3049362eb85440ce",
+      "log_sha256": "1de1ee131bf00a1f4dd43d180dda1c6fa82447fc5ec295c26ad294e1f1f4dc21"
+    },
+    {
+      "name": "universe_1175",
+      "command": [
+        "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+        "-u",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/extract_esm2_candidates.py",
+        "--fasta",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/universe.fasta",
+        "--gene-master",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/gene_master.tsv",
+        "--model",
+        "/public/home/mengxl/dzy/yeastbridge/models/esm2/esm2_t33_650M_UR50D.pt",
+        "--outdir",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-20261003/universe_1175",
+        "--device",
+        "cuda"
+      ],
+      "returncode": 0,
+      "seconds": 63.533655643463135,
+      "fasta_sha256": "065984315ca0ea7028ba31293e59dfef62254c09ca58754c9a06e0e7b6d27103",
+      "log_sha256": "79d1bdb304cf848b2c2546ed176a2c0f3a948de8783b73e2c25d83cf35c55745"
+    },
+    {
+      "name": "yeast_650m",
+      "command": [
+        "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+        "-u",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/scripts/extract_esm2_candidates.py",
+        "--fasta",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/yeast.fasta",
+        "--gene-master",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/gene_master.tsv",
+        "--model",
+        "/public/home/mengxl/dzy/yeastbridge/models/esm2/esm2_t33_650M_UR50D.pt",
+        "--outdir",
+        "/public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-20261003/yeast_650m",
+        "--device",
+        "cuda"
+      ],
+      "returncode": 0,
+      "seconds": 211.06936240196228,
+      "fasta_sha256": "a04f9b05a1f1a78a3e0f82ba053e71f0cf12b395e43b3ef222dc1861410522e3",
+      "log_sha256": "6b9edc77d9eee02fd30ecdb39586775d21fa41fb282b055a82a561429f27171e"
+    }
+  ],
+  "seconds": 328.31736874580383,
+  "finished_at_utc": "2026-10-03T07:26:55.774233+00:00",
+  "artifacts": {
+    "yeast_650m.log": "6b9edc77d9eee02fd30ecdb39586775d21fa41fb282b055a82a561429f27171e",
+    "universe_1175.log": "79d1bdb304cf848b2c2546ed176a2c0f3a948de8783b73e2c25d83cf35c55745",
+    "human_810.log": "1de1ee131bf00a1f4dd43d180dda1c6fa82447fc5ec295c26ad294e1f1f4dc21",
+    "human_810/esm2_mean.parquet": "d36c1ae085b0ede58f343addb593a5aa9d435fd30a9ea6ccca7ca0188fa850af",
+    "human_810/esm2_mean_fp32.npy": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+    "human_810/run_info.json": "8f358c39753bf98162c938528316b8bf324d778739cd09a866b4f79636007bb3",
+    "human_810/index.tsv": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+    "yeast_650m/esm2_mean.parquet": "8029ee2a4363044c8ed31789113d502e635dbd229b2619afffe5a569869b6e22",
+    "yeast_650m/esm2_mean_fp32.npy": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+    "yeast_650m/run_info.json": "70fcdab0eaa3228083efd92c43d91e76c02068f9964467673434c94e25cd8cc3",
+    "yeast_650m/index.tsv": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214",
+    "universe_1175/esm2_mean.parquet": "f1ff7f15aab492e593becf372fa871b07303b1427176823aa0aa3b8d45d3dd64",
+    "universe_1175/esm2_mean_fp32.npy": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+    "universe_1175/run_info.json": "168003ba8be49621e4b77d5d90e8e2f7ba664f2c470bec2e5619efa40c0648aa",
+    "universe_1175/index.tsv": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665"
+  }
+}

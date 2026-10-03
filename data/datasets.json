@@ -25,7 +25,7 @@
       "terms_url": "https://www.uniprot.org/api-documentation/support-data",
       "acquired_for_submission": "2026-10-03",
       "acquisition_method": "Recovered checksum-identified files for this submission; original dates are recorded separately where supported",
-      "note": "SGD attribution and CC BY 4.0 also apply; see THIRD_PARTY_DATA.md. Original embedding calls and parameters are retained in raw/tier1_esm2. Public upstream release number was not saved for every sequence request; the actual frozen inputs are versioned by hash.",
+      "note": "SGD attribution and CC BY 4.0 also apply; see THIRD_PARTY_DATA.md. Original embedding calls and parameters are retained in raw/tier1_esm2. Public upstream release number was not saved for every sequence request; the actual frozen inputs are versioned by hash. All three ESM-2 matrices and indices were recomputed from recovered FASTA on 2026-10-03 and match the frozen files byte-for-byte; fresh invocation times and parameters are recorded in provenance/esm2/rebuild-run.json.",
       "artifacts": {
         "raw/tier1_esm2/human_810/index.tsv": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
         "raw/tier1_esm2/human_810/esm2_mean_fp32.npy": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
@@ -35,7 +35,14 @@
         "raw/tier1_esm2/universe_1175/esm2_mean_fp32.npy": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
         "raw/externalvalidation/mappings/gene_master.tsv": "985035e0ed520eca266f69e343d05e0d0b84dc87a7fa4a620623beb5c73dfa07",
         "data/provenance/esm2/yeast_6742.fasta.gz": "ec80fade151f471b2fc0540f6efd2a2412f17e5f9671a39e28f05da93d1da610",
-        "data/provenance/esm2/human_810.fasta.gz": "30b6fcf88d0f76cf9419ffc5f685736fd7de1e9f9ebe3c61f2837db3263992b8"
+        "data/provenance/esm2/human_810.fasta.gz": "30b6fcf88d0f76cf9419ffc5f685736fd7de1e9f9ebe3c61f2837db3263992b8",
+        "data/provenance/esm2/universe_1175.fasta.gz": "b43f62ff2e8f5d0b1983e3471f94f872887724809b2278da356e8fb7362db71c",
+        "data/provenance/esm2/gpcr_human.uniprot.reviewed.2026-08-13.tsv.gz": "c0c143c468bbf8249b83b5acfc750f8851248a6cf198d56f52e354112ab4c165",
+        "data/provenance/esm2/ion_channel_human.uniprot.reviewed.2026-08-13.tsv.gz": "4d31d91c6ff67576358ec57503bb875bedb4f42268f3b374c8321e9409fe085a",
+        "data/provenance/esm2/rebuild-run.json": "05ab59321e6eb2460bc9cf22ce0516a7263bea4c1006220c99ed6343777dba37",
+        "data/provenance/esm2/rebuild-comparison.json": "896d92242987dd4decf8a25adfd7a0b0a0185b5930355d769872ccdd7512a8e8",
+        "data/provenance/esm2/sequence-recovery.json": "e85246afb9aec7a9831c20346166f5b569b6eeb0dfd78924c58243ca75fc125a",
+        "data/provenance/esm2/universe-run-info.json": "ae14d4d65d61890bd7709539f0892c78582fc2c8c71fa50bb8b0a8590e34a7d1"
       }
     },
     {

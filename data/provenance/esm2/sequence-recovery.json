@@ -17,9 +17,17 @@
       "recovered_from": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/v7_b2_formal_20260912/assets/batch.fasta",
       "fasta_records": 810,
       "index_validation": "Every frozen embedding index accession and sequence length matches this FASTA; this is not a new embedding recomputation."
+    },
+    {
+      "file": "data/provenance/esm2/universe_1175.fasta.gz",
+      "sha256": "b43f62ff2e8f5d0b1983e3471f94f872887724809b2278da356e8fb7362db71c",
+      "source_file_sha256": "065984315ca0ea7028ba31293e59dfef62254c09ca58754c9a06e0e7b6d27103",
+      "recovered_from": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901/product_pipeline/product/transfer_route_b/inputs/universe_proteins.fasta",
+      "fasta_records": 1175,
+      "index_validation": "Every frozen screening-universe accession and sequence length matches this FASTA."
     }
   ],
-  "scope": "Yeast training/projection proteins and human paired-alignment inputs. The separate 1175-target screening universe is supplied as frozen embeddings and accession/length index; no sequence-rebuild equivalence is claimed for it.",
+  "scope": "All three ESM-2 inputs used by the final pipeline: 6742 yeast proteins, 810 human alignment records and 1175 screening targets. Sequence identity/length checks do not by themselves claim floating-point embedding recomputation equivalence.",
   "esm2_checkpoint": {
     "name": "esm2_t33_650M_UR50D.pt",
     "sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c",
@@ -28,5 +36,21 @@
     "repr_layer": 33,
     "pooling": "float32 mean over residue tokens, excluding BOS/EOS; GPU model in fp16",
     "original_call_time": "Not retained in the recovered run_info.json; no historical timestamp is inferred."
-  }
+  },
+  "target_universe_source_snapshots": [
+    {
+      "file": "data/provenance/esm2/gpcr_human.uniprot.reviewed.2026-08-13.tsv.gz",
+      "sha256": "c0c143c468bbf8249b83b5acfc750f8851248a6cf198d56f52e354112ab4c165",
+      "source_file_sha256": "a8def33df046be6222b052d7fcdf65bd059a5dc9cee8cf7e596a0f5b99f49f8b",
+      "snapshot_date_in_filename": "2026-08-13",
+      "note": "Filename date retained; exact HTTP download time is not inferred from it."
+    },
+    {
+      "file": "data/provenance/esm2/ion_channel_human.uniprot.reviewed.2026-08-13.tsv.gz",
+      "sha256": "4d31d91c6ff67576358ec57503bb875bedb4f42268f3b374c8321e9409fe085a",
+      "source_file_sha256": "81dbf50406cd254c754749e535d7f0f3104bb50ae230cb9466c6dae484ddc1a9",
+      "snapshot_date_in_filename": "2026-08-13",
+      "note": "Filename date retained; exact HTTP download time is not inferred from it."
+    }
+  ]
 }

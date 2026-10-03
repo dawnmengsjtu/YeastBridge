@@ -33,6 +33,7 @@ def main():
         "train.py",
         "run.sh",
         "requirements-training.txt",
+        "requirements-embeddings.txt",
         "requirements-training.lock.txt",
         "environment-preprocessing.yml",
         "requirements.txt",

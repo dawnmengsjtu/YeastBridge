@@ -43,3 +43,25 @@ R环境：4.2.3、affyio 1.68.0、preprocessCore 1.60.2。记录见 [R环境](pr
 - 3,850个条件包含494个vehicle、3,356个处理条件，涉及3,250个化合物、5,668株酵母。`data/response_conditions.tsv` 从冻结NPZ提取条件、化合物、剂量与单位，并保留源文件哈希。
 - 原始库的剂量单位有micromolar、nanomolar、millimolar、picomolar及percent。现有80条候选均为micromolar；导出程序按化合物和剂量匹配单位，遇到缺失或歧义时停止。
 - 冻结数据的具体再分发许可仍需结合来源条款核对；原始项目的许可记录为unknown，没有据公开可下载推定为CC-BY。
+
+
+## ESM-2蛋白表示重建
+
+当前流程使用的三组ESM-2输入已从原环境恢复：6,742条酵母蛋白、810条人源配对记录和1,175个筛选靶点。压缩FASTA、来源快照、调用参数及权重哈希见 [esm2/](provenance/esm2/)。2026-10-03使用fair-esm 2.0.0、PyTorch 2.6.0及RTX A6000重新提取，三组索引和嵌入矩阵均与冻结输入逐字节一致，见[重建比较](provenance/esm2/rebuild-comparison.json)和[运行记录](provenance/esm2/rebuild-run.json)。
+
+使用单独的Linux/CUDA环境安装 `requirements-embeddings.txt`。从[ESM官方模型入口](https://github.com/facebookresearch/esm#available-models)取得 `esm2_t33_650M_UR50D.pt` 及其同目录的 `esm2_t33_650M_UR50D-contact-regression.pt`；模型与辅助文件的哈希记在重建运行记录中。模型采用MIT许可，蛋白序列保留UniProt署名与CC BY 4.0条款。
+
+```bash
+python -m pip install -r requirements-embeddings.txt
+mkdir -p outputs/esm2-inputs
+for name in human_810 universe_1175 yeast_6742; do
+  gzip -dc data/provenance/esm2/${name}.fasta.gz > outputs/esm2-inputs/${name}.fasta
+  python scripts/extract_esm2_candidates.py \
+    --fasta outputs/esm2-inputs/${name}.fasta \
+    --gene-master raw/externalvalidation/mappings/gene_master.tsv \
+    --model /path/to/esm2_t33_650M_UR50D.pt \
+    --outdir outputs/rebuilt-esm2/${name} --device cuda
+done
+```
+
+使用layer 33，GPU以fp16运行，按残基取float32均值，排除BOS/EOS。输出同时包含 `.npy`、索引和调用参数。正式筛选默认读取已冻结的表示；跨硬件或软件版本重建可能有浮点差异，因此哈希核验以已发布输入为准。

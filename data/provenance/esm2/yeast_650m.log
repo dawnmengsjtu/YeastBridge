@@ -1,0 +1,18 @@
+[setup] device=cuda (requested=cuda) model=/public/home/mengxl/dzy/yeastbridge/models/esm2/esm2_t33_650M_UR50D.pt layer=33
+[setup] model loaded in 8.1s, embed_dim=1280, dtype=fp16
+[data] 6742 proteins from /public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/yeast.fasta
+[data] 53 batches (budget 65536 tok), total_residues=3027114, mapped_to_gene_master=6727
+[run] batch 1/53 seqs=3 res=12746/3027114 (3578 res/s) elapsed=4s
+[run] batch 6/53 seqs=24 res=175189/3027114 (6630 res/s) elapsed=26s
+[run] batch 11/53 seqs=38 res=412003/3027114 (7875 res/s) elapsed=52s
+[run] batch 16/53 seqs=60 res=718630/3027114 (8800 res/s) elapsed=82s
+[run] batch 21/53 seqs=76 res=1035834/3027114 (9985 res/s) elapsed=104s
+[run] batch 26/53 seqs=93 res=1354977/3027114 (11070 res/s) elapsed=122s
+[run] batch 31/53 seqs=111 res=1674776/3027114 (12014 res/s) elapsed=139s
+[run] batch 36/53 seqs=132 res=1994514/3027114 (12838 res/s) elapsed=155s
+[run] batch 41/53 seqs=162 res=2313168/3027114 (13600 res/s) elapsed=170s
+[run] batch 46/53 seqs=217 res=2628294/3027114 (14322 res/s) elapsed=184s
+[run] batch 51/53 seqs=412 res=2928669/3027114 (14979 res/s) elapsed=196s
+[run] batch 53/53 seqs=577 res=3027114/3027114 (15169 res/s) elapsed=200s
+[done] {"model": "esm2_t33_650M_UR50D.pt", "repr_layer": 33, "n_proteins": 6742, "dim": 1280, "total_residues": 3027114, "nan_embeddings": 0, "seconds": 200.0, "dtype": "float32 mean-pooled over residues (excl BOS/EOS), model run in fp16"}
+[done] wrote /public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-20261003/yeast_650m/{esm2_mean_fp32.npy,index.tsv,esm2_mean.parquet,run_info.json}

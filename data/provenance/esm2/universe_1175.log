@@ -1,0 +1,10 @@
+[setup] device=cuda (requested=cuda) model=/public/home/mengxl/dzy/yeastbridge/models/esm2/esm2_t33_650M_UR50D.pt layer=33
+[setup] model loaded in 8.7s, embed_dim=1280, dtype=fp16
+[data] 1175 proteins from /public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-inputs/universe.fasta
+[data] 14 batches (budget 65536 tok), total_residues=609950, mapped_to_gene_master=0
+[run] batch 1/14 seqs=2 res=11344/609950 (2797 res/s) elapsed=4s
+[run] batch 6/14 seqs=35 res=153569/609950 (5855 res/s) elapsed=26s
+[run] batch 11/14 seqs=168 res=441350/609950 (9811 res/s) elapsed=45s
+[run] batch 14/14 seqs=146 res=609950/609950 (11710 res/s) elapsed=52s
+[done] {"model": "esm2_t33_650M_UR50D.pt", "repr_layer": 33, "n_proteins": 1175, "dim": 1280, "total_residues": 609950, "nan_embeddings": 0, "seconds": 52.2, "dtype": "float32 mean-pooled over residues (excl BOS/EOS), model run in fp16"}
+[done] wrote /public/home/mengxl/dzy/yeastbridge_submission_check_12VoOq/outputs/esm2-rebuild-20261003/universe_1175/{esm2_mean_fp32.npy,index.tsv,esm2_mean.parquet,run_info.json}

@@ -1,0 +1,4 @@
+# Optional ESM-2 reconstruction, using the verified Linux/CUDA training runtime.
+-r requirements-training.lock.txt
+fair-esm==2.0.0
+pyarrow==17.0.0
