@@ -91,7 +91,16 @@ class SubmissionTests(unittest.TestCase):
             self.assertTrue(meta["sources"])
             with out.open() as f:
                 rows = list(csv.DictReader(f))
-            self.assertEqual({r["剂量单位"] for r in rows}, {"micromolar"})
+            with (ROOT / "data/response_conditions.tsv").open() as f:
+                units = {
+                    (r["inchikey"], float(r["dose"])): r["dose_unit"]
+                    for r in csv.DictReader(f, delimiter="\t")
+                }
+            for row in rows:
+                self.assertEqual(
+                    row["剂量单位"],
+                    units[(row["化合物_InChIKey"], float(row["剂量"]))],
+                )
 
     def test_demo_runs_without_any_historical_results_or_models(self):
         with tempfile.TemporaryDirectory() as tmp:
