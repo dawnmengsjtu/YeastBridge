@@ -1,0 +1,39 @@
+{
+  "stage_root": ".",
+  "inputs": {
+    "esm2_human": {
+      "path": "raw/tier1_esm2/human_810/esm2_mean_fp32.npy",
+      "sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "index_path": "raw/tier1_esm2/human_810/index.tsv",
+      "index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+      "provenance": "UniProt REST reviewed human gene_exact (810/811 ok, NEDD8-MDP1 no_result 剔除披露); ESM2-650M layer33 mean-pooled fp16 GPU1, 40.5s, 0 nan; build: v7_b2_formal_20260912/assets/{build_assets.py,manifest.tsv}"
+    },
+    "route_b_table": {
+      "path": "raw/tier1_models/route_b_v2/gene_table_final.npy",
+      "sha256": "7aba126eeefa159cda6ff3f9f79ace7f883e172fb9424105e3baf2f2f9310b19"
+    },
+    "route_b_model": {
+      "path": "raw/tier1_models/route_b_v2/final_model.pt",
+      "sha256": "281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad"
+    },
+    "route_b_gene_order": {
+      "path": "raw/tier1_models/route_b/A2_init.tsv",
+      "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c"
+    },
+    "yeast_esm2": {
+      "path_abs": "raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
+      "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "index_path_abs": "raw/tier1_esm2/yeast_650m/index.tsv",
+      "index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
+    },
+    "v51_pair_list": {
+      "path": "results_a6000/v51_per_query_ranks_trackA.tsv",
+      "note": "V5.1 官方 753 对(human,yeast_orf,split,fold)冻结清单; 主分析对集=该清单 ∩ B2 表示可用(人 ESM2 ok 且 ORF 在池中); 扩展对集=全部可行 edges, 仅描述性报告",
+      "sha256": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15"
+    },
+    "yeast_metadata": {
+      "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
+      "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
+    }
+  }
+}

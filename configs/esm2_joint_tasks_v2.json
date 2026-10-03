@@ -1,0 +1,42 @@
+{
+  "method_freeze_doc": "docs/cross_species_match/ESM2_JOINT_METHOD_FREEZE.md",
+  "date_frozen": "2026-10-03",
+  "stage_root": ".",
+  "inputs": {
+    "universe_esm2": {
+      "path": "raw/tier1_esm2/universe_1175/esm2_mean_fp32.npy",
+      "sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+      "index_path": "raw/tier1_esm2/universe_1175/index.tsv",
+      "index_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665"
+    },
+    "v8_result_for_hyper_assert": {
+      "path": "results_a6000/v8_esm2_formal_20260912/results/result.json",
+      "note": "运行时断言 method 超参与 V8 冻结选择一致 (npc=3, ridge lam=1, anchored lam=1, pls k=8)",
+      "sha256": "253dcad48835b75763d602e650d67954cc5131f7468a923027d6c8dc97831755"
+    }
+  },
+  "method": {
+    "v7_config": "configs/b2_submission_assets.json",
+    "members": [
+      "direct_pc1",
+      "aligned_c_ensemble",
+      "b2_verbatim"
+    ],
+    "npc_direct": 1,
+    "npc_aligned": 3,
+    "ridge_lambda": 1.0,
+    "anchored_lambda": 1.0,
+    "pls_k": 8,
+    "rrf_k": 20,
+    "rrf_k_provenance": "V9 joint picks: triple_hyj9|k=20 (34/35 LOGO 组)",
+    "train_pairs": "Frozen project split: 753 pairs; 510 training pairs with available representations. No competition-provided training split is implied.",
+    "tail_rule": "池 1282 中 3 株缺 esm2/routeB 行: 按 ORF 字典序尾段单调拼接 (披露)",
+    "task_schema": "rank\tyeast_gene\tensemble_score (与历史导出同构, 执行器兼容)",
+    "setup_mode": "task-export-only"
+  },
+  "output_dir": "tasks/esm2_joint_tasks_20260912",
+  "model_version": "B2-submission-v2-20261003",
+  "training_run_sha256": "f04ef75bf920f4a3d6ef206feb6c82dfc6911bb82d5b2064b1af9430a1fc0956",
+  "note": "Original EJ hyperparameters retained; B2 checkpoint replaced by the explicitly recorded new training run. Historical benchmark scores are not reassigned to this model.",
+  "original_method_parameter_freeze": "2026-09-12"
+}
