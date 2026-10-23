@@ -46,9 +46,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
     ap.add_argument("--output", required=True)
+    ap.add_argument("--v7-config", help="Override the frozen asset configuration path")
+    ap.add_argument("--response-universe", help="Extend scoring to all measured strains with both frozen representations; fit remains unchanged")
     args = ap.parse_args()
     cfg = json.loads(Path(args.config).read_text())
-    root = (Path(__file__).resolve().parent.parent / cfg["stage_root"]).resolve()
+    root = Path(cfg["stage_root"])
     outdir = Path(args.output)
     outdir.mkdir(parents=True, exist_ok=True)
     mp = cfg["method"]
@@ -73,11 +75,8 @@ def main():
 
     # ---- V7 机械复用（池/配对/W_inj/酵母表, 哈希核对在内） ----
     # v7_config 路径相对仓库根（yeastbridge_re_mvp），非 stage_root
-    if mp.get("setup_mode") == "task-export-only":
-        from task_export_inputs import setup
-        st = setup(HERE.parent / mp["v7_config"])
-    else:
-        st = v7_setup(str(HERE.parent / mp["v7_config"]))
+    v7_config = Path(args.v7_config) if args.v7_config else HERE.parent / mp["v7_config"]
+    st = v7_setup(str(v7_config))
 
     # ---- 超参断言：与 V8 冻结选择一致 ----
     v8res = json.loads((root / cfg["inputs"]["v8_result_for_hyper_assert"]["path"]).read_text())
@@ -103,7 +102,8 @@ def main():
             rows_keep.append(i)
     n_dup = len(symbols) - len(rows_keep)
     symbols = [symbols[i] for i in rows_keep]
-    U = l2n(U[rows_keep])
+    U_raw = U[rows_keep]
+    U = l2n(U_raw)
     print(f"universe targets: {len(symbols)} (dup/blank dropped {n_dup})", flush=True)
 
     # ---- 冻结 PC 基（与 V8/V9 同拟合矩阵） ----
@@ -137,7 +137,7 @@ def main():
     print(f"operators fitted on {int(tr.sum())} train pairs", flush=True)
 
     # ---- m3 B2 verbatim ----
-    Q_b2 = l2n(U @ st["W_inj"].T + st["b_inj"])
+    Q_b2 = l2n(U_raw @ st["W_inj"].T + st["b_inj"])
     Yrb = st["Y_rb"]
 
     # ---- 池与尾段 ----
@@ -145,12 +145,42 @@ def main():
     pool = st["pool"]
     orf_row = {o: i for i, o in enumerate(orfs_all)}
     missing = sorted(o for o in orfs_all if o not in pool_pos)
+    if args.response_universe:
+        # The functional benchmark pool is a training/evaluation selection,
+        # not a limit on available pretrained yeast representations.
+        assets = st["cfg"]["inputs"]
+        def asset_path(value):
+            path = Path(value)
+            return path if path.is_absolute() else st["root"] / path
+        rb_order = pd.read_csv(asset_path(assets["route_b_gene_order"]["path"]), sep="\t").systematic.astype(str)
+        es_order = pd.read_csv(asset_path(assets["yeast_esm2"]["index_path_abs"]), sep="\t").systematic.astype(str)
+        measured = np.load(args.response_universe, allow_pickle=False)["strain_orfs"].astype(str)
+        if len(set(measured)) != len(measured):raise ValueError("duplicate measured strain")
+        if rb_order[rb_order.isin(measured)].duplicated().any() or es_order[es_order.isin(measured)].duplicated().any():
+            raise ValueError("duplicate pretrained measured-strain identity")
+        pool = sorted(set(measured) & set(rb_order) & set(es_order))
+        pool_pos = {o: j for j, o in enumerate(pool)}
+        erow = {g: i for i, g in enumerate(es_order)}
+        brow = {g: i for i, g in enumerate(rb_order)}
+        erows = [erow[g] for g in pool]
+        brows = [brow[g] for g in pool]
+        es = l2n(np.load(asset_path(assets["yeast_esm2"]["path_abs"])).astype(np.float64)[erows])
+        Yrb = l2n(np.load(asset_path(assets["route_b_table"]["path"])).astype(np.float64)[brows])
+        # Apply the original PC bases and train-pair-fitted PLS transform.
+        Y1 = apply_pc(es, fy[0], fy[1], mp["npc_direct"])
+        YN = apply_pc(es, fy[0], fy[1], mp["npc_aligned"])
+        Py = l2n(((YN - my_) / sy_) @ Vsv[:k].T)
+        orfs_all = pool
+        orf_row = pool_pos.copy()
+        missing = []
     print(f"pool {len(pool)}/{len(orfs_all)}, tail strains: {missing}", flush=True)
 
     kR = mp["rrf_k"]
     report = {"mode": "export_esm2_joint_tasks",
               "method_freeze": "ESM2_JOINT_METHOD_FREEZE.md",
               "config_sha256": sha256_file(args.config),
+              "v7_config_sha256": sha256_file(str(v7_config)),
+              "b2_input": "raw_mean_pooled_esm2_before_affine_projection",
               "script_sha256": sha256_file(str(Path(__file__).resolve())),
               "members": mp["members"], "rrf_k": kR,
               "hyper_frozen": {"npc_direct": mp["npc_direct"],
@@ -161,6 +191,11 @@ def main():
               "train_pairs": int(tr.sum()), "pool": len(pool),
               "tail_strains": missing, "n_targets": len(symbols),
               "targets": {}}
+    if args.response_universe:
+        report["response_universe"] = {"path": args.response_universe,
+            "sha256": sha256_file(args.response_universe), "measured": len(measured),
+            "unrepresented": sorted(set(measured)-set(pool)),
+            "original_fit_pool": len(st["pool"]), "fit_and_weights_unchanged": True}
     for i, t in enumerate(symbols):
         s1 = Y1 @ U1[i]
         Sr = YN @ (UN[i] @ W_r)

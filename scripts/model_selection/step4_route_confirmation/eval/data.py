@@ -43,7 +43,10 @@ def kemmeren() -> tuple[pd.DataFrame, pd.DataFrame]:
 def esm2_feature_matrix(genes: list[str]) -> tuple[np.ndarray, list[str]]:
     """按给定 systematic ID 列表取 ESM2 特征;缺失的基因被丢弃。
     返回 (X, kept_genes),行序与 kept_genes 一致。"""
-    return feature_matrix("esm2_mean", genes)
+    idx, table = esm2_embeddings()
+    position = dict(zip(idx["systematic"], range(len(idx))))
+    kept = [g for g in genes if g in position]
+    return table[[position[g] for g in kept]], kept
 
 
 # ---------------- 路线A 特征 ----------------
@@ -72,8 +75,18 @@ def routea_gene_embeddings(kind: str = "ft") -> tuple[pd.DataFrame, np.ndarray]:
     return pd.DataFrame({"systematic": names}), X
 
 
+def scf_gene_embeddings(route: str) -> tuple[pd.DataFrame, np.ndarray]:
+    root = Path(PROJECT).parent / "yeastbridge_re/feasibility/transfer_routes"
+    idx = pd.read_csv(root / "assets/scf_yeast/A2_init.tsv", sep="\t")[["systematic"]]
+    table = np.load(root / "scf_routes" / route / "gene_table_final.npy")
+    assert len(idx) == len(table)
+    return idx, table
+
+
 _FEATURE_LOADERS = {
-    "esm2_mean": lambda: esm2_embeddings(),
+    "A2_scf_ortholog": lambda: scf_gene_embeddings("A2"),
+    "B2_scf_esm2inject": lambda: scf_gene_embeddings("B2"),
+    "C2_scf_scratch": lambda: scf_gene_embeddings("C2"),
     "routea_scgpt_ft": lambda: routea_gene_embeddings("ft"),
     "routea_init": lambda: routea_gene_embeddings("init"),
     "routec_scgpt": lambda: routea_gene_embeddings("scratch"),

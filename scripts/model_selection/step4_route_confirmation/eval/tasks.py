@@ -21,7 +21,7 @@ def t2_data_ready():
     return True, "essential_genes.tsv + esm2 embeddings 就绪"
 
 
-def run_t2(feature: str = "esm2_mean", model_name: str = "logistic", seed: int = 42, **kw):
+def run_t2(feature: str = "B2_scf_esm2inject", model_name: str = "logistic", seed: int = 42, **kw):
     lab = data.essentiality()
     lab = lab[lab["essentiality"].isin(["essential", "nonessential"])]  # 丢弃 unknown/conflicting
     X, kept = data.feature_matrix(feature, lab["systematic"].tolist())
@@ -51,7 +51,7 @@ def t3_data_ready():
     return True, "kemmeren parquet + split_assignments + esm2 embeddings 就绪"
 
 
-def run_t3(feature: str = "esm2_mean", model_name: str = "ridge", seed: int = 42,
+def run_t3(feature: str = "B2_scf_esm2inject", model_name: str = "ridge", seed: int = 42,
            alpha="auto", train_fraction: float = 1.0, **kw):
     """特征=被敲基因的向量;标签=该株全基因组 log2FC;逐株 Spearman + top100 召回。
     附带 mean-profile 平凡基线(预测训练集均值)作锚点。
@@ -125,7 +125,7 @@ def run_t3(feature: str = "esm2_mean", model_name: str = "ridge", seed: int = 42
 
 
 # ---------------- T5 数据效率曲线 ----------------
-def run_t5(feature: str = "esm2_mean", model_name: str = "ridge", seed: int = 42,
+def run_t5(feature: str = "B2_scf_esm2inject", model_name: str = "ridge", seed: int = 42,
            fractions=(0.01, 0.02, 0.03, 0.05, 0.1, 0.25, 0.5, 1.0), **kw):
     """复用 T3,在不同训练数据比例下评估(plan T5:各点 Spearman)。"""
     rows = []
@@ -222,7 +222,7 @@ def _t3_fit(feature, seed, alpha):
     return mdl, gene_cols
 
 
-def run_t4(feature: str = "esm2_mean", model_name: str = "ko_sensitivity", seed: int = 42,
+def run_t4(feature: str = "B2_scf_esm2inject", model_name: str = "ko_sensitivity", seed: int = 42,
            alpha: float = 1.0, topk=(1, 3, 5), **kw):
     """KO 敏感性代理排序 v1:
       对通路候选基因 g,用路线模型的 T3-ridge 预测"敲除 g 后通路成员基因的平均 log2FC" s(g)。

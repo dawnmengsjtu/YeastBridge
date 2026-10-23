@@ -258,6 +258,7 @@ def track_b(st, out, ta_state):
     genes_n, mat_n = load_matrix(root / cfg["inputs"]["higher_matrix"]["path"])
 
     Q_raw_rows, dropped = [], []
+    Q_b2_rows = []
     for _, r in meta_n.iterrows():
         members = [x.strip() for x in re.split(r"[+;,|]", str(r.perturbation_genes)) if x.strip()]
         rows = [sym2row[m] for m in members if m in sym2row]
@@ -266,11 +267,12 @@ def track_b(st, out, ta_state):
             Q_raw_rows.append(None)
         else:
             Q_raw_rows.append(st["X_es_all"][rows].mean(0))
+            Q_b2_rows.append(st["X_es_raw"][rows].mean(0))
     keep_q = np.array([q is not None for q in Q_raw_rows])
     Q_raw = l2n(np.stack([q for q in Q_raw_rows if q is not None]))
     Q1 = apply_pc(Q_raw, fx[0], fx[1], 1)
     QN = apply_pc(Q_raw, fx[0], fx[1], npc_star)
-    Q_b2 = l2n(Q_raw @ st["W_inj"].T + st["b_inj"])
+    Q_b2 = l2n(np.stack(Q_b2_rows) @ st["W_inj"].T + st["b_inj"])
     meta_n = meta_n[keep_q].reset_index(drop=True)
     n = len(meta_n)
     print(f"  B queries: {n}/207 (dropped: {dropped})", flush=True)

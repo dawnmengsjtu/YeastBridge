@@ -4,7 +4,7 @@
   "run_mode": "single_formal_run_b2_axis",
   "user_directive": "2026-09-12: 把 B2 路线(scf-esm2-scyeast)的三臂两门完整跑一遍(V5.1 同机, 表示层换成 B2 轴)",
   "stage_root": "/public/home/mengxl/dzy/yeastbridge_re_mvp_stage_20260901",
-  "axis_discipline": "执行层轴纪律(2026-09-11 用户裁定): B2 轴为主, esm2_mean 只作注册参照臂并列报告; 不按结果选轴",
+  "axis_discipline": "B2 protein-injection evaluation; existing joint functional-retrieval members are retained.",
   "inputs": {
     "esm2_human": {
       "path": "v7_b2_formal_20260912/assets/esm2_human/esm2_mean_fp32.npy",
@@ -77,11 +77,7 @@
       "armB": "无监督: 各空间去 PC1 后 cos",
       "armC": "联合: ridge(λ∈{1,10,100,1000}, train-pair AUC 选)+PLS4 秩平均集成 (V5.1 armC_recipe 同构, train pairs 上训练)"
     },
-    "reference_axis_esm2_mean": {
-      "X": "l2n(ESM2_human) (1280d)", "Y": "l2n(yeast_esm2 池行)",
-      "arms": "同构 A/B/C, 全部并列报告, 不作为项目门"
-    },
-    "extra_cells_aligner_only": ["X_b2->scyeast_prior", "X_b2->yeast_esm2", "X_es->route_b", "X_es->scyeast_prior"],
+    "extra_cells_aligner_only": ["X_b2->scyeast_prior"],
     "pairs_primary": "V5.1 753 对冻结清单 ∩ 表示可用; split 沿用冻结标签",
     "pairs_extended_descriptive": "全部 edges ∩ 表示可用(含 validation split, 不做门)",
     "row_negatives": "V5.1 同配方: 每查询 30 株, 排除该人源基因全部 orthodb 伙伴, seed 20260911, 在 V7 池内重抽(池限制披露); 查询迭代序=符号排序",
@@ -104,7 +100,7 @@
       "y_b2": "q_b2 vs 酵母带标签参考(route_b 表行) — B2 共享空间直连",
       "jrepr_b2": "q_b2 @ W7(轨道A主轴 train-pair ridge) vs 酵母参考 — 配对监督成员",
       "lab_gs0": "V5.1 逐字复用(goSlim 标签质心 ridge, 表示无关去相关成员)",
-      "y_es": "q_esm2 vs 酵母带标签参考(yeast_esm2 行) — 参照轴成员"
+      "y_es": "q_esm2 vs 酵母带标签参考(yeast_esm2 行) — 联合检索成员"
     },
     "families": {
       "single:h_b2": ["h_b2"], "single:y_b2": ["y_b2"], "single:jrepr_b2": ["jrepr_b2"],
@@ -119,5 +115,5 @@
     "seed_signflip": 20261013,
     "gate": "nested fusion vs comparator MRR delta signflip p<0.05"
   },
-  "disclosure": "V7 = V5.1 三臂两门协议在 B2 轴表示上的单次正式运行(用户 2026-09-12 指示)。与 V5.1 的差异全部在表示层与由其强制的机械适配: (1) 查询从签名向量换为蛋白序列嵌入, 轨道 A 不再依赖 K562 签名存在性(valid_k), 主分析对集以 V5.1 冻结 753 对清单为底取交集以保持同数据可比; (2) row_negs 在 V7 池内以同 seed 同配方重抽; (3) 轨道 B 成员定义换表示, lab_gs0 保持 V5.1 逐字; (4) esm2_mean 参照轴并列报告不设门。门/指标/split/种子族与 V5.1 相同。结果无论方向均原样登记, 不按结果选轴。"
+  "disclosure": "V7 = V5.1 三臂两门协议在 B2 轴表示上的单次正式运行(用户 2026-09-12 指示)。与 V5.1 的差异全部在表示层与由其强制的机械适配: (1) 查询从签名向量换为蛋白序列嵌入, 轨道 A 不再依赖 K562 签名存在性(valid_k), 主分析对集以 V5.1 冻结 753 对清单为底取交集以保持同数据可比; (2) row_negs 在 V7 池内以同 seed 同配方重抽; (3) 轨道 B 成员定义换表示, lab_gs0 保持 V5.1 逐字。门/指标/split/种子族与 V5.1 相同。结果无论方向均原样登记, 不按结果选轴。"
 }

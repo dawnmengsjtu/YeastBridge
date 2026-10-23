@@ -21,6 +21,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
 from typing import Iterable
 
@@ -316,6 +317,10 @@ def load_task_relevance(
         rows = list(csv.DictReader(handle, delimiter="\t"))
     if not rows or "yeast_gene" not in rows[0]:
         raise ValueError(f"invalid task file: {task_file}")
+    record_path = task_file.parent / "export_record.json"
+    task_record = json.loads(record_path.read_text()) if record_path.exists() else {}
+    unrepresented = set(task_record.get("tail_strains", []))
+    non_estimable = task_file.stem.removeprefix("yeast_task_") in task_record.get("non_estimable_targets", [])
     parsed: list[tuple[str, float]] = []
     for ordinal, row in enumerate(rows, 1):
         raw_rank = row.get("rank", "")
@@ -325,10 +330,12 @@ def load_task_relevance(
     relevance = np.full(n_strains, -worst, dtype=np.float64)
     seen: set[int] = set()
     for gene, rank in parsed:
+        if gene in unrepresented:
+            continue
         pos = strain_pos.get(gene)
         if pos is None:
             continue
-        relevance[pos] = max(relevance[pos], -rank)
+        relevance[pos] = 0.0 if non_estimable else max(relevance[pos], -rank)
         seen.add(pos)
     return relevance, len(seen)
 
@@ -401,6 +408,7 @@ def run_v2_spearman(
     task_profiles: list[np.ndarray] = []
     targets: list[str] = []
     coverage: list[int] = []
+    scoring_strains: np.ndarray | None = None
     for task_file in task_files:
         target = task_file.stem.replace("yeast_task_", "")
         if required_targets is not None and target not in required_targets:
@@ -410,6 +418,15 @@ def run_v2_spearman(
         )
         if covered < 100:
             continue
+        # The unrepresented tail is missing information, not a measured low rank.
+        represented = (
+            np.ones(len(relevance), dtype=bool)
+            if covered == len(relevance) else relevance > relevance.min()
+        )
+        if scoring_strains is None:
+            scoring_strains = represented
+        elif not np.array_equal(scoring_strains, represented):
+            raise ValueError("tasks must share the same represented measured strains")
         targets.append(target)
         task_profiles.append(relevance)
         coverage.append(covered)
@@ -424,9 +441,28 @@ def run_v2_spearman(
             )
 
     # Profiles x strains throughout: task (T x S), response (C x S).
-    task_rank_z = rank_standardize_rows(np.stack(task_profiles)).astype(np.float32)
-    response_rank_z = rank_standardize_rows(sensitivity.T).astype(np.float32)
-    n_strains = sensitivity.shape[0]
+    task_values = np.stack(task_profiles)[:, scoring_strains]
+    estimable = np.ptp(task_values, axis=1) > 0
+    task_rank_z = np.zeros_like(task_values, dtype=np.float32)
+    task_rank_z[estimable] = rank_standardize_rows(task_values[estimable]).astype(np.float32)
+    response_rank_z = rank_standardize_rows(
+        sensitivity[scoring_strains].T
+    ).astype(np.float32)
+    n_strains = int(scoring_strains.sum())
+    strata_path = os.environ.get("YB_STRAIN_STRATA")
+    permutation_blocks = None
+    strata_audit = None
+    if strata_path:
+        annotation = pd.read_csv(strata_path, sep="\t").set_index("orf")
+        if not annotation.index.is_unique:
+            raise ValueError("duplicate strain annotation")
+        strain_names = np.array(sorted(strain_pos, key=strain_pos.get))[scoring_strains]
+        labels = annotation.assay.reindex(strain_names)
+        if labels.isna().any():
+            raise ValueError("missing assay stratum")
+        permutation_blocks = [np.flatnonzero(labels.to_numpy() == label) for label in sorted(labels.unique())]
+        strata_audit = {"path": strata_path, "sha256": sha256_file(Path(strata_path)),
+                        "counts": labels.value_counts().to_dict(), "rule": "permute within assay only"}
     groups = compound_groups(compounds)
     pair_target_index, pair_group_index, allowlist_rows = hypothesis_index_arrays(
         targets, groups["ids"], pair_allowlist
@@ -448,6 +484,13 @@ def run_v2_spearman(
     n_batches = 0
     max_block_conditions = 0
     max_score_matrix_cells = 0
+    matrix_device = os.environ.get("YB_MATRIX_DEVICE", "cpu")
+    if matrix_device != "cpu":
+        import torch
+        if not matrix_device.startswith("cuda:") or not torch.cuda.is_available():
+            raise ValueError("requested matrix device is not available")
+        torch.backends.cuda.matmul.allow_tf32 = False
+        torch.backends.cudnn.allow_tf32 = False
     for start in range(0, len(targets), target_batch_size):
         stop = min(len(targets), start + target_batch_size)
         if pair_allowlist is None:
@@ -475,9 +518,12 @@ def run_v2_spearman(
             for group_i in pair_group_index[pair_positions]
         ], dtype=int)
 
-        observed_conditions = (
-            task_rank_z[start:stop] @ block_response_t
-        ) / n_strains
+        if matrix_device == "cpu":
+            observed_conditions = (task_rank_z[start:stop] @ block_response_t) / n_strains
+        else:
+            task_device = torch.as_tensor(task_rank_z[start:stop], device=matrix_device)
+            response_device = torch.as_tensor(block_response_t, device=matrix_device)
+            observed_conditions = (task_device @ response_device).cpu().numpy() / n_strains
         block_best, block_chosen = select_best_conditions(
             observed_conditions, block_groups
         )
@@ -487,11 +533,49 @@ def run_v2_spearman(
         chosen_local = block_chosen[pair_local_target, pair_local_group]
         chosen_condition[pair_positions] = block_condition_index[chosen_local]
 
-        for seed in permutation_seeds:
-            perm = np.random.default_rng(int(seed)).permutation(n_strains)
-            null_conditions = (
-                task_rank_z[start:stop, perm] @ block_response_t
-            ) / n_strains
+        serial_seeds = permutation_seeds
+        permutation_batch = int(os.environ.get("YB_PERMUTATION_BATCH", "1"))
+        if permutation_batch < 1:
+            raise ValueError("permutation batch must be positive")
+        if matrix_device != "cpu" and permutation_batch > 1:
+            for first in range(0, len(permutation_seeds), permutation_batch):
+                batch_seeds = permutation_seeds[first:first + permutation_batch]
+                permutations = []
+                for seed in batch_seeds:
+                    permutation_rng = np.random.default_rng(int(seed))
+                    perm = permutation_rng.permutation(n_strains) if permutation_blocks is None else np.arange(n_strains)
+                    if permutation_blocks is not None:
+                        for block in permutation_blocks:
+                            perm[block] = permutation_rng.permutation(block)
+                    permutations.append(perm)
+                perm_device = torch.as_tensor(np.stack(permutations), device=matrix_device)
+                null_conditions = ((task_device[:, perm_device].permute(1, 0, 2) @ response_device).cpu().numpy() / n_strains)
+                null_best = max_over_compounds(null_conditions.reshape(-1, len(block_condition_index)), block_groups)
+                null_best = null_best.reshape(len(batch_seeds), stop - start, -1)
+                null_stat = null_best[:, pair_local_target, pair_local_group].astype(np.float64)
+                near = np.any((np.abs(null_stat - observed_best[pair_positions]) < 1e-6)
+                              & estimable[pair_target_index[pair_positions]], axis=1)
+                for bi in np.flatnonzero(near):
+                    canonical = (task_device[:, perm_device[bi]] @ response_device).cpu().numpy() / n_strains
+                    null_stat[bi] = max_over_compounds(canonical, block_groups)[pair_local_target, pair_local_group]
+                exceedances[pair_positions] += (null_stat >= observed_best[pair_positions]).sum(axis=0).astype(np.int32)
+                null_sum[pair_positions] += null_stat.sum(axis=0)
+                null_sumsq[pair_positions] += (null_stat * null_stat).sum(axis=0)
+            serial_seeds = []
+
+        for seed in serial_seeds:
+            permutation_rng = np.random.default_rng(int(seed))
+            if permutation_blocks is None:
+                perm = permutation_rng.permutation(n_strains)
+            else:
+                perm = np.arange(n_strains)
+                for block in permutation_blocks:
+                    perm[block] = permutation_rng.permutation(block)
+            if matrix_device == "cpu":
+                null_conditions = (task_rank_z[start:stop, perm] @ block_response_t) / n_strains
+            else:
+                perm_device = torch.as_tensor(perm, device=matrix_device)
+                null_conditions = (task_device[:, perm_device] @ response_device).cpu().numpy() / n_strains
             null_best = max_over_compounds(null_conditions, block_groups)
             null_stat = null_best[pair_local_target, pair_local_group].astype(
                 np.float64
@@ -538,6 +622,7 @@ def run_v2_spearman(
     unique_doses = _dose_group_counts(doses, groups)
     frame = pd.DataFrame({
         "target_id": np.asarray(targets, dtype=object)[pair_target_index],
+        "estimable": estimable[pair_target_index],
         "inchikey": groups["ids"][pair_group_index],
         "dose": doses[chosen_condition],
         "source_condition_index": source_condition_indices[chosen_condition],
@@ -556,9 +641,17 @@ def run_v2_spearman(
     audit = {
         "n_targets": n_targets,
         "coverage_median": int(np.median(coverage)),
+        "n_measured_strains": int(sensitivity.shape[0]),
+        "n_scoring_strains": n_strains,
+        "n_unrepresented_strains_excluded": int(sensitivity.shape[0] - n_strains),
+        "strain_scope": "shared represented measured strains; same scope for correlations and permutations",
         "task_axis": "rank 1 oriented high; rows=tasks, columns=strains",
         "response_axis": "rows=compound conditions, columns=strains",
         "target_batch_size": int(target_batch_size),
+        "matrix_device": matrix_device,
+        "permutation_batch": int(os.environ.get("YB_PERMUTATION_BATCH", "1")),
+        "matrix_dtype": "float32; CUDA TF32 disabled when used",
+        "permutation_strata": strata_audit,
         "n_target_batches": int(n_batches),
         "max_block_conditions": int(max_block_conditions),
         "max_score_matrix_cells": int(max_score_matrix_cells),
@@ -722,6 +815,8 @@ def main(argv: list[str] | None = None) -> None:
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=cfg_name)
+    parser.add_argument("--task-dir", default=cfg["task_dir"])
+    parser.add_argument("--results-dir", default="")
     parser.add_argument("--task-top-k", type=int, default=int(cfg["task_top_k"]))
     parser.add_argument(
         "--results-suffix",
@@ -736,6 +831,8 @@ def main(argv: list[str] | None = None) -> None:
         choices=["v1-topk", "v2-spearman"],
     )
     parser.add_argument("--n-perm", type=int, default=int(cfg["n_perm"]))
+    parser.add_argument("--seed", type=int, default=int(cfg["seed"]))
+    parser.add_argument("--response-npz", default=str(cfg["response_npz"]))
     parser.add_argument(
         "--sensitivity-sign", type=float,
         choices=[-1.0, 1.0], default=float(cfg.get("sensitivity_sign", -1.0)),
@@ -783,7 +880,7 @@ def main(argv: list[str] | None = None) -> None:
     if args.target_batch_size < 1:
         parser.error("--target-batch-size must be positive")
 
-    results = resolve_path(str(cfg["results_dir"]) + args.results_suffix)
+    results = resolve_path(args.results_dir or (str(cfg["results_dir"]) + args.results_suffix))
     pair_allowlist = None
     allowlist_audit: dict[str, object] = {"enabled": False}
     if args.pair_allowlist:
@@ -811,8 +908,8 @@ def main(argv: list[str] | None = None) -> None:
 
     # The allowlist contract above is validated and persisted before this first
     # access to the HIP/HOP response matrix.
-    task_dir = resolve_path(cfg["task_dir"])
-    response = np.load(resolve_path(cfg["response_npz"]), allow_pickle=True)
+    task_dir = resolve_path(args.task_dir)
+    response = np.load(resolve_path(args.response_npz), allow_pickle=True)
     orfs = response["strain_orfs"].astype(str)
     inchi = response["compound_inchikeys"].astype(str)
     doses = response["doses"].astype(str)
@@ -860,7 +957,7 @@ def main(argv: list[str] | None = None) -> None:
         condition_inchi = condition_inchi[selected_condition_mask]
         condition_dose = condition_dose[selected_condition_mask]
         condition_indices = condition_indices[selected_condition_mask]
-    rng = np.random.default_rng(int(cfg["seed"]))
+    rng = np.random.default_rng(args.seed)
 
     if args.endpoint == "v2-spearman":
         pairs, axis_audit = run_v2_spearman(
@@ -871,8 +968,8 @@ def main(argv: list[str] | None = None) -> None:
         )
         stat_col = "spearman_rho"
         statistic = (
-            "signed full-profile Spearman; rank-1 task relevance and "
-            "hypersensitivity are both oriented high"
+            "signed full-profile Spearman; rank-1 task relevance is high; "
+            "+1 response sign tests relative barcode abundance, -1 tests depletion"
         )
     else:
         pairs, axis_audit = run_v1_topk(
@@ -912,6 +1009,10 @@ def main(argv: list[str] | None = None) -> None:
         response_method = str(response["method"][0])
     summary = {
         "config": cfg_name,
+        "response_npz": str(resolve_path(args.response_npz)),
+        "response_sha256": sha256_file(resolve_path(args.response_npz)),
+        "task_dir": str(task_dir),
+        "results_dir": str(results),
         "endpoint": args.endpoint,
         "n_targets": int(pairs["target_id"].nunique()),
         "n_compounds": int(pairs["inchikey"].nunique()),
@@ -936,7 +1037,7 @@ def main(argv: list[str] | None = None) -> None:
             "q_tail_by": "Benjamini-Yekutieli on Gumbel-tail p (post-hoc, disclosed)",
         },
         "n_perm": args.n_perm,
-        "seed": int(cfg["seed"]),
+        "seed": args.seed,
         "minimum_empirical_p": minimum_p,
         "n_pairs_at_minimum_empirical_p": n_at_minimum_p,
         "best_attainable_bh_q_from_observed_minimum_p_ties": (
@@ -953,8 +1054,8 @@ def main(argv: list[str] | None = None) -> None:
         "task_top_k": args.task_top_k if args.endpoint == "v1-topk" else None,
         "statistic": statistic,
         "response_transform": (
-            f"sensitivity = {args.sensitivity_sign:+g} * signed "
-            "vehicle-contrast z; abs(z) is not used"
+            f"sensitivity = {args.sensitivity_sign:+g} * supplied response values "
+            "(field z_score; source_response_method identifies the measurement and normalization)"
         ),
         "source_response_method": response_method,
         "axis_audit": axis_audit,
