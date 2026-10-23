@@ -7,7 +7,7 @@
 ```bash
 PY=/public/home/mengxl/dzy/envs/yeastbridge/bin/python
 $PY -m eval.run --list                                        # 各任务数据就绪状态
-$PY -m eval.run --task t1 --feature routea_scgpt_ft           # T1 细胞状态(需先提取细胞 embedding)
+$PY -m eval.run --task t1 --feature B2_scf_esm2inject           # T1 细胞状态(需先提取细胞 embedding)
 $PY -m eval.run --task t2 --feature routed_scyeast --model logistic
 $PY -m eval.run --task t3 --feature routed_scyeast --model ridge
 $PY -m eval.run --task t3 --model mean_profile                # 平凡基线(必须一起报告)
@@ -15,7 +15,7 @@ $PY -m eval.run --task t4 --feature routed_scyeast            # T4 通路改造�
 $PY -m eval.run --task t5 --feature routed_scyeast            # 数据效率曲线(1%..100%)
 ```
 
-- 可选特征:`esm2_mean`(ESM2 650M 均值池化,1280d)| `routea_scgpt_ft`(路线A 微调 scGPT,512d)| `routea_init`(同源初始化对照臂,512d)| `routed_scyeast`(路线D scYeast pos_embedding,200d,w_knowledge ckpt)
+- 当前可选特征：`A2_scf_ortholog`、`B2_scf_esm2inject`、`C2_scf_scratch`、`routed_scyeast`；与当前CLI注册一致。下表为历史训练资产结果，不能替代当前scFoundation路线汇总。
 - 结果:`results/harness/<task>_<feature>_<model>_s<seed>.json` + `_detail.csv`
 - 实验追踪:MLflow sqlite 后端 `results/mlflow.db`;`--no-mlflow` 可跳过
 
@@ -27,22 +27,22 @@ $PY -m eval.run --task t5 --feature routed_scyeast            # 数据效率曲�
 
 ## 全特征 × 全任务结果总表(2026-08-09,seed=42)
 
-| 任务 | 指标 | esm2_mean | routea_init | routea_scgpt_ft | routeb_protein(蛋白桥) | routec_scgpt(从零) | routed_scyeast | 基线 |
-|---|---|---|---|---|---|---|---|---|
-| T1 细胞状态 | ARI/NMI/sil(语料内) | — | — | 0.347/0.552/0.156 | **0.488/0.617/0.292**(留出版) | 0.314/0.499/0.009† | 0.352/0.483/0.233 | **零样本留出子集 ARI/NMI:D 0.514/0.413 > A 0.318/0.292 > B 0.187/0.232** |
-| T2 必需基因 | AUROC | **0.824** | 0.688 | 0.749 | 0.817 | 0.620 | 0.738 | prevalence 0.19 |
-| T2 | AUPRC | **0.586** | 0.405 | 0.457 | 0.545 | 0.280 | 0.394 | — |
-| T3 扰动响应 | Spearman(α=val自动) | **0.172** | 0.151 | 0.153 | **0.172** | 0.151 | 0.149 | mean-profile 0.151 |
-| T3 | top100 召回 | 0.217 | 0.201 | 0.204 | 0.216 | 0.194 | **0.218** | mean-profile 0.193 |
-| T4 通路排序 | hit@3/hit@5(α=val自动) | 0.321/0.464 | 0.214/0.464 | 0.179/0.464 | 0.071/0.143 | 0.107/0.214 | 0.214/0.464 | 随机 0.140/0.234 |
-| T4 | 方向一致率 | 0.571 | 0.571 | 0.571 | 0.571 | 0.571 | 0.571 | 多数类先验 **0.857** |
-| T5 数据效率 | 1%→100% Spearman(α=val自动) | 0.039→0.172 单调 | 0.029→0.151 单调 | 0.029→0.153 单调 | 0.030→0.172 单调 | 0.029→0.151 单调 | 0.043→0.149 近单调 | — |
+| 任务 | 指标 | routea_init | routea_scgpt_ft | routeb_protein(蛋白桥) | routec_scgpt(从零) | routed_scyeast | 基线 |
+|---|---|---|---|---|---|---|---|
+| T1 细胞状态 | ARI/NMI/sil(语料内) | — | 0.347/0.552/0.156 | **0.488/0.617/0.292**(留出版) | 0.314/0.499/0.009† | 0.352/0.483/0.233 | **零样本留出子集 ARI/NMI:D 0.514/0.413 > A 0.318/0.292 > B 0.187/0.232** |
+| T2 必需基因 | AUROC | 0.688 | 0.749 | 0.817 | 0.620 | 0.738 | prevalence 0.19 |
+| T2 | AUPRC | 0.405 | 0.457 | 0.545 | 0.280 | 0.394 | — |
+| T3 扰动响应 | Spearman(α=val自动) | 0.151 | 0.153 | **0.172** | 0.151 | 0.149 | mean-profile 0.151 |
+| T3 | top100 召回 | 0.201 | 0.204 | 0.216 | 0.194 | **0.218** | mean-profile 0.193 |
+| T4 通路排序 | hit@3/hit@5(α=val自动) | 0.214/0.464 | 0.179/0.464 | 0.071/0.143 | 0.107/0.214 | 0.214/0.464 | 随机 0.140/0.234 |
+| T4 | 方向一致率 | 0.571 | 0.571 | 0.571 | 0.571 | 0.571 | 多数类先验 **0.857** |
+| T5 数据效率 | 1%→100% Spearman(α=val自动) | 0.029→0.151 单调 | 0.029→0.153 单调 | 0.030→0.172 单调 | 0.029→0.151 单调 | 0.043→0.149 近单调 | — |
 
 †路线C 的 T1 为语料内指标(训练集即评测集,与路线A/B 全数据版同口径);零样本对照以留出版 vs D 为准。
 
 ## 重要基线结论
 
-- **T3 与 T5 的"阴性/非单调"曾是正则化假象**(2026-08-09 修复):固定 α=1.0 严重欠正则;改为 val 划分自动选 α 后,ESM2 0.172 反超 mean-profile(0.151),routeA_ft 0.153 打平略超,且**四特征 T5 曲线全部恢复单调**。教训:任何 T3/T5 结论必须在 val 选参口径下报告,锚点 mean-profile 仍须同表。
+- **T3/T5正则化口径**：岭回归强度由固定验证集选择；固定α=1.0不能替代验证集选参结果。mean-profile是单独的平凡基线。
 - **T4 排序有信号、方向无信号,且对打分器正则强度敏感**:α=1.0 时 routeA_ft hit@3 0.357;α=val 自动(多选 100)后各特征 hit@5 齐平 0.464、hit@3 收敛 0.18-0.32——强收缩下逐基因预测趋同,排名差异塌缩。T4 v1 结论须待 Kemmeren 直接 KO 上限臂对照后才能定;方向判定(0.571)仍不如全猜 overexpress(0.857)。
 - **迁移增益的定位(A vs C,核心科学问题的定量答案)**:T2 +0.13 AUROC(0.749 vs 0.620,增益最集中);T3 ≈0(0.153 vs 0.151);T1 语料内 +0.03 ARI 但零样本被 D 反超。**人类预训练主干对基因级扰动响应几乎无增益,增益集中在必需基因先验(T2)与细胞状态几何(T1 silhouette 0.156 vs 0.009)**。
 - 各向异性:各 embedding 随机对余弦基线偏高(~0.9),相似度分析用去均值相关或秩次。
@@ -55,14 +55,13 @@ $PY -m eval.run --task t5 --feature routed_scyeast            # 数据效率曲�
 |---|---|---|
 | routea_scgpt_ft | 0.776 / **0.607** | 0.186 / 0.132 |
 | routeb_protein | 0.773 / 0.816 | 0.198 / 0.157 |
-| esm2_mean | 0.760 / 0.843 | 0.200 / 0.155 |
 | routed_scyeast | 0.739 / 0.732 | 0.181 / 0.130 |
 
 结论:plan 风险坐实——路线A 在无同源基因上 T2 退化 0.17 AUROC(0.776→0.607);**路线B 天然免疫(0.773→0.816 反而略升)**,T3 各特征 ortholog 组均略高(保守基因扰动响应更易学)。B>A 的论断在无同源基因维度上再次独立成立。
 
 **消融2:T3 混杂/批次校正(results/harness/ablation_t3_confound.json)**
 
-- **mean-profile 残差化**(真值与预测同减训练均值谱):routeB/ESM2 残差信号 **0.102-0.103**,routeA 0.033,scYeast 0.059——B/ESM2 的 T3 优势有约六成是共享成分,但残差仍为正且 B 最高,不是纯均值伪影。
+- **mean-profile 残差化**：真值与预测同减训练均值谱；具体数值以对应路线的结果表为准。
 - **跨子系列**(GSE42526↔GSE42527 互训互测):全体跌至 0.03-0.08——**批次迁移是 T3 的硬约束**,报告时必须声明结论限于同批次分布内评估。
 - **responsive 子集**:全体 ~0.27(vs non_responsive 0.05-0.09)——强响应突变体才是 T3 信号区间,建议报告同时给全量与子集两个数。
 

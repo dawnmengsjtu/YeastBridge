@@ -2,10 +2,9 @@
 """ESM2 跨物种蛋白匹配执行器（Phase 2c 的工作脚本；编排器只负责调用）。
 
 对任何人源靶点：获取 ESM2 嵌入（universe 预计算 -> 缓存 -> UniProt 取序列 +
-extract_esm2_candidates.py 推理），然后给出两臂匹配与代理扰动证据：
+extract_esm2_candidates.py 推理），然后给出蛋白注入匹配与代理扰动证据：
 
-- 臂 1 esm2_mean（参照特征）：裸余弦 vs 酵母 ESM2 表；
-- 臂 2 B2_scf_esm2inject（scF 在评分链）：ESM2 -> 训练好的 route-B 注入投影
+- B2_scf_esm2inject（scF 在评分链）：ESM2 -> 训练好的 route-B 注入投影
   -> 余弦 vs 训练后 route-B 酵母基因表（机制与 scripts/product_transfer_route_b.py
   逐字一致）；
 - 代理证据（现有酵母扰动数据）：每个 top 匹配查 GSE42528 KO 签名 top 响应基因
@@ -72,22 +71,8 @@ def human_embedding(target, cfg, py):
     return np.load(cache / "esm2_mean_fp32.npy")[0], "inferred"
 
 
-def top_matches(emb, cfg, n):
-    """臂 1：裸余弦 vs 酵母 ESM2 表（esm2_mean 参照臂）。"""
-    import numpy as np
-    import pandas as pd
-    idx = pd.read_csv(Path(cfg["yeast_esm2_dir"]) / "index.tsv", sep="\t")
-    Y = np.load(Path(cfg["yeast_esm2_dir"]) / "esm2_mean_fp32.npy")
-    a = emb / (np.linalg.norm(emb) + 1e-9)
-    b = Y / (np.linalg.norm(Y, axis=1, keepdims=True) + 1e-9)
-    sims = b @ a
-    top = sims.argsort()[::-1][:n]
-    return [{"systematic": idx.iloc[i]["systematic"], "common": idx.iloc[i]["common"],
-             "cosine": round(float(sims[i]), 4)} for i in top]
-
-
 def route_b_top(emb, cfg, n):
-    """臂 2：route B verbatim（scF-B2 注入投影，与 product_transfer_route_b.py 同式）。"""
+    """蛋白注入：route B verbatim（scF-B2 注入投影，与 product_transfer_route_b.py 同式）。"""
     import numpy as np
     import pandas as pd
     import torch
@@ -163,15 +148,13 @@ def main():
     if emb is None:
         card = {"status": "DEGRADED", "reason": src}
     else:
-        arm1 = top_matches(emb, cfg, args.topn)
         arm2 = route_b_top(emb, cfg, args.topn)
         card = {
             "status": "OK", "embedding_source": src, "dim": int(emb.shape[0]),
-            "esm2_mean": {"role": "reference_arm", "top_matches": arm1},
             "route_b_scf": {"role": "selected_arm_scf_in_scoring",
                             "mechanism": "ESM2 -> trained B2 injection -> cosine route-B table",
                             "top_matches": arm2},
-            "proxy_evidence": proxy_perturbation(arm1, cfg),
+            "proxy_evidence": proxy_perturbation(arm2, cfg),
         }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(card, ensure_ascii=False, indent=2) + "\n")

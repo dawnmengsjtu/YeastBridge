@@ -27,16 +27,20 @@ def main():
     ap.add_argument("--neg-screen", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--top-n", type=int, default=40)
-    ap.add_argument("--screen-permutations", type=int, default=1000)
+    ap.add_argument("--discovery-p-max", type=float,
+                    help="Nominate every pair at or below this discovery P value, without a count quota")
     args = ap.parse_args()
-    if args.top_n < 1 or args.screen_permutations < 1:
-        ap.error("counts must be positive")
-    selected = set()
+    if args.discovery_p_max is not None and not 0 < args.discovery_p_max <= 1:
+        ap.error("discovery P threshold must be in (0, 1]")
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     rec = {"mode": "ej_dc_two_stage_nomination",
            "rule_doc": "docs/cross_species_match/ESM2_JOINT_DC_ADDENDUM.md (section 3)",
-           "rule": f"top-{args.top_n} by z per direction, dedup across directions",
+           "rule": (f"all pairs with discovery emp_p <= {args.discovery_p_max}; no directional quota"
+                    if args.discovery_p_max is not None else f"top-{args.top_n} by z per direction"),
+           "selection_mode": "discovery_p" if args.discovery_p_max is not None else "top_n",
+           "discovery_p_max": args.discovery_p_max,
+           "allowlists": {},
            "stage1_screens": {}, "directions": {}}
     frames = {}
     for tag, d in (("pos", args.pos_screen), ("neg", args.neg_screen)):
@@ -46,27 +50,26 @@ def main():
                          usecols=["target_id", "inchikey", "spearman_rho",
                                   "emp_p", "null_mean", "null_sd"])
         df["z"] = (df.spearman_rho - df.null_mean) / df.null_sd.replace(0, np.nan)
-        top = df.nlargest(args.top_n, "z")
-        # Keep the direction selected first; do not silently duplicate a hypothesis.
-        top = top[[tuple(row) not in selected for row in top[["target_id", "inchikey"]].itertuples(index=False, name=None)]]
-        selected.update(top[["target_id", "inchikey"]].itertuples(index=False, name=None))
-        if top.empty:
-            raise ValueError(f"No distinct nominations in {tag}; inspect input screens")
-        top[["target_id", "inchikey"]].to_csv(out / f"pair_allowlist_{tag}40.tsv",
+        top = (df.loc[df.emp_p <= args.discovery_p_max].sort_values(
+                   ["z", "target_id", "inchikey"], ascending=[False, True, True])
+               if args.discovery_p_max is not None else df.nlargest(args.top_n, "z"))
+        filename = f"pair_allowlist_{tag}.tsv" if args.discovery_p_max is not None else f"pair_allowlist_{tag}40.tsv"
+        rec["allowlists"][tag] = filename
+        top[["target_id", "inchikey"]].to_csv(out / filename,
                                               sep="\t", index=False)
         frames[tag] = top
-        n_floor = int((df.emp_p <= 1.0 / (args.screen_permutations + 1) + 1e-12).sum())
+        n_floor = int((df.emp_p <= 1.0 / 1001 + 1e-12).sum())
         rec["stage1_screens"][tag]["floor_pairs"] = n_floor
-        rec["stage1_screens"][tag]["floor_null_expectation"] = round(len(df) / (args.screen_permutations + 1), 1)
+        rec["stage1_screens"][tag]["floor_null_expectation"] = round(len(df) / 1001, 1)
         rec["directions"][tag] = {
-            "n": len(top), "z_range": [float(top.z.min()), float(top.z.max())],
+            "n": len(top), "z_range": [float(top.z.min()), float(top.z.max())] if len(top) else None,
             "unique_compounds": int(top.inchikey.nunique()),
             "compound_counts_top4": top.inchikey.value_counts().head(4).to_dict()}
         print(tag, "top written; compounds:", top.inchikey.nunique(),
-              "floor:", n_floor, "vs expect", round(len(df) / (args.screen_permutations + 1), 1))
+              "floor:", n_floor, "vs expect", round(len(df) / 1001, 1))
     pos, neg = frames["pos"][["target_id", "inchikey"]], frames["neg"][["target_id", "inchikey"]]
     rec["cross_direction_overlap_pairs"] = int(len(pd.merge(pos, neg, on=["target_id", "inchikey"])))
-    for f in ("pair_allowlist_pos40.tsv", "pair_allowlist_neg40.tsv"):
+    for f in rec["allowlists"].values():
         rec[f + ".sha256"] = sha(out / f)
     (out / "nomination_record.json").write_text(json.dumps(rec, indent=1))
     print("[done] ->", out)

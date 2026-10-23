@@ -163,7 +163,7 @@ def v7_setup(config_path):
 
     return {"cfg": cfg, "root": root, "manifest": manifest,
             "sym2row_h": sym2row_h, "W_inj": W_inj, "b_inj": b_inj,
-            "X_es_all": X_es_all, "X_b2_all": X_b2_all,
+            "X_es_all": X_es_all, "X_es_raw": E_h, "X_b2_all": X_b2_all,
             "X_es1_all": X_es1_all, "X_b21_all": X_b21_all,
             "pool": pool, "pool_pos": pool_pos, "n_pool": n_pool,
             "Y_rb": Y_rb, "Y_es": Y_es, "Y_rb1": Y_rb1, "Y_es1": Y_es1,
@@ -373,8 +373,9 @@ def track_b(st, out, W7):
     assert len(meta_n) == 207, len(meta_n)
     genes_n, mat_n = load_matrix(root / cfg["inputs"]["higher_matrix"]["path"])
 
-    # 查询蛋白表示（冻结规则: 成员基因 ESM2 均值 -> l2n; B2 轴再过注入投影）
+    # ESM2 成员保持原预处理；B2 与训练一致，在原始向量均值上做仿射投影。
     Q_es_rows, dropped = [], []
+    Q_b2_rows = []
     for _, r in meta_n.iterrows():
         members = [x.strip() for x in re.split(r"[+;,|]", str(r.perturbation_genes)) if x.strip()]
         rows = [sym2row[m] for m in members if m in sym2row]
@@ -383,9 +384,10 @@ def track_b(st, out, W7):
             Q_es_rows.append(None)
         else:
             Q_es_rows.append(st["X_es_all"][rows].mean(0))
+            Q_b2_rows.append(st["X_es_raw"][rows].mean(0))
     keep_q = np.array([q is not None for q in Q_es_rows])
     Q_es = l2n(np.stack([q for q in Q_es_rows if q is not None]))
-    Q_b2 = l2n(Q_es @ st["W_inj"].T + st["b_inj"])
+    Q_b2 = l2n(np.stack(Q_b2_rows) @ st["W_inj"].T + st["b_inj"])
     meta_n = meta_n[keep_q].reset_index(drop=True)
     n = len(meta_n)
     print(f"  B queries: {n}/207 (dropped no-embedding: {dropped})", flush=True)
@@ -518,13 +520,10 @@ def main():
            "script_sha256": sha256_file(str(Path(__file__).resolve()))}
     (out / "INPUT_MANIFEST.json").write_text(json.dumps(st["manifest"], indent=1))
 
-    # 主轴 B2（项目门）; 参照轴 esm2_mean（并列报告, 不设项目门）
+    # Retained B2 representation evaluation.
     resA_b2, W7 = track_a_armset(st, st["X_b2_all"], st["X_b21_all"],
                                  st["Y_rb"], st["Y_rb1"], "b2_primary", out)
-    resA_es, _ = track_a_armset(st, st["X_es_all"], st["X_es1_all"],
-                                st["Y_es"], st["Y_es1"], "esm2_reference", out)
     res["trackA_primary_b2"] = resA_b2
-    res["trackA_reference_esm2"] = resA_es
 
     # 扩展对集（描述性）: 主轴 train ridge 应用到非 753 的可用 edges
     if st["ext"]:
@@ -544,12 +543,6 @@ def main():
     res["trackA_extra_cells"] = {
         "b2proj_x_scyeast": aligner_cell(st, st["X_b2_all"], st["Y_scy"], st["scy_pool"],
                                          "X_b2->scyeast_prior"),
-        "b2proj_x_yeastESM2": aligner_cell(st, st["X_b2_all"], st["Y_es"], st["pool"],
-                                           "X_b2->yeast_esm2"),
-        "esm2_x_routeB": aligner_cell(st, st["X_es_all"], st["Y_rb"], st["pool"],
-                                      "X_es->route_b"),
-        "esm2_x_scyeast": aligner_cell(st, st["X_es_all"], st["Y_scy"], st["scy_pool"],
-                                       "X_es->scyeast_prior"),
     }
 
     res["trackB"] = track_b(st, out, W7)
@@ -558,7 +551,7 @@ def main():
     print("saved:", out / "result.json")
     print(f"GATE A (B2 primary): primary={resA_b2['gate_primary']} "
           f"secondary={resA_b2['gate_secondary']} | GATE B: {res['trackB']['gate_pass']} "
-          f"| ref-axis A (esm2): primary={resA_es['gate_primary']}")
+          )
 
 
 if __name__ == "__main__":

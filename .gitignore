@@ -26,3 +26,30 @@ dist/
 /results.metadata.json
 raw/training/
 raw/preprocessing/
+
+# Bulk run outputs and raw inputs from the 2026-10 ion-channel scope work.
+# These are tens of GB and are distributed as the source-data package, not here.
+raw/barcode_response_20261012/
+raw/barcode_response_protocol_factors_20261012/
+raw/costanzo2016_genetic_interactions/
+raw/piotrowski2017_external/
+raw/published_gpcr_functional_2025/
+results_a6000/assay_calibrated_20261012/
+results_a6000/b2_input_corrected_20261012/
+results_a6000/barcode_corrected_20261012/
+results_a6000/coverage_corrected_20261011/
+results_a6000/full_measured_coverage_20261012/
+results_a6000/genetic_interaction_projection_20261012/
+results_a6000/ion_channel_scope_20261012/
+results_a6000/piotrowski2017_external/
+results_a6000/published_gpcr_functional_2025/
+results_a6000/scoring_diagnostics_20261011/
+results_a6000/strengthening_20261011/
+tasks/esm2_joint_genetic_projection_20261012/
+tasks/esm2_joint_genetic_projection_dc_20261012/
+tasks/esm2_joint_measured_coverage_20261012/
+tasks/esm2_joint_measured_coverage_dc_20261012/
+
+# Manuscript production tree and the verified publication archive.
+manuscript_revision_*/
+publication/

@@ -1,8 +1,8 @@
 """评测 runner:统一入口 + MLflow 记录 + 结果落盘。
 
 用法(项目根下):
-  /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t2 --feature esm2_mean --model logistic
-  /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t3 --feature esm2_mean --model ridge
+  /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t2 --feature B2_scf_esm2inject --model logistic
+  /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t3 --feature B2_scf_esm2inject --model ridge
   /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t3 --model mean_profile   # 平凡基线
   /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --task t5                        # 数据效率曲线
   /public/home/mengxl/dzy/envs/yeastbridge/bin/python -m eval.run --list                           # 各任务就绪状态
@@ -23,7 +23,7 @@ from eval.tasks import REGISTRY  # noqa: E402
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--task", choices=sorted(REGISTRY))
-    ap.add_argument("--feature", default="esm2_mean")
+    ap.add_argument("--feature", default="B2_scf_esm2inject", choices=["A2_scf_ortholog", "B2_scf_esm2inject", "C2_scf_scratch", "routed_scyeast"])
     ap.add_argument("--model", default=None)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--alpha", default="auto", help="ridge 正则强度;auto=val 划分自动选择(默认)")

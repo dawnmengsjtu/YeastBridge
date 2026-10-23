@@ -186,7 +186,7 @@ def load_matrix(path: Path) -> tuple[list[str], dict[str, np.ndarray]]:
                     _parse_matrix_float(
                         value, f"{path}:{row_number}:{gene}"
                     )
-                    for gene, value in zip(genes, values[1:], strict=True)
+                    for gene, value in zip(genes, values[1:])
                 ],
                 dtype=np.float64,
             )

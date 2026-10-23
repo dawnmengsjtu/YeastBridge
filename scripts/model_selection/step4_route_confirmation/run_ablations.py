@@ -37,7 +37,7 @@ sys.path.insert(0, str(ROOT))
 from eval import data  # noqa: E402
 
 SEED = 42
-FEATURES = ["routea_scgpt_ft", "routeb_protein", "esm2_mean", "routed_scyeast"]
+FEATURES = ["A2_scf_ortholog", "B2_scf_esm2inject", "C2_scf_scratch", "routed_scyeast"]
 ALPHAS = (0.1, 1.0, 10.0, 100.0)
 
 

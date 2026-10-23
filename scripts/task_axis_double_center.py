@@ -35,10 +35,60 @@ def sha256_file(p):
     return h.hexdigest()
 
 
+def project_genetic_interactions(scores, genes, archive):
+    """Transfer correspondence weights through measured SGA effects, with missingness explicit."""
+    import zipfile
+    genes = np.asarray(genes)
+    position = {g: i for i, g in enumerate(genes)}
+    total = np.zeros((len(genes), len(genes)), dtype=np.float64)
+    count = np.zeros(total.shape, dtype=np.uint8)
+    records = []
+    with zipfile.ZipFile(archive) as source:
+        for member in sorted(n for n in source.namelist() if n.endswith('.cdt')):
+            with source.open(member) as handle:
+                header = [handle.readline().decode().rstrip('\r\n').split('\t') for _ in range(6)]
+                frame = pd.read_csv(handle, sep='\t', header=None)
+            values = frame.iloc[:, 6:].astype(float)
+            values.index = frame.iloc[:, 2].astype(str)
+            values.columns = header[2][6:]
+            values = values.loc[values.index.isin(position), values.columns.isin(position)]
+            values = values.groupby(level=0).mean().T.groupby(level=0).mean().T
+            matrix = values.to_numpy(); valid = np.isfinite(matrix)
+            ix = np.ix_([position[g] for g in values.index], [position[g] for g in values.columns])
+            total[ix] += np.where(valid, matrix, 0.0)
+            count[ix] += valid.astype(np.uint8)
+            records.append(dict(member=member, source_gene_rows=len(values), source_gene_columns=len(values.columns), observed_cells=int(valid.sum())))
+    measured = count > 0
+    directed = np.divide(total, count, out=np.zeros_like(total), where=measured)
+    orientations = measured.astype(np.uint8) + measured.T.astype(np.uint8)
+    effects = np.divide(directed + directed.T, orientations, out=np.zeros_like(total), where=orientations > 0)
+    measured = orientations > 0
+    np.fill_diagonal(measured, False)
+    effects[~measured] = 0
+    if np.any(scores < 0) or not np.isfinite(scores).all():
+        raise ValueError('genetic projection requires uncorrected nonnegative correspondence weights')
+    weights = scores / scores.sum(axis=1, keepdims=True)
+    denominator = weights @ measured.astype(np.float64)
+    keep = np.all(denominator > 0, axis=0)
+    projected = -(weights @ effects)[:, keep] / denominator[:, keep]
+    if not np.isfinite(projected).all() or int(keep.sum()) < 100:
+        raise ValueError('invalid genetic-interaction projection')
+    report = dict(archive=str(archive), sha256=sha256_file(archive), source_doi='10.1126/science.aaf1420',
+                  source_blocks=records, input_strains=len(genes), output_strains=int(keep.sum()),
+                  unobserved_strains=genes[~keep].tolist(), observed_undirected_pairs=int(np.triu(measured, 1).sum()),
+                  projection='negative weighted SGA epsilon divided by available correspondence-weight mass; no human bioactivity labels',
+                  alleles='mean across row alleles, then column alleles; source blocks and measured orientations averaged; self-interactions excluded')
+    return projected, genes[keep].tolist(), report
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
     ap.add_argument("--output", required=True)
+    ap.add_argument("--remove-pcs", type=int, choices=(0, 1), default=1,
+                    help="Frozen sensitivity comparison: strain-mean only or strain-mean plus PC1")
+    ap.add_argument("--genetic-interaction-archive")
+    ap.add_argument("--projection-raw-output")
     args = ap.parse_args()
     indir, outdir = Path(args.input), Path(args.output)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -64,13 +114,29 @@ def main():
     assert pool_mask.sum() == pool_n, (pool_mask.sum(), pool_n)
     S = S_full[:, pool_mask]                              # (T, 1279)
 
+    projection_record = None
+    if args.genetic_interaction_archive:
+        if not args.projection_raw_output or tail:
+            ap.error('genetic projection requires a raw-output directory and an input without an artificial tail')
+        S, orfs, projection_record = project_genetic_interactions(S, orfs, args.genetic_interaction_archive)
+        S_full = S; pool_n = len(orfs); pool_mask = np.ones(pool_n, dtype=bool)
+        rawdir = Path(args.projection_raw_output); rawdir.mkdir(parents=True, exist_ok=True)
+        rawrec = dict(mode='genetic_interaction_projection', input_dir=str(indir), input_export_record_sha256=sha256_file(indir/'export_record.json'),
+                      n_targets=len(targets), pool=pool_n, tail_strains=[], genetic_interaction_projection=projection_record, targets={})
+        for ti, target in enumerate(targets):
+            order = np.argsort(-S[ti], kind='stable'); fp = rawdir/f'yeast_task_{target}.tsv'
+            pd.DataFrame(dict(rank=np.arange(1, pool_n+1), yeast_gene=np.asarray(orfs)[order], ensemble_score=S[ti, order])).to_csv(fp, sep='\t', index=False, float_format='%.9f')
+            rawrec['targets'][target] = dict(status='OK', rows=pool_n, path=str(fp))
+        (rawdir/'export_record.json').write_text(json.dumps(rawrec, indent=1))
+        print('genetic-interaction projection', json.dumps(projection_record), flush=True)
+
     total_var = float((S ** 2).sum())
     colmean = S.mean(axis=0, keepdims=True)
     var_colmean = float((colmean ** 2).sum() * S.shape[0]) / total_var
     S1 = S - colmean
     U, sv, Vt = np.linalg.svd(S1, full_matrices=False)
     pc1_var = float(sv[0] ** 2) / float((sv ** 2).sum())
-    S2 = S1 - np.outer(U[:, 0] * sv[0], Vt[0])
+    S2 = S1 - np.outer(U[:, 0] * sv[0], Vt[0]) if args.remove_pcs else S1
     print(f"common-mode variance: strain-mean {var_colmean:.3f}, "
           f"residual PC1 {pc1_var:.3f}", flush=True)
 
@@ -78,11 +144,14 @@ def main():
     report = {"mode": "task_axis_double_center",
               "input_dir": str(indir),
               "input_export_record_sha256": sha256_file(str(indir / "export_record.json")),
-              "transform": ["colmean_across_targets", "pc1_removal"],
+              "transform": ["colmean_across_targets"] + (["pc1_removal"] if args.remove_pcs else []),
+              "n_removed_pcs": args.remove_pcs,
               "common_mode_variance": {"strain_mean_frac": var_colmean,
                                        "residual_pc1_frac": pc1_var},
               "n_targets": len(targets), "pool": pool_n, "tail_strains": tail,
               "targets": {}}
+    if projection_record is not None:
+        report['genetic_interaction_projection'] = projection_record
     tail_idx = [i for i, o in enumerate(orfs) if o in set(tail)]
     tail_order = sorted(range(len(tail_idx)), key=lambda a: orfs[tail_idx[a]])
     for ti, t in enumerate(targets):

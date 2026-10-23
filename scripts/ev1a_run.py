@@ -3,6 +3,7 @@
 """EV1a — 基本结构外样本（Replogle held-out 基因查询，Norman 标签直传）。
 V9 三臂五成员机器 verbatim；LOGO 组 = 单基因；判据见 EV_PROTOCOL.md §EV1。"""
 import json
+import os
 import re
 import shutil
 import sys
@@ -13,7 +14,8 @@ import pandas as pd
 
 YB = Path("/public/home/mengxl/dzy/YeastBridge_0912")
 EV = Path("/public/home/mengxl/dzy/YeastBridge_0912")
-OUT = EV / "results_a6000/externalvalidation/ev1a"
+SOURCE = EV / "results_a6000/externalvalidation/ev1a"
+OUT = Path(os.environ.get("YB_EV1A_OUT", SOURCE))
 OUT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(YB / "scripts"))
 from v5_joint_formal_run import (build_projection_maps, l2n,  # noqa: E402
@@ -53,14 +55,16 @@ def main():
     uni = pd.read_csv(EV / "raw/externalvalidation/ev0x_embed_merged/index.tsv", sep="\t").fillna("")
     U = np.load(EV / "raw/externalvalidation/ev0x_embed_merged/esm2_mean_fp32.npy").astype(np.float64)
     urow = {str(s).upper(): i for i, s in enumerate(uni["common"])}
-    q = pd.read_csv(OUT / "ev1a_query_set.tsv", sep="\t")
-    rows = []
+    q = pd.read_csv(SOURCE / "ev1a_query_set.tsv", sep="\t")
+    rows, b2_rows = [], []
     for g in q.gene:
         gu = str(g).upper()
         if gu in sym2row:
             rows.append(Xall[sym2row[gu]])
+            b2_rows.append(st["X_es_raw"][sym2row[gu]])
         else:
             rows.append(l2n(U[[urow[gu]]])[0])
+            b2_rows.append(U[urow[gu]])
     Q_raw = l2n(np.stack(rows))
     n = len(q)
     lab = q.function_label.astype(str).values
@@ -68,7 +72,7 @@ def main():
     in_cls = np.array([l in CI for l in lab])
     Q1 = apply_pc(Q_raw, fx[0], fx[1], 1)
     QN = apply_pc(Q_raw, fx[0], fx[1], NPC)
-    Q_b2 = l2n(Q_raw @ st["W_inj"].T + st["b_inj"])
+    Q_b2 = l2n(np.stack(b2_rows) @ st["W_inj"].T + st["b_inj"])
 
     # ---- 酵母带标签参考 ----
     meta_y, prim = st["meta_y"], st["prim"]
