@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "mode": "numerical-reconstruction",
+  "layers": {
+    "match": {
+      "targets": 338,
+      "strains": 5865,
+      "compounds": 3250,
+      "directional_hypotheses": 2197000,
+      "max_absolute_correlation_error": {
+        "pos": 9.023046058931339e-08,
+        "neg": 9.023046058931339e-08
+      },
+      "permutations": 100000,
+      "seed": 20261024
+    },
+    "residual": {
+      "targets": 95,
+      "strains": 5865,
+      "compounds": 3250,
+      "directional_hypotheses": 617500,
+      "max_absolute_correlation_error": {
+        "pos": 6.126426196906287e-08,
+        "neg": 6.126426196906287e-08
+      },
+      "permutations": 100000,
+      "seed": 20261024
+    }
+  },
+  "match_associations": 5216,
+  "candidates": 25,
+  "targets": 7,
+  "compounds": 18,
+  "recomputed": [
+    "all observed correlations",
+    "condition maximization",
+    "screen-wide probabilities",
+    "candidate intersection"
+  ],
+  "frozen_inputs": [
+    "rank-standardized profiles",
+    "1000-permutation calibration",
+    "100000-permutation maxima"
+  ],
+  "fresh_permutations": false,
+  "fresh_training": false
+}

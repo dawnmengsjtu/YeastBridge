@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 最终结果格式的依据
 
 本次提交按参赛者提供的附件5通用规则生成UTF-8 `results.csv`。附件5规定，未另行规定时可使用这种格式；必填信息包括候选编号、赛道、结构/序列、预测指标、模型和运行版本、备注。本仓库的字段契约见 [RESULTS_SCHEMA.md](RESULTS_SCHEMA.md)。

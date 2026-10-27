@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # EJ 方法产品线首跑结果（任务导出 + 冻结面板，2026-09-12）
 
 方法冻结：`ESM2_JOINT_METHOD_FREEZE.md`（轴裁定：esm2；V9 G2 对

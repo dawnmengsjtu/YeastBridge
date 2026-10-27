@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # ESM2-Joint 产品线方法冻结记录（2026-09-12）
 
 ## 裁定记录（本冻结的授权依据）

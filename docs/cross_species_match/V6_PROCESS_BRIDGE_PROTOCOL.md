@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V6 过程桥协议（B 骨架正式化，2026-09-12 冻结）
 
 配置：`configs/v6_process_bridge.json`（输入 SHA-256 冻结，运行前强制核对）

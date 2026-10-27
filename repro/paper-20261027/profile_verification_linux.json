@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "mode": "frozen-model-profile-reconstruction",
+  "targets": 338,
+  "strains": 5865,
+  "training_pairs": 510,
+  "members": [
+    "direct_pc1",
+    "aligned_c_ensemble",
+    "b2_verbatim"
+  ],
+  "rrf_k": 20,
+  "common_mode_variance": {
+    "strain_mean_frac": 0.4131489949905184,
+    "residual_pc1_frac": 0.15224754498305673
+  },
+  "commands": [
+    [
+      "/public/home/mengxl/.conda/envs/xspecies/bin/python",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/scripts/esm2_joint_task_export.py",
+      "--config",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/configs/paper_tasks.json",
+      "--response-universe",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/raw/paper/strain_response.npz",
+      "--output",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/profile_check/all_profiles"
+    ],
+    [
+      "/public/home/mengxl/.conda/envs/xspecies/bin/python",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/scripts/task_axis_double_center.py",
+      "--input",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/profile_check/ion_channel_profiles",
+      "--output",
+      "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/profile_check/corrected_profiles"
+    ]
+  ],
+  "fresh_training": false,
+  "rank_matrix_max_absolute_error": 0.0
+}

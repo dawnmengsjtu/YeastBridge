@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: 'If you use this repository, please cite it as below.'
-title: 'YeastBridge: cross-species functional matching and statistical confirmation platform'
+title: 'YeastBridge enables cross-species drug screening for human ion channels using yeast perturbation profiles'
 authors:
   - family-names: 'dawnmengsjtu'
   - family-names: 'dong-zhongyuan'

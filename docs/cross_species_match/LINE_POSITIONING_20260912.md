@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 跨物种线定位（2026-09-12 定案）
 
 - **GO 线**（V5.1 桥，查询=靶点 K562 CRISPRi 扰动签名）：定位在它覆盖的靶点上：

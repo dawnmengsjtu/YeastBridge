@@ -1,3 +1,5 @@
+> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+
 # B2 训练与溯源
 
 当前提交版本 `B2-submission-v2-20261003` 从官方scFoundation初始权重完成6轮酵母表达微调。完整训练证据位于 [submission-v2/](training/evidence/submission-v2/)，权重、逐轮日志、样本划分、输入和实际环境由 [training_manifest.json](training_manifest.json)关联。

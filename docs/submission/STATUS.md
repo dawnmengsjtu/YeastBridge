@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 附件5核对记录
 
 本记录依据参赛者提供的《第一届全球大学生生命科学挑战赛：AI模型与代码·提交规范与可复现性要求》，核对2026-10-03的 `B2-submission-v2-20261003` 提交版本。最终结果采用附件5明确允许的UTF-8默认CSV；赛道与格式依据见 [TEMPLATE_BASIS.md](TEMPLATE_BASIS.md)。

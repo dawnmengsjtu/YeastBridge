@@ -53,3 +53,6 @@ tasks/esm2_joint_measured_coverage_dc_20261012/
 # Manuscript production tree and the verified publication archive.
 manuscript_revision_*/
 publication/
+
+# Hash-verified manuscript runtime archives are installed separately.
+raw/paper/

@@ -1,4 +1,4 @@
-# Python 3.10; CPU dependencies for export, demo, and statistical screening.
+# Python 3.9–3.12; manuscript export and numerical reconstruction.
 numpy==1.26.4
-pandas==2.3.3
-scipy==1.15.3
+pandas==2.2.2
+scipy==1.11.4

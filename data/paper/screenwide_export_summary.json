@@ -1,0 +1,19 @@
+{
+  "n_targets": 338,
+  "n_match_screenwide": 5216,
+  "n_match_targets": 150,
+  "n_match_compounds": 546,
+  "n_both_screenwide": 25,
+  "n_supported_targets": 7,
+  "n_supported_compounds": 18,
+  "n_supported_after_two_variant_bonferroni": 17,
+  "n_supported_after_eight_variant_bonferroni": 9,
+  "n_supported_after_twelve_variant_bonferroni": 4,
+  "variant_count_basis": "8 coverage/PC/assay settings plus 4 sparse top-K settings; extra corrections are conservative sensitivity analyses, not biological exclusion rules",
+  "match_directional_universe": 2197000,
+  "residual_directional_universe": 617500,
+  "directions": {
+    "pos": 25
+  },
+  "interpretation": "Computational associations. Screen-wide maximum nulls include all pairs, both directions and dose selection in each layer. All match-level associations are retained; this evidence subset is not a biochemical activity validation."
+}

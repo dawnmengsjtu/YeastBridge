@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V9 ESM2 轴基本结构三臂正式运行结果（2026-09-12）
 
 协议：`V9_ESM2_BASIC_STRUCTURE_PROTOCOL.md`（运行前冻结，含 G2 失败即停止

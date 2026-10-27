@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # Demo 第 00 步：模型选用证据（两步竞争性选择）
 
 ## 第一步：基座选用 — Norman 扰动检索基准

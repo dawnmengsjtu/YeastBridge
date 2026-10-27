@@ -81,7 +81,7 @@ def export_screenwide_evidence(run):
     return supported
 
 
-def main():
+def legacy_main():
     run = Path(os.environ.get("YB_SCREENING_RUN", ROOT / "results_a6000/ion_channel_scope_20261012/full_measured_assay"))
     if os.environ.get("YB_SCREENWIDE_EXPORT") == "1":
         export_screenwide_evidence(run)
@@ -175,6 +175,20 @@ def main():
     output = (run if os.environ.get("YB_SCREENING_RUN") else ROOT) / "results.csv"
     df.to_csv(output, index=False, encoding="utf-8")
     print(f"{output} 生成：{len(df)} 条计算候选；证据分类 {df.证据等级.value_counts().to_dict()}")
+
+
+def export(output=None):
+    """Export the hash-verified manuscript candidate table."""
+    from scripts.paper_release import export as paper_export
+    return paper_export(output)
+
+
+def main():
+    import argparse
+    ap = argparse.ArgumentParser(description="Export the 25 manuscript candidate associations")
+    ap.add_argument("--output", type=Path)
+    args = ap.parse_args()
+    print(export(args.output))
 
 
 if __name__ == "__main__":

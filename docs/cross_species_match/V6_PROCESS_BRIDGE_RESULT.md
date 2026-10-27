@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V6 过程桥正式运行结果（2026-09-12）
 
 协议：`V6_PROCESS_BRIDGE_PROTOCOL.md`（同日冻结）

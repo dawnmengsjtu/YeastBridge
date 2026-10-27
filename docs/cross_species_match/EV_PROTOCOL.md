@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 外样本验证（external validation）协议（EV，2026-09-16 冻结）
 
 独立运行、单次登记。本协议先于任何 EV 运行写定；运行后不回改判据。

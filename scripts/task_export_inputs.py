@@ -72,6 +72,8 @@ def setup(config_path):
     ]
     query = sorted({h for h, _, _, _ in prim})
     return {
+        "root": root,
+        "cfg": cfg,
         "X_es_all": l2n(human),
         "Y_es": l2n(yeast[[yeast_row[g] for g in pool]]),
         "Y_rb": l2n(table[[rb_row[g] for g in pool]]),

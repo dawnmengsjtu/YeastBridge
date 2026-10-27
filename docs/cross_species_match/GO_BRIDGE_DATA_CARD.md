@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # GO-BP / GO-slim 跨物种映射数据卡（v1）
 
 状态：`READY_FOR_LOCKED_BENCHMARK`。这里的“就绪”只表示共享功能投影已经补齐，

@@ -1,3 +1,4 @@
+# Archived competition environment; paper instructions: docs/REPRODUCIBILITY.md
 -r requirements.txt
 # Additional dependencies for the original EJ export and representation benchmarks.
 anndata==0.11.4

@@ -1,3 +1,4 @@
+# Archived competition environment; paper instructions: docs/REPRODUCIBILITY.md
 # Linux/CUDA training and count-preparation environment for submission-v2.
 # Historical September training was not locked with this file.
 numpy==1.26.4

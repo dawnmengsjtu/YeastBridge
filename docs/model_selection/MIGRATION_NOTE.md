@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 迁移说明(2026-09-15,按项目惯例归位)
 
 自 yeastbridge_combine / yeastbridge_re_mvp_stage_20260901 / yeastbridge / yeastbridge_re

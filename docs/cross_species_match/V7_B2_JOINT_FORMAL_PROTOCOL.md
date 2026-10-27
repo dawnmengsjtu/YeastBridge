@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V7 B2 轴联合增益正式协议（三臂两门，2026-09-12 冻结）
 
 配置：`configs/v7_b2_joint_formal.json`（输入 SHA-256 冻结，运行前强制核对）

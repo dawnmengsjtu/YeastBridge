@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # EJ-dc 任务轴共模去除附录（2026-09-12；本轮优化目标：离子通道/GPCR 类须有显著对，不局限于既有靶点）
 
 ## 动机（数据在案，先于任何 dc 结果冻结）

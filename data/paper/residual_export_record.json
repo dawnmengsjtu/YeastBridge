@@ -1,0 +1,8 @@
+{
+  "tail_strains": [],
+  "source_task_directory": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc",
+  "non_estimable_targets": [
+    "GPHRA",
+    "GPHRB"
+  ]
+}

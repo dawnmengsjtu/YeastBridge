@@ -1,3 +1,5 @@
+> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+
 # 数据准备与复核
 
 主筛选读取冻结响应矩阵，不需要重新处理原始CEL。响应矩阵的来源链是：

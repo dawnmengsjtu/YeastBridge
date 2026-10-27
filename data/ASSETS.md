@@ -1,3 +1,5 @@
+> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+
 # 模型与数据附件
 
 当前版本见 [submission-v2发布页](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/submission-v2-20261003)。大型checkpoint及响应矩阵通过Release分发，安装器读取 [asset_downloads.json](asset_downloads.json)校验SHA-256。

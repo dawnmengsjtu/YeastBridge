@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V7 B2 轴联合增益正式运行结果（三臂两门，2026-09-12）
 
 协议：`V7_B2_JOINT_FORMAL_PROTOCOL.md`（同日冻结）
