@@ -1,0 +1,24 @@
+# Direct dependencies from the chemistry runtime used for the recorded replay.
+# Full original poses and GNINA are separate, checksum-recorded inputs.
+name: yeastbridge-paper-structural
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - numpy=1.26.4
+  - pandas=3.0.5
+  - scipy=1.17.1
+  - rdkit=2026.03.1
+  - openbabel=3.2.1
+  - openmm=8.2.0
+  - pdbfixer=1.12
+  - meeko=0.7.1
+  - vina=1.2.7
+  - gemmi=0.7.5
+  - biopython=1.88
+  - pip
+  - pip:
+      - setuptools==80.10.2
+      - scikit-learn==1.5.2
+      - MDAnalysis==2.7.0
+      - prolif==2.0.3

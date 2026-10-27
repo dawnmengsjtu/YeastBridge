@@ -1,4 +1,4 @@
-> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+> Historical competition/training record. Current manuscript training: [paper training guide](../docs/PAPER_TRAINING.md).
 
 # B2 训练与溯源
 
@@ -13,8 +13,8 @@ python3.10 -m venv .venv-training
 source .venv-training/bin/activate
 python -m pip install -r requirements-training.lock.txt
 python scripts/install_training_assets.py --checkpoint /path/to/models.ckpt
-python train.py --smoke --device cuda --output outputs/b2-smoke
-python train.py --device cuda --output outputs/b2-training
+python train.py --config configs/b2_training_v2.json --smoke --device cuda --output outputs/b2-smoke
+python train.py --config configs/b2_training_v2.json --device cuda --output outputs/b2-training
 ```
 
 `models.ckpt`从[scFoundation官方模型说明](https://github.com/biomap-research/scFoundation/blob/main/model/README.md)给出的入口获取。本配方初始权重的SHA-256为 `9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9`，安装器拒绝其他版本。离线训练输入可通过 `--inputs /path/to/b2-inputs.tar.gz` 安装。重训前阅读随仓库提供的上游 [MODEL_LICENSE](training/vendor/scfoundation/MODEL_LICENSE)。

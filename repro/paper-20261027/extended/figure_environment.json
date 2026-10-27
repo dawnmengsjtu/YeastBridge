@@ -1,0 +1,25 @@
+{
+  "python": "3.9.6",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "python_packages": {
+    "PyMuPDF": "1.26.5",
+    "reportlab": "4.4.10",
+    "Pillow": "11.3.0",
+    "lxml": "6.0.2",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "matplotlib": "3.9.4",
+    "pycirclize": "1.9.1"
+  },
+  "R_packages": {
+    "ggplot2": "4.0.2",
+    "cowplot": "1.2.0",
+    "jsonlite": "2.0.0",
+    "ggrepel": "0.9.8",
+    "ggalluvial": "0.12.5",
+    "ComplexHeatmap": "2.26.1",
+    "circlize": "0.4.17",
+    "scales": "1.4.0"
+  },
+  "R_version": "Rscript (R) version 4.5.2 (2025-10-31)"
+}

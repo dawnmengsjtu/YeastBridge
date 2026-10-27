@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "proteins": 8727,
+  "checks": [
+    {
+      "group": "human_810",
+      "file": "index.tsv",
+      "exact": true,
+      "reference_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
+      "rebuilt_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf"
+    },
+    {
+      "group": "human_810",
+      "file": "esm2_mean_fp32.npy",
+      "exact": true,
+      "reference_sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
+      "rebuilt_sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d"
+    },
+    {
+      "group": "universe_1175",
+      "file": "index.tsv",
+      "exact": true,
+      "reference_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665",
+      "rebuilt_sha256": "f581756ef548af0e63b63f25a6c5ef9c2826ac38dd0765f2edb18a18b8861665"
+    },
+    {
+      "group": "universe_1175",
+      "file": "esm2_mean_fp32.npy",
+      "exact": true,
+      "reference_sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120",
+      "rebuilt_sha256": "d4a4ed3fbf05ad73bc2f4476719f72f4833d48f0a5864022269937fcb8d79120"
+    },
+    {
+      "group": "yeast_650m",
+      "file": "index.tsv",
+      "exact": true,
+      "reference_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214",
+      "rebuilt_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
+    },
+    {
+      "group": "yeast_650m",
+      "file": "esm2_mean_fp32.npy",
+      "exact": true,
+      "reference_sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
+      "rebuilt_sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5"
+    }
+  ],
+  "model_sha256": "ea9d0522b335a8778dea6535a65301f10208dece28cd5865482b0b1fc446168c",
+  "contact_regression_sha256": "8ffe6edbd4173dc8d45c2cd5cb27d43aad77ec26b4c768200c58ae1f96693575",
+  "packages": {
+    "torch": "2.6.0",
+    "fair-esm": "2.0.0",
+    "numpy": "1.26.4",
+    "pandas": "2.3.2",
+    "pyarrow": "17.0.0"
+  },
+  "script_sha256": "b9cdbaefe0aa5a657aa4e32a4b7d0ac26d49e9683f3598c35b4c8df712b0951f",
+  "extractor_sha256": "8ed6d1615801441705b43b50425550f28e698fb18dc263a53340a3ef6023bdec"
+}

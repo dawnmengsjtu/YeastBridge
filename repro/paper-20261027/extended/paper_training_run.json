@@ -1,0 +1,75 @@
+{
+  "started_at_utc": "2026-10-27T10:14:08.351104+00:00",
+  "implementation": "historical-v1",
+  "mode": "training",
+  "status": "complete",
+  "code_revision": "source-archive (see MANIFEST.release.sha256)",
+  "source_sha256": "a58d9cbf68ba40d83f975ba35f9a3b5de380101429b771a7607983eeb2c84dfb",
+  "wrapper_sha256": "6b25654630133730f2d411e1236258fe71230f19c376659715a11b4dc8755bcf",
+  "config_sha256": "af4ce55f1f74d3b06513906de3085205a8603646d596d632cf5ab87aaf9c1fe1",
+  "seed": 42,
+  "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "packages": {
+    "torch": "2.6.0",
+    "numpy": "1.26.4",
+    "einops": "0.8.2",
+    "local-attention": "1.11.2"
+  },
+  "required_assets": {
+    "pretrained_checkpoint": {
+      "path": "raw/training/models.ckpt",
+      "sha256": "9f40bf324d3d0084c4b288d06f5af4fddd12206e2a3f022551d12e89e33a0ea9"
+    },
+    "counts": {
+      "path": "raw/training/corpus_counts.npy",
+      "sha256": "71205d5a0eeddd60b6cb15f3976cb8b64738f87e44e542a91cac74f67b6635a1"
+    },
+    "protein_matrix": {
+      "path": "raw/training/B2_esm2_matrix.npy",
+      "sha256": "7a4b5b12ba9d1f3b6902216f82ca6001b1853d0aebd671a7990062661088cca7"
+    },
+    "cells": {
+      "path": "raw/training/corpus_cells.tsv",
+      "sha256": "0e5d82b749c5ad779ac6e6bb4587456eca74122690332e65883fe604c0776ef4"
+    }
+  },
+  "command": [
+    "/public/home/mengxl/dzy/envs/yeastbridge/bin/python",
+    "-u",
+    "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/scripts/scf_finetune_yeast.py",
+    "--config",
+    "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/configs/b2_training.json",
+    "--output",
+    "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/full_reproduction/paper_training/model",
+    "--device",
+    "cuda"
+  ],
+  "cuda_visible_devices": "1",
+  "gpu": [
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB",
+    "NVIDIA RTX A6000, 550.54.15, 49140 MiB"
+  ],
+  "returncode": 0,
+  "finished_at_utc": "2026-10-27T12:58:10.048200+00:00",
+  "seconds": 9832.701,
+  "log_sha256": "95a7409a861de1461bea85ab579ae95d074e4de0201ec14bd5613070c26abd79",
+  "artifacts": {
+    "config.json": "af4ce55f1f74d3b06513906de3085205a8603646d596d632cf5ab87aaf9c1fe1",
+    "epoch_comparison.json": "b09707538746857a79539cc3793c5243c9a0bd8b01aa969fe504152e92a011ea",
+    "model/epoch_metrics.json": "4be998b327fc6604a8209c61e991296c34b96c4c2224fe7405a2007ba1f2bf91",
+    "model/final_model.pt": "bdff18b0e8e04d39ee15f199058c015029c32f87597649ebe3958986a5fa31eb",
+    "model/gene_table_ep1.npy": "16a61b7b9b321b222af7092a4f806941d9ac5c4d2860db43e5038706e6b29485",
+    "model/gene_table_ep2.npy": "c0eded4b1b509a3d84ba70bccc4030fa98a048657b560b3854a5b5d2d90ef7af",
+    "model/gene_table_ep3.npy": "b6fb676d6bb3f8ae183b17c07e6ebb274717a248e347dc693e62a748cb57012a",
+    "model/gene_table_ep4.npy": "cca70e922c3bd7caa10acba237e6a6bb1b9920e07f311951958802a9b892f5c7",
+    "model/gene_table_ep5.npy": "eb2afa02f0b640fd4c96e647889a320f153dfd927c9b40efbfd523282979a6fc",
+    "model/gene_table_ep6.npy": "54302f29b62ca195bcbb3b114cfc5bfa6e4b8ad2dcf9305d806457af8ecdb721",
+    "model/gene_table_final.npy": "54302f29b62ca195bcbb3b114cfc5bfa6e4b8ad2dcf9305d806457af8ecdb721",
+    "model/run_config.json": "af4ce55f1f74d3b06513906de3085205a8603646d596d632cf5ab87aaf9c1fe1",
+    "model/split.tsv": "1a8bdf8cd718c68139d59121ae5df39998c2cdb3d265690c331db7f7eaec3f97",
+    "model/train_meta.json": "31e4b1e0dfe54c3fa665f61c46bc4e0e71387b8f38fdc6e6916cc6b87f399f82",
+    "requirements-observed.txt": "140e67ceaa3e528078a69b153e309328372e1124c5197eb484d0be81c5def83f",
+    "train.log": "95a7409a861de1461bea85ab579ae95d074e4de0201ec14bd5613070c26abd79"
+  }
+}

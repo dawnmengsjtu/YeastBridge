@@ -29,7 +29,14 @@ def write_json(path, value):
 
 
 def manifest():
-    return json.loads((REFERENCE / "assets.json").read_text())
+    result = json.loads((REFERENCE / "assets.json").read_text())
+    extension = REFERENCE / 'extended_assets.json'
+    if extension.exists():
+        extra = json.loads(extension.read_text())
+        if set(result) & set(extra):
+            raise ValueError('Extended asset groups shadow the core manifest')
+        result.update(extra)
+    return result
 
 
 def inventory(level="reference"):
@@ -126,8 +133,8 @@ def screenwide_p(scores, means, standard_deviations, maxima):
     return (1 + len(maxima) - np.searchsorted(np.sort(maxima), z, side="left")) / (len(maxima) + 1)
 
 
-def reproduce(output):
-    """Recompute every observed correlation and candidate P from frozen nulls."""
+def reproduce(output, null_root=None, input_root=None):
+    """Recompute observed correlations and decisions from explicit input roots."""
     import numpy as np
     import pandas as pd
     from scripts.product_execute_hiphop import compound_groups, max_over_compounds
@@ -136,7 +143,7 @@ def reproduce(output):
     output = new_output(output)
     records, tables = {}, {}
     for layer, expected in [("match", 338), ("residual", 95)]:
-        base = ROOT / "raw/paper" / layer
+        base = (Path(input_root) if input_root is not None else ROOT / "raw/paper") / layer
         with np.load(base / "rank_inputs.npz", allow_pickle=False) as z:
             d = dict(z)
         with np.load(base / "screen_arrays.npz", allow_pickle=False) as z:
@@ -150,8 +157,9 @@ def reproduce(output):
             raise ValueError("Compound ordering mismatch")
         # Float64 independently checks the archived float32 CPU/GPU computation.
         observed = d["task"].astype(np.float64) @ d["response"].astype(np.float64).T / 5865
-        plan = json.loads((base / "global_tail/analysis_plan.json").read_text())
-        null = pd.read_csv(base / "global_tail/screen_max_null.tsv", sep="\t").both.to_numpy()
+        null_base = Path(null_root) / layer if null_root is not None else base
+        plan = json.loads((null_base / "global_tail/analysis_plan.json").read_text())
+        null = pd.read_csv(null_base / "global_tail/screen_max_null.tsv", sep="\t").both.to_numpy()
         if len(null) != 100000 or plan["n"] != len(null) or plan["seed"] != 20261024:
             raise ValueError("Permutation count or seed differs from the manuscript")
         errors, frames = {}, []
@@ -161,8 +169,8 @@ def reproduce(output):
             errors[direction] = float(np.max(np.abs(recalculated - original)))
             if errors[direction] > 5e-7:
                 raise ValueError(f"Observed {layer}/{direction} correlations differ: {errors[direction]}")
-            # P is reconstructed from exact frozen score/calibration arrays after
-            # independently checking the observed scores, avoiding tie changes from BLAS rounding.
+            # Use the explicitly selected score/calibration arrays after the independent
+            # observed-score check, avoiding tie changes from the float64 audit.
             p = screenwide_p(original, saved[direction + "_null_mean"], saved[direction + "_null_sd"], null)
             frames.append(pd.DataFrame({"target_id": np.repeat(d["targets"], 3250),
                 "inchikey": np.tile(d["compounds"], expected), "direction": direction,
@@ -182,7 +190,8 @@ def reproduce(output):
         raise ValueError("Reconstructed candidate identities differ from manuscript")
     for a, b in [("p_match_screenwide", "p_match_screenwide"), ("p_residual_screenwide", "p_residual_screenwide"),
                  ("spearman_rho_match", "spearman_rho"), ("spearman_rho_residual", "spearman_rho_residual")]:
-        if not np.allclose(selected[a], reference[b], rtol=0, atol=1e-12):
+        tolerance = 5e-7 if input_root is not None and a.startswith('spearman_rho') else 1e-12
+        if not np.allclose(selected[a], reference[b], rtol=0, atol=tolerance):
             raise ValueError(f"Reconstructed field differs: {a}")
     if (len(matches), len(selected), selected.target_id.nunique(), selected.inchikey.nunique()) != (5216, 25, 7, 18):
         raise ValueError("Manuscript result counts differ")
@@ -191,8 +200,10 @@ def reproduce(output):
     report = {"status": "passed", "mode": "numerical-reconstruction", "layers": records,
         "match_associations": len(matches), "candidates": len(selected), "targets": 7, "compounds": 18,
         "recomputed": ["all observed correlations", "condition maximization", "screen-wide probabilities", "candidate intersection"],
-        "frozen_inputs": ["rank-standardized profiles", "1000-permutation calibration", "100000-permutation maxima"],
-        "fresh_permutations": False, "fresh_training": False}
+        "frozen_inputs": (["rank-standardized profiles", "1000-permutation calibration"] if input_root is None else []) +
+                         (["100000-permutation maxima"] if null_root is None else []),
+        "fresh_permutations": null_root is not None, "fresh_calibration": input_root is not None,
+        "fresh_training": False}
     write_json(output / "verification.json", report)
     return report
 

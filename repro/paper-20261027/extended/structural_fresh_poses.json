@@ -1,0 +1,52 @@
+{
+  "status": "different",
+  "candidate_statuses_match": false,
+  "prioritized": [
+    "YB-IC-002",
+    "YB-IC-021",
+    "YB-IC-022",
+    "YB-IC-023",
+    "YB-IC-025"
+  ],
+  "n_prioritized": 5,
+  "stages": {
+    "control_calibration/reference_pocket_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "90f052e8ee30801f545c8a18c834f65f54024e150ec0e0304338f9157d3487fa"
+    },
+    "control_calibration/reference_pocket_cnn_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "8ee676e1a70788f525ffdffa8a71614b0ac4e13fb6950d4ec56cac5d1c903c97"
+    },
+    "control_calibration/reference_pocket_comparison.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "a126c9121f54545f09f44e16751f224e0fb6599872248939a7bb422bb0a011ea"
+    },
+    "CLIC1/gnina_refinement/search_depth/literature_contact_evidence.json": {
+      "scientific_payload_equal": false,
+      "result_sha256": "362b98e9e59d8af523e8c9660015f042264841612be73c1d15c85573914b4b30"
+    },
+    "control_calibration/interaction_fingerprints.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "ccc52657e54b51a25ce5984aa2e1187296d9e4cd6b16ca8200ce5f624079261f"
+    },
+    "control_calibration/interaction_calibration.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "e7e6857bc94af47fb29b3d23acc6b43b1e36be3cf6b3c861210315377bf7ff26"
+    }
+  },
+  "fresh_contact_calculation": true,
+  "fresh_contact_models": true,
+  "fresh_docking": true,
+  "docking_replay": {
+    "fresh_candidate_native_searches": 282,
+    "background_control_searches": "frozen",
+    "required_prepared_inputs_verified": 284,
+    "unused_background_input_files_absent": 3042,
+    "replay_verification_sha256": "48a56d365f0edbe2ceed360ed9111a3981e2bbb2182346e6180f58600a2e81f9",
+    "replay_table_sha256": "063fb06afce55e79bdf10249fe9ccada741a03f9fd271a48eeb04776682c03bc"
+  },
+  "interpretation": "Descriptive pocket-contact/reference prioritization, separate from the stricter binding-control classifier",
+  "source_archive_sha256": "486c3c896ed7709c9eda3b075c3d7d039290fa5a5a38550a866631d33755da1a",
+  "script_sha256": "705927174c815d22b0c35be214acaeb2db95610fe65e9eea738942e2aea0143a"
+}

@@ -1,6 +1,6 @@
 # 第三方数据与模型使用说明
 
-本项目的用途是非商业科研与赛事复核。下列条款按2026-10-03可核实的官方记录列出，数据处理后的矩阵和映射保留原始来源；不把第三方材料重新授权为本项目原创。下载核查的URL、时间与响应哈希见 [online-source-checks.json](provenance/recovered-20261003/online-source-checks.json)。
+当前论文及其复现包用于非商业科研；赛事包作为历史版本保留。下列条款按2026-10-03可核实的官方记录列出，数据处理后的矩阵和映射保留原始来源；不把第三方材料重新授权为本项目原创。下载核查的URL、时间与响应哈希见 [online-source-checks.json](provenance/recovered-20261003/online-source-checks.json)。
 
 | 来源 | 适用条款与归属 | 本项目处理与分发方式 |
 | --- | --- | --- |
@@ -17,6 +17,11 @@
 | ESM-2，Meta FAIR团队 | [MIT](https://github.com/facebookresearch/esm/blob/main/LICENSE) | 使用`esm2_t33_650M_UR50D`，未微调ESM-2；分发的是带模型版本和输入索引的预计算表示 |
 
 GEO和EMBL-EBI的访问政策不是原作者向所有用途授予的独立许可。这里准确披露其公开科研数据政策及出处，不作额外商业使用授权。赛事代码使用本地模型，无商业API、提示词或收费平台调用。
+
+## 2026-10-27 比较资产补充
+
+- scYeast 的[官方仓库 README](https://github.com/hongzhonglu/scYeast#license)载有 Hongzhong Lu（scYeast Team）2025 年 MIT 许可声明。比较包只提取原检查点中的基因嵌入张量，保留逐值内容、基因顺序、原检查点哈希和许可文本；仓库副本见 [LICENSE](../models/comparisons/scyeast/LICENSE)。
+- Costanzo et al. 2016 SGA 数据来自[官方数据页](https://thecellmap.org/yeast/costanzo2016/)，论文 DOI 为 10.1126/science.aaf1420。图比较包随附原归档哈希和处理记录，使用已注册的 p < 0.05、绝对互作分数 ≥ 0.08 的派生边表。此说明不为原作者数据另行指定许可。
 
 ## 上游预训练数据
 

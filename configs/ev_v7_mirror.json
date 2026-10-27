@@ -3,67 +3,68 @@
  "date_frozen": "2026-09-12",
  "run_mode": "single_formal_run_b2_axis",
  "user_directive": "2026-09-12: \u628a B2 \u8def\u7ebf(scf-esm2-scyeast)\u7684\u4e09\u81c2\u4e24\u95e8\u5b8c\u6574\u8dd1\u4e00\u904d(V5.1 \u540c\u673a, \u8868\u793a\u5c42\u6362\u6210 B2 \u8f74)",
- "stage_root": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/frozen_inputs",
+ "stage_root": ".",
  "axis_discipline": "B2 protein-injection evaluation; existing joint functional-retrieval members are retained.",
  "inputs": {
   "esm2_human": {
-   "path": "v7_b2_formal_20260912/assets/esm2_human/esm2_mean_fp32.npy",
+   "path": "raw/tier1_esm2/human_810/esm2_mean_fp32.npy",
    "sha256": "b98f04b41ec8031b518268aaa10c02867b9b490ae529612fab3726ec042a391d",
-   "index_path": "v7_b2_formal_20260912/assets/esm2_human/index.tsv",
+   "index_path": "raw/tier1_esm2/human_810/index.tsv",
    "index_sha256": "d952c62ef9e0596ab7212e52d98f13da81c843b806ebd55eae16fbac943b5ecf",
    "provenance": "UniProt REST reviewed human gene_exact (810/811 ok, NEDD8-MDP1 no_result \u5254\u9664\u62ab\u9732); ESM2-650M layer33 mean-pooled fp16 GPU1, 40.5s, 0 nan; build: v7_b2_formal_20260912/assets/{build_assets.py,manifest.tsv}"
   },
   "route_b_table": {
-   "path": "yeastbridge_re_mvp/feasibility/transfer_routes/scf_routes/B2/gene_table_final.npy",
+   "path": "raw/tier1_models/route_b/gene_table_final.npy",
    "sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24"
   },
   "route_b_model": {
-   "path": "yeastbridge_re_mvp/feasibility/transfer_routes/scf_routes/B2/final_model.pt",
+   "path": "raw/tier1_models/route_b/final_model.pt",
    "sha256": "112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7",
    "injection": "state_dict pos_emb.proj.{weight,bias}; q = l2n(emb @ W.T + b) (esm2_cross_match.py route_b_top \u9010\u5b57\u540c\u5f0f)"
   },
   "route_b_gene_order": {
-   "path": "yeastbridge_re_mvp/feasibility/transfer_routes/assets/scf_yeast/A2_init.tsv",
+   "path": "raw/tier1_models/route_b/A2_init.tsv",
    "sha256": "411e09020354463f986a47f8f8f48dbae0ecd547df8719e7c2032ad37a6e5c7c"
   },
   "yeast_esm2": {
-   "path_abs": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/frozen_inputs/abs/esm2_mean_fp32.npy",
+   "path_abs": "raw/tier1_esm2/yeast_650m/esm2_mean_fp32.npy",
    "sha256": "1d28d509d5b83add0b7542218f88d3774d1851b390881c43f7e566c1548e12d5",
-   "index_path_abs": "/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/frozen_inputs/abs/index.tsv",
+   "index_path_abs": "raw/tier1_esm2/yeast_650m/index.tsv",
    "index_sha256": "792a1fcd6ed5b761d3010b7e9be7e001a1372dc6aa3819027d82379bd47e7214"
   },
   "scyeast_prior": {
-   "path": "v52_assets/scyeast_prior_space.npy",
+   "path": "raw/tier1_models/scyeast/scyeast_prior_space.npy",
    "sha256": "8a02152305f6bef8aa88bc4974dfd38fa67d1c90629840f871de0a03705cee40",
-   "gene_order_path": "models/scyeast/gene_order_5812.txt",
+   "gene_order_path": "raw/tier1_models/scyeast/gene_order_5812.txt",
    "gene_order_sha256": "7f0f16a9e4ba55d4071ee6b8cbe43d825640e6a03a9724ceebdc614569ed0b74"
   },
   "orthodb_edges": {
-   "path": "k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
+   "path": "raw/externalvalidation/frozen_inputs/k562_bridge_input_v1/official_run/orthodb_bipartite_edges.tsv",
    "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
   },
   "v51_pair_list": {
-   "path": "v5_1_joint_formal_20260909/per_query_ranks_trackA.tsv",
+   "path": "raw/paper/frozen_pairs.tsv",
+   "sha256": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15",
    "note": "V5.1 \u5b98\u65b9 753 \u5bf9(human,yeast_orf,split,fold)\u51bb\u7ed3\u6e05\u5355; \u4e3b\u5206\u6790\u5bf9\u96c6=\u8be5\u6e05\u5355 \u2229 B2 \u8868\u793a\u53ef\u7528(\u4eba ESM2 ok \u4e14 ORF \u5728\u6c60\u4e2d); \u6269\u5c55\u5bf9\u96c6=\u5168\u90e8\u53ef\u884c edges, \u4ec5\u63cf\u8ff0\u6027\u62a5\u544a"
   },
   "yeast_matrix": {
-   "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
+   "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_matrix.tsv.gz",
    "sha256": "a1bd96cb7cafb619d8361d8341bff2fe92056f9c78b9a6cffee73dbbab94af16"
   },
   "yeast_metadata": {
-   "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
+   "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/yeast_metadata.tsv",
    "sha256": "7754c77cf04e00aa9330cd5a413482d6ca238bbd3200fb5cf82be5dab4697912"
   },
   "higher_matrix": {
-   "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
+   "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_matrix.tsv.gz",
    "sha256": "a3f616d95b6c0cb01c7dfaeecfd02141c8a0604b1bbc4250b8b0311b5f28e92c"
   },
   "higher_metadata": {
-   "path": "gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
+   "path": "raw/externalvalidation/frozen_inputs/gse_go_three_arm_v3_open_set/inputs_v3_open_set/higher_metadata.tsv",
    "sha256": "84a8eaa696e4db0deaa04621e205bda23ba757a0a1f83d9cf7c00f37a51e1a2d"
   },
   "goslim_projection": {
-   "path": "match_diag_20260908/k562_proj/gene_goslim_projection.tsv.gz",
+   "path": "raw/tier1_projections/gene_goslim_projection.tsv.gz",
    "sha256": "e2eb8558c56c3e593319d1859dec0ff5106ae1cf07e902836eb78deb060b1827"
   }
  },

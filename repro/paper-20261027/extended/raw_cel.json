@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "raw_CEL_parsing": true,
+  "cache_reused": false,
+  "arrays": 3850,
+  "strains": 5869,
+  "checks": {
+    "strain_orfs": {
+      "equal": true
+    },
+    "array_names": {
+      "equal": true
+    },
+    "compound_inchikeys": {
+      "equal": true
+    },
+    "doses": {
+      "equal": true
+    },
+    "dose_units": {
+      "equal": true
+    },
+    "is_vehicle": {
+      "equal": true
+    },
+    "z_score": {
+      "max_absolute_error": 0.0,
+      "equal": true
+    },
+    "method": {
+      "equal": true
+    }
+  },
+  "reference_sha256": "fef25d836b76d7654fd580e67fe316bb002268cc7fa94849b7cf754177c58471",
+  "new_archive_sha256": "fef25d836b76d7654fd580e67fe316bb002268cc7fa94849b7cf754177c58471"
+}

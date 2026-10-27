@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "graph_nodes": 5848,
+  "metrics": {
+    "T2": {
+      "median_normalized_rank": 0.08504,
+      "pooled_auroc": 0.81397,
+      "n_essential_loo": 972,
+      "n_pool": 4545
+    },
+    "T4": {
+      "n_usable": 28,
+      "hit_at_3": 0.8571,
+      "hit_at_5": 0.8571,
+      "direction_consistency": 0.1429
+    }
+  },
+  "checks": {
+    "T2": true,
+    "T4": true
+  },
+  "protocol": "Original graph-native T2/T4; no embedding substitution",
+  "script_sha256": "7f403041e4ea5d9561b611dce0a3606d2a00bd04b1d19aeea4746787c81c48cd"
+}

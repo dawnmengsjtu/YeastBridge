@@ -13,6 +13,8 @@ YeastBridge converts a human target sequence into a yeast-strain query and uses 
 | Screening panel | 338 ion-channel-related entries, 5,865 measured represented strains, 3,250 compounds |
 | Candidate rule | Complete-profile and family-residual screen-wide P≤0.05 for the same target, compound and direction |
 
+All protein representations can be rebuilt from the frozen FASTA inputs with `scripts/paper_embeddings.py`; the sequence and checkpoint hashes are checked before inference. See the [extended reproduction guide](../docs/FULL_REPRODUCTION.md).
+
 The original paper checkpoint has SHA-256 `112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7`; its yeast gene table has SHA-256 `d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24`. The inference installer verifies both. Configuration: [paper_assets.json](../configs/paper_assets.json).
 
 Geneformer, scGPT and scFoundation were compared before selecting the backbone; ortholog mapping, protein injection, training from scratch, scYeast and graph propagation informed yeast-transfer selection. The direct sequence member remains inside the final fusion, not an additional independent method-selection arm.

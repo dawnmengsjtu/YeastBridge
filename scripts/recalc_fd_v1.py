@@ -85,7 +85,10 @@ def build_barcode_response(args):
     """Rebuild the complete response using tag probes; never ORF-probe controls."""
     from scipy.stats import rankdata
     out = Path(args.out)
+    if out.exists() and any(out.iterdir()):
+        raise ValueError('Output must be a new or empty directory')
     out.mkdir(parents=True, exist_ok=True)
+    data_root = Path(args.data_root)
     pmap = pd.read_csv(args.barcode_map, sep="\t")
     if pmap.cell.duplicated().any() or pmap.groupby("PROBE").orf.nunique().max() != 1:
         raise ValueError("ambiguous barcode-to-strain mapping")
@@ -94,7 +97,7 @@ def build_barcode_response(args):
         raise ValueError("TAG4 map must provide exactly five cells per barcode")
     tags = grouped.first()
     cells = np.array(grouped.cell.apply(list).tolist(), dtype=int)
-    meta = pd.read_csv(ROOT / "raw/E-MTAB-2391.sdrf.txt", sep="\t", dtype=str).fillna("")
+    meta = pd.read_csv(data_root / "raw/E-MTAB-2391.sdrf.txt", sep="\t", dtype=str).fillna("")
     meta = meta.apply(lambda s: s.str.strip()).sort_values("Array Data File").reset_index(drop=True)
     if meta["Array Data File"].duplicated().any():
         raise ValueError("duplicate CEL metadata")
@@ -102,7 +105,7 @@ def build_barcode_response(args):
     vehicle = meta["Factor Value[compound]"].str.upper().eq("DMSO").to_numpy()
     if not np.array_equal(vehicle, meta["Comment[inchikey]"].eq("")):
         raise ValueError("blank compound identifiers do not exactly identify DMSO")
-    paths = [ROOT / "cel_all" / name for name in names]
+    paths = [data_root / "cel_all" / name for name in names]
     if not all(p.is_file() for p in paths):
         raise ValueError("missing raw CEL")
     cache_dir = Path(args.cache_dir) if args.cache_dir else out
@@ -249,6 +252,8 @@ def probeset_log2_matrix(cel_paths, pmap: pd.DataFrame) -> pd.DataFrame:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--build-response", action="store_true")
+    ap.add_argument("--data-root", type=Path, default=ROOT,
+                    help="Directory containing cel_all/ and raw/E-MTAB-2391.sdrf.txt")
     ap.add_argument("--tag-audit-only", action="store_true")
     ap.add_argument("--barcode-map")
     ap.add_argument("--strain-universe")

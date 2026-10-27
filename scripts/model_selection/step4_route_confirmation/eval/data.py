@@ -1,14 +1,16 @@
 """数据加载层:统一读取 YeastBridge 已就绪资产,基因 ID 以 SGD systematic name 对齐。
 
 所有函数返回 pandas/numpy 对象,首次调用后缓存(进程内)。
-路径硬编码到项目根,勿在项目外使用。
+当前 T2–T5 入口从仓库内已校验的比较资产读取；可用 YB_ROUTE_DATA_ROOT 指定资产根目录。
 """
 from __future__ import annotations
 import functools
+import os
+from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROJECT = "/public/home/mengxl/dzy/yeastbridge"
+PROJECT = os.environ.get('YB_ROUTE_DATA_ROOT', str(Path(__file__).resolve().parents[4] / 'raw/model_selection/routes'))
 
 
 @functools.lru_cache(maxsize=None)
@@ -76,7 +78,7 @@ def routea_gene_embeddings(kind: str = "ft") -> tuple[pd.DataFrame, np.ndarray]:
 
 
 def scf_gene_embeddings(route: str) -> tuple[pd.DataFrame, np.ndarray]:
-    root = Path(PROJECT).parent / "yeastbridge_re/feasibility/transfer_routes"
+    root = Path(PROJECT) / 'transfer_routes'
     idx = pd.read_csv(root / "assets/scf_yeast/A2_init.tsv", sep="\t")[["systematic"]]
     table = np.load(root / "scf_routes" / route / "gene_table_final.npy")
     assert len(idx) == len(table)
@@ -135,10 +137,8 @@ def scyeast_gene_embeddings() -> tuple[pd.DataFrame, np.ndarray]:
     """scYeast 预训练的逐基因嵌入表 pos_embedding.emb.weight(5812×200, w_knowledge ckpt)。
     行序由 models/scyeast/gene_order_5812.txt 给出(由 ckpt 与 gene2vec 精确匹配恢复)。
     注意:这是静态基因表征;scYeast 的样本级表征需经表达门控融合,另行接入。"""
-    import torch
-    ck = f"{PROJECT}/src/external/scYeast/models/final_checkpoint_spearman0.5_w_knowledge_huber_v4.pth"
-    sd = torch.load(ck, map_location="cpu", weights_only=True)["net"]
-    W = sd["pos_embedding.emb.weight"].numpy().astype(np.float32)
+    # Exact tensor extracted from the archived checkpoint; provenance is adjacent.
+    W = np.load(f"{PROJECT}/models/scyeast/gene_embeddings.npy").astype(np.float32)
     genes = [l.strip() for l in open(f"{PROJECT}/models/scyeast/gene_order_5812.txt") if l.strip()]
     assert len(genes) == W.shape[0], f"基因序 {len(genes)} 与嵌入表 {W.shape[0]} 不一致"
     return pd.DataFrame({"systematic": genes}), W

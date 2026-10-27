@@ -1,0 +1,23 @@
+{
+  "status": "different",
+  "scope": "Original script and portable historical-v1, one identical 32-cell optimizer step",
+  "arrays_exact": false,
+  "max_absolute_error": 7.986277341842651e-05,
+  "original_sha256": "4c2199184f4634b4dc1ebeadd7162930ea4b9fd4da73b13090683945b71cceff",
+  "portable_sha256": "8d28cb91d9a216f0d0865604e59e8a9fa56813b4053590f3d6e777d90d4db02e",
+  "full_training_equivalence_test": false,
+  "original_script_repeat": {
+    "arrays_exact": false,
+    "max_absolute_error": 7.30752944946289e-05,
+    "repeated_array_sha256": "34dcc32ef0cd5183fa0b8f2cc0d2dd0abc8c5f63e8c7d064dc1240e394f60f9e"
+  },
+  "seed": 42,
+  "batch": 32,
+  "torch": "2.6.0+cu124",
+  "numpy": "1.26.4",
+  "device": "RTX A6000",
+  "observed_original_repeat_variation": true,
+  "causal_diagnosis": "Not established; repeated original code is not bitwise deterministic in this runtime",
+  "original_script_sha256": "66407884ace14ffaf6ebc079f6fd79fb3c9ed2792a39054fdf3f11381666fba5",
+  "portable_script_sha256": "a58d9cbf68ba40d83f975ba35f9a3b5de380101429b771a7607983eeb2c84dfb"
+}

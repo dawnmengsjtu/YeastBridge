@@ -1,0 +1,69 @@
+{
+  "match": {
+    "status": "passed",
+    "rank_arrays_equal": {
+      "task": true,
+      "response": true,
+      "targets": true,
+      "compounds": true,
+      "orfs": true,
+      "conditions": true,
+      "condition_compounds": true,
+      "support": true,
+      "group_order": true,
+      "group_starts": true,
+      "group_counts": true
+    },
+    "max_absolute_errors": {
+      "pos_spearman_rho": 7.1998596251621194e-09,
+      "pos_null_mean": 9.999054535747565e-17,
+      "pos_null_sd": 9.8879238130678e-17,
+      "pos_source_condition_index": 0.0,
+      "pos_emp_p": 1.1102230246251565e-16,
+      "neg_spearman_rho": 7.1998596251621194e-09,
+      "neg_null_mean": 9.999054535747565e-17,
+      "neg_null_sd": 9.8879238130678e-17,
+      "neg_source_condition_index": 0.0,
+      "neg_emp_p": 1.1102230246251565e-16
+    },
+    "permutations": 1000,
+    "seed": 42,
+    "fresh_calibration": true
+  },
+  "residual": {
+    "status": "passed",
+    "rank_arrays_equal": {
+      "task": true,
+      "response": true,
+      "targets": true,
+      "compounds": true,
+      "orfs": true,
+      "conditions": true,
+      "condition_compounds": true,
+      "support": true,
+      "group_order": true,
+      "group_starts": true,
+      "group_counts": true
+    },
+    "max_absolute_errors": {
+      "pos_spearman_rho": 3.857879626867344e-09,
+      "pos_null_mean": 9.996344030316351e-17,
+      "pos_null_sd": 9.8879238130678e-17,
+      "pos_source_condition_index": 0.0,
+      "pos_emp_p": 1.1102230246251565e-16,
+      "neg_spearman_rho": 3.857879626867344e-09,
+      "neg_null_mean": 9.996344030316351e-17,
+      "neg_null_sd": 9.8879238130678e-17,
+      "neg_source_condition_index": 0.0,
+      "neg_emp_p": 1.1102230246251565e-16
+    },
+    "permutations": 1000,
+    "seed": 42,
+    "fresh_calibration": true
+  },
+  "inputs": {
+    "response_sha256": "fef25d836b76d7654fd580e67fe316bb002268cc7fa94849b7cf754177c58471",
+    "script_sha256": "765badf9c017375126b3a1fe3f88614a22a59b08b1a721e290d52419be5629b2",
+    "profile_directory": "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/compatibility_chain_check/profiles/corrected_profiles"
+  }
+}

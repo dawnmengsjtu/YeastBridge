@@ -2,6 +2,9 @@
 
 - [当前方法与论文主线](CURRENT_METHOD.md)
 - [可执行的复现步骤与实际验证范围](REPRODUCIBILITY.md)
+- [原始数据、模型比较、重新筛药和结构分析](FULL_REPRODUCTION.md)
+- [论文训练配方与权重核对](PAPER_TRAINING.md)
+- [六张主图重建](FIGURE_REPRODUCTION.md)
 - [版本对应](VERSIONS.md)
 - [模型与校验值](../models/MODEL_CARD.md)
 - [数据来源](../data/DATA_SOURCES.md)

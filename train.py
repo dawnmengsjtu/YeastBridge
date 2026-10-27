@@ -16,7 +16,7 @@ from scripts.project_io import ROOT, revision, sha256, write_json
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--config", type=Path, default=ROOT / "configs/b2_training_v2.json")
+    p.add_argument("--config", type=Path, default=ROOT / "configs/b2_training.json")
     p.add_argument("--output", required=True, type=Path)
     p.add_argument("--device", default="cuda", choices=["cuda", "cpu"])
     p.add_argument("--smoke", action="store_true")

@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "output": "functional_v9/per_query_rr_basic_structure.tsv",
+      "rows": 207,
+      "columns": 8,
+      "values_exact": true,
+      "reference_sha256": "e5342f692c917b69c93ba082c5dccdf2c2e4d107ba8cafd53f3093b457ff7c4a"
+    },
+    {
+      "output": "functional_ev1a/per_query_rr_ev1a.tsv",
+      "rows": 76,
+      "columns": 6,
+      "values_exact": true,
+      "reference_sha256": "483bd57908f89b68c71a655e0d75290284e2f677575930669dea4c4dcff19b16"
+    },
+    {
+      "output": "b2_comparison/per_query_ranks_trackA_b2_primary.tsv",
+      "rows": 752,
+      "columns": 7,
+      "values_exact": true,
+      "reference_sha256": "42f5706af741045cfad154282521ab82196d6099ae64fc7269f65e1a2a4f8c39"
+    },
+    {
+      "output": "go_comparison/per_query_ranks_trackA.tsv",
+      "rows": 753,
+      "columns": 7,
+      "values_exact": true,
+      "reference_sha256": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15"
+    }
+  ],
+  "backbone_all_fields_equal": true,
+  "pooled_n": 283,
+  "pooled_mrr": {
+    "rr_human_only": 0.3670704535685008,
+    "rr_yeast_only": 0.3569790224774963,
+    "rr_comparator_best_single": 0.35670821370014005,
+    "rr_joint_nested": 0.40038496130292345
+  },
+  "script_sha256": "a40ed68865430a52721392b23bcdee9edd0d27c52612793ae5801396ab0e32ed"
+}

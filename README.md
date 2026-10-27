@@ -30,6 +30,8 @@ python predict.py --output outputs/published/results.csv
 
 Python 3.9–3.12 is supported by the paper dependency set. The export writes the frozen 25-row table and a provenance record; it does not rerun screening. Paths resolve from the checkout, so commands can be invoked from another working directory.
 
+For a smaller download, extract the compact `YeastBridge-paper-code-20261027.tar.gz` source snapshot from the [extended release](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/paper-reproduction-20261027), then follow the same installation commands. Runtime data are separate release assets.
+
 ## Reconstruct the analysis
 
 Download the `inference` and/or `numerical` archives from the [paper release](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/paper-ion-channel-20261027). Each installed file is checked against [the immutable asset manifest](data/paper/assets.json).
@@ -45,7 +47,17 @@ python main.py --mode profiles --output outputs/profiles
 
 `reproduce` independently recomputes all observed correlations for the complete and residual screens, then reconstructs the screen-wide probabilities and candidate intersection using the frozen permutation calibration and maxima. `profiles` regenerates the human-sequence-to-yeast profiles using the paper checkpoint, restricts common-mode correction to the 338-entry panel, and checks the resulting rank matrix when the numerical archive is installed. Both require a new output directory.
 
-The [reproduction guide](docs/REPRODUCIBILITY.md) distinguishes these verified operations from retraining, regenerating the 100,000-permutation nulls, complete raw-CEL preprocessing and all structural analyses. The repository does not claim that a clone alone reruns every manuscript experiment.
+The [extended reproduction guide](docs/FULL_REPRODUCTION.md) provides commands for raw-CEL processing, fresh calibration and maximum-null permutations, model comparisons, structural contact calculations, candidate/native redocking, and [figure rebuilding](docs/FIGURE_REPRODUCTION.md). [Training](docs/PAPER_TRAINING.md) uses the historical paper recipe explicitly. Each operation has its own verification record; the final screen continues to use the frozen paper checkpoint.
+
+For fresh profile-to-candidate screening on a CUDA GPU, after installing both core archives:
+
+```bash
+python scripts/run_paper_full.py --output outputs/fresh-screen
+```
+
+This recalculates both 1,000-permutation calibration distributions and both 100,000-permutation screen maxima. It does not substitute archived candidate rows for computed results.
+
+The [verification ledger](repro/paper-20261027/extended/README.md) records what was rerun and which results agree. It also records the observed differences in B2 T2 evaluation, fresh training and fresh structural searches, including five prioritized associations after redocking versus six from the archived poses.
 
 ## Versions and files
 

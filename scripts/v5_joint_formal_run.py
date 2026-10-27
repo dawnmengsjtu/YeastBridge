@@ -142,15 +142,21 @@ def load_foundation_reprs(st, scf_npy, scyeast_prior_npy, raw_h5ad):
     # （2026-09-12 修复：原 repr_grid 误写 (P1|P1P2|P2)，10353 行 vs Ek1 9608 行，
     #   首次真跑即被行数断言拦下；bridge_setup 是冻结口径，以它为准。）
     pat = _re.compile(r"^\d+_([^_]+)_(P1|P1P2)_")
-    a_raw = ad.read_h5ad(raw_h5ad)
+    # Cached representations need only their verified observation index here.
+    # A TSV avoids requiring a second copy of unused count values.
+    if Path(raw_h5ad).suffix == '.tsv':
+        raw_names = pd.read_csv(raw_h5ad, sep='\t', dtype=str).observation.tolist()
+    else:
+        a_raw = ad.read_h5ad(raw_h5ad)
+        raw_names = list(a_raw.obs.index)
     keep = np.array([bool(pat.match(str(n))) and
                      pat.match(str(n)).group(2) in {"P1", "P2", "P1P2"}
-                     for n in a_raw.obs.index])
+                     for n in raw_names])
     Fh_all = np.load(scf_npy)
-    assert Fh_all.shape[0] == a_raw.shape[0], \
-        f"scF 嵌入行数 {Fh_all.shape[0]} != h5ad 行数 {a_raw.shape[0]}"
+    assert Fh_all.shape[0] == len(raw_names), \
+        f"scF embedding rows {Fh_all.shape[0]} != observation rows {len(raw_names)}"
     a_norm = ad.read_h5ad(root / cfg["inputs"]["k562_h5ad"]["path"])
-    assert list(a_raw.obs.index) == list(a_norm.obs.index), "raw 与 normalized h5ad 行序不一致"
+    assert raw_names == list(a_norm.obs.index), "Embedding and normalized h5ad observation order differs"
     Fh = l2n(Fh_all[keep].astype(np.float64))
     assert Fh.shape[0] == Ek1.shape[0], f"Fh {Fh.shape} vs Ek1 {Ek1.shape} 行数不齐"
 
