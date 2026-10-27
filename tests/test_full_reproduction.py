@@ -10,6 +10,7 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from scripts import paper_release as paper
+from scripts import project_io
 from scripts.paper_permutations import permute_within_assays
 from scripts.paper_calibration import residual_profiles
 from scripts.paper_structural_evidence import scientific_payload
@@ -18,6 +19,15 @@ from scripts.paper_redocking import compare_searches
 
 
 class FreshReproductionTests(unittest.TestCase):
+    def test_source_snapshot_revision_uses_embedded_metadata(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(project_io, 'ROOT', Path(tmp)), patch.object(project_io.subprocess, 'check_output', side_effect=AssertionError('Must not inspect a parent repository')):
+            root=Path(tmp)
+            self.assertEqual(project_io.revision(), 'source-archive (no embedded code revision)')
+            (root/'BUNDLE.json').write_text(json.dumps({'code_revision':'legacy'}))
+            self.assertEqual(project_io.revision(), 'legacy')
+            (root/'CODE_VERSION.json').write_text(json.dumps({'commit':'a'*40}))
+            self.assertEqual(project_io.revision(), 'a'*40)
+
     def test_comparison_configs_use_declared_release_inputs(self):
         assets={row['path']:row for group in paper.manifest().values() for row in group}
         fields=[('path','sha256'),('path_abs','sha256'),('index_path','index_sha256'),
