@@ -26,9 +26,13 @@ def write_json(path, data):
 
 
 def revision():
-    bundle = ROOT / "BUNDLE.json"
-    if not (ROOT / ".git").exists() and bundle.is_file():
-        return json.loads(bundle.read_text())["code_revision"]
+    if not (ROOT / ".git").exists():
+        for name, key in [("CODE_VERSION.json", "commit"), ("BUNDLE.json", "code_revision")]:
+            metadata = ROOT / name
+            if metadata.is_file():
+                return json.loads(metadata.read_text())[key]
+        # Do not accidentally attribute an extracted snapshot to a parent repository.
+        return "source-archive (no embedded code revision)"
     try:
         commit = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, stderr=subprocess.DEVNULL, text=True

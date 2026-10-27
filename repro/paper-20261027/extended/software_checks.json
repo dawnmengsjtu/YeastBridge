@@ -1,7 +1,7 @@
 {
   "status": "passed",
-  "unit_tests": 18,
-  "modified_python_files_parsed": 24,
+  "unit_tests": 19,
+  "modified_python_files_parsed": 25,
   "modified_python_files": [
     "main.py",
     "scripts/compare_paper_training.py",
@@ -21,6 +21,7 @@
     "scripts/paper_release.py",
     "scripts/paper_route_comparisons.py",
     "scripts/paper_structural_evidence.py",
+    "scripts/project_io.py",
     "scripts/recalc_fd_v1.py",
     "scripts/run_paper_full.py",
     "scripts/structural/dock_run_eval.py",
