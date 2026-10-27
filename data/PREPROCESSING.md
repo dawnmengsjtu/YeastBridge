@@ -1,8 +1,8 @@
-> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+> 历史竞赛预处理记录（2026-10-03）。当前论文使用完整条形码映射，响应文件包含 5,869 株，其中模型覆盖 5,865 株；原始 CEL 重建和蛋白表示重建见[当前预处理指南](../docs/FULL_REPRODUCTION.md)。下文的 5,668 株矩阵和 R 处理入口保留为旧版本记录。
 
-# 数据准备与复核
+# 历史数据准备与复核
 
-主筛选读取冻结响应矩阵，不需要重新处理原始CEL。响应矩阵的来源链是：
+该历史筛选读取冻结响应矩阵，不需要重新处理原始CEL。响应矩阵的来源链是：
 
 ```text
 E-MTAB-2391的18个CEL压缩包 + 平台探针坐标表
@@ -43,13 +43,13 @@ R环境：4.2.3、affyio 1.68.0、preprocessCore 1.60.2。记录见 [R环境](pr
 - 官方数据：[E-MTAB-2391](https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-2391)，Lee et al., DOI [10.1126/science.1250217](https://doi.org/10.1126/science.1250217)。
 - 原始记录：SDRF、IDF、HTTP响应头、归档哈希、处理记录在 `data/provenance/hiphop/`。HTTP响应头记录获取响应的时间；没有将文件修改时间当作下载时间。
 - 3,850个条件包含494个vehicle、3,356个处理条件，涉及3,250个化合物、5,668株酵母。`data/response_conditions.tsv` 从冻结NPZ提取条件、化合物、剂量与单位，并保留源文件哈希。
-- 原始库的剂量单位有micromolar、nanomolar、millimolar、picomolar及percent。9月历史清单的80条候选均为micromolar；当前提交表按每条候选的原始条件记录剂量单位。导出程序按化合物和剂量匹配单位，遇到缺失或歧义时停止。
+- 原始库的剂量单位有micromolar、nanomolar、millimolar、picomolar及percent。9月历史清单的80条候选均为micromolar；该历史提交表按每条候选的原始条件记录剂量单位。导出程序按化合物和剂量匹配单位，遇到缺失或歧义时停止。
 - EMBL-EBI公开数据使用政策及原作者权利说明见[第三方数据条款](THIRD_PARTY_DATA.md)。原始项目曾把许可记为unknown；当前披露保留平台条款和作者署名，不将未声明CC许可的数据另行标为CC-BY。
 
 
 ## ESM-2蛋白表示重建
 
-当前流程使用的三组ESM-2输入已从原环境恢复：6,742条酵母蛋白、810条人源配对记录和1,175个筛选靶点。压缩FASTA、来源快照、调用参数及权重哈希见 [esm2/](provenance/esm2/)。2026-10-03使用fair-esm 2.0.0、PyTorch 2.6.0及RTX A6000重新提取，三组索引和嵌入矩阵均与冻结输入逐字节一致，见[重建比较](provenance/esm2/rebuild-comparison.json)和[运行记录](provenance/esm2/rebuild-run.json)。
+该流程使用的三组ESM-2输入已从原环境恢复：6,742条酵母蛋白、810条人源配对记录和1,175个筛选靶点。压缩FASTA、来源快照、调用参数及权重哈希见 [esm2/](provenance/esm2/)。2026-10-03使用fair-esm 2.0.0、PyTorch 2.6.0及RTX A6000重新提取，三组索引和嵌入矩阵均与冻结输入逐字节一致，见[重建比较](provenance/esm2/rebuild-comparison.json)和[运行记录](provenance/esm2/rebuild-run.json)。
 
 使用单独的Linux/CUDA环境安装 `requirements-embeddings.txt`。从[ESM官方模型入口](https://github.com/facebookresearch/esm#available-models)取得 `esm2_t33_650M_UR50D.pt` 及其同目录的 `esm2_t33_650M_UR50D-contact-regression.pt`；模型与辅助文件的哈希记在重建运行记录中。模型采用MIT许可，蛋白序列保留UniProt署名与CC BY 4.0条款。
 

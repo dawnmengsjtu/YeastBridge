@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "candidate_statuses_match": true,
+  "prioritized": [
+    "YB-IC-001",
+    "YB-IC-002",
+    "YB-IC-021",
+    "YB-IC-022",
+    "YB-IC-023",
+    "YB-IC-025"
+  ],
+  "n_prioritized": 6,
+  "stages": {
+    "control_calibration/reference_pocket_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "f0fbd34a439c84860820d077f11773fd4aa529d09b3754ed760e7e1d8bb86eca"
+    },
+    "control_calibration/reference_pocket_cnn_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "966bed86c9b0895fea7d640bfab73da0a6fb89f3f4f1e68c4bd5335f0d69df38"
+    },
+    "control_calibration/reference_pocket_comparison.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "309f11b79feba4958795630a1f4318d021b1b37528775b6cfbf6852687e4e0bf"
+    },
+    "CLIC1/gnina_refinement/search_depth/literature_contact_evidence.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "3a7a2f634132a746c36e4c9748ee0ac6ca4868a56b4c2d170a0347b1e214a679"
+    },
+    "control_calibration/interaction_fingerprints.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "247a178210ed2898b029c2f240c354d5b9f913afc98f57d02f5312b401e32e63"
+    },
+    "control_calibration/interaction_calibration.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "9ebf90cf03cf9c2666f53a577a390caadd231dd767223dc32cbfc8a6b1030e1c"
+    }
+  },
+  "fresh_contact_calculation": true,
+  "fresh_contact_models": true,
+  "fresh_docking": false,
+  "interpretation": "Descriptive pocket-contact/reference prioritization, separate from the stricter binding-control classifier",
+  "source_archive_sha256": "486c3c896ed7709c9eda3b075c3d7d039290fa5a5a38550a866631d33755da1a",
+  "script_sha256": "efda8e6e8ce776e6b4a12a7e6fd80674629542afbb3d3a44dd3221ff1ac770a4",
+  "verification_script_sha256": "1ebf07172c0404e6d892a7f583140f54d6e4096060bebdcce34ec1d2e2d12406",
+  "comparison_normalization": "Ignore relocated provenance hashes; make the legacy implicit Vina kcal/mol unit explicit. All scientific values and units compared."
+}

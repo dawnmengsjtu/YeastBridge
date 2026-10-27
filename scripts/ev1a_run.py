@@ -5,17 +5,18 @@ V9 三臂五成员机器 verbatim；LOGO 组 = 单基因；判据见 EV_PROTOCOL
 import json
 import os
 import re
-import shutil
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-YB = Path("/public/home/mengxl/dzy/YeastBridge_0912")
-EV = Path("/public/home/mengxl/dzy/YeastBridge_0912")
+YB = Path(__file__).resolve().parents[1]
+EV = YB
 SOURCE = EV / "results_a6000/externalvalidation/ev1a"
-OUT = Path(os.environ.get("YB_EV1A_OUT", SOURCE))
+OUT = Path(os.environ.get("YB_EV1A_OUT", YB / "outputs/functional_ev1a"))
+if OUT.exists() and any(OUT.iterdir()):
+    raise ValueError('Output must be a new or empty directory')
 OUT.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(YB / "scripts"))
 from v5_joint_formal_run import (build_projection_maps, l2n,  # noqa: E402
@@ -114,14 +115,9 @@ def main():
             S9[:, c] = S_j9[:, m].max(axis=1)
 
     # ---- lab_gs0：K562 矩阵查询行投影（先镜像 h5ad，自包含）----
-    v5cfg = json.loads((YB / "configs_a6000_frozen/v5_1_joint_formal.json").read_text())
-    v5stage = Path("/public/home/mengxl/dzy/YeastBridge_0912/raw/externalvalidation/frozen_inputs")
+    v5cfg = json.loads((YB / "configs/v5_1_joint_formal.json").read_text())
     rel = v5cfg["inputs"]["k562_h5ad"]["path"]
-    h5src = v5stage / rel
-    h5dst = mir / rel
-    if not h5dst.exists():
-        h5dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(h5src, h5dst)
+    h5dst = YB / rel
     assert sha256_file(str(h5dst)) == v5cfg["inputs"]["k562_h5ad"]["sha256"]
     import anndata as ad
     a = ad.read_h5ad(h5dst)
@@ -146,7 +142,7 @@ def main():
     ridx = [t2row[g.upper()] for g in q.gene if g.upper() in t2row]
     have = [g for g in q.gene.astype(str) if g.upper() in t2row]
     Xq_k = Xp[[t2row[g.upper()] for g in have]]
-    gproj = mir / "match_diag_20260908/k562_proj/gene_goslim_projection.tsv.gz"
+    gproj = YB / st['cfg']['inputs']['goslim_projection']['path']
     edges_gs, shared_gs = build_projection_maps(gproj)
     V_q = project_v2_matrix(Xq_k, genes_k, "human", edges_gs, len(shared_gs))
     genes_y, mat_y = load_matrix(mir / "gse_go_three_arm_v3_open_set/"

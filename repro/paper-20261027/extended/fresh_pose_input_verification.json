@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "fresh_candidate_native_searches": 282,
+  "background_control_searches": "frozen",
+  "required_prepared_inputs_verified": 284,
+  "unused_background_input_files_absent": 3042,
+  "replay_verification_sha256": "48a56d365f0edbe2ceed360ed9111a3981e2bbb2182346e6180f58600a2e81f9",
+  "replay_table_sha256": "063fb06afce55e79bdf10249fe9ccada741a03f9fd271a48eeb04776682c03bc",
+  "protocol_parameters_equal": true
+}

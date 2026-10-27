@@ -8,16 +8,20 @@ perturbation genes. Run under yeastbridge_vs_models python.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.linear_model import Ridge
 
-ROOT = Path("/public/home/mengxl/dzy/YeastBridge_0912")
+ROOT = Path(__file__).resolve().parents[3]
 SRC = ROOT / "raw/model_selection/norman_assets"
 FEATS = ROOT / "raw/model_selection/norman_features"
-OUT = ROOT / "results_model_selection/step1_scF_selection"
+OUT = Path(os.environ.get('YB_MODEL_SELECTION_OUTPUT', ROOT / 'outputs/model_selection/backbone'))
+if OUT.exists() and any(OUT.iterdir()):
+    raise ValueError('Output must be a new or empty directory')
+OUT.mkdir(parents=True, exist_ok=True)
 SEED = 20260821
 N_PROGRAMS = 6
 ALPHA_GRID = np.logspace(-3, 6, 10)

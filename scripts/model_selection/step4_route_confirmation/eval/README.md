@@ -1,3 +1,5 @@
+> Historical evaluation development record (August 2026). Current manuscript comparisons use [paper_comparisons.py](../../../paper_comparisons.py) and the [extended reproduction guide](../../../../docs/FULL_REPRODUCTION.md). Earlier T1 experiments and conclusions below are preserved as dated records, not the current paper's selection criteria.
+
 # YeastBridge 评测 harness(T1–T5)
 
 统一评测入口,任务定义以 `docs/plan_v1.0.md` 第四节为准。四路线(A/B/C/D)的模型产物以"特征"身份接入本 harness,保证同数据划分、同协议、同指标。

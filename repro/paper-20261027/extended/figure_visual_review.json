@@ -1,0 +1,16 @@
+{
+  "status": "inspected",
+  "figures": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "inspection": "Rendered main figures inspected at enlarged scale; panel labels, spacing, legends, overlap and clipping reviewed. All 51 panel raster comparisons were also recorded.",
+  "source_figures_modified": false,
+  "source": "figure_entry/project/delivery/yeastbridge/figures",
+  "raster_check": "figures.json",
+  "assembly_check": "figure_assembly.json"
+}

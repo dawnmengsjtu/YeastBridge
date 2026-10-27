@@ -10,7 +10,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--mode', choices=['export', 'check', 'install', 'reproduce', 'profiles'], default='export')
     ap.add_argument('--output', type=Path)
-    ap.add_argument('--level', choices=['reference', 'inference', 'numerical', 'all'], default='reference')
+    ap.add_argument('--level', choices=['reference', 'inference', 'numerical', 'all', 'comparisons', 'preprocessing', 'graph'], default='reference')
     ap.add_argument('--archive', type=Path, action='append')
     ap.add_argument('--threads', type=int, default=4)
     args = ap.parse_args()

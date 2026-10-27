@@ -1,0 +1,20 @@
+{
+  "python": "3.10.20 | packaged by conda-forge | (main, Jun 11 2026, 03:31:56) [GCC 14.3.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "new_virtual_environment": true,
+  "installed_from": "Pinned repository requirements using existing cached wheels; no inherited site packages",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "scipy": "1.11.4",
+    "torch": "2.4.0+cu121",
+    "anndata": "0.10.8",
+    "h5py": "3.14.0",
+    "scikit-learn": "1.4.2",
+    "pyarrow": "17.0.0"
+  },
+  "pip_check": "No broken requirements found.",
+  "screening": "core_clean_screen.json",
+  "comparisons": "core_clean_comparisons.json",
+  "portability_fix": "Three active configurations now use the release-pinned frozen_pairs.tsv instead of an implicit old result-directory file; bytes are identical."
+}

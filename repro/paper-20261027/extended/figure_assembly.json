@@ -1,0 +1,38 @@
+[
+  {
+    "figure": 1,
+    "pixels_exact": true,
+    "width_pt": 1080.0,
+    "height_pt": 900.0
+  },
+  {
+    "figure": 2,
+    "pixels_exact": true,
+    "width_pt": 1440.0,
+    "height_pt": 1800.0
+  },
+  {
+    "figure": 3,
+    "pixels_exact": true,
+    "width_pt": 1080.0,
+    "height_pt": 1260.0
+  },
+  {
+    "figure": 4,
+    "pixels_exact": true,
+    "width_pt": 1080.0,
+    "height_pt": 1260.0
+  },
+  {
+    "figure": 5,
+    "pixels_exact": true,
+    "width_pt": 1440.0,
+    "height_pt": 1440.0
+  },
+  {
+    "figure": 6,
+    "pixels_exact": true,
+    "width_pt": 1440.0,
+    "height_pt": 1620.0
+  }
+]

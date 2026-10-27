@@ -1,0 +1,3821 @@
+{
+  "status": "complete",
+  "fresh_searches": 282,
+  "successful": 282,
+  "failed": [],
+  "comparisons": [
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "GQLIWGHJUSUIRN-VOTSOKGWSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.06776857370000045,
+        "cnn_affinity": 0.06776857370000045,
+        "cnn_score": 0.0003619193999999659
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "PBJKAQJTKDWYMT-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "9ZN6_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0,
+        "top_pose_rmsd": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9ZN6",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "FVTYVLDLZBEBQI-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "FVTYVLDLZBEBQI-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "FVTYVLDLZBEBQI-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.033923149100000494,
+        "cnn_affinity": 0.033923149100000494,
+        "cnn_score": 0.0043660402000000875
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "NKBMBEGQQBFSDD-JLHYYAGUSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "LRAJLMGRXDVQNP-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "LRAJLMGRXDVQNP-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "LRAJLMGRXDVQNP-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "NZLABGLSVFGMOH-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.0013833046000000238,
+        "cnn_affinity": 0.0013833046000000238,
+        "cnn_score": 0.017076730700000042
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "VSJKWCGYPAHWDS-FQEVSTJZSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "ZECGBUYROKQBIO-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_2",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_2",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_2",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_3",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_3",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "AOGKHZAXGNKOMP-UHFFFAOYSA-N_3",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "LFJNYAXLIXMPPB-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-012",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_2",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_3",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_4",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_5",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_6",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_7",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_8",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_9",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_10",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_11",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_12",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_13",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_14",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-014",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-014",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "QTRIGFJYNKGEIO-UHFFFAOYSA-N_15",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-013",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "AF_HTR3C",
+      "ligand": "UCUYMXSMUBCWGS-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-014",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "GYVQZQFEXWYMOP-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "KGZXEYIVPHJIRL-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_1",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_1",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LGWREHODVFMFSH-UHFFFAOYSA-N_1",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LYUZOXNETFFKST-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LYUZOXNETFFKST-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "LYUZOXNETFFKST-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261020,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261021,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261022,
+      "native": false,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "absolute_errors": {
+        "affinity": 0.0
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261030,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.4463744164000003,
+        "cnn_affinity": 0.4463744164000003,
+        "cnn_score": 0.0879904627
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "ZGISWAPMFGULSM-UHFFFAOYSA-N_0",
+      "seed": 20261030,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.0019779204999998967,
+        "cnn_affinity": 0.0019779204999998967,
+        "cnn_score": 0.000268995699999941
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "ZGISWAPMFGULSM-UHFFFAOYSA-N_0",
+      "seed": 20261031,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 7.15260000028195e-06,
+        "cnn_affinity": 7.15260000028195e-06,
+        "cnn_score": 1.6868099999900465e-05
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261032,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.6398730278000002,
+        "cnn_affinity": 0.6398730278000002,
+        "cnn_score": 0.01830083139999994
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WUDNAOHCIDAARE-UHFFFAOYSA-N_0",
+      "seed": 20261031,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.015569210099999786,
+        "cnn_affinity": 0.015569210099999786,
+        "cnn_score": 0.0016322136000000986
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "ZGISWAPMFGULSM-UHFFFAOYSA-N_0",
+      "seed": 20261032,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.0024065971000002406,
+        "cnn_affinity": 0.0024065971000002406,
+        "cnn_score": 8.082379999996281e-05
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WUDNAOHCIDAARE-UHFFFAOYSA-N_0",
+      "seed": 20261032,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.0333919525000006,
+        "cnn_affinity": 0.0333919525000006,
+        "cnn_score": 0.02193009849999994
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WGHPBVDVOAOHLD-UHFFFAOYSA-N_0",
+      "seed": 20261031,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.009210109699999691,
+        "cnn_affinity": 0.009210109699999691,
+        "cnn_score": 0.0031751394000000266
+      },
+      "nonfinite_mismatches": []
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "WUDNAOHCIDAARE-UHFFFAOYSA-N_0",
+      "seed": 20261030,
+      "native": false,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement/search_depth",
+      "score_unit": "negative_predicted_pK",
+      "absolute_errors": {
+        "affinity": 0.35702896110000015,
+        "cnn_affinity": 0.35702896110000015,
+        "cnn_score": 0.05555063480000011
+      },
+      "nonfinite_mismatches": []
+    }
+  ],
+  "seconds": 4772.232771601062,
+  "scope": "Prepared-coordinate candidate/native redocking; complete background/control-panel reruns are separate",
+  "reference_rows_compared": 234,
+  "missing_references": [
+    {
+      "structure": "7FBQ",
+      "ligand": "7FBQ_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-002",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-003",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-004",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-005",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-006",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-007",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "7FBQ_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "7FBQ",
+      "ligand": "7FBQ_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "CLIC1/gnina_refinement",
+      "score_unit": "negative_predicted_pK",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-008",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "9CRV",
+      "ligand": "9CRV_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-009",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-010",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "6HUP",
+      "ligand": "6HUP_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-011",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-015",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-016",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-017",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-018",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261020,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261022,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    },
+    {
+      "structure": "8HKQ_C",
+      "ligand": "8HKQ_C_native",
+      "seed": 20261021,
+      "native": true,
+      "status": "ok",
+      "case": "pairs/YB-IC-019",
+      "score_unit": "kcal/mol",
+      "reason": "Reference table absent"
+    }
+  ],
+  "numerical_summary": {
+    "affinity [kcal/mol]": {
+      "compared": 222,
+      "exact": 222,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    "affinity [negative_predicted_pK]": {
+      "compared": 12,
+      "exact": 0,
+      "max_absolute_error": 0.6398730278000002,
+      "mean_absolute_error": 0.1340761979333335
+    },
+    "cnn_affinity": {
+      "compared": 12,
+      "exact": 0,
+      "max_absolute_error": 0.6398730278000002,
+      "mean_absolute_error": 0.1340761979333335
+    },
+    "cnn_score": {
+      "compared": 12,
+      "exact": 0,
+      "max_absolute_error": 0.0879904627,
+      "mean_absolute_error": 0.01756256319166667
+    },
+    "top_pose_rmsd": {
+      "compared": 15,
+      "exact": 15,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    }
+  },
+  "nonfinite_mismatch_jobs": 0,
+  "execution_plan_sha256": "a46c6affe9f8a883424b3ab3049e32d4415f3199c8793565ef63531574e0b6eb",
+  "verification_script_sha256": "91d8c89608c4345774a2ff4ad409b95d700f08c7c10ba01e8ab6e001125041c3",
+  "native_qualification_comparisons": [
+    {
+      "case": "CLIC1/gnina_refinement",
+      "structure": "7FBQ",
+      "n_success": 3,
+      "median_rmsd": 0.43095883239283,
+      "reference_median_rmsd": 0.4522376962539096,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "RYR1/water_control/pairs/YB-IC-021",
+      "structure": "9ZN6",
+      "n_success": 3,
+      "median_rmsd": 0.4592828245709931,
+      "reference_median_rmsd": 0.4592828245709931,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "RYR1/water_control/pairs/YB-IC-022",
+      "structure": "9ZN6",
+      "n_success": 3,
+      "median_rmsd": 0.4592828245709931,
+      "reference_median_rmsd": 0.4592828245709931,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "RYR1/water_control/pairs/YB-IC-023",
+      "structure": "9ZN6",
+      "n_success": 3,
+      "median_rmsd": 0.4592828245709931,
+      "reference_median_rmsd": 0.4592828245709931,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "RYR1/water_control/pairs/YB-IC-024",
+      "structure": "9ZN6",
+      "n_success": 3,
+      "median_rmsd": 0.4592828245709931,
+      "reference_median_rmsd": 0.4592828245709931,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "RYR1/water_control/pairs/YB-IC-025",
+      "structure": "9ZN6",
+      "n_success": 3,
+      "median_rmsd": 0.4592828245709931,
+      "reference_median_rmsd": 0.4592828245709931,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-002",
+      "structure": "6HUP",
+      "n_success": 3,
+      "median_rmsd": 0.2291372812054007,
+      "reference_median_rmsd": 0.2291372812054007,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-003",
+      "structure": "6HUP",
+      "n_success": 3,
+      "median_rmsd": 0.2291372812054007,
+      "reference_median_rmsd": 0.2291372812054007,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-004",
+      "structure": "6HUP",
+      "n_success": 3,
+      "median_rmsd": 0.2291372812054007,
+      "reference_median_rmsd": 0.2291372812054007,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-005",
+      "structure": "9CRV",
+      "n_success": 3,
+      "median_rmsd": 1.211407743927303,
+      "reference_median_rmsd": 1.211407743927303,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-006",
+      "structure": "9CRV",
+      "n_success": 3,
+      "median_rmsd": 1.211407743927303,
+      "reference_median_rmsd": 1.211407743927303,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-007",
+      "structure": "9CRV",
+      "n_success": 3,
+      "median_rmsd": 1.211407743927303,
+      "reference_median_rmsd": 1.211407743927303,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-008",
+      "structure": "9CRV",
+      "n_success": 3,
+      "median_rmsd": 1.211407743927303,
+      "reference_median_rmsd": 1.211407743927303,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-009",
+      "structure": "9CRV",
+      "n_success": 3,
+      "median_rmsd": 1.211407743927303,
+      "reference_median_rmsd": 1.211407743927303,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-010",
+      "structure": "6HUP",
+      "n_success": 3,
+      "median_rmsd": 0.5290148219639723,
+      "reference_median_rmsd": 0.5290148219639723,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-011",
+      "structure": "6HUP",
+      "n_success": 3,
+      "median_rmsd": 0.5290148219639723,
+      "reference_median_rmsd": 0.5290148219639723,
+      "qualified": true,
+      "reference_qualified": true,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-015",
+      "structure": "8HKQ_C",
+      "n_success": 3,
+      "median_rmsd": 9.485031239898818,
+      "reference_median_rmsd": 9.485031239898818,
+      "qualified": false,
+      "reference_qualified": false,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-016",
+      "structure": "8HKQ_C",
+      "n_success": 3,
+      "median_rmsd": 9.485031239898818,
+      "reference_median_rmsd": 9.485031239898818,
+      "qualified": false,
+      "reference_qualified": false,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-017",
+      "structure": "8HKQ_C",
+      "n_success": 3,
+      "median_rmsd": 9.485031239898818,
+      "reference_median_rmsd": 9.485031239898818,
+      "qualified": false,
+      "reference_qualified": false,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-018",
+      "structure": "8HKQ_C",
+      "n_success": 3,
+      "median_rmsd": 9.485031239898818,
+      "reference_median_rmsd": 9.485031239898818,
+      "qualified": false,
+      "reference_qualified": false,
+      "qualification_match": true
+    },
+    {
+      "case": "pairs/YB-IC-019",
+      "structure": "8HKQ_C",
+      "n_success": 3,
+      "median_rmsd": 9.485031239898818,
+      "reference_median_rmsd": 9.485031239898818,
+      "qualified": false,
+      "reference_qualified": false,
+      "qualification_match": true
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "status": "passed",
+  "mode": "redraw",
+  "figures": 6,
+  "panels": 51,
+  "recomputed_data_panels": 42,
+  "retained_schematic_panels": 9,
+  "retained_molecular_render_assets": true,
+  "checks": [
+    {
+      "panel": "1a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "1b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "1c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "1d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "1e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "1f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "1g",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "2b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2g",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "2h",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2i",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2j",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2k",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2l",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "2m",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "3a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "3b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "3c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "3d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "3e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "3f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "4b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4g",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "4h",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "5b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5g",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "5h",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6a",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": false
+    },
+    {
+      "panel": "6b",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6c",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6d",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6e",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6f",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6g",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6h",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    },
+    {
+      "panel": "6i",
+      "pixels_exact_at_72_dpi": true,
+      "recomputed_from_tables": true
+    }
+  ],
+  "archive_sha256": "38b1e9c1e18fa211211b2a659db6332346aada5d41fe7756cca36394f8819961",
+  "script_sha256": "ec31b7795cdee034f76a5e83cc245d71b8685bf69222bdacce31eab3fd4f89f4"
+}

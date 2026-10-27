@@ -1,0 +1,72 @@
+[
+  {
+    "entry": "scripts/paper_calibration.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_permutations.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_comparisons.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_route_comparisons.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_graph_comparison.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_structural_evidence.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_redocking.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_figures.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/paper_embeddings.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/run_paper_full.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/compare_paper_training.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/download_paper_raw.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/prepare_training_data.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  },
+  {
+    "entry": "scripts/install_training_assets.py",
+    "help_returncode": 0,
+    "outside_checkout": true
+  }
+]

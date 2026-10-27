@@ -13,6 +13,26 @@ from scripts.project_io import ROOT, sha256
 from scripts.download_asset import download
 
 
+def check_destination(target, expected):
+    if target.exists() and sha256(target) != expected:
+        raise ValueError(f"Refusing to replace a different local asset: {target}")
+
+
+def install_verified(source, target, expected):
+    check_destination(target, expected)
+    if target.exists():
+        return
+    target.parent.mkdir(parents=True, exist_ok=True)
+    pending = target.with_name(target.name + ".installing")
+    try:
+        shutil.copyfile(source, pending)
+        if sha256(pending) != expected:
+            raise ValueError(f"Copied asset checksum mismatch: {target}")
+        pending.replace(target)
+    finally:
+        pending.unlink(missing_ok=True)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument(
@@ -41,6 +61,20 @@ def main():
         ]
         for k in ["counts", "protein_matrix"]
     }
+    cells_source = ROOT / "models/training/evidence/corpus_cells.tsv"
+    cells_sha = cfg["required_assets"]["cells"]["sha256"]
+    if sha256(cells_source) != cells_sha:
+        p.error("Cell roster checksum mismatch")
+    # Check every existing destination before installing any asset.
+    for name, expected_sha in expected_files.items():
+        check_destination(destination / name, expected_sha)
+    check_destination(destination / "corpus_cells.tsv", cells_sha)
+    if args.checkpoint:
+        expected_checkpoint = cfg["required_assets"]["pretrained_checkpoint"]["sha256"]
+        if sha256(args.checkpoint) != expected_checkpoint:
+            p.error("Pretrained checkpoint checksum mismatch; no model was installed")
+        checkpoint_target = ROOT / cfg["required_assets"]["pretrained_checkpoint"]["path"]
+        check_destination(checkpoint_target, expected_checkpoint)
     with tempfile.TemporaryDirectory(dir=destination) as temp:
         with tarfile.open(archive, "r:gz") as source:
             members = source.getmembers()
@@ -57,18 +91,10 @@ def main():
                 if sha256(target) != expected_files[member.name]:
                     p.error(f"Training member checksum mismatch: {member.name}")
         for name in expected_files:
-            shutil.move(str(Path(temp) / name), destination / name)
-    shutil.copyfile(
-        ROOT / "models/training/evidence/corpus_cells.tsv",
-        destination / "corpus_cells.tsv",
-    )
+            install_verified(Path(temp) / name, destination / name, expected_files[name])
+    install_verified(cells_source, destination / "corpus_cells.tsv", cells_sha)
     if args.checkpoint:
-        expected_checkpoint = cfg["required_assets"]["pretrained_checkpoint"]["sha256"]
-        if sha256(args.checkpoint) != expected_checkpoint:
-            p.error("Pretrained checkpoint checksum mismatch; no model was installed")
-        target = ROOT / cfg["required_assets"]["pretrained_checkpoint"]["path"]
-        if args.checkpoint.resolve() != target.resolve():
-            shutil.copyfile(args.checkpoint, target)
+        install_verified(args.checkpoint, checkpoint_target, expected_checkpoint)
     print(
         "Training inputs verified. The upstream models.ckpt must also match configs/b2_training.json."
     )

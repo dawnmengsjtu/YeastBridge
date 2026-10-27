@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "all_grid_cells_equal": true,
+  "cells": {
+    "rawES_x_rawES(=V5.1口径)": {
+      "repr": "rawES_x_rawES(=V5.1口径)",
+      "test_auc": 0.5606857456797523,
+      "test_p": 0.007266103489551947,
+      "ridge_train_auc": 0.926145538885265,
+      "dim_x": 639,
+      "dim_y": 639
+    },
+    "scF_x_rawES": {
+      "repr": "scF_x_rawES",
+      "test_auc": 0.5555189291779044,
+      "test_p": 0.012683806349068802,
+      "ridge_train_auc": 0.5959018627237805,
+      "dim_x": 3072,
+      "dim_y": 639
+    },
+    "rawES_x_scyeast_prior": {
+      "repr": "rawES_x_scyeast_prior",
+      "test_auc": 0.5390570372590151,
+      "test_p": 0.05788028840425565,
+      "ridge_train_auc": 0.7576507936507937,
+      "dim_x": 639,
+      "dim_y": 200
+    },
+    "scF_x_scyeast_prior(双基座)": {
+      "repr": "scF_x_scyeast_prior(双基座)",
+      "test_auc": 0.5064678853261413,
+      "test_p": 0.3972704516600987,
+      "ridge_train_auc": 0.554496339784011,
+      "dim_x": 3072,
+      "dim_y": 200
+    }
+  },
+  "script_sha256": "a40ed68865430a52721392b23bcdee9edd0d27c52612793ae5801396ab0e32ed"
+}

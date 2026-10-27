@@ -1,0 +1,20 @@
+{
+  "driver": {
+    "name": "five_route_five_task.py",
+    "sha256": "ec62a6990a61aeac33e2a6debe20ecc038b46a318e43f5b1b4d09a5a9e679e37",
+    "functions": [
+      "propagate",
+      "e_t2_essentiality",
+      "e_t4_engineering"
+    ]
+  },
+  "graph_library": {
+    "name": "second_round.py",
+    "sha256": "9febcdb971f35940ff2c515ff80f197e695e95c4ce1135bbfb8a4ddd1c9e5499",
+    "functions": [
+      "_load_sga_neighbors",
+      "_propagate_personalized_pagerank"
+    ]
+  },
+  "adaptation": "Function bodies retained; input path resolution points to the verified repository asset."
+}

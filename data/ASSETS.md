@@ -1,14 +1,14 @@
-> Historical competition/training record. Current manuscript assets and commands: [reproduction guide](../docs/REPRODUCIBILITY.md).
+> 历史竞赛资产记录（2026-10-03）。论文资产使用 [paper-ion-channel-20261027](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/paper-ion-channel-20261027) 和 [paper-reproduction-20261027](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/paper-reproduction-20261027)，安装方法见[当前复现指南](../docs/REPRODUCIBILITY.md)。下文中的 v2 权重和 5,668 株响应矩阵属于竞赛版本。
 
 # 模型与数据附件
 
-当前版本见 [submission-v2发布页](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/submission-v2-20261003)。大型checkpoint及响应矩阵通过Release分发，安装器读取 [asset_downloads.json](asset_downloads.json)校验SHA-256。
+历史竞赛版本见 [submission-v2发布页](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/submission-v2-20261003)。大型checkpoint及响应矩阵通过Release分发，安装器读取 [asset_downloads.json](asset_downloads.json)校验SHA-256。
 
-## 当前完整筛选
+## 历史竞赛筛选资产
 
 ```bash
 python scripts/install_assets.py --download
-python main.py --mode check
+python scripts/check_assets.py
 ```
 
 | 文件 | SHA-256 |
@@ -16,7 +16,7 @@ python main.py --mode check
 | `raw/tier1_models/route_b_v2/final_model.pt` | `281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad` |
 | `raw/tier1_response/strain_response.npz` | `d174dc0a1cc403b9ab4ce730aa07a11eb51aa290fe04196c2c903d47c486aadf` |
 
-其余当前输入已在仓库中，按 `configs/esm2_joint_tasks_v2.json` 与 `configs/b2_submission_assets.json` 的实际依赖检查。安装器拒绝错误哈希，本地输入先核验再安装。离线安装：
+其余该版本输入已在仓库中，按 `configs/esm2_joint_tasks_v2.json` 与 `configs/b2_submission_assets.json` 的实际依赖检查。安装器拒绝错误哈希，本地输入先核验再安装。离线安装：
 
 ```bash
 python scripts/install_assets.py --weights /path/to/b2-submission-v2-final_model.pt \
@@ -33,7 +33,7 @@ scFoundation初始权重通过官方来源获取，不重复打入完整包；�
 
 ## 历史版本与文件格式
 
-9月B2仍在[旧资产发布页](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/reproducibility-assets-20261003)，可用 `python scripts/install_assets.py --legacy --download` 安装至旧路径。旧配置仍显式指向旧权重；当前默认入口读取 `models/submission.json`。
+9月B2仍在[旧资产发布页](https://github.com/dawnmengsjtu/YeastBridge/releases/tag/reproducibility-assets-20261003)，可用 `python scripts/install_assets.py --legacy --download` 安装至旧路径。旧配置仍显式指向旧权重；该历史版本读取 `models/submission.json`；当前论文入口读取 `configs/paper_*.json`。
 
 HIP/HOP响应含5,668菌株×3,850条件及剂量单位。`z_score`是沿用的历史键名，实际响应定义见数据准备文档。`A2_init.tsv`为基因顺序表，原CRLF字节由 `.gitattributes` 保留。
 

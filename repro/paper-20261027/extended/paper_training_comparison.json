@@ -1,0 +1,2170 @@
+{
+  "status": "different",
+  "full_training_completed": true,
+  "epochs": 6,
+  "missing_tensors": [],
+  "extra_tensors": [],
+  "n_tensors": 268,
+  "n_exact_tensors": 129,
+  "gene_table": {
+    "shape": [
+      6733,
+      768
+    ],
+    "exact": false,
+    "max_absolute_error": 0.5387553870677948,
+    "mean_absolute_error": 0.04828873630996394,
+    "mean_row_cosine": 0.9708301876139286,
+    "min_row_cosine": 0.9049207796030423,
+    "reference_sha256": "d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24",
+    "replay_sha256": "54302f29b62ca195bcbb3b114cfc5bfa6e4b8ad2dcf9305d806457af8ecdb721"
+  },
+  "tensors": [
+    {
+      "tensor": "decoder.m.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.003499941900372505,
+      "mean_absolute_error": 0.0006612275770265796
+    },
+    {
+      "tensor": "decoder.m.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01625645160675049,
+      "mean_absolute_error": 0.0016312148654833436
+    },
+    {
+      "tensor": "decoder.m.performer.calls_since_last_redraw",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01531331054866314,
+      "mean_absolute_error": 0.0032977101559765742
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.022418849170207977,
+      "mean_absolute_error": 0.00239498731423564
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006750078871846199,
+      "mean_absolute_error": 0.0015989962906530764
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.023188164457678795,
+      "mean_absolute_error": 0.00293098955645601
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.015489235520362854,
+      "mean_absolute_error": 0.003526806060719423
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.02556861750781536,
+      "mean_absolute_error": 0.0032022383676820966
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.004196010529994965,
+      "mean_absolute_error": 0.0007845127536398877
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.028427472338080406,
+      "mean_absolute_error": 0.001968810742106412
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.011933940462768078,
+      "mean_absolute_error": 0.002191342137057184
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.020500540733337402,
+      "mean_absolute_error": 0.003149798372760415
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01604272032273002,
+      "mean_absolute_error": 0.002805235012781182
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.07268494693562388,
+      "mean_absolute_error": 0.0050166582981885565
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006965382024645805,
+      "mean_absolute_error": 0.0015108771233514062
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.04480050606071018,
+      "mean_absolute_error": 0.004378034981224748
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.00856531411409378,
+      "mean_absolute_error": 0.0019719649842500075
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.0.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.02439868450164795,
+      "mean_absolute_error": 0.0046961294719949365
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01576279290020466,
+      "mean_absolute_error": 0.004183349024856398
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.026999792200513184,
+      "mean_absolute_error": 0.004106595220517377
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.005326040089130402,
+      "mean_absolute_error": 0.0014465930102787183
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03780440427362919,
+      "mean_absolute_error": 0.004001331429957225
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03895439673215151,
+      "mean_absolute_error": 0.007327041393008216
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.043252402916550636,
+      "mean_absolute_error": 0.007048784410827494
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.004281092435121536,
+      "mean_absolute_error": 0.0011112638520893725
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03482691943645477,
+      "mean_absolute_error": 0.0032519978821526274
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.012386047281324863,
+      "mean_absolute_error": 0.002370066660803971
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.021483659744262695,
+      "mean_absolute_error": 0.0039002631092444062
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.018687907606363297,
+      "mean_absolute_error": 0.0031155093441896375
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06540055200457573,
+      "mean_absolute_error": 0.006074820687684868
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.008306891802931204,
+      "mean_absolute_error": 0.0016756053037241259
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.05441212933510542,
+      "mean_absolute_error": 0.0055335238477326135
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.010845325887203217,
+      "mean_absolute_error": 0.0023003488381903026
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.1.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.025978803634643555,
+      "mean_absolute_error": 0.0048638463485985994
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.016818709671497345,
+      "mean_absolute_error": 0.003652155773472998
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03400351107120514,
+      "mean_absolute_error": 0.003661824433935491
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.009230807278072461,
+      "mean_absolute_error": 0.0017506376843186011
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03609938733279705,
+      "mean_absolute_error": 0.0043323396878388945
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.02597002312541008,
+      "mean_absolute_error": 0.006373146427472776
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03736503119580448,
+      "mean_absolute_error": 0.006073065686069554
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.005069008097052574,
+      "mean_absolute_error": 0.0013918932292145136
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03814520873129368,
+      "mean_absolute_error": 0.003782265516528541
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.012063667178153992,
+      "mean_absolute_error": 0.0023832947608468658
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.028535008430480957,
+      "mean_absolute_error": 0.0046480149030685425
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.017231575795449317,
+      "mean_absolute_error": 0.003496384087853688
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.07755274651572108,
+      "mean_absolute_error": 0.006933995331535712
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.00969441095367074,
+      "mean_absolute_error": 0.0020400243431382137
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.07701741717755795,
+      "mean_absolute_error": 0.006431252450459995
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.009945958852767944,
+      "mean_absolute_error": 0.002278135221722266
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.2.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.026224493980407715,
+      "mean_absolute_error": 0.005818128236569464
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01972987689077854,
+      "mean_absolute_error": 0.00360716131630312
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03403027250897139,
+      "mean_absolute_error": 0.004035737283399557
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.008690361864864826,
+      "mean_absolute_error": 0.0019127297670564758
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03696437552571297,
+      "mean_absolute_error": 0.004262369653275517
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01615714840590954,
+      "mean_absolute_error": 0.003980789360213066
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06656085699796677,
+      "mean_absolute_error": 0.005341016813456026
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.009866525419056416,
+      "mean_absolute_error": 0.002077742451739084
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.05031303409487009,
+      "mean_absolute_error": 0.004122187409666956
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.02038189396262169,
+      "mean_absolute_error": 0.004596935464121543
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.02908921241760254,
+      "mean_absolute_error": 0.00887260353192687
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.015826961025595665,
+      "mean_absolute_error": 0.00326071321569521
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06785661715548486,
+      "mean_absolute_error": 0.0068911027763466325
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006660663057118654,
+      "mean_absolute_error": 0.0017817877787855707
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.062060143798589706,
+      "mean_absolute_error": 0.006211509213534551
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.008921165019273758,
+      "mean_absolute_error": 0.002518380609075166
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.3.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.029148340225219727,
+      "mean_absolute_error": 0.005685521988198161
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.013280009850859642,
+      "mean_absolute_error": 0.0031545501762195727
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.035938350949436426,
+      "mean_absolute_error": 0.004206675748501983
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006389666814357042,
+      "mean_absolute_error": 0.0015121608804964382
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.054898492991924286,
+      "mean_absolute_error": 0.003999026356471816
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03342917561531067,
+      "mean_absolute_error": 0.004261899493172905
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.04911378212273121,
+      "mean_absolute_error": 0.0061940115931332345
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006830976344645023,
+      "mean_absolute_error": 0.0013712031028916272
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.04737333953380585,
+      "mean_absolute_error": 0.003757034394478081
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.009693674743175507,
+      "mean_absolute_error": 0.0023511199069901068
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03172248601913452,
+      "mean_absolute_error": 0.004789692466147244
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.017289698822423816,
+      "mean_absolute_error": 0.0028425287366795615
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06168492138385773,
+      "mean_absolute_error": 0.006115618348329288
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.00785907357931137,
+      "mean_absolute_error": 0.0015953244947901624
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.0847640773281455,
+      "mean_absolute_error": 0.00520102816532708
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.011793458950705826,
+      "mean_absolute_error": 0.001904048543842407
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.4.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.022919654846191406,
+      "mean_absolute_error": 0.004202303942292929
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.fast_attention.projection_matrix",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_k.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.011402701493352652,
+      "mean_absolute_error": 0.002570094546028301
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_k.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.026700558606535196,
+      "mean_absolute_error": 0.003139038557156305
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_out.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.007757226005196571,
+      "mean_absolute_error": 0.0011184816934104447
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_out.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.030757080763578415,
+      "mean_absolute_error": 0.0027581360749024493
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_q.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.016954609309323132,
+      "mean_absolute_error": 0.003313447869984998
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_q.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.051717035472393036,
+      "mean_absolute_error": 0.004923937492561916
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_v.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.004694333299994469,
+      "mean_absolute_error": 0.0010848628224948698
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.fn.to_v.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03469074331223965,
+      "mean_absolute_error": 0.0025053099392948683
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.012204232160001993,
+      "mean_absolute_error": 0.001668686028557076
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.0.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01393592357635498,
+      "mean_absolute_error": 0.0029060638044029474
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.fn.fn.w1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.023112241178750992,
+      "mean_absolute_error": 0.0018604720487616078
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.fn.fn.w1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.08804703131318092,
+      "mean_absolute_error": 0.004461195375908344
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.fn.fn.w2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.0061354488134384155,
+      "mean_absolute_error": 0.0012096888225201496
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.fn.fn.w2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.09952761232852936,
+      "mean_absolute_error": 0.003125622865154238
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.006025124341249466,
+      "mean_absolute_error": 0.0010931303849954777
+    },
+    {
+      "tensor": "decoder.m.performer.net.layers.5.1.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01657712459564209,
+      "mean_absolute_error": 0.0028805554611608386
+    },
+    {
+      "tensor": "decoder_embed.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.008209651336073875,
+      "mean_absolute_error": 0.0015790511487709935
+    },
+    {
+      "tensor": "decoder_embed.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.08311180956661701,
+      "mean_absolute_error": 0.004871527785521141
+    },
+    {
+      "tensor": "encoder.m.norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.019874846562743187,
+      "mean_absolute_error": 0.0017376713100579384
+    },
+    {
+      "tensor": "encoder.m.norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.08636128902435303,
+      "mean_absolute_error": 0.008816970201830069
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.0.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.1.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.012979626655578613,
+      "mean_absolute_error": 0.0014623980023413807
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06992730405181646,
+      "mean_absolute_error": 0.0021834919197181116
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03726716339588165,
+      "mean_absolute_error": 0.0036607682758346507
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.09258311637677252,
+      "mean_absolute_error": 0.002152563374479099
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01952572911977768,
+      "mean_absolute_error": 0.001840369123272012
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.031527817249298096,
+      "mean_absolute_error": 0.004323159344494343
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03221538010984659,
+      "mean_absolute_error": 0.0025728763200382567
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.0393521785736084,
+      "mean_absolute_error": 0.005152829689905047
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.029181296937167645,
+      "mean_absolute_error": 0.0028246488963017155
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.054665716364979744,
+      "mean_absolute_error": 0.00368356006368944
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.01255696639418602,
+      "mean_absolute_error": 0.001449487989980014
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.10.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.05640326114371419,
+      "mean_absolute_error": 0.003462804922133361
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.011902909725904465,
+      "mean_absolute_error": 0.0008195821383255956
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.027367197908461094,
+      "mean_absolute_error": 0.0007869375488345457
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.12362177483737469,
+      "mean_absolute_error": 0.007188055801669628
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.09959069942124188,
+      "mean_absolute_error": 0.0007609556584228422
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.12940572574734688,
+      "mean_absolute_error": 0.00523145599404747
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.10813295841217041,
+      "mean_absolute_error": 0.009609098390986523
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.1296028597280383,
+      "mean_absolute_error": 0.005343527201943014
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.11422717571258545,
+      "mean_absolute_error": 0.009780817742769917
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.03769715875387192,
+      "mean_absolute_error": 0.004049939464902902
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.05716114304959774,
+      "mean_absolute_error": 0.004644451852801838
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.06224721670150757,
+      "mean_absolute_error": 0.0019899206052074923
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.11.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.24231261759996414,
+      "mean_absolute_error": 0.0040379643929176175
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.2.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.3.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.4.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.5.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.6.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.7.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.8.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.linear1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.linear1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.linear2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.linear2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.norm1.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.norm1.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.norm2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.norm2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.self_attn.in_proj_bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.self_attn.in_proj_weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.self_attn.out_proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "encoder.m.transformer_encoder.9.self_attn.out_proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "norm.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.020190811716020107,
+      "mean_absolute_error": 0.001238781816169876
+    },
+    {
+      "tensor": "norm.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.05531144142150879,
+      "mean_absolute_error": 0.0025361686130054295
+    },
+    {
+      "tensor": "pos_emb.proj.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.005560432560741901,
+      "mean_absolute_error": 0.000962180153479153
+    },
+    {
+      "tensor": "pos_emb.proj.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.11145533539820462,
+      "mean_absolute_error": 0.008046868533716991
+    },
+    {
+      "tensor": "pos_emb.prot",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "pos_emb.special.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.04102128744125366,
+      "mean_absolute_error": 0.0031730226468577407
+    },
+    {
+      "tensor": "to_final.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.00033028237521648407,
+      "mean_absolute_error": 0.00033028237521648407
+    },
+    {
+      "tensor": "to_final.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.005073172971606255,
+      "mean_absolute_error": 0.0005113339606781508
+    },
+    {
+      "tensor": "token_emb.emb.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.019215285778045654,
+      "mean_absolute_error": 0.0019925627388377148
+    },
+    {
+      "tensor": "token_emb.emb_mask.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.014628224074840546,
+      "mean_absolute_error": 0.002010925313925327
+    },
+    {
+      "tensor": "token_emb.emb_pad.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": true,
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0
+    },
+    {
+      "tensor": "token_emb.mlp.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.0036006569862365723,
+      "mean_absolute_error": 0.0008838252024725079
+    },
+    {
+      "tensor": "token_emb.mlp.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.003173649311065674,
+      "mean_absolute_error": 0.0007037278334610164
+    },
+    {
+      "tensor": "token_emb.mlp2.bias",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.005831025540828705,
+      "mean_absolute_error": 0.0015034044222556986
+    },
+    {
+      "tensor": "token_emb.mlp2.weight",
+      "shape_match": true,
+      "dtype_match": true,
+      "exact": false,
+      "max_absolute_error": 0.017919331789016724,
+      "mean_absolute_error": 0.0012925403593108057
+    }
+  ],
+  "training_record_sha256": "04ee0d292249a35d45af62026777a1a1da2ee397e8ba04f6e683a831adc5705c",
+  "script_sha256": "6cb4171cffd20903a0c2c48eab1c984de9c7cb613265bf96d4013c923181cd8a"
+}

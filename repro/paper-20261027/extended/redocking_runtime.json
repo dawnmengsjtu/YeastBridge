@@ -1,0 +1,16 @@
+{
+  "binary_name": "gnina",
+  "binary_sha256": "5d33538324b40050a03aa262d51832837e0ea6cc100945abbd2d7b732589690e",
+  "binary_bytes": 1426790536,
+  "launcher": [
+    "/public/home/mengxl/dzy/envs/yeastbridge_vs_docking/gnina_runtime/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+    "--library-path",
+    "/public/home/mengxl/dzy/envs/yeastbridge_vs_docking/gnina_runtime/lib/x86_64-linux-gnu:/public/home/mengxl/dzy/envs/yeastbridge_vs_docking/lib:/public/home/mengxl/dzy/envs/yeastbridge_vs_models/lib/python3.10/site-packages/nvidia/cudnn/lib:/usr/local/cuda/lib64"
+  ],
+  "requested_devices": "0",
+  "source_poses_reused": false,
+  "source_cache_reused": false,
+  "version": "1.3.2",
+  "official_asset": "https://github.com/gnina/gnina/releases/download/v1.3.2/gnina.1.3.2",
+  "official_release_api_digest_verified": true
+}

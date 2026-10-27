@@ -1,0 +1,22 @@
+{
+  "python": "3.11.15 | packaged by conda-forge | (main, Aug 11 2026, 10:26:29) [GCC 14.4.0]",
+  "platform": "Linux-3.10.0-1160.119.1.el7.x86_64-x86_64-with-glibc2.17",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "3.0.5",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.5.2",
+    "rdkit": "2026.3.1",
+    "prolif": "2.0.3",
+    "vina": "1.2.7",
+    "meeko": "0.7.1",
+    "MDAnalysis": "2.7.0",
+    "gemmi": "0.7.5",
+    "openmm": "8.2.0",
+    "pdbfixer": "1.12.0",
+    "setuptools": "80.10.2"
+  },
+  "new_environment_created": true,
+  "initial_install_issue": "ProLIF import required pkg_resources; resolved by pinning setuptools 80.10.2",
+  "scientific_verification": "structural_clean_environment.json"
+}

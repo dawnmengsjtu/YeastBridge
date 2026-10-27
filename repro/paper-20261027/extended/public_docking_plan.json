@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "source": "Public source-data ZIP",
+  "jobs": 282,
+  "prepared_input_files_checked": true,
+  "job_identities_match_completed_searches": true,
+  "gnina_binary_sha256": "5d33538324b40050a03aa262d51832837e0ea6cc100945abbd2d7b732589690e",
+  "scope": "Public archive preparation only; searches were executed separately",
+  "script_sha256": "86d78c4682d337b131054254654abdc8c86cbaef48fe0c25415d3bcca04c893f"
+}

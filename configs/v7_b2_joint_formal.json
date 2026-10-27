@@ -43,7 +43,8 @@
       "sha256": "a1aa20a91d87c535773cbccbda34d13c72a57a2d9a4aa6d2d5bec0fea76eb75b"
     },
     "v51_pair_list": {
-      "path": "results_a6000/v51_per_query_ranks_trackA.tsv",
+      "path": "raw/paper/frozen_pairs.tsv",
+      "sha256": "1bc87780541e5a34cd383c5da08d5761b120e0f4526788a074665926b8360f15",
       "note": "V5.1 官方 753 对(human,yeast_orf,split,fold)冻结清单; 主分析对集=该清单 ∩ B2 表示可用(人 ESM2 ok 且 ORF 在池中); 扩展对集=全部可行 edges, 仅描述性报告"
     },
     "yeast_matrix": {

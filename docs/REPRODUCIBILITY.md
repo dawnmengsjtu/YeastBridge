@@ -58,19 +58,11 @@ runs both steps in sequence after checking all assets. It verifies the regenerat
 profiles against the frozen rank matrix before reconstructing screening decisions.
 Its `verification.json` records both checks; it uses the same frozen checkpoint and nulls.
 
-## Scope of reproduction
+## Extended reproduction
 
-| Operation | Current support |
-| --- | --- |
-| Frozen candidate export and reference checksums | Executable from Git alone |
-| Every observed complete/residual correlation, screen-wide P and candidate intersection | Executable with the numerical archive |
-| Human protein representation to corrected yeast profiles | Executable with the inference archive; rank comparison additionally uses numerical inputs |
-| Retraining the exact paper checkpoint from initial weights | Historical code/evidence supplied; exact end-to-end retraining replay is not established by this maintenance |
-| All raw-CEL preprocessing | Public accessions and scripts supplied; full raw downloads and platform-dependent preprocessing are separate |
-| Regenerating both 100,000-permutation maximum nulls | Original GPU analysis code/settings supplied; current reconstruction uses their frozen distributions |
-| All model comparisons, docking, structural refinement and figure rendering | Source records supplied; not all are integrated into a single portable rerun command |
+[Full reproduction commands and measured scope](FULL_REPRODUCTION.md) cover raw CEL inputs, fresh 1,000-permutation calibration, both 100,000-permutation maximum nulls, functional/model comparisons and structural analyses. Additional preprocessing and comparison archives are registered in `data/paper/extended_assets.json`; the installer accepts these alongside the immutable core archives. `--level all` retains its meaning of the three core groups; check the optional groups with `--level preprocessing` and `--level comparisons`.
 
-Accordingly, a clone plus the release assets supports the specific computational reconstruction above. It does not establish a fresh end-to-end rerun of every experiment. Historical competition training and screening commands are described in their dated release, not used as substitutes for the manuscript.
+The original paper checkpoint remains the inference default. The separate [training guide](PAPER_TRAINING.md) explains how to rerun its recovered recipe and compare the new outputs without replacing the published model.
 
 ## Validation
 

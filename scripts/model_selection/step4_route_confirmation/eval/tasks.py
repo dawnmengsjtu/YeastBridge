@@ -3,7 +3,8 @@
 每个任务暴露:
   - run(feature, model_name, seed, **kw) -> dict(metrics)  + 详情 DataFrame
   - data_ready() -> (bool, 原因)
-当前实现:T2、T3(数据已齐);T1 需细胞编码器(路线A/C/D 产物),T4 缺通路注释,T5 复用 T3 的数据点扫描。
+当前论文入口运行 T2、T3、T4 和 T5；T5 复用 T3 的训练比例扫描。
+T1 保留为历史细胞编码器评测，不属于当前论文的路线比较入口。
 """
 from __future__ import annotations
 import numpy as np

@@ -1,0 +1,92 @@
+{
+  "match": {
+    "n": 100000,
+    "seed": 20261024,
+    "n_targets": 338,
+    "n_compounds": 3250,
+    "strata_sha256": "8243e8c5439a1213283ce393f0a4a3f737e890ec67b868ae2ff1c30eb4b662b3",
+    "algorithm": "Shared strain permutation within HIP/HOP; dose maximization; maximum across both directions",
+    "fresh_permutations": true,
+    "device": "cuda:0",
+    "torch": "2.4.0+cu121",
+    "numpy": "1.26.4",
+    "tf32": false,
+    "threads": 4,
+    "fresh_calibration": true,
+    "rank_inputs_sha256": "bb74fd7678bbb1aee89ddae4704608a9a620c73e9b286fe0569bc9d550b6b713",
+    "calibration_sha256": "f6ec966a3fbb026dc2fb5fa436f5d5c5b2604c1ac1226fd94c4a75710f2b8728",
+    "seconds": 906.7918692510575,
+    "archived_null_max_absolute_error": 8.881784197001252e-16,
+    "float64_value_match": false,
+    "float32_values_equal": true,
+    "null_sha256": "415d739b1f886911b2a87c29328ef7cfea530f6762f43feb5429ebd156c6cca1",
+    "script_sha256": "9bd8406a91e203c8907c083991952a46c2b2714317d3c0bdf107ba325ec4a6bc"
+  },
+  "residual": {
+    "n": 100000,
+    "seed": 20261024,
+    "n_targets": 95,
+    "n_compounds": 3250,
+    "strata_sha256": "8243e8c5439a1213283ce393f0a4a3f737e890ec67b868ae2ff1c30eb4b662b3",
+    "algorithm": "Shared strain permutation within HIP/HOP; dose maximization; maximum across both directions",
+    "fresh_permutations": true,
+    "device": "cuda:0",
+    "torch": "2.4.0+cu121",
+    "numpy": "1.26.4",
+    "tf32": false,
+    "threads": 4,
+    "fresh_calibration": true,
+    "rank_inputs_sha256": "93cf27f8f35d909d92130d99caf19c39ec28119c3ffde315fbbb215c63c686f8",
+    "calibration_sha256": "5da12d14d4de5b442e73667a9404850906f49da66bad69b0067c8b597d28768d",
+    "seconds": 682.2622303962708,
+    "archived_null_max_absolute_error": 8.881784197001252e-16,
+    "float64_value_match": false,
+    "float32_values_equal": true,
+    "null_sha256": "efc18d3e3d813955af55aee25cd4d42b222f9cc624a4a19ab0ef5757f03b46d1",
+    "script_sha256": "9bd8406a91e203c8907c083991952a46c2b2714317d3c0bdf107ba325ec4a6bc"
+  },
+  "screening": {
+    "status": "passed",
+    "mode": "numerical-reconstruction",
+    "layers": {
+      "match": {
+        "targets": 338,
+        "strains": 5865,
+        "compounds": 3250,
+        "directional_hypotheses": 2197000,
+        "max_absolute_correlation_error": {
+          "pos": 8.994592232136611e-08,
+          "neg": 8.994592232136611e-08
+        },
+        "permutations": 100000,
+        "seed": 20261024
+      },
+      "residual": {
+        "targets": 95,
+        "strains": 5865,
+        "compounds": 3250,
+        "directional_hypotheses": 617500,
+        "max_absolute_correlation_error": {
+          "pos": 6.298228717727117e-08,
+          "neg": 6.298228717727117e-08
+        },
+        "permutations": 100000,
+        "seed": 20261024
+      }
+    },
+    "match_associations": 5216,
+    "candidates": 25,
+    "targets": 7,
+    "compounds": 18,
+    "recomputed": [
+      "all observed correlations",
+      "condition maximization",
+      "screen-wide probabilities",
+      "candidate intersection"
+    ],
+    "frozen_inputs": [],
+    "fresh_permutations": true,
+    "fresh_calibration": true,
+    "fresh_training": false
+  }
+}

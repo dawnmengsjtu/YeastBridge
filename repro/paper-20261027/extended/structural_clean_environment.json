@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "candidate_statuses_match": true,
+  "prioritized": [
+    "YB-IC-001",
+    "YB-IC-002",
+    "YB-IC-021",
+    "YB-IC-022",
+    "YB-IC-023",
+    "YB-IC-025"
+  ],
+  "n_prioritized": 6,
+  "stages": {
+    "control_calibration/reference_pocket_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "5a3b0b938132cfbde778ae04218ab739731c72142df6451d827182a2104cd0fc"
+    },
+    "control_calibration/reference_pocket_cnn_contacts.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "5571182b0e9f74ad9fa2f0673d96c18eb301a573068621f3ff299685ebc935bd"
+    },
+    "control_calibration/reference_pocket_comparison.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "602406c823392c062520b2541183d9c5937fde4ce7ff5f4d9e2b80daada29246"
+    },
+    "CLIC1/gnina_refinement/search_depth/literature_contact_evidence.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "6beb9e2ee05578e4b7223977725440d2902ce741e554ac8132e2dde3596446a6"
+    },
+    "control_calibration/interaction_fingerprints.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "3e0e0dfbe530c147e5d70cdafa5da36726080afc4af587965018359bad039740"
+    },
+    "control_calibration/interaction_calibration.json": {
+      "scientific_payload_equal": true,
+      "result_sha256": "4c812cdcbff0e2eb4864ac7423345813ff5bebe44b4967343773a816830bbb1c"
+    }
+  },
+  "fresh_contact_calculation": true,
+  "fresh_contact_models": true,
+  "fresh_docking": false,
+  "interpretation": "Descriptive pocket-contact/reference prioritization, separate from the stricter binding-control classifier",
+  "source_archive_sha256": "486c3c896ed7709c9eda3b075c3d7d039290fa5a5a38550a866631d33755da1a",
+  "script_sha256": "1ebf07172c0404e6d892a7f583140f54d6e4096060bebdcce34ec1d2e2d12406"
+}
