@@ -6,3 +6,5 @@ raw/externalvalidation/frozen_inputs/yeastbridge_re_mvp/feasibility/transfer_rou
 models/training/original/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
 models/training/vendor/scfoundation/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
 data/provenance/hiphop/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+# Frozen TSV rows retain empty final fields and their published checksums.
+data/paper/*.tsv -text whitespace=-blank-at-eol

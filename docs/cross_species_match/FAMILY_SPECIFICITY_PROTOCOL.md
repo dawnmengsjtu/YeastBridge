@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 家族特异性检验协议（EJ-dc 确认对的证据升级判定，2026-09-13 冻结）
 
 前置：`ESM2_JOINT_DC_ADDENDUM.md` 两阶段确认 80/80 过门，但主张单位存疑

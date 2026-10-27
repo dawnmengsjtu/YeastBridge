@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V9 ESM2 轴基本结构三臂正式协议（human-only / yeast-only / joint，2026-09-12冻结）
 
 配置：`configs/v9_esm2_basic.json`（inputs 与 trackA 与 V8 冻结配置逐字节同源）

@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # Cross-species KO / perturbation matching benchmark
 
 This module asks one narrow, falsifiable question:

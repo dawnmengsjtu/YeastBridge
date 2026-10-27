@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # ERRATUM: five-route T2' selection of route A' is void (stratum-separation artifact)
 
 Registered 2026-08-27 after read-only verification. No project file was

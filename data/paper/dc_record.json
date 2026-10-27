@@ -1,0 +1,1709 @@
+{
+ "mode": "task_axis_double_center",
+ "input_dir": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_raw",
+ "input_export_record_sha256": "7cbbd6990a971f63630250cda9b82c57ce83951885b38b704335d604c62d34d8",
+ "transform": [
+  "colmean_across_targets",
+  "pc1_removal"
+ ],
+ "n_removed_pcs": 1,
+ "common_mode_variance": {
+  "strain_mean_frac": 0.4131489949905184,
+  "residual_pc1_frac": 0.15224754498305668
+ },
+ "n_targets": 338,
+ "pool": 5865,
+ "tail_strains": [],
+ "targets": {
+  "ANO1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ANO1.tsv"
+  },
+  "ANO2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ANO2.tsv"
+  },
+  "ANO6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ANO6.tsv"
+  },
+  "ASIC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ASIC1.tsv"
+  },
+  "ASIC2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ASIC2.tsv"
+  },
+  "ASIC3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ASIC3.tsv"
+  },
+  "ASIC4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ASIC4.tsv"
+  },
+  "ASIC5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ASIC5.tsv"
+  },
+  "BEST1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_BEST1.tsv"
+  },
+  "BEST2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_BEST2.tsv"
+  },
+  "BEST3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_BEST3.tsv"
+  },
+  "BEST4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_BEST4.tsv"
+  },
+  "CACNA1A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1A.tsv"
+  },
+  "CACNA1B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1B.tsv"
+  },
+  "CACNA1C": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1C.tsv"
+  },
+  "CACNA1D": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1D.tsv"
+  },
+  "CACNA1E": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1E.tsv"
+  },
+  "CACNA1F": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1F.tsv"
+  },
+  "CACNA1G": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1G.tsv"
+  },
+  "CACNA1H": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1H.tsv"
+  },
+  "CACNA1I": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1I.tsv"
+  },
+  "CACNA1S": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA1S.tsv"
+  },
+  "CACNA2D1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA2D1.tsv"
+  },
+  "CACNA2D2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA2D2.tsv"
+  },
+  "CACNA2D3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA2D3.tsv"
+  },
+  "CACNA2D4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNA2D4.tsv"
+  },
+  "CACNB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNB1.tsv"
+  },
+  "CACNB2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNB2.tsv"
+  },
+  "CACNB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNB3.tsv"
+  },
+  "CACNB4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNB4.tsv"
+  },
+  "CACNG1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG1.tsv"
+  },
+  "CACNG2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG2.tsv"
+  },
+  "CACNG3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG3.tsv"
+  },
+  "CACNG4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG4.tsv"
+  },
+  "CACNG6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG6.tsv"
+  },
+  "CACNG7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG7.tsv"
+  },
+  "CACNG8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CACNG8.tsv"
+  },
+  "CALHM1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM1.tsv"
+  },
+  "CALHM2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM2.tsv"
+  },
+  "CALHM3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM3.tsv"
+  },
+  "CALHM4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM4.tsv"
+  },
+  "CALHM5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM5.tsv"
+  },
+  "CALHM6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CALHM6.tsv"
+  },
+  "CATSPER1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CATSPER1.tsv"
+  },
+  "CATSPER2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CATSPER2.tsv"
+  },
+  "CATSPER3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CATSPER3.tsv"
+  },
+  "CATSPER4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CATSPER4.tsv"
+  },
+  "CCDC51": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CCDC51.tsv"
+  },
+  "CFTR": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CFTR.tsv"
+  },
+  "CHRNA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA1.tsv"
+  },
+  "CHRNA10": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA10.tsv"
+  },
+  "CHRNA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA2.tsv"
+  },
+  "CHRNA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA3.tsv"
+  },
+  "CHRNA4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA4.tsv"
+  },
+  "CHRNA5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA5.tsv"
+  },
+  "CHRNA6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA6.tsv"
+  },
+  "CHRNA7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA7.tsv"
+  },
+  "CHRNA9": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNA9.tsv"
+  },
+  "CHRNB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNB1.tsv"
+  },
+  "CHRNB2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNB2.tsv"
+  },
+  "CHRNB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNB3.tsv"
+  },
+  "CHRNB4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNB4.tsv"
+  },
+  "CHRND": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRND.tsv"
+  },
+  "CHRNE": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNE.tsv"
+  },
+  "CHRNG": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CHRNG.tsv"
+  },
+  "CLCC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLCC1.tsv"
+  },
+  "CLCN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLCN1.tsv"
+  },
+  "CLCN2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLCN2.tsv"
+  },
+  "CLCNKA": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLCNKA.tsv"
+  },
+  "CLCNKB": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLCNKB.tsv"
+  },
+  "CLDN17": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLDN17.tsv"
+  },
+  "CLDN4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLDN4.tsv"
+  },
+  "CLIC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC1.tsv"
+  },
+  "CLIC2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC2.tsv"
+  },
+  "CLIC3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC3.tsv"
+  },
+  "CLIC4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC4.tsv"
+  },
+  "CLIC5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC5.tsv"
+  },
+  "CLIC6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CLIC6.tsv"
+  },
+  "CNGA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGA1.tsv"
+  },
+  "CNGA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGA2.tsv"
+  },
+  "CNGA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGA3.tsv"
+  },
+  "CNGA4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGA4.tsv"
+  },
+  "CNGB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGB1.tsv"
+  },
+  "CNGB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CNGB3.tsv"
+  },
+  "CYBB": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_CYBB.tsv"
+  },
+  "FXYD6P3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_FXYD6P3.tsv"
+  },
+  "GABRA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA1.tsv"
+  },
+  "GABRA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA2.tsv"
+  },
+  "GABRA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA3.tsv"
+  },
+  "GABRA4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA4.tsv"
+  },
+  "GABRA5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA5.tsv"
+  },
+  "GABRA6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRA6.tsv"
+  },
+  "GABRB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRB1.tsv"
+  },
+  "GABRB2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRB2.tsv"
+  },
+  "GABRB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRB3.tsv"
+  },
+  "GABRD": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRD.tsv"
+  },
+  "GABRE": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRE.tsv"
+  },
+  "GABRG1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRG1.tsv"
+  },
+  "GABRG2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRG2.tsv"
+  },
+  "GABRG3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRG3.tsv"
+  },
+  "GABRP": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRP.tsv"
+  },
+  "GABRQ": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRQ.tsv"
+  },
+  "GABRR1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRR1.tsv"
+  },
+  "GABRR2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRR2.tsv"
+  },
+  "GABRR3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GABRR3.tsv"
+  },
+  "GLRA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GLRA1.tsv"
+  },
+  "GLRA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GLRA2.tsv"
+  },
+  "GLRA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GLRA3.tsv"
+  },
+  "GLRB": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GLRB.tsv"
+  },
+  "GPHRA": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GPHRA.tsv"
+  },
+  "GPHRB": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GPHRB.tsv"
+  },
+  "GRIA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIA1.tsv"
+  },
+  "GRIA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIA2.tsv"
+  },
+  "GRIA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIA3.tsv"
+  },
+  "GRIA4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIA4.tsv"
+  },
+  "GRID1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRID1.tsv"
+  },
+  "GRID2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRID2.tsv"
+  },
+  "GRIK1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIK1.tsv"
+  },
+  "GRIK2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIK2.tsv"
+  },
+  "GRIK3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIK3.tsv"
+  },
+  "GRIK4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIK4.tsv"
+  },
+  "GRIK5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIK5.tsv"
+  },
+  "GRIN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN1.tsv"
+  },
+  "GRIN2A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN2A.tsv"
+  },
+  "GRIN2B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN2B.tsv"
+  },
+  "GRIN2C": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN2C.tsv"
+  },
+  "GRIN2D": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN2D.tsv"
+  },
+  "GRIN3A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN3A.tsv"
+  },
+  "GRIN3B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_GRIN3B.tsv"
+  },
+  "HCN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HCN1.tsv"
+  },
+  "HCN2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HCN2.tsv"
+  },
+  "HCN3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HCN3.tsv"
+  },
+  "HCN4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HCN4.tsv"
+  },
+  "HTR3A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HTR3A.tsv"
+  },
+  "HTR3B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HTR3B.tsv"
+  },
+  "HTR3C": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HTR3C.tsv"
+  },
+  "HTR3D": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HTR3D.tsv"
+  },
+  "HTR3E": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HTR3E.tsv"
+  },
+  "HVCN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_HVCN1.tsv"
+  },
+  "ITPR1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ITPR1.tsv"
+  },
+  "ITPR2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ITPR2.tsv"
+  },
+  "ITPR3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ITPR3.tsv"
+  },
+  "KCNA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA1.tsv"
+  },
+  "KCNA10": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA10.tsv"
+  },
+  "KCNA2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA2.tsv"
+  },
+  "KCNA3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA3.tsv"
+  },
+  "KCNA4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA4.tsv"
+  },
+  "KCNA5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA5.tsv"
+  },
+  "KCNA6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA6.tsv"
+  },
+  "KCNA7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNA7.tsv"
+  },
+  "KCNAB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNAB3.tsv"
+  },
+  "KCNB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNB1.tsv"
+  },
+  "KCNB2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNB2.tsv"
+  },
+  "KCNC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNC1.tsv"
+  },
+  "KCNC2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNC2.tsv"
+  },
+  "KCNC3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNC3.tsv"
+  },
+  "KCNC4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNC4.tsv"
+  },
+  "KCND1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCND1.tsv"
+  },
+  "KCND2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCND2.tsv"
+  },
+  "KCND3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCND3.tsv"
+  },
+  "KCNE1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNE1.tsv"
+  },
+  "KCNE2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNE2.tsv"
+  },
+  "KCNE4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNE4.tsv"
+  },
+  "KCNF1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNF1.tsv"
+  },
+  "KCNG1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNG1.tsv"
+  },
+  "KCNG2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNG2.tsv"
+  },
+  "KCNG3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNG3.tsv"
+  },
+  "KCNG4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNG4.tsv"
+  },
+  "KCNH1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH1.tsv"
+  },
+  "KCNH2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH2.tsv"
+  },
+  "KCNH3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH3.tsv"
+  },
+  "KCNH4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH4.tsv"
+  },
+  "KCNH5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH5.tsv"
+  },
+  "KCNH6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH6.tsv"
+  },
+  "KCNH7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH7.tsv"
+  },
+  "KCNH8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNH8.tsv"
+  },
+  "KCNIP1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNIP1.tsv"
+  },
+  "KCNIP2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNIP2.tsv"
+  },
+  "KCNIP3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNIP3.tsv"
+  },
+  "KCNIP4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNIP4.tsv"
+  },
+  "KCNJ1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ1.tsv"
+  },
+  "KCNJ10": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ10.tsv"
+  },
+  "KCNJ11": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ11.tsv"
+  },
+  "KCNJ12": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ12.tsv"
+  },
+  "KCNJ13": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ13.tsv"
+  },
+  "KCNJ14": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ14.tsv"
+  },
+  "KCNJ15": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ15.tsv"
+  },
+  "KCNJ16": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ16.tsv"
+  },
+  "KCNJ18": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ18.tsv"
+  },
+  "KCNJ2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ2.tsv"
+  },
+  "KCNJ3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ3.tsv"
+  },
+  "KCNJ4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ4.tsv"
+  },
+  "KCNJ5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ5.tsv"
+  },
+  "KCNJ6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ6.tsv"
+  },
+  "KCNJ8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ8.tsv"
+  },
+  "KCNJ9": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNJ9.tsv"
+  },
+  "KCNK1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK1.tsv"
+  },
+  "KCNK10": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK10.tsv"
+  },
+  "KCNK12": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK12.tsv"
+  },
+  "KCNK13": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK13.tsv"
+  },
+  "KCNK15": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK15.tsv"
+  },
+  "KCNK16": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK16.tsv"
+  },
+  "KCNK17": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK17.tsv"
+  },
+  "KCNK18": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK18.tsv"
+  },
+  "KCNK2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK2.tsv"
+  },
+  "KCNK3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK3.tsv"
+  },
+  "KCNK4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK4.tsv"
+  },
+  "KCNK5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK5.tsv"
+  },
+  "KCNK6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK6.tsv"
+  },
+  "KCNK7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK7.tsv"
+  },
+  "KCNK9": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNK9.tsv"
+  },
+  "KCNMA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNMA1.tsv"
+  },
+  "KCNMB1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNMB1.tsv"
+  },
+  "KCNMB2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNMB2.tsv"
+  },
+  "KCNMB3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNMB3.tsv"
+  },
+  "KCNMB4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNMB4.tsv"
+  },
+  "KCNN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNN1.tsv"
+  },
+  "KCNN2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNN2.tsv"
+  },
+  "KCNN3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNN3.tsv"
+  },
+  "KCNN4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNN4.tsv"
+  },
+  "KCNQ1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNQ1.tsv"
+  },
+  "KCNQ2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNQ2.tsv"
+  },
+  "KCNQ3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNQ3.tsv"
+  },
+  "KCNQ4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNQ4.tsv"
+  },
+  "KCNQ5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNQ5.tsv"
+  },
+  "KCNS1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNS1.tsv"
+  },
+  "KCNS2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNS2.tsv"
+  },
+  "KCNS3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNS3.tsv"
+  },
+  "KCNT1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNT1.tsv"
+  },
+  "KCNT2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNT2.tsv"
+  },
+  "KCNU1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNU1.tsv"
+  },
+  "KCNV1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNV1.tsv"
+  },
+  "KCNV2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_KCNV2.tsv"
+  },
+  "LRRC26": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC26.tsv"
+  },
+  "LRRC38": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC38.tsv"
+  },
+  "LRRC52": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC52.tsv"
+  },
+  "LRRC55": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC55.tsv"
+  },
+  "LRRC8A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC8A.tsv"
+  },
+  "LRRC8B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC8B.tsv"
+  },
+  "LRRC8C": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC8C.tsv"
+  },
+  "LRRC8D": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC8D.tsv"
+  },
+  "LRRC8E": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_LRRC8E.tsv"
+  },
+  "MCOLN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_MCOLN1.tsv"
+  },
+  "MCOLN2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_MCOLN2.tsv"
+  },
+  "MCOLN3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_MCOLN3.tsv"
+  },
+  "MCU": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_MCU.tsv"
+  },
+  "MFSD8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_MFSD8.tsv"
+  },
+  "NALCN": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_NALCN.tsv"
+  },
+  "NOX5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_NOX5.tsv"
+  },
+  "ORAI1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ORAI1.tsv"
+  },
+  "ORAI2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ORAI2.tsv"
+  },
+  "ORAI3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ORAI3.tsv"
+  },
+  "OTOP1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_OTOP1.tsv"
+  },
+  "OTOP2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_OTOP2.tsv"
+  },
+  "OTOP3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_OTOP3.tsv"
+  },
+  "P2RX1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX1.tsv"
+  },
+  "P2RX2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX2.tsv"
+  },
+  "P2RX3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX3.tsv"
+  },
+  "P2RX4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX4.tsv"
+  },
+  "P2RX5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX5.tsv"
+  },
+  "P2RX6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX6.tsv"
+  },
+  "P2RX7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_P2RX7.tsv"
+  },
+  "PACC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PACC1.tsv"
+  },
+  "PANX1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PANX1.tsv"
+  },
+  "PANX2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PANX2.tsv"
+  },
+  "PANX3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PANX3.tsv"
+  },
+  "PIEZO1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PIEZO1.tsv"
+  },
+  "PIEZO2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PIEZO2.tsv"
+  },
+  "PKD1L1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD1L1.tsv"
+  },
+  "PKD1L2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD1L2.tsv"
+  },
+  "PKD1L3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD1L3.tsv"
+  },
+  "PKD2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD2.tsv"
+  },
+  "PKD2L1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD2L1.tsv"
+  },
+  "PKD2L2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_PKD2L2.tsv"
+  },
+  "RYR1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_RYR1.tsv"
+  },
+  "RYR2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_RYR2.tsv"
+  },
+  "RYR3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_RYR3.tsv"
+  },
+  "SCN10A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN10A.tsv"
+  },
+  "SCN11A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN11A.tsv"
+  },
+  "SCN1A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN1A.tsv"
+  },
+  "SCN2A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN2A.tsv"
+  },
+  "SCN3A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN3A.tsv"
+  },
+  "SCN3B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN3B.tsv"
+  },
+  "SCN4A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN4A.tsv"
+  },
+  "SCN5A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN5A.tsv"
+  },
+  "SCN8A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN8A.tsv"
+  },
+  "SCN9A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCN9A.tsv"
+  },
+  "SCNN1A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCNN1A.tsv"
+  },
+  "SCNN1B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCNN1B.tsv"
+  },
+  "SCNN1D": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCNN1D.tsv"
+  },
+  "SCNN1G": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SCNN1G.tsv"
+  },
+  "SLC17A6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SLC17A6.tsv"
+  },
+  "SLC17A7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SLC17A7.tsv"
+  },
+  "SLC17A8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SLC17A8.tsv"
+  },
+  "SLC26A1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SLC26A1.tsv"
+  },
+  "SLC26A6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_SLC26A6.tsv"
+  },
+  "STING1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_STING1.tsv"
+  },
+  "TMC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMC1.tsv"
+  },
+  "TMC2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMC2.tsv"
+  },
+  "TMC4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMC4.tsv"
+  },
+  "TMCO1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMCO1.tsv"
+  },
+  "TMEM109": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM109.tsv"
+  },
+  "TMEM175": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM175.tsv"
+  },
+  "TMEM37": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM37.tsv"
+  },
+  "TMEM38A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM38A.tsv"
+  },
+  "TMEM38B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM38B.tsv"
+  },
+  "TMEM63A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM63A.tsv"
+  },
+  "TMEM63B": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM63B.tsv"
+  },
+  "TMEM63C": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM63C.tsv"
+  },
+  "TMEM87A": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TMEM87A.tsv"
+  },
+  "TPCN1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TPCN1.tsv"
+  },
+  "TPCN2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TPCN2.tsv"
+  },
+  "TRPA1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPA1.tsv"
+  },
+  "TRPC1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC1.tsv"
+  },
+  "TRPC3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC3.tsv"
+  },
+  "TRPC4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC4.tsv"
+  },
+  "TRPC5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC5.tsv"
+  },
+  "TRPC6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC6.tsv"
+  },
+  "TRPC7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPC7.tsv"
+  },
+  "TRPM1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM1.tsv"
+  },
+  "TRPM2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM2.tsv"
+  },
+  "TRPM3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM3.tsv"
+  },
+  "TRPM4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM4.tsv"
+  },
+  "TRPM5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM5.tsv"
+  },
+  "TRPM6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM6.tsv"
+  },
+  "TRPM7": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM7.tsv"
+  },
+  "TRPM8": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPM8.tsv"
+  },
+  "TRPV1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV1.tsv"
+  },
+  "TRPV2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV2.tsv"
+  },
+  "TRPV3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV3.tsv"
+  },
+  "TRPV4": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV4.tsv"
+  },
+  "TRPV5": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV5.tsv"
+  },
+  "TRPV6": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TRPV6.tsv"
+  },
+  "TTYH1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TTYH1.tsv"
+  },
+  "TTYH2": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TTYH2.tsv"
+  },
+  "TTYH3": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_TTYH3.tsv"
+  },
+  "UCP1": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_UCP1.tsv"
+  },
+  "ZACN": {
+   "status": "OK",
+   "rows": 5865,
+   "path": "/public/home/mengxl/dzy/YeastBridge_0912/results_a6000/ion_channel_scope_20261012/full_measured/tasks_dc/yeast_task_ZACN.tsv"
+  }
+ }
+}

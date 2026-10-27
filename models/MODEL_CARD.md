@@ -1,43 +1,26 @@
-# YeastBridge 模型说明
+# Manuscript model
 
-## 用途与版本
+YeastBridge converts a human target sequence into a yeast-strain query and uses measured compound responses for human ion-channel compound prioritization. The cross-species interface and reuse of low-cost yeast measurements are the primary contributions.
 
-当前提交模型为 `B2-submission-v2-20261003`，以人源靶点的蛋白表示和酵母化学遗传学响应生成小分子候选。输入为冻结的人/酵母ESM-2表示、B2投影参数、配对监督和HIP/HOP矩阵；输出为相关系数、置换p值、校正值、证据分类及条件置换区间。
+## Frozen components
 
-最终checkpoint的SHA-256为 `281d363fd3ac831f692bff7f3e3a0ae7420b3a221792591c78e5130de09c27ad`。精确配置见 [esm2_joint_tasks_v2.json](../configs/esm2_joint_tasks_v2.json)，训练与结果的关联见 [training_manifest.json](training_manifest.json)和[submission.json](submission.json)。
+| Component | Paper configuration |
+| --- | --- |
+| Protein representation | ESM-2 `esm2_t33_650M_UR50D`, layer 33 residue-mean pooling, 1,280 dimensions |
+| Protein injection | scFoundation-derived yeast model, raw ESM-2 → affine 1,280-to-768 projection → normalized comparison |
+| Paired mapping | 510 training pairs; 3 removed PCs; ridge=1, anchored ridge=1, PLS=8 |
+| Fusion | `direct_pc1`, `aligned_c_ensemble`, `b2_verbatim`; RRF k=20 |
+| Screening panel | 338 ion-channel-related entries, 5,865 measured represented strains, 3,250 compounds |
+| Candidate rule | Complete-profile and family-residual screen-wide P≤0.05 for the same target, compound and direction |
 
-## 组成与实际贡献
+The original paper checkpoint has SHA-256 `112b39afc687cc59fa54c2de22b5e6c3268c082fc94625740971cdd5759f2be7`; its yeast gene table has SHA-256 `d5cd2912f7f798f236a41a31e2d23509402480415f74129e66a2c865dbae9c24`. The inference installer verifies both. Configuration: [paper_assets.json](../configs/paper_assets.json).
 
-| 组件 | 版本、参数及用途 | 训练状态 |
-| --- | --- | --- |
-| ESM-2 | `esm2_t33_650M_UR50D`，fair-esm 2.0.0，layer 33，排除BOS/EOS后按残基均值池化；1280维 | 使用第三方预训练表示，项目未重训ESM-2 |
-| B2 | 1280→768线性蛋白投影，接入scFoundation；12层768维编码器、6层512维解码器 | GSE125162酵母表达上微调6轮；约34.6M参数参与更新 |
-| 配对对齐 | 去除3个PC；ridge λ=1、identity-anchored λ=1、PLS k=8 | 在冻结划分中有表示的510个训练配对上拟合 |
-| EJ / EJ-dc | 去PC1的ESM-2、对齐集成和B2三个成员；RRF k=20；任务谱共模双去除 | 项目实现的组合与任务设计 |
-| 响应筛选 | Spearman、双向全库筛选、每方向最多40对提名、100,000次确认置换、家族/残差检验 | 统计计算，无第三方商业API调用 |
+Geneformer, scGPT and scFoundation were compared before selecting the backbone; ortholog mapping, protein injection, training from scratch, scYeast and graph propagation informed yeast-transfer selection. The direct sequence member remains inside the final fusion, not an additional independent method-selection arm.
 
-项目贡献包括蛋白表示接入酵母表达微调、跨物种配对与融合、任务谱共模去除，以及双向筛选、两阶段确认和家族分解的可运行流程。ESM-2和scFoundation预训练本身来自第三方。
+The separately trained competition checkpoint (`281d363f…09c27ad`) and its six-epoch logs remain in the historical release. Those logs are not substituted for provenance of the paper checkpoint. The current profile command uses the frozen paper weights; it does not claim an exact retraining replay.
 
-## 训练与运行记录
+Outputs are computational target–compound associations. Functional retrieval, yeast response prediction and structural prioritization retain their respective evaluation meanings.
 
-B2从哈希固定的scFoundation初始模型训练，不接续9月B2。共38,225个细胞，其中36,314训练、1,911验证，seed 42。第6轮按遮蔽条目加权的训练MSE为0.141101，验证MSE为0.137655；验证误差描述表达重建，不能替代药物筛选准确性评测。
+## Third-party terms
 
-[训练记录](training/evidence/submission-v2/run.json)保存配置、实际环境、输入/输出哈希和耗时。[筛选记录](../repro/submission-v2-20261003/run.json)保存14步命令、日志及模型版本。当前候选共80条；冻结记录重新导出的CSV与完整筛选输出逐字节一致。
-
-第一阶段每方向以1,000次置换检验3,818,750对假设，正向和反向通过全库BH q<0.1的数量分别为0和0。后续100,000次置换确认是在已提名候选上进行，不能把其确认家族内q值写成全库错误发现率控制。
-
-ESM-2三组表示已从恢复的FASTA重新计算，索引与矩阵均逐字节一致；[重建记录](../data/provenance/esm2/rebuild-run.json)保存本次调用时间、参数、模型和输入输出哈希。[序列溯源](../data/provenance/esm2/sequence-recovery.json)保留原始文件来源，未留存的历史调用时间不由恢复日期代替。当前正式筛选的本地调用也保存在运行记录中。上游预训练数据及项目全部数据用途见[数据登记](../data/datasets.json)。
-
-## 适用范围与局限
-
-输出衡量人源任务轴与酵母响应的统计关联，不是结合亲和力、药效或机制的实验验证。候选由同一响应数据提名并确认，联合BH仅作用于确认家族，未覆盖前序选择。置换区间仅量化有限置换的Monte Carlo误差。近似任务谱可能难以分辨家族成员；残差过阈不等同于靶点机制证明。
-
-配对监督算子仅使用训练配对；PC基则从完整人源参考表示与酵母候选池拟合，可见非训练配对实体，属于不使用配对标签的全参考集合预处理。
-
-训练按细胞随机划分，未按实验批次分组。未发现完全重复计数行或跨集同一细胞；这不证明不同批次独立，也不能核验未公开的赛事隐藏集。蛋白表示和上游预训练可能覆盖用于下游评估的生物实体，项目不将其描述为从未见过的序列。
-
-9月的检索、基本结构和外部验证成绩对应历史模型。新版本保留原EJ超参数并修正B2遮蔽/验证实现，没有把历史成绩改标为新模型结果。历史细节和相反证据保留在方法文档中。
-
-## 第三方许可
-
-ESM-2采用[MIT许可](https://github.com/facebookresearch/esm/blob/main/LICENSE)。scFoundation代码采用Apache-2.0，模型权重受单独[非商业研究许可](training/vendor/scfoundation/MODEL_LICENSE)约束；B2保留这些上游限制和声明。数据许可见 [THIRD_PARTY_DATA.md](../data/THIRD_PARTY_DATA.md)。合成演示使用模拟表示，不使用ESM-2/B2权重，所有结果另行标识。
+ESM-2 code and pretrained model terms remain with its upstream release. scFoundation code is Apache-2.0; its model weights and derived B2 model retain the separate [non-commercial research model licence](training/vendor/scfoundation/MODEL_LICENSE). See [NOTICE.md](../NOTICE.md).

@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 家族特异性检验结果（2026-09-13，判据先冻结后运行）
 
 协议：`FAMILY_SPECIFICITY_PROTOCOL.md`（切割阈值 0.9、R1/R2 判据、n_perm=10k

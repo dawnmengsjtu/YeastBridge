@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # Real-data preflight — 2026-09-01
 
 The server already contains two genuine signed perturbation sources:

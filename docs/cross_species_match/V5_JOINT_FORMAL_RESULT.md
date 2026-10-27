@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V5/V5.1 联合增益正式结果数据卡
 
 结论先说：**联合增益成立（GO）**。配对监督对齐（轨道 A）与多路秩融合（轨道 B）

@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # V8 ESM2 轴联合增益正式协议（三臂两门，优化联合臂，2026-09-12 冻结）
 
 配置：`configs/v8_esm2_joint_formal.json` sha256 `a99358b03011df15632098422c632563f0a36bf37fa06e7c2cd48cd719dbff43`

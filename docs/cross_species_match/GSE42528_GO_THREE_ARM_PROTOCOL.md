@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # GSE42528 × 冻结 GO × Norman 正式三臂协议（v1）
 
 状态：协议和适配器已冻结；数据完成后才允许运行正式模型。此文档不声称两物种

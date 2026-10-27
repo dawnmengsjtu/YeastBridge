@@ -1,0 +1,50 @@
+{
+  "baseline_commit": "0538f81764b3436f37d85f29ef7e9ff34664264a",
+  "compared_github_files": 6877,
+  "server_comparison": {
+    "absent_from_server_project": 240,
+    "different": 52,
+    "identical": 6585
+  },
+  "comparison_meaning": "Byte comparison with the active A6000 project; an absent or different file can belong to the separately preserved competition release.",
+  "resolved": [
+    "Broken main-to-predict API",
+    "Missing public paper inputs",
+    "README and data/model version mismatch",
+    "Competition and paper checkpoints conflated",
+    "Default 80-pair description vs 25-pair manuscript",
+    "Non-portable task-export root",
+    "Current method-selection configuration listed removed independent ESM-2 comparison"
+  ],
+  "science_unchanged": [
+    "paper checkpoint",
+    "three RRF members",
+    "RRF k=20",
+    "338-target scope",
+    "permutation thresholds",
+    "25 candidate identities"
+  ],
+  "unit_tests": {
+    "run": 9,
+    "passed": 9,
+    "environment": "fresh Python 3.12 environment installed from requirements.txt"
+  },
+  "direct_checks": [
+    "All paper asset hashes",
+    "MacOS numerical reconstruction with pinned dependencies",
+    "Linux numerical reconstruction",
+    "Linux frozen-model profile reconstruction: rank-matrix error 0",
+    "Foreign-working-directory candidate export"
+  ],
+  "not_run": [
+    "Exact original checkpoint retraining",
+    "Full raw-CEL rebuild",
+    "Fresh 100000-permutation nulls",
+    "All comparator/structural/figure pipelines"
+  ],
+  "source_data_archive": {
+    "name": "YeastBridge-paper-source-data-20261027.zip",
+    "size": 264124106,
+    "sha256": "486c3c896ed7709c9eda3b075c3d7d039290fa5a5a38550a866631d33755da1a"
+  }
+}

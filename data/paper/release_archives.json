@@ -1,0 +1,25 @@
+{
+  "tag": "paper-ion-channel-20261027",
+  "archives": [
+    {
+      "name": "YeastBridge-paper-inference-20261027.tar.gz",
+      "size": 566685856,
+      "sha256": "64cd775422d39119321e22e06d6edaeea10364f5cc15916a2108abb994433361"
+    },
+    {
+      "name": "YeastBridge-paper-numerical-20261027.tar.gz",
+      "size": 197002631,
+      "sha256": "bece669329a7e1ea6913d389919b6b3cb45c40695a7d5158e67698e92aa5538e"
+    },
+    {
+      "name": "YeastBridge-paper-reference-20261027.tar.gz",
+      "size": 404813,
+      "sha256": "a6d7d374c110aa92a2556bbe6006aab111f775a5dda0a38d3137811b0267d7a0"
+    },
+    {
+      "name": "YeastBridge-paper-source-data-20261027.zip",
+      "size": 264124106,
+      "sha256": "486c3c896ed7709c9eda3b075c3d7d039290fa5a5a38550a866631d33755da1a"
+    }
+  ]
+}

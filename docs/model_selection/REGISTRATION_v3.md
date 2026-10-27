@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # Five-route five-task transfer evaluation v3 (final form: the original framework's own tasks)
 
 Registered 2026-08-27 (amended before any v3 execution; replaces the two

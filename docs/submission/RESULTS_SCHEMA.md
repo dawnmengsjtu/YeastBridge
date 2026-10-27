@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # 候选清单字段与统计口径
 
 当前 `results.csv` 为UTF-8编码、15列，模型版本 `B2-submission-v2-20261003`，含80条记录、78个靶点、5个化合物。每方向按标准化分数 `z=(rho-null_mean)/null_sd` 降序提名最多40对；零null_sd对应未定义分数，不优先提名。先取正向，再从负向top40中删除已选的相同候选对，不额外补位。最终CSV按方向和靶点名称稳定排序，候选编号不表示效力排名。格式依据为附件5允许的默认CSV，见 [TEMPLATE_BASIS.md](TEMPLATE_BASIS.md)。

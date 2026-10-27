@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # K562 CRISPRi–酵母 deletion 比赛输入数据卡
 
 ## 一句话结论

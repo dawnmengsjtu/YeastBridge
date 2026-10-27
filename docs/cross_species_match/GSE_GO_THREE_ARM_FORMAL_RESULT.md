@@ -1,3 +1,5 @@
+> Dated analysis/competition record. For the current ion-channel manuscript, use [the version map](../VERSIONS.md) and [reproduction guide](../REPRODUCIBILITY.md).
+
 # GSE42528 × GO × Norman 正式结果数据卡
 
 结论先说：**数据和跨物种评估链已经打通，但这一版模型明确 `NO_GO`。**

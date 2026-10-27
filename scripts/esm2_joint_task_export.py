@@ -50,7 +50,7 @@ def main():
     ap.add_argument("--response-universe", help="Extend scoring to all measured strains with both frozen representations; fit remains unchanged")
     args = ap.parse_args()
     cfg = json.loads(Path(args.config).read_text())
-    root = Path(cfg["stage_root"])
+    root = (HERE.parent / cfg["stage_root"]).resolve()
     outdir = Path(args.output)
     outdir.mkdir(parents=True, exist_ok=True)
     mp = cfg["method"]
@@ -76,7 +76,11 @@ def main():
     # ---- V7 机械复用（池/配对/W_inj/酵母表, 哈希核对在内） ----
     # v7_config 路径相对仓库根（yeastbridge_re_mvp），非 stage_root
     v7_config = Path(args.v7_config) if args.v7_config else HERE.parent / mp["v7_config"]
-    st = v7_setup(str(v7_config))
+    if cfg.get("asset_loader") == "inference":
+        from task_export_inputs import setup
+        st = setup(str(v7_config))
+    else:
+        st = v7_setup(str(v7_config))
 
     # ---- 超参断言：与 V8 冻结选择一致 ----
     v8res = json.loads((root / cfg["inputs"]["v8_result_for_hyper_assert"]["path"]).read_text())
