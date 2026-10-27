@@ -69,6 +69,16 @@
       "path": "raw/paper/compounds.tsv.gz",
       "sha256": "30d401dc02b426bb20ef1ec9b3182d6045c8f9f81282dd8d48cdcc36bc810927",
       "size": 111944
+    },
+    {
+      "path": "models/training/vendor/scfoundation/MODEL_LICENSE",
+      "sha256": "bdcd01b3213efb813f4461ef60c2a30d56cf07b63446d234283d8c0547ee3cbb",
+      "size": 2310
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "c3437bdcd8a3cb0411c91265290a64d6eb92a080da49b5054433379a80146e82",
+      "size": 1417
     }
   ],
   "numerical": [
