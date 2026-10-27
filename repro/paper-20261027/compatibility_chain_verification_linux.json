@@ -1,0 +1,88 @@
+{
+  "profiles": {
+    "status": "passed",
+    "mode": "frozen-model-profile-reconstruction",
+    "targets": 338,
+    "strains": 5865,
+    "training_pairs": 510,
+    "members": [
+      "direct_pc1",
+      "aligned_c_ensemble",
+      "b2_verbatim"
+    ],
+    "rrf_k": 20,
+    "common_mode_variance": {
+      "strain_mean_frac": 0.4131489949905184,
+      "residual_pc1_frac": 0.15224754498305673
+    },
+    "commands": [
+      [
+        "/public/home/mengxl/.conda/envs/xspecies/bin/python",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/scripts/esm2_joint_task_export.py",
+        "--config",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/configs/paper_tasks.json",
+        "--response-universe",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/raw/paper/strain_response.npz",
+        "--output",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/compatibility_chain_check/profiles/all_profiles"
+      ],
+      [
+        "/public/home/mengxl/.conda/envs/xspecies/bin/python",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/clean_checkout/scripts/task_axis_double_center.py",
+        "--input",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/compatibility_chain_check/profiles/ion_channel_profiles",
+        "--output",
+        "/public/home/mengxl/dzy/yeastbridge_repository_maintenance_20261027/compatibility_chain_check/profiles/corrected_profiles"
+      ]
+    ],
+    "fresh_training": false,
+    "rank_matrix_max_absolute_error": 0.0
+  },
+  "numerical": {
+    "status": "passed",
+    "mode": "numerical-reconstruction",
+    "layers": {
+      "match": {
+        "targets": 338,
+        "strains": 5865,
+        "compounds": 3250,
+        "directional_hypotheses": 2197000,
+        "max_absolute_correlation_error": {
+          "pos": 9.023046058931339e-08,
+          "neg": 9.023046058931339e-08
+        },
+        "permutations": 100000,
+        "seed": 20261024
+      },
+      "residual": {
+        "targets": 95,
+        "strains": 5865,
+        "compounds": 3250,
+        "directional_hypotheses": 617500,
+        "max_absolute_correlation_error": {
+          "pos": 6.126426196906287e-08,
+          "neg": 6.126426196906287e-08
+        },
+        "permutations": 100000,
+        "seed": 20261024
+      }
+    },
+    "match_associations": 5216,
+    "candidates": 25,
+    "targets": 7,
+    "compounds": 18,
+    "recomputed": [
+      "all observed correlations",
+      "condition maximization",
+      "screen-wide probabilities",
+      "candidate intersection"
+    ],
+    "frozen_inputs": [
+      "rank-standardized profiles",
+      "1000-permutation calibration",
+      "100000-permutation maxima"
+    ],
+    "fresh_permutations": false,
+    "fresh_training": false
+  }
+}

@@ -53,6 +53,11 @@ The command uses `configs/paper_tasks.json` and `configs/paper_assets.json`. It 
 
 Each run writes to a new directory. It does not overwrite frozen inputs or silently substitute stored candidate tables if computation fails.
 
+The compatibility entry `python scripts/run_esm2joint_chain.py --output outputs/full`
+runs both steps in sequence after checking all assets. It verifies the regenerated
+profiles against the frozen rank matrix before reconstructing screening decisions.
+Its `verification.json` records both checks; it uses the same frozen checkpoint and nulls.
+
 ## Scope of reproduction
 
 | Operation | Current support |
