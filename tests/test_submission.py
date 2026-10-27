@@ -16,6 +16,15 @@ from scripts import paper_release as paper
 
 
 class PaperReleaseTests(unittest.TestCase):
+    def test_compatibility_entry_has_no_removed_import(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            command = [sys.executable, str(ROOT / 'scripts/run_esm2joint_chain.py')]
+            help_result = subprocess.run(command + ['--help'], cwd=tmp, capture_output=True, text=True)
+            self.assertEqual(help_result.returncode, 0, help_result.stderr)
+            invalid = subprocess.run(command + ['--threads', '0'], cwd=tmp, capture_output=True, text=True)
+            self.assertEqual(invalid.returncode, 2)
+            self.assertIn('--threads must be positive', invalid.stderr)
+
     def test_export_from_unrelated_directory_is_identical(self):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)

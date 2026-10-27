@@ -14,7 +14,8 @@
     "Competition and paper checkpoints conflated",
     "Default 80-pair description vs 25-pair manuscript",
     "Non-portable task-export root",
-    "Current method-selection configuration listed removed independent ESM-2 comparison"
+    "Current method-selection configuration listed removed independent ESM-2 comparison",
+    "Historical chain entry imported the removed main.pipeline API"
   ],
   "science_unchanged": [
     "paper checkpoint",
@@ -25,8 +26,8 @@
     "25 candidate identities"
   ],
   "unit_tests": {
-    "run": 9,
-    "passed": 9,
+    "run": 10,
+    "passed": 10,
     "environment": "fresh Python 3.12 environment installed from requirements.txt"
   },
   "direct_checks": [
@@ -34,7 +35,8 @@
     "MacOS numerical reconstruction with pinned dependencies",
     "Linux numerical reconstruction",
     "Linux frozen-model profile reconstruction: rank-matrix error 0",
-    "Foreign-working-directory candidate export"
+    "Foreign-working-directory candidate export",
+    "Compatibility chain: sequential profile and numerical reconstruction passed on Linux"
   ],
   "not_run": [
     "Exact original checkpoint retraining",
